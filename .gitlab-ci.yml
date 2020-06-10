@@ -1,0 +1,10 @@
+stages:
+  - test
+
+test:
+  stage: test
+  image: node:12
+  before_script:
+    - npm ci
+  script:
+    - npm run test:cov
