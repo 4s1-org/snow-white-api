@@ -59,7 +59,7 @@
     "@types/jest": "^26.0.0",
     "@types/node": "^13.9.1",
     "@types/supertest": "^2.0.8",
-    "@yellowgarbagebag/eslint-config": "0.0.1",
+    "@yellowgarbagebag/eslint-config": "0.0.2",
     "eslint": "^7.2.0",
     "jest": "26.0.1",
     "npm-check": "^5.9.2",
