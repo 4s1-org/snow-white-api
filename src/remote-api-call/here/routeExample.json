@@ -1,0 +1,598 @@
+{
+  "response": {
+    "metaInfo": {
+      "timestamp": "2020-02-05T20:45:20Z",
+      "mapVersion": "8.30.105.150",
+      "moduleVersion": "7.2.202005-6333",
+      "interfaceVersion": "2.6.75",
+      "availableMapVersion": [
+        "8.30.105.150"
+      ]
+    },
+    "route": [
+      {
+        "waypoint": [
+          {
+            "linkId": "+1239961684",
+            "mappedPosition": {
+              "latitude": 50.1366359,
+              "longitude": 8.6713822
+            },
+            "originalPosition": {
+              "latitude": 50.1366525,
+              "longitude": 8.6714962
+            },
+            "type": "stopOver",
+            "spot": 0.3333333,
+            "sideOfStreet": "right",
+            "mappedRoadName": "Eschersheimer Landstraße",
+            "label": "Eschersheimer Landstraße - K810",
+            "shapeIndex": 0,
+            "source": "user"
+          },
+          {
+            "linkId": "+52371295",
+            "mappedPosition": {
+              "latitude": 50.0727954,
+              "longitude": 8.2509053
+            },
+            "originalPosition": {
+              "latitude": 50.0728927,
+              "longitude": 8.2508916
+            },
+            "type": "stopOver",
+            "spot": 0.3816794,
+            "sideOfStreet": "left",
+            "mappedRoadName": "Dantestraße",
+            "label": "Dantestraße",
+            "shapeIndex": 292,
+            "source": "user"
+          }
+        ],
+        "mode": {
+          "type": "fastest",
+          "transportModes": [
+            "car"
+          ],
+          "trafficMode": "enabled",
+          "feature": []
+        },
+        "leg": [
+          {
+            "start": {
+              "linkId": "+1239961684",
+              "mappedPosition": {
+                "latitude": 50.1366359,
+                "longitude": 8.6713822
+              },
+              "originalPosition": {
+                "latitude": 50.1366525,
+                "longitude": 8.6714962
+              },
+              "type": "stopOver",
+              "spot": 0.3333333,
+              "sideOfStreet": "right",
+              "mappedRoadName": "Eschersheimer Landstraße",
+              "label": "Eschersheimer Landstraße - K810",
+              "shapeIndex": 0,
+              "source": "user"
+            },
+            "end": {
+              "linkId": "+52371295",
+              "mappedPosition": {
+                "latitude": 50.0727954,
+                "longitude": 8.2509053
+              },
+              "originalPosition": {
+                "latitude": 50.0728927,
+                "longitude": 8.2508916
+              },
+              "type": "stopOver",
+              "spot": 0.3816794,
+              "sideOfStreet": "left",
+              "mappedRoadName": "Dantestraße",
+              "label": "Dantestraße",
+              "shapeIndex": 292,
+              "source": "user"
+            },
+            "length": 37146,
+            "travelTime": 1638,
+            "maneuver": [
+              {
+                "position": {
+                  "latitude": 50.1366359,
+                  "longitude": 8.6713822
+                },
+                "instruction": "Fahren Sie auf die Eschersheimer Landstraße (K810) nach Norden. Fahren Sie 38 m.",
+                "travelTime": 9,
+                "length": 38,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "2",
+                  "label": "K810"
+                },
+                "id": "M1",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1369667,
+                  "longitude": 8.6712277
+                },
+                "instruction": "Biegen Sie rechts ab auf die Eduard-Rüppell-Straße. Fahren Sie 258 m.",
+                "travelTime": 48,
+                "length": 258,
+                "id": "M2",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1372886,
+                  "longitude": 8.6748111
+                },
+                "instruction": "Biegen Sie rechts ab auf die Bertramstraße. Fahren Sie 586 m.",
+                "travelTime": 98,
+                "length": 586,
+                "id": "M3",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1321387,
+                  "longitude": 8.6764419
+                },
+                "instruction": "Biegen Sie rechts ab auf die Adickesallee (B8/B40). Fahren Sie 1.3 km.",
+                "travelTime": 151,
+                "length": 1296,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B8"
+                },
+                "id": "M4",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1319134,
+                  "longitude": 8.6584282
+                },
+                "instruction": "Halten Sie sich links und fahren Sie in Richtung Wiesbaden/Köln/Frankfurter Kreuz/Flughafen/Kassel. Fahren Sie 236 m.",
+                "travelTime": 11,
+                "length": 236,
+                "id": "M5",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1322246,
+                  "longitude": 8.6551559
+                },
+                "instruction": "Fahren Sie weiter auf die A66. Fahren Sie 30.2 km.",
+                "travelTime": 1106,
+                "length": 30165,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "A66"
+                },
+                "id": "M6",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0499129,
+                  "longitude": 8.297435
+                },
+                "instruction": "Nehmen Sie die Abfahrt 6 in Richtung Wiesbaden-Stadtmitte/Wiesbaden-Erbenheim-Nord auf die B455. Fahren Sie 3.6 km.",
+                "travelTime": 182,
+                "length": 3615,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B455"
+                },
+                "id": "M7",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0699866,
+                  "longitude": 8.2603133
+                },
+                "instruction": "Halten Sie sich links und fahren Sie auf die B54 in Richtung Bad Schwalbach/Taunusstein/Hauptbahnhof/Stadtmitte/1. Ring/P+R. Fahren Sie 282 m.",
+                "travelTime": 19,
+                "length": 282,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B54"
+                },
+                "id": "M8",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0719285,
+                  "longitude": 8.257792
+                },
+                "instruction": "Halten Sie sich links und fahren Sie auf die B54 in Richtung Bad Schwalbach/Taunusstein/Hauptbahnhof. Fahren Sie 544 m.",
+                "travelTime": 63,
+                "length": 544,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B54"
+                },
+                "id": "M9",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.072068,
+                  "longitude": 8.2503569
+                },
+                "instruction": "Biegen Sie rechts ab auf die Viktoriastraße. Fahren Sie 76 m.",
+                "travelTime": 17,
+                "length": 76,
+                "id": "M10",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0727546,
+                  "longitude": 8.2502067
+                },
+                "instruction": "Biegen Sie rechts ab auf die Dantestraße. Fahren Sie 50 m.",
+                "travelTime": 8,
+                "length": 50,
+                "id": "M11",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0727954,
+                  "longitude": 8.2509053
+                },
+                "instruction": "Sie erreichen die Dantestraße. Ihr Ziel liegt auf der linken Seite.",
+                "travelTime": 0,
+                "length": 0,
+                "id": "M12",
+                "_type": "PrivateTransportManeuverType"
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "distance": 37146,
+          "trafficTime": 1638,
+          "baseTime": 1647,
+          "flags": [
+            "tunnel",
+            "motorway",
+            "builtUpArea"
+          ],
+          "text": "Ihre Fahrt ist 37.1 km lang und dauert etwa 27 Minuten.",
+          "travelTime": 1638,
+          "_type": "RouteSummaryType"
+        }
+      },
+      {
+        "waypoint": [
+          {
+            "linkId": "+1239961684",
+            "mappedPosition": {
+              "latitude": 50.1366359,
+              "longitude": 8.6713822
+            },
+            "originalPosition": {
+              "latitude": 50.1366525,
+              "longitude": 8.6714962
+            },
+            "type": "stopOver",
+            "spot": 0.3333333,
+            "sideOfStreet": "right",
+            "mappedRoadName": "Eschersheimer Landstraße",
+            "label": "Eschersheimer Landstraße - K810",
+            "shapeIndex": 0,
+            "source": "user"
+          },
+          {
+            "linkId": "+52371295",
+            "mappedPosition": {
+              "latitude": 50.0727954,
+              "longitude": 8.2509053
+            },
+            "originalPosition": {
+              "latitude": 50.0728927,
+              "longitude": 8.2508916
+            },
+            "type": "stopOver",
+            "spot": 0.3816794,
+            "sideOfStreet": "left",
+            "mappedRoadName": "Dantestraße",
+            "label": "Dantestraße",
+            "shapeIndex": 381,
+            "source": "user"
+          }
+        ],
+        "mode": {
+          "type": "fastest",
+          "transportModes": [
+            "car"
+          ],
+          "trafficMode": "enabled",
+          "feature": []
+        },
+        "leg": [
+          {
+            "start": {
+              "linkId": "+1239961684",
+              "mappedPosition": {
+                "latitude": 50.1366359,
+                "longitude": 8.6713822
+              },
+              "originalPosition": {
+                "latitude": 50.1366525,
+                "longitude": 8.6714962
+              },
+              "type": "stopOver",
+              "spot": 0.3333333,
+              "sideOfStreet": "right",
+              "mappedRoadName": "Eschersheimer Landstraße",
+              "label": "Eschersheimer Landstraße - K810",
+              "shapeIndex": 0,
+              "source": "user"
+            },
+            "end": {
+              "linkId": "+52371295",
+              "mappedPosition": {
+                "latitude": 50.0727954,
+                "longitude": 8.2509053
+              },
+              "originalPosition": {
+                "latitude": 50.0728927,
+                "longitude": 8.2508916
+              },
+              "type": "stopOver",
+              "spot": 0.3816794,
+              "sideOfStreet": "left",
+              "mappedRoadName": "Dantestraße",
+              "label": "Dantestraße",
+              "shapeIndex": 381,
+              "source": "user"
+            },
+            "length": 45833,
+            "travelTime": 2013,
+            "maneuver": [
+              {
+                "position": {
+                  "latitude": 50.1366359,
+                  "longitude": 8.6713822
+                },
+                "instruction": "Fahren Sie auf die Eschersheimer Landstraße (K810) nach Norden. Fahren Sie 38 m.",
+                "travelTime": 9,
+                "length": 38,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "2",
+                  "label": "K810"
+                },
+                "id": "M1",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1369667,
+                  "longitude": 8.6712277
+                },
+                "instruction": "Biegen Sie rechts ab auf die Eduard-Rüppell-Straße. Fahren Sie 258 m.",
+                "travelTime": 48,
+                "length": 258,
+                "id": "M2",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1372886,
+                  "longitude": 8.6748111
+                },
+                "instruction": "Biegen Sie rechts ab auf die Bertramstraße. Fahren Sie 586 m.",
+                "travelTime": 98,
+                "length": 586,
+                "id": "M3",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1321387,
+                  "longitude": 8.6764419
+                },
+                "instruction": "Biegen Sie rechts ab auf die Adickesallee (B8/B40). Fahren Sie 1.3 km.",
+                "travelTime": 151,
+                "length": 1296,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B8"
+                },
+                "id": "M4",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1319134,
+                  "longitude": 8.6584282
+                },
+                "instruction": "Halten Sie sich links und fahren Sie in Richtung Wiesbaden/Köln/Frankfurter Kreuz/Flughafen/Kassel. Fahren Sie 236 m.",
+                "travelTime": 11,
+                "length": 236,
+                "id": "M5",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1322246,
+                  "longitude": 8.6551559
+                },
+                "instruction": "Fahren Sie weiter auf die A66. Fahren Sie 4.3 km.",
+                "travelTime": 168,
+                "length": 4310,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "A66"
+                },
+                "id": "M6",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.1338446,
+                  "longitude": 8.5968769
+                },
+                "instruction": "Nehmen Sie die Abfahrt 19 in Richtung Basel/F. Kreuz/Flughafen auf die A5. Fahren Sie 9.4 km.",
+                "travelTime": 352,
+                "length": 9406,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "A5"
+                },
+                "id": "M7",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0629377,
+                  "longitude": 8.6089897
+                },
+                "instruction": "Nehmen Sie die Abfahrt in Richtung Köln/Wiesbaden/Mainz auf die A3. Fahren Sie 17.6 km.",
+                "travelTime": 650,
+                "length": 17562,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "0",
+                  "label": "A3"
+                },
+                "id": "M8",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0510395,
+                  "longitude": 8.3920848
+                },
+                "instruction": "Nehmen Sie die Abfahrt 47 in Richtung Wiesbaden/Mainz auf die A66 (Rhein-Main-Schnellweg). Fahren Sie 7.6 km.",
+                "travelTime": 314,
+                "length": 7574,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "0",
+                  "label": "A66"
+                },
+                "id": "M9",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0499129,
+                  "longitude": 8.297435
+                },
+                "instruction": "Nehmen Sie die Abfahrt 6 in Richtung Wiesbaden-Stadtmitte/Wiesbaden-Erbenheim-Nord auf die B455. Fahren Sie 3.6 km.",
+                "travelTime": 182,
+                "length": 3615,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B455"
+                },
+                "id": "M10",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0699866,
+                  "longitude": 8.2603133
+                },
+                "instruction": "Halten Sie sich links und fahren Sie auf die B54 in Richtung Bad Schwalbach/Taunusstein/Hauptbahnhof/Stadtmitte/1. Ring/P+R. Fahren Sie 282 m.",
+                "travelTime": 19,
+                "length": 282,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B54"
+                },
+                "id": "M11",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0719285,
+                  "longitude": 8.257792
+                },
+                "instruction": "Halten Sie sich links und fahren Sie auf die B54 in Richtung Bad Schwalbach/Taunusstein/Hauptbahnhof. Fahren Sie 544 m.",
+                "travelTime": 63,
+                "length": 544,
+                "roadShield": {
+                  "region": "DEU",
+                  "category": "1",
+                  "label": "B54"
+                },
+                "id": "M12",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.072068,
+                  "longitude": 8.2503569
+                },
+                "instruction": "Biegen Sie rechts ab auf die Viktoriastraße. Fahren Sie 76 m.",
+                "travelTime": 17,
+                "length": 76,
+                "id": "M13",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0727546,
+                  "longitude": 8.2502067
+                },
+                "instruction": "Biegen Sie rechts ab auf die Dantestraße. Fahren Sie 50 m.",
+                "travelTime": 8,
+                "length": 50,
+                "id": "M14",
+                "_type": "PrivateTransportManeuverType"
+              },
+              {
+                "position": {
+                  "latitude": 50.0727954,
+                  "longitude": 8.2509053
+                },
+                "instruction": "Sie erreichen die Dantestraße. Ihr Ziel liegt auf der linken Seite.",
+                "travelTime": 0,
+                "length": 0,
+                "id": "M15",
+                "_type": "PrivateTransportManeuverType"
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "distance": 45833,
+          "trafficTime": 2013,
+          "baseTime": 1999,
+          "flags": [
+            "tunnel",
+            "motorway",
+            "builtUpArea"
+          ],
+          "text": "Ihre Fahrt ist 45.8 km lang und dauert etwa 34 Minuten.",
+          "travelTime": 2013,
+          "_type": "RouteSummaryType"
+        }
+      }
+    ],
+    "language": "de-de"
+  }
+}
