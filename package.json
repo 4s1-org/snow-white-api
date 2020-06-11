@@ -7,7 +7,6 @@
   "bugs": {
     "url": "https://gitlab.com/YellowGarbageBag/rest-api/issues"
   },
-  "prettier": "@yellowgarbagebag/eslint-config",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@gitlab.com/YellowGarbageBag/rest-api.git"
@@ -31,6 +30,7 @@
     "test:watch": "jest --watch",
     "upgrade": "npm-check --update"
   },
+  "prettier": "@yellowgarbagebag/eslint-config",
   "jest": {
     "coverageDirectory": "../coverage",
     "moduleFileExtensions": [
@@ -49,6 +49,7 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@yellowgarbagebag/rest-api-dto": "0.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4"
   },
