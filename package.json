@@ -1,11 +1,23 @@
 {
-  "name": "smart-mirror",
+  "name": "@yellowgarbagebag/smart-mirror",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gitlab.com/YellowGarbageBag/smart-mirror",
+  "prettier": "@yellowgarbagebag/eslint-config",
+  "bugs": {
+    "url": "https://gitlab.com/YellowGarbageBag/smart-mirror/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/YellowGarbageBag/smart-mirror.git"
+  },
+  "license": "ISC",
+  "author": "Steffen",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@yellowgarbagebag/rest-api-dto": "0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -14,7 +26,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "upgrade": "npm-check --update",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +46,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@yellowgarbagebag/eslint-config": "0.0.4",
+    "eslint": "^7.2.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
   }
 }
