@@ -83,4 +83,3 @@ export interface IResponse {
 export interface IHereSearchRemoteResponse {
   response: IResponse
 }
-
