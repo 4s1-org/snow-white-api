@@ -20,3 +20,8 @@ rules:
     - 'off'
   '@typescript-eslint/no-explicit-any':
     - 'off'
+  "@typescript-eslint/quotes":
+    - error
+    - double
+    - avoidEscape: true
+      allowTemplateLiterals: false
