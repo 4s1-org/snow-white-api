@@ -25,3 +25,6 @@ rules:
     - double
     - avoidEscape: true
       allowTemplateLiterals: false
+  "@typescript-eslint/semi":
+    - error
+    - never
