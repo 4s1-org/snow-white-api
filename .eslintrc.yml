@@ -22,3 +22,8 @@ rules:
   "@typescript-eslint/semi":
     - error
     - never
+  "@typescript-eslint/explicit-function-return-type":
+    - error
+  # Allow "any"
+  "@typescript-eslint/no-explicit-any":
+    - off
