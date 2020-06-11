@@ -31,11 +31,11 @@ export interface ISys {
 }
 
 export interface IRain {
-  '3h': number
+  "3h": number
 }
 
 export interface ISnow {
-  '3h': number
+  "3h": number
 }
 
 export interface IList {

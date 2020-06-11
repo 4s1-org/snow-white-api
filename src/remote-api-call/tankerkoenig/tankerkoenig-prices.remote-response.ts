@@ -6,7 +6,7 @@ export interface ITankerkoenigPricesRemoteResponse {
 }
 
 export interface ITankerkoenigIPrice {
-  status: 'open' | 'closed' | 'no prices'
+  status: "open" | "closed" | "no prices"
   e5?: number | false
   e10?: number | false
   diesel?: number | false
