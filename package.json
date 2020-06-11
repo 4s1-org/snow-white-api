@@ -1,0 +1,33 @@
+{
+  "name": "@yellowgarbagebag/rest-api-dto",
+  "version": "0.0.1",
+  "description": "REST API",
+  "homepage": "https://gitlab.com/YellowGarbageBag/rest-api-dto",
+  "bugs": {
+    "url": "https://gitlab.com/YellowGarbageBag/rest-api-dto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/YellowGarbageBag/rest-api-dto.git"
+  },
+  "license": "ISC",
+  "author": "Steffen",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "build:watch": "nodemon -x npm run build --ignore dist -i *.spec.ts -e ts",
+    "upgrade": "npm-check --update"
+  },
+  "prettier": "@yellowgarbagebag/eslint-config",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@yellowgarbagebag/eslint-config": "0.0.4",
+    "eslint": "^7.2.0",
+    "npm-check": "^5.9.2",
+    "prettier": "^2.0.5",
+    "typescript": "^3.7.4"
+  }
+}

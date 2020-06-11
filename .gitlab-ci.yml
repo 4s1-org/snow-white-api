@@ -1,0 +1,10 @@
+stages:
+  - build
+
+build:
+  stage: build
+  image: node:12
+  before_script:
+    - npm ci
+  script:
+    - npm run build
