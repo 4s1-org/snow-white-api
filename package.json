@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/YellowGarbageBag/rest-api.git"
+    "url": "git+ssh://git@gitlab.com/YellowGarbageBag/rest-api.git"
   },
-  "license": "MIT",
+  "license": "ISC",
   "author": "Steffen",
   "scripts": {
     "prebuild": "rm -rf dist",
