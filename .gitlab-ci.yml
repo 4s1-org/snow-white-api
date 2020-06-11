@@ -7,4 +7,5 @@ test:
   before_script:
     - npm ci
   script:
+    - npm run lint
     - npm run test:cov
