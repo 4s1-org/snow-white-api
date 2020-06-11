@@ -14,13 +14,18 @@
   "license": "ISC",
   "author": "Steffen",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/user-event": "^11.4.2",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^12.12.47",
+    "@types/react": "^16.9.36",
+    "@types/react-dom": "^16.9.8",
     "@yellowgarbagebag/rest-api-dto": "0.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "typescript": "^3.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,8 +34,8 @@
     "eject": "react-scripts eject",
     "upgrade": "npm-check --update",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,test}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,test}/**/*.ts\" --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,7 +55,7 @@
   "devDependencies": {
     "@yellowgarbagebag/eslint-config": "0.0.4",
     "eslint": "^7.2.0",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.5"
+    "npm-check": "^5.9.2",
+    "prettier": "^2.0.5"
   }
 }
