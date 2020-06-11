@@ -56,6 +56,7 @@
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",
     "moment-timezone": "^0.5.27",
+    "mysql": "^2.18.1",
     "nodemailer": "^6.4.8",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4",
