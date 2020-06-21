@@ -18,8 +18,10 @@
     "prebuild": "rm -rf dist",
     "build": "tsc",
     "build:watch": "nodemon -x npm run build --ignore dist -i *.spec.ts -e ts",
-    "upgrade": "npm-check --update",
-    "golive": "npm publish --access public"
+    "upgrade": "npm-check --update"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "prettier": "@yellowgarbagebag/eslint-config",
   "dependencies": {},
