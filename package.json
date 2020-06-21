@@ -20,9 +20,6 @@
     "build:watch": "nodemon -x npm run build --ignore dist -i *.spec.ts -e ts",
     "upgrade": "npm-check --update"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "prettier": "@yellowgarbagebag/eslint-config",
   "dependencies": {},
   "devDependencies": {
@@ -32,5 +29,8 @@
     "npm-check": "^5.9.2",
     "prettier": "^2.0.5",
     "typescript": "^3.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
