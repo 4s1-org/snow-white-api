@@ -40,12 +40,12 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.10.0",
-    "@testing-library/react": "^10.2.1",
-    "@testing-library/user-event": "^11.4.2",
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.3.0",
+    "@testing-library/user-event": "^12.0.4",
     "@types/jest": "^26.0.0",
     "@types/node": "^12.12.47",
-    "@types/react": "^16.9.36",
+    "@types/react": "^16.9.38",
     "@types/react-dom": "^16.9.8",
     "@yellowgarbagebag/rest-api-dto": "0.0.1",
     "react": "^16.13.1",
@@ -55,7 +55,6 @@
   },
   "devDependencies": {
     "@yellowgarbagebag/eslint-config": "0.0.4",
-    "eslint": "^7.2.0",
     "npm-check": "^5.9.2",
     "prettier": "^2.0.5"
   }
