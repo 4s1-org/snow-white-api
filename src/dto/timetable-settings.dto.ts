@@ -1,4 +1,4 @@
-import { ITimetableLinesFilter } from './timetable-lines-filter.dto';
+import { ITimetableLinesFilter } from "./timetable-lines-filter.dto"
 
 export interface ITimetableSettingsDto {
   isActive: boolean
