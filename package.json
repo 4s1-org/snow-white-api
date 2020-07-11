@@ -20,8 +20,7 @@
     "lint:fix": "eslint \"{src,test}/**/*.ts\" --fix",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "test:cov": "react-scripts test --coverage --watchAll=false",
-    "upgrade": "npm-check --update"
+    "test:cov": "react-scripts test --coverage --watchAll=false"
   },
   "browserslist": {
     "production": [
@@ -43,14 +42,13 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "^10.3.0",
-    "@testing-library/user-event": "^12.0.4",
-    "@types/jest": "^26.0.0",
-    "@types/node": "^12.12.47",
-    "@types/react": "^16.9.38",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.5",
+    "@testing-library/user-event": "^12.0.11",
+    "@types/jest": "^26.0.4",
+    "@types/react": "^16.9.42",
     "@types/react-dom": "^16.9.8",
-    "@yellowgarbagebag/rest-api-dto": "0.0.1",
+    "@yellowgarbagebag/rest-api-dto": "0.0.3",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "moment": "^2.27.0",
@@ -59,12 +57,12 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-select": "^3.1.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "@types/react-select": "^3.0.13",
-    "@yellowgarbagebag/eslint-config": "0.0.4",
-    "npm-check": "^5.9.2",
+    "@types/node": "^12.12.50",
+    "@types/react-select": "^3.0.14",
+    "@yellowgarbagebag/eslint-config": "^1.0.0",
     "prettier": "^2.0.5"
   }
 }
