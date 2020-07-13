@@ -27,8 +27,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "test:watch": "jest --watch",
-    "upgrade": "npm-check --update"
+    "test:watch": "jest --watch"
   },
   "prettier": "@hest-lab/eslint-config",
   "jest": {
@@ -51,7 +50,7 @@
     "@nestjs/platform-express": "^7.3.2",
     "@nestjs/swagger": "^4.5.12",
     "@nestjs/typeorm": "^7.1.0",
-    "@yellowgarbagebag/rest-api-dto": "0.0.3",
+    "@yellowgarbagebag/rest-api-dto": "^1.0.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",
