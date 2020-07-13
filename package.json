@@ -23,11 +23,11 @@
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "upgrade": "npm-check --update"
   },
-  "prettier": "@yellowgarbagebag/eslint-config",
+  "prettier": "@hest-lab/eslint-config",
   "dependencies": {},
   "devDependencies": {
+    "@hest-lab/eslint-config": "^1.0.0",
     "@types/node": "^12.0.0",
-    "@yellowgarbagebag/eslint-config": "0.0.4",
     "eslint": "^7.3.0",
     "npm-check": "^5.9.2",
     "prettier": "^2.0.5",
