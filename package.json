@@ -30,7 +30,7 @@
     "test:watch": "jest --watch",
     "upgrade": "npm-check --update"
   },
-  "prettier": "@yellowgarbagebag/eslint-config",
+  "prettier": "@hest-lab/eslint-config",
   "jest": {
     "coverageDirectory": "../coverage",
     "moduleFileExtensions": [
@@ -65,6 +65,7 @@
     "uuid": "^8.2.0"
   },
   "devDependencies": {
+    "@hest-lab/eslint-config": "^1.0.0",
     "@nestjs/cli": "^7.4.1",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.3.2",
@@ -75,7 +76,6 @@
     "@types/nodemailer": "^6.4.0",
     "@types/supertest": "^2.0.10",
     "@types/uuid": "^8.0.0",
-    "@yellowgarbagebag/eslint-config": "^1.0.0",
     "eslint": "^7.4.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
