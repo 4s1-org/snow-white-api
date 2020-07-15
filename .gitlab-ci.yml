@@ -1,11 +1,19 @@
 stages:
-  - test
+- project
 
-test:
-  stage: test
-  image: node:12
+validate:
+  stage: project
+  image: node:12-alpine
+  tags:
+    - node
+    - shared
+  artifacts:
+    when: always
+    paths:
+      - coverage/
+    expire_in: 1 week
   before_script:
     - npm ci
   script:
     - npm run lint
-    - npm run test:cov
+    - npm run test-cov-html
