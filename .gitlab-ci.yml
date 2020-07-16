@@ -4,9 +4,6 @@ stages:
 validate:
   stage: project
   image: node:12-alpine
-  tags:
-    - node
-    - shared
   artifacts:
     when: always
     paths:
