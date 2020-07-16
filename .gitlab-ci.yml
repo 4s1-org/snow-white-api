@@ -13,4 +13,4 @@ validate:
     - npm ci
   script:
     - npm run lint
-    - npm run test-cov-html
+    #- npm run test-cov-html
