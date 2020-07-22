@@ -1,1 +1,1 @@
-type DialogButtonName = "yes" | "no" | "save" | "abort" | "ok"
+type DialogButtonName = 'yes' | 'no' | 'save' | 'abort' | 'ok'
