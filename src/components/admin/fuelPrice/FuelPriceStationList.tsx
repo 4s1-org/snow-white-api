@@ -1,216 +1,271 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Api from '../../../utils/api'
-import { ISortOrderDto, IFuelPriceStationDto } from '@smartmirror/shared'
-import { faCaretDown, faCaretUp, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import Dialog from '../../common/Dialog'
-import Card from '../../common/Card'
-import FuelPriceStationEdit from './FuelPriceStationEdit'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Api from "../../../utils/api";
+import {
+  ISortOrderDto,
+  IFuelPriceStationDto,
+} from "@yellowgarbagebag/rest-api-dto";
+import {
+  faCaretDown,
+  faCaretUp,
+  faEdit,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import Dialog from "../../common/Dialog";
+import Card from "../../common/Card";
+import FuelPriceStationEdit from "./FuelPriceStationEdit";
 
 interface IState {
-  stations: Array<IFuelPriceStationDto>
-  showDeleteDialog: boolean
-  showEditDialog: boolean
-  selectedStation: IFuelPriceStationDto | null
+  stations: Array<IFuelPriceStationDto>;
+  showDeleteDialog: boolean;
+  showEditDialog: boolean;
+  selectedStation: IFuelPriceStationDto | null;
 }
 
 interface IProps {
-  update: number
-  onStationChanged: () => void
+  update: number;
+  onStationChanged: () => void;
 }
 
-class FuelPriceStationList extends React.Component<IProps, IState>  {
-  private timer: any = null
+class FuelPriceStationList extends React.Component<IProps, IState> {
+  private timer: any = null;
 
-  constructor (props: IProps) {
-    super(props)
+  constructor(props: IProps) {
+    super(props);
 
     this.state = {
       selectedStation: null,
       showDeleteDialog: false,
       showEditDialog: false,
-      stations: []
-    }
+      stations: [],
+    };
 
-    this.onDeleteDialogClose = this.onDeleteDialogClose.bind(this)
-    this.onEditDialogClose = this.onEditDialogClose.bind(this)
+    this.onDeleteDialogClose = this.onDeleteDialogClose.bind(this);
+    this.onEditDialogClose = this.onEditDialogClose.bind(this);
   }
 
-  public async componentDidMount (): Promise<void> {
-    await this.loadData()
+  public async componentDidMount(): Promise<void> {
+    await this.loadData();
   }
 
-  public async componentDidUpdate (prevProps: IProps): Promise<void> {
+  public async componentDidUpdate(prevProps: IProps): Promise<void> {
     if (prevProps.update !== this.props.update) {
-      await this.loadData()
+      await this.loadData();
     }
   }
 
-  public render (): JSX.Element {
-    const { stations }: IState = this.state
+  public render(): JSX.Element {
+    const { stations }: IState = this.state;
 
     return (
       <div>
-        <Card title='Tankstellen verwalten'>
-          <table className='table'>
+        <Card title="Tankstellen verwalten">
+          <table className="table">
             <tbody>
-              {stations.map((station: IFuelPriceStationDto) =>
+              {stations.map((station: IFuelPriceStationDto) => (
                 <tr key={station.id}>
-                  <td className='tdtext'>{station.name}</td>
-                  <td className='text-right'>
-                    <div className='btn-group' role='group'>
-                      <button type='button' className='btn btn-secondary'
+                  <td className="tdtext">{station.name}</td>
+                  <td className="text-right">
+                    <div className="btn-group" role="group">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
                         disabled={stations[0] === station}
-                        onClick={this.onBtnUpClick.bind(this, station)}>
+                        onClick={this.onBtnUpClick.bind(this, station)}
+                      >
                         <FontAwesomeIcon icon={faCaretUp} />
                       </button>
-                      <button type='button' className='btn btn-secondary'
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
                         disabled={stations[stations.length - 1] === station}
-                        onClick={this.onBtnDownClick.bind(this, station)}>
+                        onClick={this.onBtnDownClick.bind(this, station)}
+                      >
                         <FontAwesomeIcon icon={faCaretDown} />
                       </button>
-                      <button type='button' className='btn btn-secondary'
-                        onClick={this.onBtnEditClick.bind(this, station)}>
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={this.onBtnEditClick.bind(this, station)}
+                      >
                         <FontAwesomeIcon icon={faEdit} />
                       </button>
-                      <button type='button' className='btn btn-danger'
-                        onClick={this.onBtnDeleteClick.bind(this, station)}>
+                      <button
+                        type="button"
+                        className="btn btn-danger"
+                        onClick={this.onBtnDeleteClick.bind(this, station)}
+                      >
                         <FontAwesomeIcon icon={faTrashAlt} />
                       </button>
                     </div>
                   </td>
                 </tr>
-              )}
+              ))}
             </tbody>
           </table>
         </Card>
-        {
-          this.state.showDeleteDialog &&
-          <Dialog title='Löschen'
+        {this.state.showDeleteDialog && (
+          <Dialog
+            title="Löschen"
             dialogCloseCallback={this.onDeleteDialogClose}
             showBtnYes={true}
-            showBtnNo={true}>
+            showBtnNo={true}
+          >
             Möchten Sie "{this.state.selectedStation!.name}" wirklich löschen?
           </Dialog>
-        }
-        {
-          this.state.showEditDialog &&
-          <Dialog title='Bearbeiten'
+        )}
+        {this.state.showEditDialog && (
+          <Dialog
+            title="Bearbeiten"
             dialogCloseCallback={this.onEditDialogClose}
             showBtnSave={true}
-            showBtnAbort={true}>
+            showBtnAbort={true}
+          >
             <FuelPriceStationEdit station={this.state.selectedStation!} />
           </Dialog>
-        }
-      </div >
-    )
+        )}
+      </div>
+    );
   }
 
-  private async onEditDialogClose (name: DialogButtonName): Promise<void> {
-    if (this.state.selectedStation && name === 'save') {
-      const station: IFuelPriceStationDto = this.state.selectedStation
-      await Api.put<void>(`/v1/smartmirror/admin/fuelprice/stations/${station.id}`, station)
+  private async onEditDialogClose(name: DialogButtonName): Promise<void> {
+    if (this.state.selectedStation && name === "save") {
+      const station: IFuelPriceStationDto = this.state.selectedStation;
+      await Api.put<void>(
+        `/v1/smartmirror/admin/fuelprice/stations/${station.id}`,
+        station
+      );
 
-      const existingLocation: IFuelPriceStationDto = this.state.stations.find((x: IFuelPriceStationDto) => x.id === station.id)!
-      Object.assign(existingLocation, station)
+      const existingLocation: IFuelPriceStationDto = this.state.stations.find(
+        (x: IFuelPriceStationDto) => x.id === station.id
+      )!;
+      Object.assign(existingLocation, station);
 
       this.setState({
         selectedStation: null,
-        showEditDialog: false
-      })
+        showEditDialog: false,
+      });
 
-      this.props.onStationChanged()
+      this.props.onStationChanged();
     } else {
       this.setState({
-        showEditDialog: false
-      })
+        showEditDialog: false,
+      });
     }
   }
 
-  private async onDeleteDialogClose (name: DialogButtonName): Promise<void> {
-    if (this.state.selectedStation && name === 'yes') {
-      const station: IFuelPriceStationDto = this.state.selectedStation
-      await Api.delete<void>(`/v1/smartmirror/admin/fuelprice/stations/${station.id}`)
+  private async onDeleteDialogClose(name: DialogButtonName): Promise<void> {
+    if (this.state.selectedStation && name === "yes") {
+      const station: IFuelPriceStationDto = this.state.selectedStation;
+      await Api.delete<void>(
+        `/v1/smartmirror/admin/fuelprice/stations/${station.id}`
+      );
 
       this.setState({
         selectedStation: null,
         showDeleteDialog: false,
-        stations: this.state.stations.filter((x: IFuelPriceStationDto) => x.id !== station.id)
-      })
+        stations: this.state.stations.filter(
+          (x: IFuelPriceStationDto) => x.id !== station.id
+        ),
+      });
 
-      this.props.onStationChanged()
+      this.props.onStationChanged();
     } else {
       this.setState({
-        showDeleteDialog: false
-      })
+        showDeleteDialog: false,
+      });
     }
   }
 
-  private onBtnDeleteClick (station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault()
+  private onBtnDeleteClick(
+    station: IFuelPriceStationDto,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
+    event.preventDefault();
 
     this.setState({
       selectedStation: station,
-      showDeleteDialog: true
-    })
+      showDeleteDialog: true,
+    });
   }
 
-  private onBtnEditClick (station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault()
+  private onBtnEditClick(
+    station: IFuelPriceStationDto,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
+    event.preventDefault();
 
     this.setState({
       selectedStation: Object.assign({}, station),
-      showEditDialog: true
-    })
+      showEditDialog: true,
+    });
   }
 
-  private onBtnUpClick (station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault()
+  private onBtnUpClick(
+    station: IFuelPriceStationDto,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
+    event.preventDefault();
 
-    const idx: number = this.state.stations.indexOf(station)
+    const idx: number = this.state.stations.indexOf(station);
     if (idx > 0) {
-      this.insertAndShift(this.state.stations, idx, idx - 1)
+      this.insertAndShift(this.state.stations, idx, idx - 1);
     }
   }
 
-  private onBtnDownClick (station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault()
+  private onBtnDownClick(
+    station: IFuelPriceStationDto,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void {
+    event.preventDefault();
 
-    const idx: number = this.state.stations.indexOf(station)
+    const idx: number = this.state.stations.indexOf(station);
     if (idx < this.state.stations.length - 1) {
-      this.insertAndShift(this.state.stations, idx, idx + 1)
+      this.insertAndShift(this.state.stations, idx, idx + 1);
     }
   }
 
-  private insertAndShift (arr: Array<IFuelPriceStationDto>, from: number, to: number): void {
-    const cutOut: IFuelPriceStationDto = arr.splice(from, 1)[0]
-    arr.splice(to, 0, cutOut)
+  private insertAndShift(
+    arr: Array<IFuelPriceStationDto>,
+    from: number,
+    to: number
+  ): void {
+    const cutOut: IFuelPriceStationDto = arr.splice(from, 1)[0];
+    arr.splice(to, 0, cutOut);
 
     this.setState({
-      stations: arr
-    })
+      stations: arr,
+    });
 
-    const data: Array<ISortOrderDto> = []
+    const data: Array<ISortOrderDto> = [];
     for (let i: number = 0; i < arr.length; i++) {
       data.push({
         id: arr[i].id,
-        sortNo: i
-      })
+        sortNo: i,
+      });
     }
 
-    clearTimeout(this.timer)
+    clearTimeout(this.timer);
     this.timer = setTimeout(async () => {
-      await Api.put<void>('/v1/smartmirror/admin/fuelprice/stations/reorder', data)
-    }, 500)
+      await Api.put<void>(
+        "/v1/smartmirror/admin/fuelprice/stations/reorder",
+        data
+      );
+    }, 500);
   }
 
-  private async loadData (): Promise<void> {
-    const res: Array<IFuelPriceStationDto> = await Api.get<Array<IFuelPriceStationDto>>('/v1/smartmirror/admin/fuelprice/stations')
+  private async loadData(): Promise<void> {
+    const res: Array<IFuelPriceStationDto> = await Api.get<
+      Array<IFuelPriceStationDto>
+    >("/v1/smartmirror/admin/fuelprice/stations");
 
     this.setState({
-      stations: res.sort((a: IFuelPriceStationDto, b: IFuelPriceStationDto) => a.sortNo - b.sortNo)
-    })
+      stations: res.sort(
+        (a: IFuelPriceStationDto, b: IFuelPriceStationDto) =>
+          a.sortNo - b.sortNo
+      ),
+    });
   }
 }
 
-export default FuelPriceStationList
+export default FuelPriceStationList;

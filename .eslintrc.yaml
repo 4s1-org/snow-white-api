@@ -1,3 +1,0 @@
-root: true
-extends:
-  - "@hest-lab/eslint-config/.eslintrc.yaml"
