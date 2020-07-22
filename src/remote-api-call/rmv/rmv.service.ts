@@ -1,26 +1,27 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { RequestService } from "../request/request.service"
+import { Injectable, Logger } from '@nestjs/common'
+import { RequestService } from '../request/request.service'
 import {
   IRmvSearchStationRemoteResponse,
   IStopLocationOrCoordLocation,
   IStopLocation,
-} from "./rmv-search-station.remote-response"
-import { RmvStationDto } from "../../dataTransferObjects/rmv-station.dto"
-import { RmvTripDto } from "../../dataTransferObjects/rmv-trip.dto"
+} from './rmv-search-station.remote-response'
+import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
+import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
 import {
   IRmvSearchTripRemoteResponse,
   ITrip,
   ILocation,
   ILeg,
-} from "./rmv-search-trip.remote-response"
-import * as moment from "moment-timezone"
-import { TimetableLinesFilter } from "../../dataTransferObjects/timetable-lines-filter.dto"
+} from './rmv-search-trip.remote-response'
+import * as moment from 'moment'
+import 'moment-timezone'
+import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
 
 @Injectable()
 export class RmvService {
   private readonly logger: Logger = new Logger(RmvService.name)
 
-  private readonly baseUrl: string = "https://www.rmv.de/hapi"
+  private readonly baseUrl: string = 'https://www.rmv.de/hapi'
 
   constructor(private readonly request: RequestService) {}
 
@@ -29,12 +30,12 @@ export class RmvService {
     latitude: number,
     longitude: number,
   ): Promise<Array<RmvStationDto>> {
-    const url: string = this.baseUrl + "/location.nearbystops"
+    const url: string = this.baseUrl + '/location.nearbystops'
     const urlParams: Array<string> = [
       `accessId=${apiKey}`,
       `originCoordLat=${latitude}`,
       `originCoordLong=${longitude}`,
-      "format=json",
+      'format=json',
     ]
 
     const res: IRmvSearchStationRemoteResponse = await this.request.get<
@@ -46,7 +47,7 @@ export class RmvService {
       )
       return this.convertStations(res.stopLocationOrCoordLocation)
     } else {
-      this.logger.log("RMV service found 0 stations")
+      this.logger.log('RMV service found 0 stations')
       return []
     }
   }
@@ -57,12 +58,12 @@ export class RmvService {
     destExtId: number,
     filter: TimetableLinesFilter,
   ): Promise<Array<RmvTripDto>> {
-    const url: string = this.baseUrl + "/trip"
+    const url: string = this.baseUrl + '/trip'
     const urlParams: Array<string> = [
       `accessId=${apiKey}`,
       `originExtId=${originExtId}`,
       `destExtId=${destExtId}`,
-      "format=json",
+      'format=json',
     ]
     const res: IRmvSearchTripRemoteResponse = await this.request.get<
       IRmvSearchTripRemoteResponse
@@ -97,61 +98,61 @@ export class RmvService {
         trip.LegList.Leg[trip.LegList.Leg.length - 1].Destination
 
       const arrivalTimePlanned: number = moment
-        .utc(locationEnd.date + " " + locationEnd.time, "YYYY-MM-DD hh:mm:ss")
+        .utc(locationEnd.date + ' ' + locationEnd.time, 'YYYY-MM-DD hh:mm:ss')
         .unix()
       const arrivalTimeReal: number = moment
         .utc(
-          locationEnd.rtDate + " " + locationEnd.rtTime,
-          "YYYY-MM-DD hh:mm:ss",
+          locationEnd.rtDate + ' ' + locationEnd.rtTime,
+          'YYYY-MM-DD hh:mm:ss',
         )
         .unix()
       const startTimePlanned: number = moment
         .utc(
-          locationStart.date + " " + locationStart.time,
-          "YYYY-MM-DD hh:mm:ss",
+          locationStart.date + ' ' + locationStart.time,
+          'YYYY-MM-DD hh:mm:ss',
         )
         .unix()
       const startTimeReal: number = moment
         .utc(
-          locationStart.rtDate + " " + locationStart.rtTime,
-          "YYYY-MM-DD hh:mm:ss",
+          locationStart.rtDate + ' ' + locationStart.rtTime,
+          'YYYY-MM-DD hh:mm:ss',
         )
         .unix()
       let showStopper = false
 
       const lines: Array<string> = trip.LegList.Leg.filter((x: ILeg) => {
-        return x.type === "JNY"
+        return x.type === 'JNY'
       }).map((x: ILeg) => {
         const catOut: string = x.Product.catOut.trim()
 
-        if (!filter.showICE && catOut === "ICE") {
-          this.logger.log("ICE found, but it should not show")
+        if (!filter.showICE && catOut === 'ICE') {
+          this.logger.log('ICE found, but it should not show')
           showStopper = true
-        } else if (!filter.showIC && catOut === "IC") {
-          this.logger.log("IC found, but it should not show")
+        } else if (!filter.showIC && catOut === 'IC') {
+          this.logger.log('IC found, but it should not show')
           showStopper = true
-        } else if (!filter.showRE && catOut === "RE") {
-          this.logger.log("RE found, but it should not show")
+        } else if (!filter.showRE && catOut === 'RE') {
+          this.logger.log('RE found, but it should not show')
           showStopper = true
-        } else if (!filter.showRB && catOut === "RB") {
-          this.logger.log("RB found, but it should not show")
+        } else if (!filter.showRB && catOut === 'RB') {
+          this.logger.log('RB found, but it should not show')
           showStopper = true
-        } else if (!filter.showUBahn && catOut === "U-Bahn") {
-          this.logger.log("U-Bahn found, but it should not show")
+        } else if (!filter.showUBahn && catOut === 'U-Bahn') {
+          this.logger.log('U-Bahn found, but it should not show')
           showStopper = true
-        } else if (!filter.showSBahn && catOut === "S") {
-          this.logger.log("S-Bahn found, but it should not show")
+        } else if (!filter.showSBahn && catOut === 'S') {
+          this.logger.log('S-Bahn found, but it should not show')
           showStopper = true
-        } else if (!filter.showTram && catOut === "Tram") {
-          this.logger.log("Tram found, but it should not show")
+        } else if (!filter.showTram && catOut === 'Tram') {
+          this.logger.log('Tram found, but it should not show')
           showStopper = true
-        } else if (!filter.showBus && catOut === "Bus") {
-          this.logger.log("Bus found, but it should not show")
+        } else if (!filter.showBus && catOut === 'Bus') {
+          this.logger.log('Bus found, but it should not show')
           showStopper = true
         }
 
         // Bei diesen Linien auch die Liniennummer anzeigen.
-        if (["S", "RB", "RE", "U-Bahn", "Tram"].includes(catOut)) {
+        if (['S', 'RB', 'RE', 'U-Bahn', 'Tram'].includes(catOut)) {
           return x.Product.line
         } else {
           return catOut
