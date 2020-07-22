@@ -1,8 +1,26 @@
 stages:
-- project
+- linting
+- building
+- testing
 
-validate:
-  stage: project
+lint:
+  stage: linting
+  image: node:12-alpine
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+
+build:
+  stage: building
+  image: node:12-alpine
+  before_script:
+    - npm ci
+  script:
+    - npm run build
+
+test:
+  stage: testing
   image: node:12-alpine
   artifacts:
     when: always
@@ -12,5 +30,4 @@ validate:
   before_script:
     - npm ci
   script:
-    - npm run lint
-    - npm run test-cov-html
+    - npm run test:cov
