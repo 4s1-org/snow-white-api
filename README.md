@@ -1,3 +1,3 @@
-# REST API DTO
+# SnowWhite DTO
 
-This packages contains all data transfer objects (DTO) for the REST API.
+This packages contains all data transfer objects (DTO) for the SnowWhite REST API.
