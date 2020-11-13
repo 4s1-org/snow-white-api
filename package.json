@@ -20,7 +20,8 @@
     "build:watch": "nodemon -x npm run build --ignore dist -i *.spec.ts -e ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .ts src/",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "publish:patch": "npm run lint && npm run build && npm version patch && npm publish && git push --tags"
   },
   "prettier": "@hest-lab/eslint-config",
   "dependencies": {},
