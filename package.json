@@ -1,5 +1,5 @@
 {
-  "name": "@yellowgarbagebag/rest-api-dto",
+  "name": "@yellowgarbagebag/snow-white-dto",
   "version": "1.0.1",
   "description": "REST API",
   "homepage": "https://gitlab.com/YellowGarbageBag/rest-api-dto",
@@ -25,11 +25,11 @@
   "prettier": "@hest-lab/eslint-config",
   "dependencies": {},
   "devDependencies": {
-    "@hest-lab/eslint-config": "^1.0.1",
-    "@types/node": "^12.12.51",
-    "eslint": "^7.5.0",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.7"
+    "@hest-lab/eslint-config": "^1.2.0",
+    "@types/node": "^14.14.7",
+    "eslint": "^7.13.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.5"
   },
   "publishConfig": {
     "access": "public"
