@@ -1,15 +1,15 @@
 {
-  "name": "@yellowgarbagebag/rest-api",
+  "name": "@yellowgarbagebag/snow-white-rest-api",
   "version": "1.0.1",
   "private": true,
-  "description": "REST API",
-  "homepage": "https://gitlab.com/YellowGarbageBag/rest-api",
+  "description": "SnowWhite - REST API",
+  "homepage": "https://gitlab.com/YellowGarbageBag/snow-white-rest-api",
   "bugs": {
-    "url": "https://gitlab.com/YellowGarbageBag/rest-api/issues"
+    "url": "https://gitlab.com/YellowGarbageBag/snow-white-rest-api/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/YellowGarbageBag/rest-api.git"
+    "url": "git+ssh://git@gitlab.com:YellowGarbageBag/snow-white-rest-api.git"
   },
   "license": "ISC",
   "author": "Steffen",
@@ -50,7 +50,6 @@
     "@nestjs/platform-express": "^7.3.2",
     "@nestjs/swagger": "^4.5.12",
     "@nestjs/typeorm": "^7.1.0",
-    "@yellowgarbagebag/rest-api-dto": "^1.0.0",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
     "dotenv": "^8.2.0",
@@ -74,6 +73,7 @@
     "@types/nodemailer": "^6.4.0",
     "@types/supertest": "^2.0.10",
     "@types/uuid": "^8.0.0",
+    "@yellowgarbagebag/snow-white-dto": "^2.0.1",
     "eslint": "^7.5.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
