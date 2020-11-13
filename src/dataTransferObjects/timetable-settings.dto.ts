@@ -1,14 +1,14 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { ITimetableSettingsDto } from "@yellowgarbagebag/rest-api-dto"
-import { TimetableLinesFilter } from "./timetable-lines-filter.dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ITimetableSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import { TimetableLinesFilter } from './timetable-lines-filter.dto'
 
 export class TimetableSettingsDto implements ITimetableSettingsDto {
   @IsNotEmpty()
   @ApiProperty({ example: true })
   public isActive: boolean
 
-  @ApiProperty({ example: "Lorem Ipsum" })
+  @ApiProperty({ example: 'Lorem Ipsum' })
   public apiKey: string
 
   @ApiProperty()

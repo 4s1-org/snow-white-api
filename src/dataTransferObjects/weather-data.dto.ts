@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { IWeatherDataDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { IWeatherDataDto } from '@yellowgarbagebag/snow-white-dto'
 
 export class WeatherDataDto implements IWeatherDataDto {
   @IsNotEmpty()
@@ -16,10 +16,10 @@ export class WeatherDataDto implements IWeatherDataDto {
   public temperatureFeelsLike: number
 
   @IsNotEmpty()
-  @ApiProperty({ example: "Bevölkt | Regen" })
+  @ApiProperty({ example: 'Bevölkt | Regen' })
   public conditionText: string
 
   @IsNotEmpty()
-  @ApiProperty({ example: "i3" })
+  @ApiProperty({ example: 'i3' })
   public icon: string
 }

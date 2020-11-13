@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { ITimetableStationDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ITimetableStationDto } from '@yellowgarbagebag/snow-white-dto'
 
 export class TimetableStationDto implements ITimetableStationDto {
   @IsNotEmpty()
@@ -12,11 +12,11 @@ export class TimetableStationDto implements ITimetableStationDto {
   public remoteId: number
 
   @IsNotEmpty()
-  @ApiProperty({ example: "Frankfurt (Main) Hauptbahnhof" })
+  @ApiProperty({ example: 'Frankfurt (Main) Hauptbahnhof' })
   public name: string
 
   @IsNotEmpty()
-  @ApiProperty({ example: "Hbf Frankfurt" })
+  @ApiProperty({ example: 'Hbf Frankfurt' })
   public nameOrigin: string
 
   @IsNotEmpty()

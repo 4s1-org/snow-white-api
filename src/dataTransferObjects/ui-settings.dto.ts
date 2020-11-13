@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { IUiSettingsDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { IUiSettingsDto } from '@yellowgarbagebag/snow-white-dto'
 
 export class UiSettingsDto implements IUiSettingsDto {
   @IsNotEmpty()
