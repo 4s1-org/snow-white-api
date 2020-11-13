@@ -2,13 +2,13 @@
   "name": "@yellowgarbagebag/snow-white-dto",
   "version": "2.0.1",
   "description": "SnowWhite DTO",
-  "homepage": "https://gitlab.com/YellowGarbageBag/rest-api-dto",
+  "homepage": "https://gitlab.com/YellowGarbageBag/snow-white-dto",
   "bugs": {
-    "url": "https://gitlab.com/YellowGarbageBag/rest-api-dto/issues"
+    "url": "https://gitlab.com/YellowGarbageBag/snow-white-dto/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/YellowGarbageBag/rest-api-dto.git"
+    "url": "git+ssh://git@gitlab.com:YellowGarbageBag/snow-white-dto.git"
   },
   "license": "ISC",
   "author": "Steffen",
