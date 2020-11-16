@@ -1,4 +1,4 @@
-import { IWeatherDataDto } from "./weather-data.dto"
+import { IWeatherDataDto } from './weather-data.dto'
 
 export interface IWeatherDatasDto {
   name: string

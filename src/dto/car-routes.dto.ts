@@ -1,4 +1,4 @@
-import { ICarRouteDto } from "./car-route.dto"
+import { ICarRouteDto } from './car-route.dto'
 
 export interface ICarRoutesDto {
   text: string
