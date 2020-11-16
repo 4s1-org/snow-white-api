@@ -1,14 +1,14 @@
 {
-  "name": "@yellowgarbagebag/smart-mirror",
+  "name": "@yellowgarbagebag/snow-white-smart-mirror-ui",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://gitlab.com/YellowGarbageBag/smart-mirror",
+  "homepage": "https://gitlab.com/YellowGarbageBag/snow-white-smart-mirror-ui",
   "bugs": {
-    "url": "https://gitlab.com/YellowGarbageBag/smart-mirror/issues"
+    "url": "https://gitlab.com/YellowGarbageBag/snow-white-smart-mirror-ui/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/YellowGarbageBag/smart-mirror.git"
+    "url": "git+ssh://git@gitlab.com:YellowGarbageBag/snow-white-smart-mirror-ui.git"
   },
   "license": "ISC",
   "author": "Steffen",
