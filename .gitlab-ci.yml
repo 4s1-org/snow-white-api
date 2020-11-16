@@ -1,25 +1,24 @@
 stages:
-- linting
-- building
-- testing
+  - linting
+  - building
+  - testing
+  - validating
 
-lint:
+.lint:
   stage: linting
   image: node:14-alpine
-  before_script:
-    - npm ci
   script:
+    - npm ci
     - npm run lint
 
-build:
+.build:
   stage: building
   image: node:14-alpine
-  before_script:
-    - npm ci
   script:
+    - npm ci
     - npm run build
 
-test:
+.test:
   stage: testing
   image: node:14-alpine
   artifacts:
@@ -27,7 +26,20 @@ test:
     paths:
       - coverage/
     expire_in: 1 week
-  before_script:
-    - npm ci
   script:
+    - npm ci
+    - npm run test:cov
+
+validate:
+  stage: validating
+  image: node:14-alpine
+  artifacts:
+    when: always
+    paths:
+      - coverage/
+    expire_in: 1 week
+  script:
+    - npm ci
+    - npm run lint
+    - npm run build
     - npm run test:cov
