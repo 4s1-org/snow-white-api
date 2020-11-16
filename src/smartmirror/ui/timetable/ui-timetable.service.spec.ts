@@ -1,16 +1,16 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { UiTimetableService } from "./ui-timetable.service"
-import { TimetableSettingsService } from "../../admin/timetable/settings/timetable-settings.service"
-import { RmvService } from "../../../remote-api-call/rmv/rmv.service"
-import { TimetableSettingsEntity } from "../../../entities/timetable-settings.entity"
-import { RmvTripsDto } from "../../../dataTransferObjects/rmv-trips.dto"
-import { RmvTripDto } from "../../../dataTransferObjects/rmv-trip.dto"
-import { TimetableStationEntity } from "../../../entities/timetable-station.entity"
-import { CommonSettingsService } from "../../admin/common/settings/common-settings.service"
-import { CommonSettingsEntity } from "../../../entities/common-settings.entity"
-import { ConstantsService } from "../../../global/constants/constants.service"
+import { Test, TestingModule } from '@nestjs/testing'
+import { UiTimetableService } from './ui-timetable.service'
+import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
+import { RmvService } from '../../../remote-api-call/rmv/rmv.service'
+import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity'
+import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto'
+import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto'
+import { TimetableStationEntity } from '../../../entities/timetable-station.entity'
+import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
+import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
+import { ConstantsService } from '../../../global/constants/constants.service'
 
-describe("UiTimetableService", () => {
+describe('UiTimetableService', () => {
   let service: UiTimetableService
   let settingsService: TimetableSettingsService
   let rmvService: RmvService
@@ -18,22 +18,22 @@ describe("UiTimetableService", () => {
   let constantsService: ConstantsService
 
   const someTimetableStationFrom: TimetableStationEntity = Object.freeze({
-    id: "bar1",
-    name: "Station FROM",
-    nameOrigin: "Station Hbf from",
+    id: 'bar1',
+    name: 'Station FROM',
+    nameOrigin: 'Station Hbf from',
     remoteId: 1234,
     sortNo: 1,
   })
   const someTimetableStationTo: TimetableStationEntity = Object.freeze({
-    id: "bar2",
-    name: "Station TO",
-    nameOrigin: "Station Hbf to",
+    id: 'bar2',
+    name: 'Station TO',
+    nameOrigin: 'Station Hbf to',
     remoteId: 1233,
     sortNo: 2,
   })
   const someSettingEntity: TimetableSettingsEntity = Object.freeze({
-    apiKey: "apikey",
-    id: "Foobar",
+    apiKey: 'apikey',
+    id: 'Foobar',
     isActive: true,
     maxChanges: 3,
     showBus: false,
@@ -48,7 +48,7 @@ describe("UiTimetableService", () => {
     timetableStationTo: someTimetableStationTo,
   })
   const commonSettingEntity: CommonSettingsEntity = Object.freeze({
-    id: "foo",
+    id: 'foo',
     morningEnd: 12 * 3600,
     morningStart: 5 * 3600,
   })
@@ -58,12 +58,12 @@ describe("UiTimetableService", () => {
       arrivalTimeReal: 1,
       durationPlanned: 1,
       durationReal: 1,
-      lines: ["RB"],
+      lines: ['RB'],
       startTimePlanned: 1,
       startTimeReal: 1,
-      trackPlanned: "1",
-      trackReal: "1",
-      tripId: "bar",
+      trackPlanned: '1',
+      trackReal: '1',
+      tripId: 'bar',
     },
   ]
 
@@ -99,13 +99,9 @@ describe("UiTimetableService", () => {
     }).compile()
 
     service = module.get<UiTimetableService>(UiTimetableService)
-    settingsService = module.get<TimetableSettingsService>(
-      TimetableSettingsService,
-    )
+    settingsService = module.get<TimetableSettingsService>(TimetableSettingsService)
     rmvService = module.get<RmvService>(RmvService)
-    commonSettingsService = module.get<CommonSettingsService>(
-      CommonSettingsService,
-    )
+    commonSettingsService = module.get<CommonSettingsService>(CommonSettingsService)
     constantsService = module.get<ConstantsService>(ConstantsService)
   })
 
@@ -113,19 +109,15 @@ describe("UiTimetableService", () => {
     jest.clearAllMocks()
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 
-  it("getRoute", async () => {
+  it('getRoute', async () => {
     // Arrange
-    jest
-      .spyOn(commonSettingsService, "getRecord")
-      .mockResolvedValueOnce(commonSettingEntity)
-    jest
-      .spyOn(settingsService, "getRecord")
-      .mockResolvedValueOnce(someSettingEntity)
-    jest.spyOn(rmvService, "getTrip").mockResolvedValueOnce(defaultTrip)
+    jest.spyOn(commonSettingsService, 'getRecord').mockResolvedValueOnce(commonSettingEntity)
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(someSettingEntity)
+    jest.spyOn(rmvService, 'getTrip').mockResolvedValueOnce(defaultTrip)
     // Act
     const res: RmvTripsDto = await service.getTimetable()
     // Assert
@@ -136,69 +128,49 @@ describe("UiTimetableService", () => {
     expect(res.trips.length).toBe(1)
   })
 
-  it("getTrip with no apikey", async () => {
+  it('getTrip with no apikey', async () => {
     // Arrange
-    const data: TimetableSettingsEntity = JSON.parse(
-      JSON.stringify(someSettingEntity),
-    )
-    data.apiKey = ""
-    jest.spyOn(settingsService, "getRecord").mockResolvedValueOnce(data)
+    const data: TimetableSettingsEntity = JSON.parse(JSON.stringify(someSettingEntity))
+    data.apiKey = ''
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(data)
     // Act + Assert
     await expect(service.getTimetable()).rejects.toThrow(Error)
     expect(settingsService.getRecord).toHaveBeenCalledTimes(1)
   })
 
-  it("getRoute with no disabled widget", async () => {
+  it('getRoute with no disabled widget', async () => {
     // Arrange
-    const data: TimetableSettingsEntity = JSON.parse(
-      JSON.stringify(someSettingEntity),
-    )
+    const data: TimetableSettingsEntity = JSON.parse(JSON.stringify(someSettingEntity))
     data.isActive = false
-    jest.spyOn(settingsService, "getRecord").mockResolvedValueOnce(data)
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(data)
     // Act + Assert
     await expect(service.getTimetable()).rejects.toThrow(Error)
     expect(settingsService.getRecord).toHaveBeenCalledTimes(1)
   })
 
-  it("switch direction VM", async () => {
+  it('switch direction VM', async () => {
     // Arrange
-    jest
-      .spyOn(commonSettingsService, "getRecord")
-      .mockResolvedValueOnce(commonSettingEntity)
-    jest
-      .spyOn(settingsService, "getRecord")
-      .mockResolvedValueOnce(someSettingEntity)
-    jest.spyOn(rmvService, "getTrip").mockResolvedValueOnce(defaultTrip)
-    jest
-      .spyOn(constantsService, "getCurrentTimestamp")
-      .mockReturnValueOnce(10 * 3600)
+    jest.spyOn(commonSettingsService, 'getRecord').mockResolvedValueOnce(commonSettingEntity)
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(someSettingEntity)
+    jest.spyOn(rmvService, 'getTrip').mockResolvedValueOnce(defaultTrip)
+    jest.spyOn(constantsService, 'getCurrentTimestamp').mockReturnValueOnce(10 * 3600)
     // Act
     const res: RmvTripsDto = await service.getTimetable()
     // Assert
     expect(res).toBeDefined()
-    expect(res.text).toBe(
-      `${someTimetableStationFrom.name} nach ${someTimetableStationTo.name}`,
-    )
+    expect(res.text).toBe(`${someTimetableStationFrom.name} nach ${someTimetableStationTo.name}`)
   })
 
-  it("switch direction NM", async () => {
+  it('switch direction NM', async () => {
     // Arrange
-    jest
-      .spyOn(commonSettingsService, "getRecord")
-      .mockResolvedValueOnce(commonSettingEntity)
-    jest
-      .spyOn(settingsService, "getRecord")
-      .mockResolvedValueOnce(someSettingEntity)
-    jest.spyOn(rmvService, "getTrip").mockResolvedValueOnce(defaultTrip)
-    jest
-      .spyOn(constantsService, "getCurrentTimestamp")
-      .mockReturnValueOnce(20 * 3600)
+    jest.spyOn(commonSettingsService, 'getRecord').mockResolvedValueOnce(commonSettingEntity)
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(someSettingEntity)
+    jest.spyOn(rmvService, 'getTrip').mockResolvedValueOnce(defaultTrip)
+    jest.spyOn(constantsService, 'getCurrentTimestamp').mockReturnValueOnce(20 * 3600)
     // Act
     const res: RmvTripsDto = await service.getTimetable()
     // Assert
     expect(res).toBeDefined()
-    expect(res.text).toBe(
-      `${someTimetableStationTo.name} nach ${someTimetableStationFrom.name}`,
-    )
+    expect(res.text).toBe(`${someTimetableStationTo.name} nach ${someTimetableStationFrom.name}`)
   })
 })

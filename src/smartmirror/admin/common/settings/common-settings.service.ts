@@ -1,9 +1,9 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { CommonSettingsDto } from "../../../../dataTransferObjects/common-settings.dto"
-import { CommonSettingsEntity } from "../../../../entities/common-settings.entity"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { v4 as uuid } from "uuid"
+import { Injectable, Logger } from '@nestjs/common'
+import { CommonSettingsDto } from '../../../../dataTransferObjects/common-settings.dto'
+import { CommonSettingsEntity } from '../../../../entities/common-settings.entity'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { v4 as uuid } from 'uuid'
 
 @Injectable()
 export class CommonSettingsService {
@@ -11,9 +11,7 @@ export class CommonSettingsService {
 
   constructor(
     @InjectRepository(CommonSettingsEntity)
-    private readonly commonSettingEntityRepository: Repository<
-      CommonSettingsEntity
-    >,
+    private readonly commonSettingEntityRepository: Repository<CommonSettingsEntity>,
   ) {}
 
   public async save(settings: CommonSettingsDto): Promise<void> {
@@ -41,7 +39,7 @@ export class CommonSettingsService {
 
     // If settings not present, create it
     if (!record) {
-      this.logger.log("Settings not present, create a new record")
+      this.logger.log('Settings not present, create a new record')
 
       record = {
         id: uuid(),

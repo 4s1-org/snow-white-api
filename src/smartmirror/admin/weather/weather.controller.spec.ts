@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { WeatherController } from "./weather.controller"
-import { WeatherSettingsService } from "./settings/weather-settings.service"
-import { WeatherSettingsDto } from "../../../dataTransferObjects/weather-settings.dto"
+import { Test, TestingModule } from '@nestjs/testing'
+import { WeatherController } from './weather.controller'
+import { WeatherSettingsService } from './settings/weather-settings.service'
+import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto'
 
-describe("WeatherController", () => {
+describe('WeatherController', () => {
   let controller: WeatherController
   let settingsService: WeatherSettingsService
 
@@ -25,21 +25,19 @@ describe("WeatherController", () => {
     settingsService = module.get<WeatherSettingsService>(WeatherSettingsService)
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(controller).toBeDefined()
   })
 
-  describe("Settings", () => {
-    it("GET /settings", async () => {
+  describe('Settings', () => {
+    it('GET /settings', async () => {
       // Arrange
       const data: WeatherSettingsDto = {
-        apiKey: "foo",
+        apiKey: 'foo',
         isActive: true,
-        locationId: "def",
+        locationId: 'def',
       }
-      jest
-        .spyOn(settingsService, "load")
-        .mockImplementation(() => Promise.resolve(data))
+      jest.spyOn(settingsService, 'load').mockImplementation(() => Promise.resolve(data))
       // Act
       const res: WeatherSettingsDto = await controller.loadSettings()
       // Assert
@@ -47,16 +45,14 @@ describe("WeatherController", () => {
       expect(res).toBeDefined()
     })
 
-    it("PUT /settings", async () => {
+    it('PUT /settings', async () => {
       // Arrange
-      jest
-        .spyOn(settingsService, "save")
-        .mockImplementation(() => Promise.resolve())
+      jest.spyOn(settingsService, 'save').mockImplementation(() => Promise.resolve())
       // Act
       await controller.saveSettings({
-        apiKey: "foo",
+        apiKey: 'foo',
         isActive: true,
-        locationId: "def",
+        locationId: 'def',
       })
       // Assert
       expect(settingsService.save).toHaveBeenCalledTimes(1)

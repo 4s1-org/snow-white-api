@@ -7,12 +7,7 @@ import {
 } from './rmv-search-station.remote-response'
 import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
 import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
-import {
-  IRmvSearchTripRemoteResponse,
-  ITrip,
-  ILocation,
-  ILeg,
-} from './rmv-search-trip.remote-response'
+import { IRmvSearchTripRemoteResponse, ITrip, ILocation, ILeg } from './rmv-search-trip.remote-response'
 import * as moment from 'moment'
 import 'moment-timezone'
 import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
@@ -25,11 +20,7 @@ export class RmvService {
 
   constructor(private readonly request: RequestService) {}
 
-  public async getStations(
-    apiKey: string,
-    latitude: number,
-    longitude: number,
-  ): Promise<Array<RmvStationDto>> {
+  public async getStations(apiKey: string, latitude: number, longitude: number): Promise<Array<RmvStationDto>> {
     const url: string = this.baseUrl + '/location.nearbystops'
     const urlParams: Array<string> = [
       `accessId=${apiKey}`,
@@ -38,13 +29,9 @@ export class RmvService {
       'format=json',
     ]
 
-    const res: IRmvSearchStationRemoteResponse = await this.request.get<
-      IRmvSearchStationRemoteResponse
-    >(url, urlParams)
+    const res: IRmvSearchStationRemoteResponse = await this.request.get<IRmvSearchStationRemoteResponse>(url, urlParams)
     if (res.stopLocationOrCoordLocation) {
-      this.logger.log(
-        `RMV service found ${res.stopLocationOrCoordLocation.length} station(s)`,
-      )
+      this.logger.log(`RMV service found ${res.stopLocationOrCoordLocation.length} station(s)`)
       return this.convertStations(res.stopLocationOrCoordLocation)
     } else {
       this.logger.log('RMV service found 0 stations')
@@ -65,15 +52,11 @@ export class RmvService {
       `destExtId=${destExtId}`,
       'format=json',
     ]
-    const res: IRmvSearchTripRemoteResponse = await this.request.get<
-      IRmvSearchTripRemoteResponse
-    >(url, urlParams)
+    const res: IRmvSearchTripRemoteResponse = await this.request.get<IRmvSearchTripRemoteResponse>(url, urlParams)
     return this.convertTrip(res.Trip, filter)
   }
 
-  private convertStations(
-    data: Array<IStopLocationOrCoordLocation>,
-  ): Array<RmvStationDto> {
+  private convertStations(data: Array<IStopLocationOrCoordLocation>): Array<RmvStationDto> {
     return data.map((x: IStopLocationOrCoordLocation) => {
       const y: IStopLocation = x.StopLocation
       return {
@@ -87,36 +70,23 @@ export class RmvService {
     })
   }
 
-  private convertTrip(
-    data: Array<ITrip>,
-    filter: TimetableLinesFilter,
-  ): Array<RmvTripDto> {
+  private convertTrip(data: Array<ITrip>, filter: TimetableLinesFilter): Array<RmvTripDto> {
     const result: Array<RmvTripDto> = []
     for (const trip of data) {
       const locationStart: ILocation = trip.LegList.Leg[0].Origin
-      const locationEnd: ILocation =
-        trip.LegList.Leg[trip.LegList.Leg.length - 1].Destination
+      const locationEnd: ILocation = trip.LegList.Leg[trip.LegList.Leg.length - 1].Destination
 
       const arrivalTimePlanned: number = moment
         .utc(locationEnd.date + ' ' + locationEnd.time, 'YYYY-MM-DD hh:mm:ss')
         .unix()
       const arrivalTimeReal: number = moment
-        .utc(
-          locationEnd.rtDate + ' ' + locationEnd.rtTime,
-          'YYYY-MM-DD hh:mm:ss',
-        )
+        .utc(locationEnd.rtDate + ' ' + locationEnd.rtTime, 'YYYY-MM-DD hh:mm:ss')
         .unix()
       const startTimePlanned: number = moment
-        .utc(
-          locationStart.date + ' ' + locationStart.time,
-          'YYYY-MM-DD hh:mm:ss',
-        )
+        .utc(locationStart.date + ' ' + locationStart.time, 'YYYY-MM-DD hh:mm:ss')
         .unix()
       const startTimeReal: number = moment
-        .utc(
-          locationStart.rtDate + ' ' + locationStart.rtTime,
-          'YYYY-MM-DD hh:mm:ss',
-        )
+        .utc(locationStart.rtDate + ' ' + locationStart.rtTime, 'YYYY-MM-DD hh:mm:ss')
         .unix()
       let showStopper = false
 

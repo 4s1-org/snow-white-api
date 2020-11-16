@@ -1,12 +1,12 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { OpenStreetMapService } from "../../../../remote-api-call/open-street-map/open-street-map.service"
-import { OpenStreetMapLocationDto } from "../../../../dataTransferObjects/open-street-map-location.dto"
-import { CommonLocationDto } from "../../../../dataTransferObjects/common-location.dto"
-import { CommonLocationEntity } from "../../../../entities/common-location.entity"
-import { v4 as uuid } from "uuid"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { SortOrderDto } from "../../../../dataTransferObjects/sort-order.dto"
+import { Injectable, Logger } from '@nestjs/common'
+import { OpenStreetMapService } from '../../../../remote-api-call/open-street-map/open-street-map.service'
+import { OpenStreetMapLocationDto } from '../../../../dataTransferObjects/open-street-map-location.dto'
+import { CommonLocationDto } from '../../../../dataTransferObjects/common-location.dto'
+import { CommonLocationEntity } from '../../../../entities/common-location.entity'
+import { v4 as uuid } from 'uuid'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 
 @Injectable()
 export class CommonLocationsService {
@@ -15,9 +15,7 @@ export class CommonLocationsService {
   constructor(
     private readonly openStreeMap: OpenStreetMapService,
     @InjectRepository(CommonLocationEntity)
-    private readonly commonLocationEntityRepository: Repository<
-      CommonLocationEntity
-    >,
+    private readonly commonLocationEntityRepository: Repository<CommonLocationEntity>,
   ) {}
 
   public async search(text: string): Promise<Array<OpenStreetMapLocationDto>> {
@@ -41,9 +39,7 @@ export class CommonLocationsService {
   }
 
   public async loadSingle(id: string): Promise<CommonLocationDto | null> {
-    const res: CommonLocationEntity = await this.commonLocationEntityRepository.findOne(
-      id,
-    )
+    const res: CommonLocationEntity = await this.commonLocationEntityRepository.findOne(id)
     if (!res) {
       return null
     }
@@ -62,9 +58,7 @@ export class CommonLocationsService {
     })
   }
 
-  public async reorderLocations(
-    sortOrders: Array<SortOrderDto>,
-  ): Promise<void> {
+  public async reorderLocations(sortOrders: Array<SortOrderDto>): Promise<void> {
     this.logger.log(`Reorder ${sortOrders.length} locations`)
     for (const sortOrder of sortOrders) {
       await this.commonLocationEntityRepository.update(sortOrder.id, {

@@ -1,7 +1,7 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { ConstantsService } from "./constants.service"
+import { Test, TestingModule } from '@nestjs/testing'
+import { ConstantsService } from './constants.service'
 
-describe("ConstantsService", () => {
+describe('ConstantsService', () => {
   let service: ConstantsService
 
   beforeEach(async () => {
@@ -12,11 +12,11 @@ describe("ConstantsService", () => {
     service = module.get<ConstantsService>(ConstantsService)
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 
-  it("getTimestamp", () => {
+  it('getTimestamp', () => {
     // Act
     const timestamp: number = service.getCurrentTimestamp()
     // Assert

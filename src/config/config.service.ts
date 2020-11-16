@@ -1,4 +1,4 @@
-import * as dotenv from "dotenv"
+import * as dotenv from 'dotenv'
 
 export class ConfigService {
   private readonly envConfig: { [key: string]: string }

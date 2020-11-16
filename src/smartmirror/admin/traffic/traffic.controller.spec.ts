@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { TrafficController } from "./traffic.controller"
-import { TrafficSettingsService } from "./settings/traffic-settings.service"
-import { TrafficSettingsDto } from "../../../dataTransferObjects/traffic-settings.dto"
+import { Test, TestingModule } from '@nestjs/testing'
+import { TrafficController } from './traffic.controller'
+import { TrafficSettingsService } from './settings/traffic-settings.service'
+import { TrafficSettingsDto } from '../../../dataTransferObjects/traffic-settings.dto'
 
-describe("Traffic Controller", () => {
+describe('Traffic Controller', () => {
   let controller: TrafficController
   let settingsService: TrafficSettingsService
 
@@ -25,22 +25,20 @@ describe("Traffic Controller", () => {
     settingsService = module.get<TrafficSettingsService>(TrafficSettingsService)
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(controller).toBeDefined()
   })
 
-  describe("Settings", () => {
-    it("GET /settings", async () => {
+  describe('Settings', () => {
+    it('GET /settings', async () => {
       // Arrange
       const data: TrafficSettingsDto = {
-        apiKey: "foo",
+        apiKey: 'foo',
         isActive: true,
-        locationFromId: "abc",
-        locationToId: "def",
+        locationFromId: 'abc',
+        locationToId: 'def',
       }
-      jest
-        .spyOn(settingsService, "load")
-        .mockImplementation(() => Promise.resolve(data))
+      jest.spyOn(settingsService, 'load').mockImplementation(() => Promise.resolve(data))
       // Act
       const res: TrafficSettingsDto = await controller.loadSettings()
       // Assert
@@ -48,17 +46,15 @@ describe("Traffic Controller", () => {
       expect(res).toBeDefined()
     })
 
-    it("PUT /settings", async () => {
+    it('PUT /settings', async () => {
       // Arrange
-      jest
-        .spyOn(settingsService, "save")
-        .mockImplementation(() => Promise.resolve())
+      jest.spyOn(settingsService, 'save').mockImplementation(() => Promise.resolve())
       // Act
       await controller.saveSettings({
-        apiKey: "foo",
+        apiKey: 'foo',
         isActive: true,
-        locationFromId: "abc",
-        locationToId: "def",
+        locationFromId: 'abc',
+        locationToId: 'def',
       })
       // Assert
       expect(settingsService.save).toHaveBeenCalledTimes(1)

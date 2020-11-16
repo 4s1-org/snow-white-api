@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { RequestService } from "./request.service"
-import { HttpModule } from "@nestjs/common"
+import { Test, TestingModule } from '@nestjs/testing'
+import { RequestService } from './request.service'
+import { HttpModule } from '@nestjs/common'
 
 // ToDo: Implement tests
-describe("RequestService", () => {
+describe('RequestService', () => {
   let service: RequestService
 
   beforeEach(async () => {
@@ -19,7 +19,7 @@ describe("RequestService", () => {
     jest.clearAllMocks()
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 })

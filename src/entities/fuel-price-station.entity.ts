@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity("FuelPriceStations")
+@Entity('FuelPriceStations')
 export class FuelPriceStationEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column({ length: 255 })
@@ -11,15 +11,15 @@ export class FuelPriceStationEntity {
   @Column({ length: 255 })
   public nameOrigin: string
 
-  @Column("int")
+  @Column('int')
   public latitude: number
 
-  @Column("int")
+  @Column('int')
   public longitude: number
 
-  @Column("int", { nullable: true })
+  @Column('int', { nullable: true })
   public sortNo: number
 
-  @Column({ type: "uuid", length: 36 })
+  @Column({ type: 'uuid', length: 36 })
   public remoteId: string
 }

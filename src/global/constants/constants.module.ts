@@ -1,5 +1,5 @@
-import { Module, Global } from "@nestjs/common"
-import { ConstantsService } from "./constants.service"
+import { Module, Global } from '@nestjs/common'
+import { ConstantsService } from './constants.service'
 
 @Global()
 @Module({

@@ -1,5 +1,5 @@
-import { Module, Global } from "@nestjs/common"
-import { ConfigService } from "./config.service"
+import { Module, Global } from '@nestjs/common'
+import { ConfigService } from './config.service'
 
 // ToDo: In den Global Ordner verschieben
 @Global()

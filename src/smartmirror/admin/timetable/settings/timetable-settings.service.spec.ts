@@ -1,19 +1,19 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { getRepositoryToken } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { ConstantsService } from "../../../../global/constants/constants.service"
-import { TimetableSettingsService } from "./timetable-settings.service"
-import { TimetableSettingsEntity } from "../../../../entities/timetable-settings.entity"
-import { TimetableSettingsDto } from "../../../../dataTransferObjects/timetable-settings.dto"
+import { Test, TestingModule } from '@nestjs/testing'
+import { getRepositoryToken } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { TimetableSettingsService } from './timetable-settings.service'
+import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity'
+import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto'
 
-describe("TimetableSettingsService", () => {
+describe('TimetableSettingsService', () => {
   let service: TimetableSettingsService
   let constants: ConstantsService
   let repo: Repository<TimetableSettingsEntity>
 
   const someSettingEntity: TimetableSettingsEntity = {
-    apiKey: "apikey_some_text",
-    id: "foo",
+    apiKey: 'apikey_some_text',
+    id: 'foo',
     isActive: false,
     maxChanges: 3,
     showBus: false,
@@ -42,23 +42,21 @@ describe("TimetableSettingsService", () => {
 
     service = module.get<TimetableSettingsService>(TimetableSettingsService)
     constants = module.get<ConstantsService>(ConstantsService)
-    repo = module.get<Repository<TimetableSettingsEntity>>(
-      getRepositoryToken(TimetableSettingsEntity),
-    )
+    repo = module.get<Repository<TimetableSettingsEntity>>(getRepositoryToken(TimetableSettingsEntity))
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 
-  it("save when no record is present should create a new record", async () => {
+  it('save when no record is present should create a new record', async () => {
     // Arrange
-    jest.spyOn(repo, "findOne").mockResolvedValueOnce(undefined)
-    jest.spyOn(repo, "insert").mockResolvedValueOnce(undefined)
-    jest.spyOn(repo, "update").mockResolvedValueOnce(undefined)
+    jest.spyOn(repo, 'findOne').mockResolvedValueOnce(undefined)
+    jest.spyOn(repo, 'insert').mockResolvedValueOnce(undefined)
+    jest.spyOn(repo, 'update').mockResolvedValueOnce(undefined)
 
     const data: TimetableSettingsDto = {
-      apiKey: "apikey",
+      apiKey: 'apikey',
       isActive: true,
       lines: {
         showBus: false,
@@ -71,8 +69,8 @@ describe("TimetableSettingsService", () => {
         showUBahn: true,
       },
       maxChanges: 3,
-      stationFromId: "abc",
-      stationToId: "def",
+      stationFromId: 'abc',
+      stationToId: 'def',
     }
     // Act
     await service.save(data)
@@ -82,13 +80,13 @@ describe("TimetableSettingsService", () => {
     expect(repo.update).toHaveBeenCalledTimes(1)
   })
 
-  it("save when record is present should update existing record", async () => {
+  it('save when record is present should update existing record', async () => {
     // Arrange
-    jest.spyOn(repo, "findOne").mockResolvedValueOnce(someSettingEntity)
-    jest.spyOn(repo, "update").mockResolvedValueOnce(undefined)
+    jest.spyOn(repo, 'findOne').mockResolvedValueOnce(someSettingEntity)
+    jest.spyOn(repo, 'update').mockResolvedValueOnce(undefined)
 
     const data: TimetableSettingsDto = {
-      apiKey: "foo",
+      apiKey: 'foo',
       isActive: true,
       lines: {
         showBus: false,
@@ -101,8 +99,8 @@ describe("TimetableSettingsService", () => {
         showUBahn: true,
       },
       maxChanges: 3,
-      stationFromId: "abc",
-      stationToId: "def",
+      stationFromId: 'abc',
+      stationToId: 'def',
     }
     // Act
     await service.save(data)
@@ -111,10 +109,10 @@ describe("TimetableSettingsService", () => {
     expect(repo.update).toHaveBeenCalledTimes(1)
   })
 
-  it("load when no record is present should create a new record", async () => {
+  it('load when no record is present should create a new record', async () => {
     // Arrange
-    jest.spyOn(repo, "findOne").mockResolvedValueOnce(undefined)
-    jest.spyOn(repo, "insert").mockResolvedValueOnce(undefined)
+    jest.spyOn(repo, 'findOne').mockResolvedValueOnce(undefined)
+    jest.spyOn(repo, 'insert').mockResolvedValueOnce(undefined)
     // Act
     const res: TimetableSettingsDto = await service.load()
     // Assert
@@ -124,14 +122,14 @@ describe("TimetableSettingsService", () => {
     expect(res.isActive).toBe(false) // this is the default value
   })
 
-  it("load when record is present should return existing record", async () => {
+  it('load when record is present should return existing record', async () => {
     // Arrange
-    jest.spyOn(repo, "findOne").mockResolvedValueOnce(someSettingEntity)
+    jest.spyOn(repo, 'findOne').mockResolvedValueOnce(someSettingEntity)
     // Act
     const res: TimetableSettingsDto = await service.load()
     // Assert
     expect(repo.findOne).toHaveBeenCalledTimes(1)
     expect(res).toBeDefined()
-    expect(res.apiKey).toBe("apik" + constants.hiddenValue)
+    expect(res.apiKey).toBe('apik' + constants.hiddenValue)
   })
 })

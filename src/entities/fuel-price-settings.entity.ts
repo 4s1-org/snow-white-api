@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity("FuelPriceSettings")
+@Entity('FuelPriceSettings')
 export class FuelPriceSettingsEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column()
