@@ -1,25 +1,25 @@
-import React from "react";
-import TrafficWidget from "./TrafficWidget";
-import "./UiArea.css";
-import DateWidget from "./DateWidget";
-import FuelPriceWidget from "./FuelPriceWidget";
-import TimetableWidget from "./TimetableWidget";
-import { IUiSettingsDto } from "@yellowgarbagebag/snow-white-dto";
-import Api from "../../utils/api";
-import WeatherWidget from "./WeatherWidget";
+import React from "react"
+import TrafficWidget from "./TrafficWidget"
+import "./UiArea.css"
+import DateWidget from "./DateWidget"
+import FuelPriceWidget from "./FuelPriceWidget"
+import TimetableWidget from "./TimetableWidget"
+import { IUiSettingsDto } from "@yellowgarbagebag/snow-white-dto"
+import Api from "../../utils/api"
+import WeatherWidget from "./WeatherWidget"
 
 interface IState {
-  dto: IUiSettingsDto;
+  dto: IUiSettingsDto
 }
 
 interface IProps {}
 
 class UiArea extends React.Component<IProps, IState> {
-  private interval?: NodeJS.Timeout;
-  private readonly refreshRate: number = 2 * 60 * 1000; // 2 minutes
+  private interval?: NodeJS.Timeout
+  private readonly refreshRate: number = 2 * 60 * 1000 // 2 minutes
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
         date: {
@@ -43,24 +43,24 @@ class UiArea extends React.Component<IProps, IState> {
           isActive: false,
         },
       },
-    };
+    }
   }
 
   public componentDidMount(): void {
-    this.loadData();
-    this.interval = setInterval(() => this.loadData(), this.refreshRate);
+    this.loadData()
+    this.interval = setInterval(() => this.loadData(), this.refreshRate)
   }
 
   public componentWillUnmount(): void {
     if (this.interval) {
-      clearInterval(this.interval);
+      clearInterval(this.interval)
     }
   }
 
   public render(): JSX.Element {
     // Hacky background color
-    document.body.style.backgroundColor = "black";
-    document.body.style.lineHeight = "unset";
+    document.body.style.backgroundColor = "black"
+    document.body.style.lineHeight = "unset"
 
     return (
       <div>
@@ -92,17 +92,17 @@ class UiArea extends React.Component<IProps, IState> {
           )}
         </div>
       </div>
-    );
+    )
   }
 
   private async loadData(): Promise<void> {
     const dto: IUiSettingsDto = await Api.get<IUiSettingsDto>(
       "/v1/smartmirror/ui/settings"
-    );
+    )
     this.setState({
       dto,
-    });
+    })
   }
 }
 
-export default UiArea;
+export default UiArea

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,17 +6,17 @@ import {
   RouteComponentProps,
   NavLink,
   Redirect,
-} from "react-router-dom";
-import CommonArea from "./common/CommonArea";
-import DateArea from "./date/DateArea";
-import FuelPriceArea from "./fuelPrice/FuelPriceArea";
-import TimetableArea from "./timetable/TimetableArea";
-import TrafficArea from "./traffic/TrafficArea";
-import WeatherArea from "./weather/WeatherArea";
-import "./AdminArea.css";
+} from "react-router-dom"
+import CommonArea from "./common/CommonArea"
+import DateArea from "./date/DateArea"
+import FuelPriceArea from "./fuelPrice/FuelPriceArea"
+import TimetableArea from "./timetable/TimetableArea"
+import TrafficArea from "./traffic/TrafficArea"
+import WeatherArea from "./weather/WeatherArea"
+import "./AdminArea.css"
 
 interface IState {
-  collapsed: boolean;
+  collapsed: boolean
 }
 
 interface IProps extends RouteComponentProps<MatchParams> {}
@@ -25,23 +25,23 @@ interface MatchParams {}
 
 class AdminArea extends React.Component<IProps, IState> {
   constructor(props: IProps) {
-    super(props);
+    super(props)
 
     this.state = {
       collapsed: true,
-    };
+    }
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.toggleNavbar = this.toggleNavbar.bind(this)
   }
 
   public render(): JSX.Element {
-    const collapsed: boolean = this.state.collapsed;
+    const collapsed: boolean = this.state.collapsed
     const classOne: string = collapsed
       ? "collapse navbar-collapse"
-      : "collapse navbar-collapse show";
+      : "collapse navbar-collapse show"
     const classTwo: string = collapsed
       ? "navbar-toggler navbar-toggler-right collapsed"
-      : "navbar-toggler navbar-toggler-right";
+      : "navbar-toggler navbar-toggler-right"
 
     return (
       <div className="adminarea">
@@ -136,14 +136,14 @@ class AdminArea extends React.Component<IProps, IState> {
           </Switch>
         </Router>
       </div>
-    );
+    )
   }
 
   private toggleNavbar(): void {
     this.setState({
       collapsed: !this.state.collapsed,
-    });
+    })
   }
 }
 
-export default AdminArea;
+export default AdminArea

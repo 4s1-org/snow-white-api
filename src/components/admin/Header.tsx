@@ -6,7 +6,7 @@ interface IProps { }
 
 class Header extends React.Component<IProps, IState>  {
   // constructor (props) {
-  //   super(props);
+  //   super(props)
   // }
 
   public render (): JSX.Element {

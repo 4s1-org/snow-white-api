@@ -1,24 +1,24 @@
-import React from "react";
-import Api from "../../../utils/api";
-import Card from "../../common/Card";
+import React from "react"
+import Api from "../../../utils/api"
+import Card from "../../common/Card"
 import {
   ITrafficSettingsDto,
   ICommonLocationDto,
-} from "@yellowgarbagebag/snow-white-dto";
-import Select from "react-select";
+} from "@yellowgarbagebag/snow-white-dto"
+import Select from "react-select"
 
 interface IState {
-  dto: ITrafficSettingsDto;
-  locations: Array<ICommonLocationDto>;
+  dto: ITrafficSettingsDto
+  locations: Array<ICommonLocationDto>
 }
 
 interface IProps {}
 
 class Settings extends React.Component<IProps, IState> {
-  private timer: any = null;
+  private timer: any = null
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
         apiKey: "",
@@ -27,23 +27,23 @@ class Settings extends React.Component<IProps, IState> {
         locationToId: "",
       },
       locations: [],
-    };
+    }
 
-    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this);
-    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this);
+    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this)
+    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this)
     this.onSelectLocationFromChange = this.onSelectLocationFromChange.bind(
       this
-    );
-    this.onSelectLocationToChange = this.onSelectLocationToChange.bind(this);
+    )
+    this.onSelectLocationToChange = this.onSelectLocationToChange.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
     const dto: ITrafficSettingsDto = await Api.get<ITrafficSettingsDto>(
       "/v1/smartmirror/admin/traffic/settings"
-    );
+    )
     const locations: Array<ICommonLocationDto> = await Api.get<
       Array<ICommonLocationDto>
-    >("/v1/smartmirror/admin/common/locations");
+    >("/v1/smartmirror/admin/common/locations")
 
     this.setState({
       dto,
@@ -51,7 +51,7 @@ class Settings extends React.Component<IProps, IState> {
         (a: ICommonLocationDto, b: ICommonLocationDto): number =>
           a.sortNo - b.sortNo
       ),
-    });
+    })
   }
 
   public render(): JSX.Element {
@@ -136,7 +136,7 @@ class Settings extends React.Component<IProps, IState> {
           </div>
         </form>
       </Card>
-    );
+    )
   }
 
   private onSelectLocationFromChange(value: any): void {
@@ -148,7 +148,7 @@ class Settings extends React.Component<IProps, IState> {
         },
       },
       this.saveValues
-    );
+    )
   }
 
   private onSelectLocationToChange(value: any): void {
@@ -160,7 +160,7 @@ class Settings extends React.Component<IProps, IState> {
         },
       },
       this.saveValues
-    );
+    )
   }
 
   private onCheckboxIsActiveChange(
@@ -174,7 +174,7 @@ class Settings extends React.Component<IProps, IState> {
         },
       },
       this.saveValues
-    );
+    )
   }
 
   private onTextApiKeyChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -186,18 +186,18 @@ class Settings extends React.Component<IProps, IState> {
         },
       },
       this.saveValues
-    );
+    )
   }
 
   private saveValues(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
       await Api.put<ITrafficSettingsDto>(
         "/v1/smartmirror/admin/traffic/settings",
         this.state.dto
-      );
-    }, 333);
+      )
+    }, 333)
   }
 }
 
-export default Settings;
+export default Settings

@@ -1,11 +1,11 @@
-import React from "react";
-import Api from "../../../utils/api";
-import { ICommonSettingsDto } from "@yellowgarbagebag/snow-white-dto";
-import Card from "../../common/Card";
+import React from "react"
+import Api from "../../../utils/api"
+import { ICommonSettingsDto } from "@yellowgarbagebag/snow-white-dto"
+import Card from "../../common/Card"
 
 interface IState {
-  morningStart: string;
-  morningEnd: string;
+  morningStart: string
+  morningEnd: string
 }
 
 interface IProps {}
@@ -13,26 +13,26 @@ interface IProps {}
 // ToDo: In "Settings" ohne "Common" umbennen
 class CommonSettings extends React.Component<IProps, IState> {
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       morningEnd: "00:00",
       morningStart: "00:00",
-    };
+    }
 
-    this.onMorningStartChange = this.onMorningStartChange.bind(this);
-    this.onMorningEndChange = this.onMorningEndChange.bind(this);
+    this.onMorningStartChange = this.onMorningStartChange.bind(this)
+    this.onMorningEndChange = this.onMorningEndChange.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
     // ToDo: Laden in eigene Funktion
     const res: ICommonSettingsDto = await Api.get<ICommonSettingsDto>(
       "/v1/smartmirror/admin/common/settings"
-    );
+    )
 
     this.setState({
       morningEnd: this.formatTime(res.morningEnd),
       morningStart: this.formatTime(res.morningStart),
-    });
+    })
   }
 
   public render(): JSX.Element {
@@ -101,26 +101,26 @@ class CommonSettings extends React.Component<IProps, IState> {
           </div>
         </form>
       </Card>
-    );
+    )
   }
 
   private formatTime(value: number): string {
-    const date: Date = new Date();
-    date.setHours(0, 0, 0, 0);
-    date.setSeconds(value);
+    const date: Date = new Date()
+    date.setHours(0, 0, 0, 0)
+    date.setSeconds(value)
 
-    const hours: number = date.getHours();
-    const minutes: number = date.getMinutes();
+    const hours: number = date.getHours()
+    const minutes: number = date.getMinutes()
 
-    const hoursStr: string = hours < 10 ? `0${hours}` : `${hours}`;
-    const minutesStr: string = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const hoursStr: string = hours < 10 ? `0${hours}` : `${hours}`
+    const minutesStr: string = minutes < 10 ? `0${minutes}` : `${minutes}`
 
-    return `${hoursStr}:${minutesStr}`;
+    return `${hoursStr}:${minutesStr}`
   }
 
   private parseTime(value: string): number {
-    const parts: Array<string> = value.split(":");
-    return +parts[0] * 3600 + +parts[1] * 60;
+    const parts: Array<string> = value.split(":")
+    return +parts[0] * 3600 + +parts[1] * 60
   }
 
   private onMorningStartChange(
@@ -131,7 +131,7 @@ class CommonSettings extends React.Component<IProps, IState> {
         morningStart: event.currentTarget.value,
       },
       async () => this.saveValues()
-    );
+    )
   }
 
   private onMorningEndChange(event: React.ChangeEvent<HTMLInputElement>): void {
@@ -140,7 +140,7 @@ class CommonSettings extends React.Component<IProps, IState> {
         morningEnd: event.currentTarget.value,
       },
       async () => this.saveValues()
-    );
+    )
   }
 
   private async saveValues(): Promise<void> {
@@ -148,8 +148,8 @@ class CommonSettings extends React.Component<IProps, IState> {
     await Api.put<ICommonSettingsDto>("/v1/smartmirror/admin/common/settings", {
       morningEnd: this.parseTime(this.state.morningEnd),
       morningStart: this.parseTime(this.state.morningStart),
-    });
+    })
   }
 }
 
-export default CommonSettings;
+export default CommonSettings

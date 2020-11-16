@@ -1,61 +1,61 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Api from "../../../utils/api";
+import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Api from "../../../utils/api"
 import {
   ISortOrderDto,
   ITimetableStationDto,
-} from "@yellowgarbagebag/snow-white-dto";
+} from "@yellowgarbagebag/snow-white-dto"
 import {
   faCaretDown,
   faCaretUp,
   faEdit,
   faTrashAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import Dialog from "../../common/Dialog";
-import Card from "../../common/Card";
-import StationEdit from "./StationEdit";
+} from "@fortawesome/free-solid-svg-icons"
+import Dialog from "../../common/Dialog"
+import Card from "../../common/Card"
+import StationEdit from "./StationEdit"
 
 interface IState {
-  stations: Array<ITimetableStationDto>;
-  showDeleteDialog: boolean;
-  showEditDialog: boolean;
-  selectedStation: ITimetableStationDto | null;
+  stations: Array<ITimetableStationDto>
+  showDeleteDialog: boolean
+  showEditDialog: boolean
+  selectedStation: ITimetableStationDto | null
 }
 
 interface IProps {
-  update: number;
-  onStationChanged: () => void;
+  update: number
+  onStationChanged: () => void
 }
 
 class StationList extends React.Component<IProps, IState> {
-  private timer: any = null;
+  private timer: any = null
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
 
     this.state = {
       selectedStation: null,
       showDeleteDialog: false,
       showEditDialog: false,
       stations: [],
-    };
+    }
 
-    this.onDeleteDialogClose = this.onDeleteDialogClose.bind(this);
-    this.onEditDialogClose = this.onEditDialogClose.bind(this);
+    this.onDeleteDialogClose = this.onDeleteDialogClose.bind(this)
+    this.onEditDialogClose = this.onEditDialogClose.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
-    await this.loadData();
+    await this.loadData()
   }
 
   public async componentDidUpdate(prevProps: IProps): Promise<void> {
     if (prevProps.update !== this.props.update) {
-      await this.loadData();
+      await this.loadData()
     }
   }
 
   public render(): JSX.Element {
-    const { stations }: IState = this.state;
+    const { stations }: IState = this.state
 
     return (
       <div>
@@ -125,41 +125,41 @@ class StationList extends React.Component<IProps, IState> {
           </Dialog>
         )}
       </div>
-    );
+    )
   }
 
   private async onEditDialogClose(name: DialogButtonName): Promise<void> {
     if (this.state.selectedStation && name === "save") {
-      const station: ITimetableStationDto = this.state.selectedStation;
+      const station: ITimetableStationDto = this.state.selectedStation
       await Api.put<void>(
         `/v1/smartmirror/admin/timetable/stations/${station.id}`,
         station
-      );
+      )
 
       const existingLocation: ITimetableStationDto = this.state.stations.find(
         (x: ITimetableStationDto) => x.id === station.id
-      )!;
-      Object.assign(existingLocation, station);
+      )!
+      Object.assign(existingLocation, station)
 
       this.setState({
         selectedStation: null,
         showEditDialog: false,
-      });
+      })
 
-      this.props.onStationChanged();
+      this.props.onStationChanged()
     } else {
       this.setState({
         showEditDialog: false,
-      });
+      })
     }
   }
 
   private async onDeleteDialogClose(name: DialogButtonName): Promise<void> {
     if (this.state.selectedStation && name === "yes") {
-      const station: ITimetableStationDto = this.state.selectedStation;
+      const station: ITimetableStationDto = this.state.selectedStation
       await Api.delete<void>(
         `/v1/smartmirror/admin/timetable/stations/${station.id}`
-      );
+      )
 
       this.setState({
         selectedStation: null,
@@ -167,13 +167,13 @@ class StationList extends React.Component<IProps, IState> {
         stations: this.state.stations.filter(
           (x: ITimetableStationDto) => x.id !== station.id
         ),
-      });
+      })
 
-      this.props.onStationChanged();
+      this.props.onStationChanged()
     } else {
       this.setState({
         showDeleteDialog: false,
-      });
+      })
     }
   }
 
@@ -181,35 +181,35 @@ class StationList extends React.Component<IProps, IState> {
     station: ITimetableStationDto,
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
-    event.preventDefault();
+    event.preventDefault()
 
     this.setState({
       selectedStation: station,
       showDeleteDialog: true,
-    });
+    })
   }
 
   private onBtnEditClick(
     station: ITimetableStationDto,
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
-    event.preventDefault();
+    event.preventDefault()
 
     this.setState({
       selectedStation: Object.assign({}, station),
       showEditDialog: true,
-    });
+    })
   }
 
   private onBtnUpClick(
     station: ITimetableStationDto,
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
-    event.preventDefault();
+    event.preventDefault()
 
-    const idx: number = this.state.stations.indexOf(station);
+    const idx: number = this.state.stations.indexOf(station)
     if (idx > 0) {
-      this.insertAndShift(this.state.stations, idx, idx - 1);
+      this.insertAndShift(this.state.stations, idx, idx - 1)
     }
   }
 
@@ -217,11 +217,11 @@ class StationList extends React.Component<IProps, IState> {
     station: ITimetableStationDto,
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
-    event.preventDefault();
+    event.preventDefault()
 
-    const idx: number = this.state.stations.indexOf(station);
+    const idx: number = this.state.stations.indexOf(station)
     if (idx < this.state.stations.length - 1) {
-      this.insertAndShift(this.state.stations, idx, idx + 1);
+      this.insertAndShift(this.state.stations, idx, idx + 1)
     }
   }
 
@@ -230,42 +230,42 @@ class StationList extends React.Component<IProps, IState> {
     from: number,
     to: number
   ): void {
-    const cutOut: ITimetableStationDto = arr.splice(from, 1)[0];
-    arr.splice(to, 0, cutOut);
+    const cutOut: ITimetableStationDto = arr.splice(from, 1)[0]
+    arr.splice(to, 0, cutOut)
 
     this.setState({
       stations: arr,
-    });
+    })
 
-    const data: Array<ISortOrderDto> = [];
-    for (let i: number = 0; i < arr.length; i++) {
+    const data: Array<ISortOrderDto> = []
+    for (let i = 0; i < arr.length; i++) {
       data.push({
         id: arr[i].id,
         sortNo: i,
-      });
+      })
     }
 
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
       await Api.put<void>(
         "/v1/smartmirror/admin/timetable/stations/reorder",
         data
-      );
-    }, 500);
+      )
+    }, 500)
   }
 
   private async loadData(): Promise<void> {
     const res: Array<ITimetableStationDto> = await Api.get<
       Array<ITimetableStationDto>
-    >("/v1/smartmirror/admin/timetable/stations");
+    >("/v1/smartmirror/admin/timetable/stations")
 
     this.setState({
       stations: res.sort(
         (a: ITimetableStationDto, b: ITimetableStationDto) =>
           a.sortNo - b.sortNo
       ),
-    });
+    })
   }
 }
 
-export default StationList;
+export default StationList

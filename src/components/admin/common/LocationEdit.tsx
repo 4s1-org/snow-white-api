@@ -1,25 +1,25 @@
-import React from "react";
-import { ICommonLocationDto } from "@yellowgarbagebag/snow-white-dto";
+import React from "react"
+import { ICommonLocationDto } from "@yellowgarbagebag/snow-white-dto"
 
 interface IState {
-  name: string;
-  nameOrigin: string;
+  name: string
+  nameOrigin: string
 }
 
 interface IProps {
-  location: ICommonLocationDto;
+  location: ICommonLocationDto
 }
 
 class LocationEdit extends React.Component<IProps, IState> {
   constructor(props: IProps) {
-    super(props);
+    super(props)
 
     this.state = {
       name: this.props.location.name,
       nameOrigin: this.props.location.nameOrigin,
-    };
+    }
 
-    this.onNameChange = this.onNameChange.bind(this);
+    this.onNameChange = this.onNameChange.bind(this)
   }
 
   public render(): JSX.Element {
@@ -48,7 +48,7 @@ class LocationEdit extends React.Component<IProps, IState> {
           </div>
         </div>
       </form>
-    );
+    )
   }
 
   private async onNameChange(
@@ -56,9 +56,9 @@ class LocationEdit extends React.Component<IProps, IState> {
   ): Promise<void> {
     this.setState({
       name: event.currentTarget.value,
-    });
-    this.props.location.name = event.currentTarget.value;
+    })
+    this.props.location.name = event.currentTarget.value
   }
 }
 
-export default LocationEdit;
+export default LocationEdit

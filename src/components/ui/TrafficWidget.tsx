@@ -1,40 +1,40 @@
-import React from "react";
-import { ICarRoutesDto, ICarRouteDto } from "@yellowgarbagebag/snow-white-dto";
-import Api from "../../utils/api";
-import moment from "moment";
-import Widget from "../common/Widget";
+import React from "react"
+import { ICarRoutesDto, ICarRouteDto } from "@yellowgarbagebag/snow-white-dto"
+import Api from "../../utils/api"
+import moment from "moment"
+import Widget from "../common/Widget"
 
 interface IState {
-  dto: ICarRoutesDto;
-  lastUpdate: string;
+  dto: ICarRoutesDto
+  lastUpdate: string
 }
 
 interface IProps {
-  refreshRate: number;
+  refreshRate: number
 }
 
 class TrafficWidget extends React.Component<IProps, IState> {
-  private interval?: NodeJS.Timeout;
+  private interval?: NodeJS.Timeout
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
         routes: [],
         text: "",
       },
       lastUpdate: "",
-    };
+    }
   }
 
   public componentDidMount(): void {
-    this.loadData();
-    this.interval = setInterval(() => this.loadData(), this.props.refreshRate);
+    this.loadData()
+    this.interval = setInterval(() => this.loadData(), this.props.refreshRate)
   }
 
   public componentWillUnmount(): void {
     if (this.interval) {
-      clearInterval(this.interval);
+      clearInterval(this.interval)
     }
   }
 
@@ -71,32 +71,32 @@ class TrafficWidget extends React.Component<IProps, IState> {
           </tbody>
         </table>
       </Widget>
-    );
+    )
   }
 
   private formatTime(value: number): string {
-    const date: Date = new Date();
-    date.setHours(0, 0, 0, 0);
-    date.setSeconds(value);
+    const date: Date = new Date()
+    date.setHours(0, 0, 0, 0)
+    date.setSeconds(value)
 
-    const hours: number = date.getHours();
-    const minutes: number = date.getMinutes();
+    const hours: number = date.getHours()
+    const minutes: number = date.getMinutes()
 
-    const hoursStr: string = hours < 10 ? `0${hours}` : `${hours}`;
-    const minutesStr: string = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    const hoursStr: string = hours < 10 ? `0${hours}` : `${hours}`
+    const minutesStr: string = minutes < 10 ? `0${minutes}` : `${minutes}`
 
-    return `${hoursStr}:${minutesStr}`;
+    return `${hoursStr}:${minutesStr}`
   }
 
   private async loadData(): Promise<void> {
     const dto: ICarRoutesDto = await Api.get<ICarRoutesDto>(
       "/v1/smartmirror/ui/traffic"
-    );
+    )
     this.setState({
       dto,
       lastUpdate: moment().format("HH:mm:ss"),
-    });
+    })
   }
 }
 
-export default TrafficWidget;
+export default TrafficWidget

@@ -1,40 +1,40 @@
-import React from "react";
-import { IFuelPricePricesDto } from "@yellowgarbagebag/snow-white-dto";
-import Api from "../../utils/api";
-import moment from "moment";
-import Widget from "../common/Widget";
+import React from "react"
+import { IFuelPricePricesDto } from "@yellowgarbagebag/snow-white-dto"
+import Api from "../../utils/api"
+import moment from "moment"
+import Widget from "../common/Widget"
 
 interface IState {
-  dto: Array<IFuelPricePricesDto>;
-  lastUpdate: string;
+  dto: Array<IFuelPricePricesDto>
+  lastUpdate: string
 }
 
 interface IProps {
-  refreshRate: number;
-  showE5: boolean;
-  showE10: boolean;
-  showDiesel: boolean;
+  refreshRate: number
+  showE5: boolean
+  showE10: boolean
+  showDiesel: boolean
 }
 
 class FuelPriceWidget extends React.Component<IProps, IState> {
-  private interval?: NodeJS.Timeout;
+  private interval?: NodeJS.Timeout
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: [],
       lastUpdate: "",
-    };
+    }
   }
 
   public componentDidMount(): void {
-    this.loadData();
-    this.interval = setInterval(() => this.loadData(), this.props.refreshRate);
+    this.loadData()
+    this.interval = setInterval(() => this.loadData(), this.props.refreshRate)
   }
 
   public componentWillUnmount(): void {
     if (this.interval) {
-      clearInterval(this.interval);
+      clearInterval(this.interval)
     }
   }
 
@@ -92,38 +92,38 @@ class FuelPriceWidget extends React.Component<IProps, IState> {
           </tbody>
         </table>
       </Widget>
-    );
+    )
   }
 
   private formatPrice(price: number | false): JSX.Element {
     if (!price) {
-      return <div>-,---</div>;
+      return <div>-,---</div>
     }
 
-    const priceStr: string = price.toString().replace(".", ",");
-    const part0: string = priceStr.substr(0, priceStr.length - 1);
-    const part1: string = priceStr[priceStr.length - 1];
+    const priceStr: string = price.toString().replace(".", ",")
+    const part0: string = priceStr.substr(0, priceStr.length - 1)
+    const part1: string = priceStr[priceStr.length - 1]
 
     return (
       <div>
         {part0}
         <sup>{part1}</sup>
       </div>
-    );
+    )
   }
 
   private async loadData(): Promise<void> {
     const dto: Array<IFuelPricePricesDto> = await Api.get<
       Array<IFuelPricePricesDto>
-    >("/v1/smartmirror/ui/fuelprice");
+    >("/v1/smartmirror/ui/fuelprice")
     this.setState({
       dto: dto.sort(
         (a: IFuelPricePricesDto, b: IFuelPricePricesDto): number =>
           a.sortNo - b.sortNo
       ),
       lastUpdate: moment().format("HH:mm:ss"),
-    });
+    })
   }
 }
 
-export default FuelPriceWidget;
+export default FuelPriceWidget

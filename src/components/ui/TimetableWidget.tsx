@@ -1,41 +1,41 @@
-import React from "react";
-import { IRmvTripsDto, IRmvTripDto } from "@yellowgarbagebag/snow-white-dto";
-import Api from "../../utils/api";
-import moment from "moment";
-import Widget from "../common/Widget";
+import React from "react"
+import { IRmvTripsDto, IRmvTripDto } from "@yellowgarbagebag/snow-white-dto"
+import Api from "../../utils/api"
+import moment from "moment"
+import Widget from "../common/Widget"
 
 interface IState {
-  dto: IRmvTripsDto;
-  lastUpdate: string;
+  dto: IRmvTripsDto
+  lastUpdate: string
 }
 
 interface IProps {
-  refreshRate: number;
+  refreshRate: number
 }
 
 class TimetableWidget extends React.Component<IProps, IState> {
-  private interval?: NodeJS.Timeout;
-  private readonly okDelaySec: number = 180;
+  private interval?: NodeJS.Timeout
+  private readonly okDelaySec: number = 180
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
         text: "",
         trips: [],
       },
       lastUpdate: "",
-    };
+    }
   }
 
   public componentDidMount(): void {
-    this.loadData();
-    this.interval = setInterval(() => this.loadData(), this.props.refreshRate);
+    this.loadData()
+    this.interval = setInterval(() => this.loadData(), this.props.refreshRate)
   }
 
   public componentWillUnmount(): void {
     if (this.interval) {
-      clearInterval(this.interval);
+      clearInterval(this.interval)
     }
   }
 
@@ -119,22 +119,22 @@ class TimetableWidget extends React.Component<IProps, IState> {
           </tbody>
         </table>
       </Widget>
-    );
+    )
   }
 
   private formatTime(value: number): string {
-    return moment.utc(value * 1000).format("HH:mm");
+    return moment.utc(value * 1000).format("HH:mm")
   }
 
   private async loadData(): Promise<void> {
     const dto: IRmvTripsDto = await Api.get<IRmvTripsDto>(
       "/v1/smartmirror/ui/timetable"
-    );
+    )
     this.setState({
       dto,
       lastUpdate: moment().format("HH:mm:ss"),
-    });
+    })
   }
 }
 
-export default TimetableWidget;
+export default TimetableWidget

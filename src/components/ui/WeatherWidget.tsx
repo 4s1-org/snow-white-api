@@ -1,43 +1,43 @@
-import React from "react";
+import React from "react"
 import {
   IWeatherDatasDto,
   IWeatherDataDto,
-} from "@yellowgarbagebag/snow-white-dto";
-import Api from "../../utils/api";
-import moment from "moment";
-import Widget from "../common/Widget";
+} from "@yellowgarbagebag/snow-white-dto"
+import Api from "../../utils/api"
+import moment from "moment"
+import Widget from "../common/Widget"
 
 interface IState {
-  dto: IWeatherDatasDto;
-  lastUpdate: string;
+  dto: IWeatherDatasDto
+  lastUpdate: string
 }
 
 interface IProps {
-  refreshRate: number;
+  refreshRate: number
 }
 
 class WeatherWidget extends React.Component<IProps, IState> {
-  private interval?: NodeJS.Timeout;
+  private interval?: NodeJS.Timeout
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
         infos: [],
         name: "",
       },
       lastUpdate: "",
-    };
+    }
   }
 
   public componentDidMount(): void {
-    this.loadData();
-    this.interval = setInterval(() => this.loadData(), this.props.refreshRate);
+    this.loadData()
+    this.interval = setInterval(() => this.loadData(), this.props.refreshRate)
   }
 
   public componentWillUnmount(): void {
     if (this.interval) {
-      clearInterval(this.interval);
+      clearInterval(this.interval)
     }
   }
 
@@ -59,8 +59,8 @@ class WeatherWidget extends React.Component<IProps, IState> {
                 <br />
                 <img src={`weathericons/${info.icon}.png`} alt="" />
                 <br />
-                {Math.round(info.temperature)}&deg; /{" "}
-                {Math.round(info.temperatureFeelsLike)}&deg;
+                {Math.round(info.temperature)}&deg /{" "}
+                {Math.round(info.temperatureFeelsLike)}&deg
                 <br />
                 {info.conditionText}
               </div>
@@ -68,18 +68,18 @@ class WeatherWidget extends React.Component<IProps, IState> {
           </div>
         </div>
       </Widget>
-    );
+    )
   }
 
   private async loadData(): Promise<void> {
     const dto: IWeatherDatasDto = await Api.get<IWeatherDatasDto>(
       "/v1/smartmirror/ui/weather"
-    );
+    )
     this.setState({
       dto,
       lastUpdate: moment().format("HH:mm:ss"),
-    });
+    })
   }
 }
 
-export default WeatherWidget;
+export default WeatherWidget

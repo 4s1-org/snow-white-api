@@ -1,25 +1,25 @@
-import React from "react";
-import { IFuelPriceStationDto } from "@yellowgarbagebag/snow-white-dto";
+import React from "react"
+import { IFuelPriceStationDto } from "@yellowgarbagebag/snow-white-dto"
 
 interface IState {
-  name: string;
-  nameOrigin: string;
+  name: string
+  nameOrigin: string
 }
 
 interface IProps {
-  station: IFuelPriceStationDto;
+  station: IFuelPriceStationDto
 }
 
 class FuelPriceStationEdit extends React.Component<IProps, IState> {
   constructor(props: IProps) {
-    super(props);
+    super(props)
 
     this.state = {
       name: this.props.station.name,
       nameOrigin: this.props.station.nameOrigin,
-    };
+    }
 
-    this.onNameChange = this.onNameChange.bind(this);
+    this.onNameChange = this.onNameChange.bind(this)
   }
 
   public render(): JSX.Element {
@@ -48,15 +48,15 @@ class FuelPriceStationEdit extends React.Component<IProps, IState> {
           </div>
         </div>
       </form>
-    );
+    )
   }
 
   private onNameChange(event: React.ChangeEvent<HTMLInputElement>): void {
     this.setState({
       name: event.currentTarget.value,
-    });
-    this.props.station.name = event.currentTarget.value;
+    })
+    this.props.station.name = event.currentTarget.value
   }
 }
 
-export default FuelPriceStationEdit;
+export default FuelPriceStationEdit
