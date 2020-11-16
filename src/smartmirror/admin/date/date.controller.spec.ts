@@ -1,12 +1,12 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { DateController } from "./date.controller"
-import { DateSettingsService } from "./settings/date-settings.service"
-import { DateSettingsEntity } from "../../../entities/date-settings.entity"
-import { getRepositoryToken } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { DateSettingsDto } from "../../../dataTransferObjects/date-settings.dto"
+import { Test, TestingModule } from '@nestjs/testing'
+import { DateController } from './date.controller'
+import { DateSettingsService } from './settings/date-settings.service'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity'
+import { getRepositoryToken } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { DateSettingsDto } from '../../../dataTransferObjects/date-settings.dto'
 
-describe("Date Controller", () => {
+describe('Date Controller', () => {
   let controller: DateController
   let settingsService: DateSettingsService
 
@@ -26,21 +26,19 @@ describe("Date Controller", () => {
     settingsService = module.get<DateSettingsService>(DateSettingsService)
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(controller).toBeDefined()
   })
 
-  describe("Settings", () => {
-    it("GET /settings", async () => {
+  describe('Settings', () => {
+    it('GET /settings', async () => {
       // Arrange
       const data: DateSettingsDto = {
         fontSize: 12,
         isActive: true,
-        pattern: "bar",
+        pattern: 'bar',
       }
-      jest
-        .spyOn(settingsService, "load")
-        .mockImplementation(() => Promise.resolve(data))
+      jest.spyOn(settingsService, 'load').mockImplementation(() => Promise.resolve(data))
       // Act
       const res: DateSettingsDto = await controller.loadSettings()
       // Assert
@@ -48,16 +46,14 @@ describe("Date Controller", () => {
       expect(res).toBeDefined()
     })
 
-    it("PUT /settings", async () => {
+    it('PUT /settings', async () => {
       // Arrange
-      jest
-        .spyOn(settingsService, "save")
-        .mockImplementation(() => Promise.resolve())
+      jest.spyOn(settingsService, 'save').mockImplementation(() => Promise.resolve())
       // Act
       await controller.saveSettings({
         fontSize: 12,
         isActive: true,
-        pattern: "bar",
+        pattern: 'bar',
       })
       // Assert
       expect(settingsService.save).toHaveBeenCalledTimes(1)

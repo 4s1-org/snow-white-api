@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { TimetrackingController } from "./timetracking.controller"
-import { TimetrackingService } from "./timetracking.service"
-import { ConfigModule } from "../config/config.module"
+import { Test, TestingModule } from '@nestjs/testing'
+import { TimetrackingController } from './timetracking.controller'
+import { TimetrackingService } from './timetracking.service'
+import { ConfigModule } from '../config/config.module'
 
-describe("Timetracking Controller", () => {
+describe('Timetracking Controller', () => {
   let controller: TimetrackingController
 
   beforeEach(async () => {
@@ -16,11 +16,11 @@ describe("Timetracking Controller", () => {
     controller = module.get<TimetrackingController>(TimetrackingController)
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(controller).toBeDefined()
   })
 
-  it("book time", () => {
+  it('book time', () => {
     // Arrange
     // Act
     const res: string = controller.bookTime()

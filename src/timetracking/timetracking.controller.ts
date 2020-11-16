@@ -1,7 +1,7 @@
-import { Controller, Get } from "@nestjs/common"
-import { TimetrackingService } from "./timetracking.service"
+import { Controller, Get } from '@nestjs/common'
+import { TimetrackingService } from './timetracking.service'
 
-@Controller("timetracking")
+@Controller('timetracking')
 export class TimetrackingController {
   constructor(private readonly timetrackingService: TimetrackingService) {}
 

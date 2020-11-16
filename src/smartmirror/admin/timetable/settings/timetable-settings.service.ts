@@ -1,11 +1,11 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { Repository } from "typeorm"
-import { InjectRepository } from "@nestjs/typeorm"
-import { v4 as uuid } from "uuid"
-import { ConstantsService } from "../../../../global/constants/constants.service"
-import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity"
-import { TimetableSettingsEntity } from "../../../../entities/timetable-settings.entity"
-import { TimetableSettingsDto } from "../../../../dataTransferObjects/timetable-settings.dto"
+import { Injectable, Logger } from '@nestjs/common'
+import { Repository } from 'typeorm'
+import { InjectRepository } from '@nestjs/typeorm'
+import { v4 as uuid } from 'uuid'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
+import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity'
+import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto'
 
 @Injectable()
 export class TimetableSettingsService {
@@ -13,9 +13,7 @@ export class TimetableSettingsService {
 
   constructor(
     @InjectRepository(TimetableSettingsEntity)
-    private readonly timetableSettingEntityRepository: Repository<
-      TimetableSettingsEntity
-    >,
+    private readonly timetableSettingEntityRepository: Repository<TimetableSettingsEntity>,
     private readonly constants: ConstantsService,
   ) {}
 
@@ -53,10 +51,7 @@ export class TimetableSettingsService {
     const record: TimetableSettingsEntity = await this.getRecord()
 
     const result: TimetableSettingsDto = {
-      apiKey:
-        record.apiKey.length > 0
-          ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}`
-          : "",
+      apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       isActive: record.isActive,
       lines: {
         showBus: record.showBus,
@@ -76,18 +71,16 @@ export class TimetableSettingsService {
   }
 
   public async getRecord(): Promise<TimetableSettingsEntity> {
-    let record: TimetableSettingsEntity = await this.timetableSettingEntityRepository.findOne(
-      {
-        relations: ["timetableStationFrom", "timetableStationTo"],
-      },
-    )
+    let record: TimetableSettingsEntity = await this.timetableSettingEntityRepository.findOne({
+      relations: ['timetableStationFrom', 'timetableStationTo'],
+    })
 
     // If settings not present, create it
     if (!record) {
-      this.logger.log("Settings not present, create a new record")
+      this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: "",
+        apiKey: '',
         id: uuid(),
         isActive: false,
         maxChanges: 3,

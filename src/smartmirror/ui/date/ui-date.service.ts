@@ -1,6 +1,6 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { DateSettingsService } from "../../admin/date/settings/date-settings.service"
-import { DateSettingsEntity } from "../../../entities/date-settings.entity"
+import { Injectable, Logger } from '@nestjs/common'
+import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity'
 
 @Injectable()
 export class UiDateService {
@@ -13,9 +13,7 @@ export class UiDateService {
     if (settingsEntity.isActive && settingsEntity.pattern) {
       return settingsEntity.pattern
     } else {
-      throw new Error(
-        "Date pattern could not be loaded due to incomplete settings.",
-      )
+      throw new Error('Date pattern could not be loaded due to incomplete settings.')
     }
   }
 }

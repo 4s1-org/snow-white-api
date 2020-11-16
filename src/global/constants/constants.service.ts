@@ -1,8 +1,8 @@
-import { Injectable } from "@nestjs/common"
+import { Injectable } from '@nestjs/common'
 
 @Injectable()
 export class ConstantsService {
-  public readonly hiddenValue: "**********" = "**********"
+  public readonly hiddenValue: '**********' = '**********'
 
   public getCurrentTimestamp(): number {
     const date: Date = new Date()

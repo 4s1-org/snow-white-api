@@ -1,18 +1,18 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { UiController } from "./ui.controller"
-import { UiFuelPriceService } from "./fuel-price/ui-fuel-price.service"
-import { UiDateService } from "./date/ui-date.service"
-import { UiTimetableService } from "./timetable/ui-timetable.service"
-import { UiTrafficService } from "./traffic/ui-traffic.service"
-import { UiWeatherService } from "./weather/ui-weather.service"
-import { CarRoutesDto } from "../../dataTransferObjects/car-routes.dto"
-import { RmvTripsDto } from "../../dataTransferObjects/rmv-trips.dto"
-import { FuelPricePricesDto } from "../../dataTransferObjects/fuel-price-prices.dto"
-import { UiSettingsService } from "./settings/ui-settings.service"
-import { UiSettingsDto } from "../../dataTransferObjects/ui-settings.dto"
-import { WeatherDatasDto } from "../../dataTransferObjects/weather-datas.dto"
+import { Test, TestingModule } from '@nestjs/testing'
+import { UiController } from './ui.controller'
+import { UiFuelPriceService } from './fuel-price/ui-fuel-price.service'
+import { UiDateService } from './date/ui-date.service'
+import { UiTimetableService } from './timetable/ui-timetable.service'
+import { UiTrafficService } from './traffic/ui-traffic.service'
+import { UiWeatherService } from './weather/ui-weather.service'
+import { CarRoutesDto } from '../../dataTransferObjects/car-routes.dto'
+import { RmvTripsDto } from '../../dataTransferObjects/rmv-trips.dto'
+import { FuelPricePricesDto } from '../../dataTransferObjects/fuel-price-prices.dto'
+import { UiSettingsService } from './settings/ui-settings.service'
+import { UiSettingsDto } from '../../dataTransferObjects/ui-settings.dto'
+import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto'
 
-describe("Ui Controller", () => {
+describe('Ui Controller', () => {
   let controller: UiController
   let dateService: UiDateService
   let fuelPriceService: UiFuelPriceService
@@ -77,23 +77,23 @@ describe("Ui Controller", () => {
     jest.clearAllMocks()
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(controller).toBeDefined()
   })
 
-  it("GET /fuelprice", async () => {
+  it('GET /fuelprice', async () => {
     // Arrange
     const data: Array<FuelPricePricesDto> = [
       {
         diesel: 1.109,
         e10: 1.319,
         e5: 1.339,
-        name: "foo",
+        name: 'foo',
         open: true,
         sortNo: 42,
       },
     ]
-    jest.spyOn(fuelPriceService, "getPrices").mockResolvedValueOnce(data)
+    jest.spyOn(fuelPriceService, 'getPrices').mockResolvedValueOnce(data)
     // Act
     const res: Array<FuelPricePricesDto> = await controller.getFuelPrices()
     // Assert
@@ -102,10 +102,10 @@ describe("Ui Controller", () => {
     expect(res.length).toBe(1)
   })
 
-  it("GET /date", async () => {
+  it('GET /date', async () => {
     // Arrange
-    const data = "dd.MM.yyy"
-    jest.spyOn(dateService, "getPattern").mockResolvedValueOnce(data)
+    const data = 'dd.MM.yyy'
+    jest.spyOn(dateService, 'getPattern').mockResolvedValueOnce(data)
     // Act
     const res: string = await controller.loadDate()
     // Assert
@@ -114,26 +114,26 @@ describe("Ui Controller", () => {
     expect(res).toBe(data)
   })
 
-  it("GET /timetable", async () => {
+  it('GET /timetable', async () => {
     // Arrange
     const data: RmvTripsDto = {
-      text: "foobar",
+      text: 'foobar',
       trips: [
         {
           arrivalTimePlanned: 1,
           arrivalTimeReal: 1,
           durationPlanned: 1,
           durationReal: 1,
-          lines: ["RB"],
+          lines: ['RB'],
           startTimePlanned: 1,
           startTimeReal: 1,
-          trackPlanned: "1",
-          trackReal: "1",
-          tripId: "bar",
+          trackPlanned: '1',
+          trackReal: '1',
+          tripId: 'bar',
         },
       ],
     }
-    jest.spyOn(timetableService, "getTimetable").mockResolvedValueOnce(data)
+    jest.spyOn(timetableService, 'getTimetable').mockResolvedValueOnce(data)
     // Act
     const res: RmvTripsDto = await controller.loadTimetable()
     // Assert
@@ -142,21 +142,21 @@ describe("Ui Controller", () => {
     expect(res.trips.length).toBe(1)
   })
 
-  it("GET /weather", async () => {
+  it('GET /weather', async () => {
     // Arrange
     const data: WeatherDatasDto = {
       infos: [
         {
-          conditionText: "foo",
-          icon: "foo",
+          conditionText: 'foo',
+          icon: 'foo',
           temperature: 12.3,
           temperatureFeelsLike: 24.3,
           timestamp: 1523254125,
         },
       ],
-      name: "foo",
+      name: 'foo',
     }
-    jest.spyOn(weatherService, "getWeather").mockResolvedValueOnce(data)
+    jest.spyOn(weatherService, 'getWeather').mockResolvedValueOnce(data)
     // Act
     const res: WeatherDatasDto = await controller.loadWeather()
     // Assert
@@ -166,20 +166,20 @@ describe("Ui Controller", () => {
     expect(res.infos[0].temperature).toBe(12.3)
   })
 
-  it("GET /traffic", async () => {
+  it('GET /traffic', async () => {
     // Arrange
     const data: CarRoutesDto = {
       routes: [
         {
           distance: 99,
           expectedTime: 234,
-          streetTypes: ["A5", "B49"],
-          text: "Foo",
+          streetTypes: ['A5', 'B49'],
+          text: 'Foo',
         },
       ],
-      text: "foobar",
+      text: 'foobar',
     }
-    jest.spyOn(trafficService, "getRoute").mockResolvedValueOnce(data)
+    jest.spyOn(trafficService, 'getRoute').mockResolvedValueOnce(data)
     // Act
     const res: CarRoutesDto = await controller.loadTraffic()
     // Assert
@@ -188,7 +188,7 @@ describe("Ui Controller", () => {
     expect(res.routes.length).toBe(1)
   })
 
-  it("GET /settings", async () => {
+  it('GET /settings', async () => {
     // Arrange
     const data: UiSettingsDto = {
       date: {
@@ -212,7 +212,7 @@ describe("Ui Controller", () => {
         isActive: true,
       },
     }
-    jest.spyOn(settingsService, "load").mockResolvedValueOnce(data)
+    jest.spyOn(settingsService, 'load').mockResolvedValueOnce(data)
     // Act
     const res: UiSettingsDto = await controller.loadSettings()
     // Assert

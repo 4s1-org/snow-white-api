@@ -1,13 +1,13 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { Repository } from "typeorm"
-import { InjectRepository } from "@nestjs/typeorm"
-import { FuelPriceStationEntity } from "../../../../entities/fuel-price-station.entity"
-import { TankerkoenigService } from "../../../../remote-api-call/tankerkoenig/tankerkoenig.service"
-import { TankerkoenigStationDto } from "../../../../dataTransferObjects/tankerkoenig-station.dto"
-import { CoordinatesDto } from "../../../../dataTransferObjects/coordinates.dto"
-import { v4 as uuid } from "uuid"
-import { FuelPriceStationDto } from "../../../../dataTransferObjects/fuel-price-station.dto"
-import { SortOrderDto } from "../../../../dataTransferObjects/sort-order.dto"
+import { Injectable, Logger } from '@nestjs/common'
+import { Repository } from 'typeorm'
+import { InjectRepository } from '@nestjs/typeorm'
+import { FuelPriceStationEntity } from '../../../../entities/fuel-price-station.entity'
+import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service'
+import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto'
+import { CoordinatesDto } from '../../../../dataTransferObjects/coordinates.dto'
+import { v4 as uuid } from 'uuid'
+import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 
 @Injectable()
 export class FuelPriceStationsService {
@@ -16,27 +16,16 @@ export class FuelPriceStationsService {
   constructor(
     private readonly tankerkoenig: TankerkoenigService,
     @InjectRepository(FuelPriceStationEntity)
-    private readonly fuelPriceStationEntityRepository: Repository<
-      FuelPriceStationEntity
-    >,
+    private readonly fuelPriceStationEntityRepository: Repository<FuelPriceStationEntity>,
   ) {}
 
   public findAll(): Promise<Array<FuelPriceStationEntity>> {
     return this.fuelPriceStationEntityRepository.find()
   }
 
-  public search(
-    apikey: string,
-    latlon: CoordinatesDto,
-  ): Promise<Array<TankerkoenigStationDto>> {
-    this.logger.log(
-      `Search for Station ${latlon.latitude}, ${latlon.longitude}`,
-    )
-    return this.tankerkoenig.searchStations(
-      apikey,
-      latlon.latitude,
-      latlon.longitude,
-    )
+  public search(apikey: string, latlon: CoordinatesDto): Promise<Array<TankerkoenigStationDto>> {
+    this.logger.log(`Search for Station ${latlon.latitude}, ${latlon.longitude}`)
+    return this.tankerkoenig.searchStations(apikey, latlon.latitude, latlon.longitude)
   }
 
   public async add(station: TankerkoenigStationDto): Promise<void> {
@@ -62,9 +51,7 @@ export class FuelPriceStationsService {
     await this.fuelPriceStationEntityRepository.delete(id)
   }
 
-  public async reorderGasStations(
-    sortOrders: Array<SortOrderDto>,
-  ): Promise<void> {
+  public async reorderGasStations(sortOrders: Array<SortOrderDto>): Promise<void> {
     this.logger.log(`Reorder ${sortOrders.length} gas stations`)
     for (const sortOrder of sortOrders) {
       await this.fuelPriceStationEntityRepository.update(sortOrder.id, {
@@ -79,9 +66,7 @@ export class FuelPriceStationsService {
   }
 
   public async loadSingle(id: string): Promise<FuelPriceStationDto | null> {
-    const res: FuelPriceStationEntity = await this.fuelPriceStationEntityRepository.findOne(
-      id,
-    )
+    const res: FuelPriceStationEntity = await this.fuelPriceStationEntityRepository.findOne(id)
     if (!res) {
       return null
     }

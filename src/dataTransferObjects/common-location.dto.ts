@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { ICommonLocationDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ICommonLocationDto } from '@yellowgarbagebag/snow-white-dto'
 
 export class CommonLocationDto implements ICommonLocationDto {
   @IsNotEmpty()

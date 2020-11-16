@@ -1,13 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity("CommonSettings")
+@Entity('CommonSettings')
 export class CommonSettingsEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
-  @Column("int")
+  @Column('int')
   public morningStart: number
 
-  @Column("int")
+  @Column('int')
   public morningEnd: number
 }

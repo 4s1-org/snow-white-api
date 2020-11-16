@@ -1,13 +1,13 @@
-import { IFuelPriceSettingsDto } from "@yellowgarbagebag/rest-api-dto"
-import { ApiProperty } from "@nestjs/swagger"
-import { IsNotEmpty } from "class-validator"
+import { IFuelPriceSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import { ApiProperty } from '@nestjs/swagger'
+import { IsNotEmpty } from 'class-validator'
 
 export class FuelPriceSettingsDto implements IFuelPriceSettingsDto {
   @IsNotEmpty()
   @ApiProperty({ example: true })
   public isActive: boolean
 
-  @ApiProperty({ example: "Lorem Ipsum" })
+  @ApiProperty({ example: 'Lorem Ipsum' })
   public apiKey: string
 
   @IsNotEmpty()

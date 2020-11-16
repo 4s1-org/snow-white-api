@@ -1,11 +1,11 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { HttpModule } from "@nestjs/common"
-import { OpenStreetMapService } from "./open-street-map.service"
-import { IOpenStreetMapSearchRemoteResponse } from "./open-street-map-search.remote-response"
-import { RequestService } from "../request/request.service"
-import { OpenStreetMapLocationDto } from "../../dataTransferObjects/open-street-map-location.dto"
+import { Test, TestingModule } from '@nestjs/testing'
+import { HttpModule } from '@nestjs/common'
+import { OpenStreetMapService } from './open-street-map.service'
+import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response'
+import { RequestService } from '../request/request.service'
+import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto'
 
-describe("OpenStreetMapService", () => {
+describe('OpenStreetMapService', () => {
   let service: OpenStreetMapService
   let requestService: RequestService
 
@@ -30,105 +30,93 @@ describe("OpenStreetMapService", () => {
     jest.clearAllMocks()
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 
-  it("search by text", async () => {
+  it('search by text', async () => {
     // Arrange
     const cities: Array<IOpenStreetMapSearchRemoteResponse> = [
       {
         boundingbox: [],
-        class: "",
-        display_name: "Some City",
-        icon: "",
+        class: '',
+        display_name: 'Some City',
+        icon: '',
         importance: 0.333,
-        lat: "42",
-        licence: "",
-        lon: "33",
-        osm_type: "",
+        lat: '42',
+        licence: '',
+        lon: '33',
+        osm_type: '',
         place_id: 1,
-        type: "",
+        type: '',
       },
     ]
-    jest
-      .spyOn(requestService, "get")
-      .mockImplementation(() => Promise.resolve(cities))
+    jest.spyOn(requestService, 'get').mockImplementation(() => Promise.resolve(cities))
     // Act
-    const res: Array<OpenStreetMapLocationDto> = await service.searchByText(
-      "Hauptstrasse Frankfurt",
-    )
+    const res: Array<OpenStreetMapLocationDto> = await service.searchByText('Hauptstrasse Frankfurt')
     // Assert
     expect(requestService.get).toHaveBeenCalledTimes(1)
     expect(res.length).toBe(1)
     const first: OpenStreetMapLocationDto = res[0]
-    expect(first.name).toBe("Some City")
+    expect(first.name).toBe('Some City')
     expect(first.latitude).toBe(42)
     expect(first.longitude).toBe(33)
   })
 
-  it("search by postalcode", async () => {
+  it('search by postalcode', async () => {
     // Arrange
     const cities: Array<IOpenStreetMapSearchRemoteResponse> = [
       {
         boundingbox: [],
-        class: "",
-        display_name: "Some City",
-        icon: "",
+        class: '',
+        display_name: 'Some City',
+        icon: '',
         importance: 0.333,
-        lat: "42",
-        licence: "",
-        lon: "33",
-        osm_type: "",
+        lat: '42',
+        licence: '',
+        lon: '33',
+        osm_type: '',
         place_id: 1,
-        type: "",
+        type: '',
       },
     ]
-    jest
-      .spyOn(requestService, "get")
-      .mockImplementation(() => Promise.resolve(cities))
+    jest.spyOn(requestService, 'get').mockImplementation(() => Promise.resolve(cities))
     // Act
-    const res: Array<OpenStreetMapLocationDto> = await service.searchByPostalcode(
-      "12345",
-    )
+    const res: Array<OpenStreetMapLocationDto> = await service.searchByPostalcode('12345')
     // Assert
     expect(requestService.get).toHaveBeenCalledTimes(1)
     expect(res.length).toBe(1)
     const first: OpenStreetMapLocationDto = res[0]
-    expect(first.name).toBe("Some City")
+    expect(first.name).toBe('Some City')
     expect(first.latitude).toBe(42)
     expect(first.longitude).toBe(33)
   })
 
-  it("search by text", async () => {
+  it('search by text', async () => {
     // Arrange
     const cities: Array<IOpenStreetMapSearchRemoteResponse> = [
       {
         boundingbox: [],
-        class: "",
-        display_name: "Some City",
-        icon: "",
+        class: '',
+        display_name: 'Some City',
+        icon: '',
         importance: 0.333,
-        lat: "42",
-        licence: "",
-        lon: "33",
-        osm_type: "",
+        lat: '42',
+        licence: '',
+        lon: '33',
+        osm_type: '',
         place_id: 1,
-        type: "",
+        type: '',
       },
     ]
-    jest
-      .spyOn(requestService, "get")
-      .mockImplementation(() => Promise.resolve(cities))
+    jest.spyOn(requestService, 'get').mockImplementation(() => Promise.resolve(cities))
     // Act
-    const res: Array<OpenStreetMapLocationDto> = await service.searchByCity(
-      "Frankfurt",
-    )
+    const res: Array<OpenStreetMapLocationDto> = await service.searchByCity('Frankfurt')
     // Assert
     expect(requestService.get).toHaveBeenCalledTimes(1)
     expect(res.length).toBe(1)
     const first: OpenStreetMapLocationDto = res[0]
-    expect(first.name).toBe("Some City")
+    expect(first.name).toBe('Some City')
     expect(first.latitude).toBe(42)
     expect(first.longitude).toBe(33)
   })

@@ -1,12 +1,12 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { v4 as uuid } from "uuid"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { SortOrderDto } from "../../../../dataTransferObjects/sort-order.dto"
-import { RmvService } from "../../../../remote-api-call/rmv/rmv.service"
-import { RmvStationDto } from "../../../../dataTransferObjects/rmv-station.dto"
-import { TimetableStationEntity } from "../../../../entities/timetable-station.entity"
-import { TimetableStationDto } from "../../../../dataTransferObjects/timetable-station.dto"
+import { Injectable, Logger } from '@nestjs/common'
+import { v4 as uuid } from 'uuid'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
+import { RmvService } from '../../../../remote-api-call/rmv/rmv.service'
+import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto'
+import { TimetableStationEntity } from '../../../../entities/timetable-station.entity'
+import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto'
 
 @Injectable()
 export class TimetableStationsService {
@@ -15,16 +15,10 @@ export class TimetableStationsService {
   constructor(
     private readonly rmv: RmvService,
     @InjectRepository(TimetableStationEntity)
-    private readonly timetableStationEntityRepository: Repository<
-      TimetableStationEntity
-    >,
+    private readonly timetableStationEntityRepository: Repository<TimetableStationEntity>,
   ) {}
 
-  public async search(
-    apiKey: string,
-    latitude: number,
-    longitude: number,
-  ): Promise<Array<RmvStationDto>> {
+  public async search(apiKey: string, latitude: number, longitude: number): Promise<Array<RmvStationDto>> {
     return this.rmv.getStations(apiKey, latitude, longitude)
   }
 
@@ -45,9 +39,7 @@ export class TimetableStationsService {
   }
 
   public async loadSingle(id: string): Promise<TimetableStationDto | null> {
-    const res: TimetableStationEntity = await this.timetableStationEntityRepository.findOne(
-      id,
-    )
+    const res: TimetableStationEntity = await this.timetableStationEntityRepository.findOne(id)
     if (!res) {
       return null
     }

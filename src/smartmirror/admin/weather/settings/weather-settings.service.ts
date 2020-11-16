@@ -1,11 +1,11 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { Repository } from "typeorm"
-import { InjectRepository } from "@nestjs/typeorm"
-import { v4 as uuid } from "uuid"
-import { ConstantsService } from "../../../../global/constants/constants.service"
-import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity"
-import { WeatherSettingsEntity } from "../../../../entities/weather-settings.entity"
-import { WeatherSettingsDto } from "../../../../dataTransferObjects/weather-settings.dto"
+import { Injectable, Logger } from '@nestjs/common'
+import { Repository } from 'typeorm'
+import { InjectRepository } from '@nestjs/typeorm'
+import { v4 as uuid } from 'uuid'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
+import { WeatherSettingsEntity } from '../../../../entities/weather-settings.entity'
+import { WeatherSettingsDto } from '../../../../dataTransferObjects/weather-settings.dto'
 
 @Injectable()
 export class WeatherSettingsService {
@@ -13,9 +13,7 @@ export class WeatherSettingsService {
 
   constructor(
     @InjectRepository(WeatherSettingsEntity)
-    private readonly trafficSettingEntityRepository: Repository<
-      WeatherSettingsEntity
-    >,
+    private readonly trafficSettingEntityRepository: Repository<WeatherSettingsEntity>,
     private readonly constants: ConstantsService,
   ) {}
 
@@ -41,10 +39,7 @@ export class WeatherSettingsService {
     const record: WeatherSettingsEntity = await this.getRecord()
 
     const result: WeatherSettingsDto = {
-      apiKey:
-        record.apiKey.length > 0
-          ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}`
-          : "",
+      apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       isActive: record.isActive,
       locationId: record.commonLocation?.id,
     }
@@ -52,18 +47,16 @@ export class WeatherSettingsService {
   }
 
   public async getRecord(): Promise<WeatherSettingsEntity> {
-    let record: WeatherSettingsEntity = await this.trafficSettingEntityRepository.findOne(
-      {
-        relations: ["commonLocation"],
-      },
-    )
+    let record: WeatherSettingsEntity = await this.trafficSettingEntityRepository.findOne({
+      relations: ['commonLocation'],
+    })
 
     // If settings not present, create it
     if (!record) {
-      this.logger.log("Settings not present, create a new record")
+      this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: "",
+        apiKey: '',
         commonLocation: null,
         id: uuid(),
         isActive: false,

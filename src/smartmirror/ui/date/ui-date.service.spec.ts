@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { DateSettingsService } from "../../admin/date/settings/date-settings.service"
-import { DateSettingsEntity } from "../../../entities/date-settings.entity"
-import { UiDateService } from "./ui-date.service"
+import { Test, TestingModule } from '@nestjs/testing'
+import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity'
+import { UiDateService } from './ui-date.service'
 
-describe("UiDateService", () => {
+describe('UiDateService', () => {
   let service: UiDateService
   let settingsService: DateSettingsService
 
@@ -28,36 +28,36 @@ describe("UiDateService", () => {
     jest.clearAllMocks()
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 
-  it("getPattern", async () => {
+  it('getPattern', async () => {
     // Arrange
     const data: DateSettingsEntity = {
       fontSize: 12,
-      id: "foo",
+      id: 'foo',
       isActive: true,
-      pattern: "bar",
+      pattern: 'bar',
     }
-    jest.spyOn(settingsService, "getRecord").mockResolvedValueOnce(data)
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(data)
     // Act
     const res: string = await service.getPattern()
     // Assert
     expect(settingsService.getRecord).toHaveBeenCalledTimes(1)
     expect(res).toBeDefined()
-    expect(res).toBe("bar")
+    expect(res).toBe('bar')
   })
 
-  it("getPattern with no disabled widget", async () => {
+  it('getPattern with no disabled widget', async () => {
     // Arrange
     const data: DateSettingsEntity = {
       fontSize: 12,
-      id: "foo",
+      id: 'foo',
       isActive: false,
-      pattern: "bar",
+      pattern: 'bar',
     }
-    jest.spyOn(settingsService, "getRecord").mockResolvedValueOnce(data)
+    jest.spyOn(settingsService, 'getRecord').mockResolvedValueOnce(data)
     // Act + Assert
     await expect(service.getPattern()).rejects.toThrow(Error)
     expect(settingsService.getRecord).toHaveBeenCalledTimes(1)

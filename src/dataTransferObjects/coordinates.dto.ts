@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { ICoordinatesDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ICoordinatesDto } from '@yellowgarbagebag/snow-white-dto'
 
 export class CoordinatesDto implements ICoordinatesDto {
   @IsNotEmpty()

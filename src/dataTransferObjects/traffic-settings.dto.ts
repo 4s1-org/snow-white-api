@@ -1,13 +1,13 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { ITrafficSettingsDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ITrafficSettingsDto } from '@yellowgarbagebag/snow-white-dto'
 
 export class TrafficSettingsDto implements ITrafficSettingsDto {
   @IsNotEmpty()
   @ApiProperty({ example: true })
   public isActive: boolean
 
-  @ApiProperty({ example: "Lorem Ipsum" })
+  @ApiProperty({ example: 'Lorem Ipsum' })
   public apiKey: string
 
   @ApiProperty()

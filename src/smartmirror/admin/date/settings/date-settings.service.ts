@@ -1,9 +1,9 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { v4 as uuid } from "uuid"
-import { DateSettingsEntity } from "../../../../entities/date-settings.entity"
-import { DateSettingsDto } from "../../../../dataTransferObjects/date-settings.dto"
+import { Injectable, Logger } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { v4 as uuid } from 'uuid'
+import { DateSettingsEntity } from '../../../../entities/date-settings.entity'
+import { DateSettingsDto } from '../../../../dataTransferObjects/date-settings.dto'
 
 @Injectable()
 export class DateSettingsService {
@@ -11,9 +11,7 @@ export class DateSettingsService {
 
   constructor(
     @InjectRepository(DateSettingsEntity)
-    private readonly dateSettingEntityRepository: Repository<
-      DateSettingsEntity
-    >,
+    private readonly dateSettingEntityRepository: Repository<DateSettingsEntity>,
   ) {}
 
   public async save(settings: DateSettingsDto): Promise<void> {
@@ -42,13 +40,13 @@ export class DateSettingsService {
 
     // If settings not present, create it
     if (!record) {
-      this.logger.log("Settings not present, create a new record")
+      this.logger.log('Settings not present, create a new record')
 
       record = {
         fontSize: 12,
         id: uuid(),
         isActive: true,
-        pattern: "DD.MM.YYYY HH:mm:ss",
+        pattern: 'DD.MM.YYYY HH:mm:ss',
       }
       await this.dateSettingEntityRepository.insert(record)
     }

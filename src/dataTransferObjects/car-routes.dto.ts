@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { ICarRoutesDto, ICarRouteDto } from "@yellowgarbagebag/rest-api-dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { ICarRoutesDto, ICarRouteDto } from '@yellowgarbagebag/snow-white-dto'
 
 // ToDo: Bessere Namen für CarRoutesDto und CarRouteDto wählen.
 export class CarRoutesDto implements ICarRoutesDto {

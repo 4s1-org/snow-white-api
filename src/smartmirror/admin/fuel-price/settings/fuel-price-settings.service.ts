@@ -1,11 +1,11 @@
-import { Injectable, Logger } from "@nestjs/common"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { v4 as uuid } from "uuid"
-import { FuelPriceSettingsEntity } from "../../../../entities/fuel-price-settings.entity"
-import { FuelPriceSettingsDto } from "../../../../dataTransferObjects/fuel-price-settings.dto"
-import { ConstantsService } from "../../../../global/constants/constants.service"
-import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity"
+import { Injectable, Logger } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
+import { v4 as uuid } from 'uuid'
+import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity'
+import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
 
 @Injectable()
 export class FuelPriceSettingsService {
@@ -13,9 +13,7 @@ export class FuelPriceSettingsService {
 
   constructor(
     @InjectRepository(FuelPriceSettingsEntity)
-    private readonly fuelPriceSettingEntityRepository: Repository<
-      FuelPriceSettingsEntity
-    >,
+    private readonly fuelPriceSettingEntityRepository: Repository<FuelPriceSettingsEntity>,
     private readonly constants: ConstantsService,
   ) {}
 
@@ -41,10 +39,7 @@ export class FuelPriceSettingsService {
     const record: FuelPriceSettingsEntity = await this.getRecord()
 
     const result: FuelPriceSettingsDto = {
-      apiKey:
-        record.apiKey.length > 0
-          ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}`
-          : "",
+      apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       interval: record.interval,
       isActive: record.isActive,
       showDiesel: record.showDiesel,
@@ -60,10 +55,10 @@ export class FuelPriceSettingsService {
 
     // If settings not present, create it
     if (!record) {
-      this.logger.log("Settings not present, create a new record")
+      this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: "",
+        apiKey: '',
         id: uuid(),
         interval: 15 * 3600,
         isActive: false,

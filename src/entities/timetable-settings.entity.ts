@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm"
-import { TimetableStationEntity } from "./timetable-station.entity"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { TimetableStationEntity } from './timetable-station.entity'
 
-@Entity("TimetableSettings")
+@Entity('TimetableSettings')
 export class TimetableSettingsEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column()
@@ -14,17 +14,17 @@ export class TimetableSettingsEntity {
 
   @ManyToOne(/* istanbul ignore next */ () => TimetableStationEntity, {
     nullable: true,
-    onDelete: "SET NULL",
+    onDelete: 'SET NULL',
   })
   public timetableStationFrom: TimetableStationEntity
 
   @ManyToOne(/* istanbul ignore next */ () => TimetableStationEntity, {
     nullable: true,
-    onDelete: "SET NULL",
+    onDelete: 'SET NULL',
   })
   public timetableStationTo: TimetableStationEntity
 
-  @Column("int")
+  @Column('int')
   public maxChanges: number
 
   @Column()

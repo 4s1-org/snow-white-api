@@ -10,7 +10,9 @@ export class TimetrackingService {
 
   public sendEmail(): string {
     const time =
-      moment().tz('Europe/Berlin').format('DD.MM.YYYY - HH:mm:ss') + ' Uhr'
+      moment()
+        .tz('Europe/Berlin')
+        .format('DD.MM.YYYY - HH:mm:ss') + ' Uhr'
 
     const transporter: any = nodemailer.createTransport({
       auth: {

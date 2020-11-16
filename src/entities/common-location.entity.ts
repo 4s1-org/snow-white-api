@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity("CommonLocations")
+@Entity('CommonLocations')
 export class CommonLocationEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column({ length: 255 })
@@ -11,12 +11,12 @@ export class CommonLocationEntity {
   @Column({ length: 255 })
   public nameOrigin: string
 
-  @Column("double")
+  @Column('double')
   public latitude: number
 
-  @Column("double")
+  @Column('double')
   public longitude: number
 
-  @Column("int", { nullable: true })
+  @Column('int', { nullable: true })
   public sortNo: number
 }

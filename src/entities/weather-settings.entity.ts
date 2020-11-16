@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm"
-import { CommonLocationEntity } from "./common-location.entity"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
+import { CommonLocationEntity } from './common-location.entity'
 
-@Entity("WeatherSettings")
+@Entity('WeatherSettings')
 export class WeatherSettingsEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column()
@@ -14,7 +14,7 @@ export class WeatherSettingsEntity {
 
   @ManyToOne(/* istanbul ignore next */ () => CommonLocationEntity, {
     nullable: true,
-    onDelete: "SET NULL",
+    onDelete: 'SET NULL',
   })
   public commonLocation: CommonLocationEntity
 }

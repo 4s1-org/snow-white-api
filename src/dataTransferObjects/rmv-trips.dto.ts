@@ -1,7 +1,7 @@
-import { IsNotEmpty } from "class-validator"
-import { ApiProperty } from "@nestjs/swagger"
-import { IRmvTripsDto } from "@yellowgarbagebag/rest-api-dto"
-import { RmvTripDto } from "./rmv-trip.dto"
+import { IsNotEmpty } from 'class-validator'
+import { ApiProperty } from '@nestjs/swagger'
+import { IRmvTripsDto } from '@yellowgarbagebag/snow-white-dto'
+import { RmvTripDto } from './rmv-trip.dto'
 
 // ToDo: Bessere Namen für RmvTripsDto und RmvTripDto wählen.
 export class RmvTripsDto implements IRmvTripsDto {

@@ -2,7 +2,7 @@ export interface ITankerkoenigListRemoteResponse {
   ok: true
   license: string
   data: string
-  status: "ok"
+  status: 'ok'
   stations: Array<ITankerkoenigStationRemote>
 }
 

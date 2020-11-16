@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
 
-@Entity("TimetableStations")
+@Entity('TimetableStations')
 export class TimetableStationEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column({ length: 255 })
@@ -11,9 +11,9 @@ export class TimetableStationEntity {
   @Column({ length: 255 })
   public nameOrigin: string
 
-  @Column("int", { nullable: true })
+  @Column('int', { nullable: true })
   public sortNo: number
 
-  @Column("int")
+  @Column('int')
   public remoteId: number
 }

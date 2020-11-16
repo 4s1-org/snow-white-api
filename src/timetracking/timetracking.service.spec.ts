@@ -1,8 +1,8 @@
-import { Test, TestingModule } from "@nestjs/testing"
-import { TimetrackingService } from "./timetracking.service"
-import { ConfigModule } from "../config/config.module"
+import { Test, TestingModule } from '@nestjs/testing'
+import { TimetrackingService } from './timetracking.service'
+import { ConfigModule } from '../config/config.module'
 
-describe("TimetrackingService", () => {
+describe('TimetrackingService', () => {
   let service: TimetrackingService
 
   beforeEach(async () => {
@@ -14,11 +14,11 @@ describe("TimetrackingService", () => {
     service = module.get<TimetrackingService>(TimetrackingService)
   })
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined()
   })
 
-  it("sendMail", () => {
+  it('sendMail', () => {
     // Arrange
     // Act
     const res: string = service.sendEmail()
