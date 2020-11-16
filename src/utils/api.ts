@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 class Api {
-  public static get<T>(path: string): Promise<T> {
+  static get<T>(path: string): Promise<T> {
     return this.request<T>(path, 'GET')
   }
 
@@ -17,11 +17,7 @@ class Api {
     return this.request<T>(path, 'DELETE')
   }
 
-  private static async request<T>(
-    path: string,
-    method: 'GET' | 'PUT' | 'POST' | 'DELETE',
-    data?: any,
-  ): Promise<T> {
+  private static async request<T>(path: string, method: 'GET' | 'PUT' | 'POST' | 'DELETE', data?: any): Promise<T> {
     const config: AxiosRequestConfig = {
       baseURL: process.env.REACT_APP_BACKEND_URL,
       data,
