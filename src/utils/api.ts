@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 class Api {
-  static get<T>(path: string): Promise<T> {
+  public static get<T>(path: string): Promise<T> {
     return this.request<T>(path, 'GET')
   }
 
