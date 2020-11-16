@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
 import Api from "../../../utils/api";
-import { IOpenStreetMapLocationDto } from "@yellowgarbagebag/rest-api-dto";
+import { IOpenStreetMapLocationDto } from "@yellowgarbagebag/snow-white-dto";
 import Card from "../../common/Card";
 
 interface IState {

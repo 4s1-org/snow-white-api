@@ -6,7 +6,7 @@ import {
   IRmvStationDto,
   ICommonLocationDto,
   ICoordinatesDto,
-} from "@yellowgarbagebag/rest-api-dto";
+} from "@yellowgarbagebag/snow-white-dto";
 import Card from "../../common/Card";
 import Select from "react-select";
 

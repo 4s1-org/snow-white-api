@@ -1,5 +1,5 @@
 import React from "react";
-import { IFuelPricePricesDto } from "@yellowgarbagebag/rest-api-dto";
+import { IFuelPricePricesDto } from "@yellowgarbagebag/snow-white-dto";
 import Api from "../../utils/api";
 import moment from "moment";
 import Widget from "../common/Widget";

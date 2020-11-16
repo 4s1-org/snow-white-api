@@ -1,5 +1,5 @@
 import React from "react";
-import { IFuelPriceStationDto } from "@yellowgarbagebag/rest-api-dto";
+import { IFuelPriceStationDto } from "@yellowgarbagebag/snow-white-dto";
 
 interface IState {
   name: string;

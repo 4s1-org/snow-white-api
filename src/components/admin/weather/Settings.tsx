@@ -4,7 +4,7 @@ import Card from "../../common/Card";
 import {
   IWeatherSettingsDto,
   ICommonLocationDto,
-} from "@yellowgarbagebag/rest-api-dto";
+} from "@yellowgarbagebag/snow-white-dto";
 import Select from "react-select";
 
 interface IState {

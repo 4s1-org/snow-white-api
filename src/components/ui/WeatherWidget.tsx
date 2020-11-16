@@ -2,7 +2,7 @@ import React from "react";
 import {
   IWeatherDatasDto,
   IWeatherDataDto,
-} from "@yellowgarbagebag/rest-api-dto";
+} from "@yellowgarbagebag/snow-white-dto";
 import Api from "../../utils/api";
 import moment from "moment";
 import Widget from "../common/Widget";

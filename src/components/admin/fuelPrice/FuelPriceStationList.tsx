@@ -4,7 +4,7 @@ import Api from "../../../utils/api";
 import {
   ISortOrderDto,
   IFuelPriceStationDto,
-} from "@yellowgarbagebag/rest-api-dto";
+} from "@yellowgarbagebag/snow-white-dto";
 import {
   faCaretDown,
   faCaretUp,

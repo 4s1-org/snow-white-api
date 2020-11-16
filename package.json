@@ -33,26 +33,24 @@
     ]
   },
   "prettier": "@hest-lab/eslint-config",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.5",
-    "@testing-library/user-event": "^12.0.11",
-    "@yellowgarbagebag/rest-api-dto": "^1.0.0",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.1.2",
+    "@testing-library/user-event": "^12.2.2",
+    "@yellowgarbagebag/snow-white-dto": "^2.0.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "moment-timezone": "^0.5.31",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "4.0.0",
     "react-select": "^3.1.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "web-vitals": "^0.2.4"
   },
   "devDependencies": {
     "@hest-lab/eslint-config": "^1.0.1",

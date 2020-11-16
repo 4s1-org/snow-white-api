@@ -1,5 +1,5 @@
 import React from "react";
-import { ITimetableStationDto } from "@yellowgarbagebag/rest-api-dto";
+import { ITimetableStationDto } from "@yellowgarbagebag/snow-white-dto";
 
 interface IState {
   name: string;

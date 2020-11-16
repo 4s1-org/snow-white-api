@@ -1,5 +1,5 @@
 import React from "react";
-import { ICommonLocationDto } from "@yellowgarbagebag/rest-api-dto";
+import { ICommonLocationDto } from "@yellowgarbagebag/snow-white-dto";
 
 interface IState {
   name: string;

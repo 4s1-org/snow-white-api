@@ -4,7 +4,7 @@ import "./UiArea.css";
 import DateWidget from "./DateWidget";
 import FuelPriceWidget from "./FuelPriceWidget";
 import TimetableWidget from "./TimetableWidget";
-import { IUiSettingsDto } from "@yellowgarbagebag/rest-api-dto";
+import { IUiSettingsDto } from "@yellowgarbagebag/snow-white-dto";
 import Api from "../../utils/api";
 import WeatherWidget from "./WeatherWidget";
 
