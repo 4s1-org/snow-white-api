@@ -1,14 +1,14 @@
 import React from 'react'
 import Settings from './Settings'
 
-interface IState { }
+interface IState {}
 
-interface IProps { }
+interface IProps {}
 
-class DateArea extends React.Component<IProps, IState>  {
-  public render (): JSX.Element {
+class DateArea extends React.Component<IProps, IState> {
+  public render(): JSX.Element {
     return (
-      <div className='content'>
+      <div className="content">
         <Settings />
       </div>
     )

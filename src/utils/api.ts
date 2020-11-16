@@ -5,11 +5,11 @@ class Api {
     return this.request<T>(path, 'GET')
   }
 
-  public static post<T>(path: string, data: any): Promise<T> {
+  public static post<T>(path: string, data: unknown): Promise<T> {
     return this.request<T>(path, 'POST', data)
   }
 
-  public static put<T>(path: string, data: any): Promise<T> {
+  public static put<T>(path: string, data: unknown): Promise<T> {
     return this.request<T>(path, 'PUT', data)
   }
 

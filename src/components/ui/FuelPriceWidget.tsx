@@ -1,8 +1,8 @@
-import React from "react"
-import { IFuelPricePricesDto } from "@yellowgarbagebag/snow-white-dto"
-import Api from "../../utils/api"
-import moment from "moment"
-import Widget from "../common/Widget"
+import React from 'react'
+import { IFuelPricePricesDto } from '@yellowgarbagebag/snow-white-dto'
+import Api from '../../utils/api'
+import moment from 'moment'
+import Widget from '../common/Widget'
 
 interface IState {
   dto: Array<IFuelPricePricesDto>
@@ -23,7 +23,7 @@ class FuelPriceWidget extends React.Component<IProps, IState> {
     super(props)
     this.state = {
       dto: [],
-      lastUpdate: "",
+      lastUpdate: '',
     }
   }
 
@@ -42,27 +42,23 @@ class FuelPriceWidget extends React.Component<IProps, IState> {
     // ToDo: Beachten, dass die Tankstelle auch geschlossen sein kann
 
     return (
-      <Widget
-        title="Kraftstoffpreise"
-        footer={this.state.lastUpdate}
-        width={400}
-      >
+      <Widget title="Kraftstoffpreise" footer={this.state.lastUpdate} width={400}>
         <table className="table table-borderless table-sm">
           <thead>
             <tr>
               <th>Tankstelle</th>
               {this.props.showE5 && (
-                <th className="text-center" style={{ width: "50px" }}>
+                <th className="text-center" style={{ width: '50px' }}>
                   E5
                 </th>
               )}
               {this.props.showE10 && (
-                <th className="text-center" style={{ width: "50px" }}>
+                <th className="text-center" style={{ width: '50px' }}>
                   E10
                 </th>
               )}
               {this.props.showDiesel && (
-                <th className="text-center" style={{ width: "60px" }}>
+                <th className="text-center" style={{ width: '60px' }}>
                   Diesel
                 </th>
               )}
@@ -72,20 +68,10 @@ class FuelPriceWidget extends React.Component<IProps, IState> {
             {this.state.dto.map((station: IFuelPricePricesDto) => (
               <tr key={station.sortNo}>
                 <td className="tdtext">{station.name}</td>
-                {this.props.showE5 && (
-                  <td className="text-center align-middle">
-                    {this.formatPrice(station.e5)}
-                  </td>
-                )}
-                {this.props.showE10 && (
-                  <td className="text-center align-middle">
-                    {this.formatPrice(station.e10)}
-                  </td>
-                )}
+                {this.props.showE5 && <td className="text-center align-middle">{this.formatPrice(station.e5)}</td>}
+                {this.props.showE10 && <td className="text-center align-middle">{this.formatPrice(station.e10)}</td>}
                 {this.props.showDiesel && (
-                  <td className="text-center align-middle">
-                    {this.formatPrice(station.diesel)}
-                  </td>
+                  <td className="text-center align-middle">{this.formatPrice(station.diesel)}</td>
                 )}
               </tr>
             ))}
@@ -100,7 +86,7 @@ class FuelPriceWidget extends React.Component<IProps, IState> {
       return <div>-,---</div>
     }
 
-    const priceStr: string = price.toString().replace(".", ",")
+    const priceStr: string = price.toString().replace('.', ',')
     const part0: string = priceStr.substr(0, priceStr.length - 1)
     const part1: string = priceStr[priceStr.length - 1]
 
@@ -113,15 +99,10 @@ class FuelPriceWidget extends React.Component<IProps, IState> {
   }
 
   private async loadData(): Promise<void> {
-    const dto: Array<IFuelPricePricesDto> = await Api.get<
-      Array<IFuelPricePricesDto>
-    >("/v1/smartmirror/ui/fuelprice")
+    const dto: Array<IFuelPricePricesDto> = await Api.get<Array<IFuelPricePricesDto>>('/v1/smartmirror/ui/fuelprice')
     this.setState({
-      dto: dto.sort(
-        (a: IFuelPricePricesDto, b: IFuelPricePricesDto): number =>
-          a.sortNo - b.sortNo
-      ),
-      lastUpdate: moment().format("HH:mm:ss"),
+      dto: dto.sort((a: IFuelPricePricesDto, b: IFuelPricePricesDto): number => a.sortNo - b.sortNo),
+      lastUpdate: moment().format('HH:mm:ss'),
     })
   }
 }

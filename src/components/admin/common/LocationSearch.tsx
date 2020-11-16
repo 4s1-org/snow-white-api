@@ -1,9 +1,9 @@
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons"
-import Api from "../../../utils/api"
-import { IOpenStreetMapLocationDto } from "@yellowgarbagebag/snow-white-dto"
-import Card from "../../common/Card"
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons'
+import Api from '../../../utils/api'
+import { IOpenStreetMapLocationDto } from '@yellowgarbagebag/snow-white-dto'
+import Card from '../../common/Card'
 
 interface IState {
   searchText: string
@@ -18,7 +18,7 @@ class LocationSearch extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props)
     this.state = {
-      searchText: "",
+      searchText: '',
       locations: [],
     }
 
@@ -47,11 +47,7 @@ class LocationSearch extends React.Component<IProps, IState> {
             onKeyDown={this.onSearchTextKeyDown}
           />
           <div className="input-group-append">
-            <button
-              className="btn btn-secondary"
-              type="button"
-              onClick={this.onSearchStart}
-            >
+            <button className="btn btn-secondary" type="button" onClick={this.onSearchStart}>
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
@@ -63,11 +59,7 @@ class LocationSearch extends React.Component<IProps, IState> {
               <tr key={location.remoteId}>
                 <td>{location.name}</td>
                 <td>
-                  <button
-                    type="button"
-                    className="btn btn-light"
-                    onClick={this.onBtnAddClick.bind(this, location)}
-                  >
+                  <button type="button" className="btn btn-light" onClick={this.onBtnAddClick.bind(this, location)}>
                     <FontAwesomeIcon icon={faPlus} />
                   </button>
                 </td>
@@ -93,32 +85,28 @@ class LocationSearch extends React.Component<IProps, IState> {
 
   // ToDo: event -> e (auch an den anderen Stellen)
   // ToDo: Typ von event nochmal prüfen
-  private async onSearchStart(
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): Promise<void> {
+  private async onSearchStart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
     event.preventDefault()
     await this.doSearch()
   }
 
   private async onBtnAddClick(
     location: IOpenStreetMapLocationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): Promise<void> {
     event.preventDefault()
     await this.doAddLocation(location)
   }
 
-  private async doAddLocation(
-    location: IOpenStreetMapLocationDto
-  ): Promise<void> {
+  private async doAddLocation(location: IOpenStreetMapLocationDto): Promise<void> {
     await Api.post<void>(`/v1/smartmirror/admin/common/locations`, location)
     this.props.onLocationAdd()
   }
 
   private async doSearch(): Promise<void> {
-    const res: Array<IOpenStreetMapLocationDto> = await Api.get<
-      Array<IOpenStreetMapLocationDto>
-    >(`/v1/smartmirror/admin/common/locations/search/${this.state.searchText}`)
+    const res: Array<IOpenStreetMapLocationDto> = await Api.get<Array<IOpenStreetMapLocationDto>>(
+      `/v1/smartmirror/admin/common/locations/search/${this.state.searchText}`,
+    )
     this.setState({
       locations: res,
     })

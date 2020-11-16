@@ -1,5 +1,5 @@
-import React from "react"
-import { ICommonLocationDto } from "@yellowgarbagebag/snow-white-dto"
+import React from 'react'
+import { ICommonLocationDto } from '@yellowgarbagebag/snow-white-dto'
 
 interface IState {
   name: string
@@ -28,32 +28,20 @@ class LocationEdit extends React.Component<IProps, IState> {
         <div className="form-group row">
           <label className="col-sm-4 col-form-label">Originalname</label>
           <div className="col-sm-8">
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.nameOrigin}
-              readOnly
-            />
+            <input type="text" className="form-control" value={this.state.nameOrigin} readOnly />
           </div>
         </div>
         <div className="form-group row">
           <label className="col-sm-4 col-form-label">Neuer Name</label>
           <div className="col-sm-8">
-            <input
-              type="text"
-              className="form-control"
-              value={this.state.name}
-              onChange={this.onNameChange}
-            />
+            <input type="text" className="form-control" value={this.state.name} onChange={this.onNameChange} />
           </div>
         </div>
       </form>
     )
   }
 
-  private async onNameChange(
-    event: React.ChangeEvent<HTMLInputElement>
-  ): Promise<void> {
+  private async onNameChange(event: React.ChangeEvent<HTMLInputElement>): Promise<void> {
     this.setState({
       name: event.currentTarget.value,
     })

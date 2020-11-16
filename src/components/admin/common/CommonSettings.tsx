@@ -1,7 +1,7 @@
-import React from "react"
-import Api from "../../../utils/api"
-import { ICommonSettingsDto } from "@yellowgarbagebag/snow-white-dto"
-import Card from "../../common/Card"
+import React from 'react'
+import Api from '../../../utils/api'
+import { ICommonSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import Card from '../../common/Card'
 
 interface IState {
   morningStart: string
@@ -15,8 +15,8 @@ class CommonSettings extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props)
     this.state = {
-      morningEnd: "00:00",
-      morningStart: "00:00",
+      morningEnd: '00:00',
+      morningStart: '00:00',
     }
 
     this.onMorningStartChange = this.onMorningStartChange.bind(this)
@@ -25,9 +25,7 @@ class CommonSettings extends React.Component<IProps, IState> {
 
   public async componentDidMount(): Promise<void> {
     // ToDo: Laden in eigene Funktion
-    const res: ICommonSettingsDto = await Api.get<ICommonSettingsDto>(
-      "/v1/smartmirror/admin/common/settings"
-    )
+    const res: ICommonSettingsDto = await Api.get<ICommonSettingsDto>('/v1/smartmirror/admin/common/settings')
 
     this.setState({
       morningEnd: this.formatTime(res.morningEnd),
@@ -119,18 +117,16 @@ class CommonSettings extends React.Component<IProps, IState> {
   }
 
   private parseTime(value: string): number {
-    const parts: Array<string> = value.split(":")
+    const parts: Array<string> = value.split(':')
     return +parts[0] * 3600 + +parts[1] * 60
   }
 
-  private onMorningStartChange(
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onMorningStartChange(event: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         morningStart: event.currentTarget.value,
       },
-      async () => this.saveValues()
+      async () => this.saveValues(),
     )
   }
 
@@ -139,13 +135,13 @@ class CommonSettings extends React.Component<IProps, IState> {
       {
         morningEnd: event.currentTarget.value,
       },
-      async () => this.saveValues()
+      async () => this.saveValues(),
     )
   }
 
   private async saveValues(): Promise<void> {
     // ToDo: Delay bei Speicher einbauen
-    await Api.put<ICommonSettingsDto>("/v1/smartmirror/admin/common/settings", {
+    await Api.put<ICommonSettingsDto>('/v1/smartmirror/admin/common/settings', {
       morningEnd: this.parseTime(this.state.morningEnd),
       morningStart: this.parseTime(this.state.morningStart),
     })

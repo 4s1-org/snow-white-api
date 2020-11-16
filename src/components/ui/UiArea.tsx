@@ -1,12 +1,12 @@
-import React from "react"
-import TrafficWidget from "./TrafficWidget"
-import "./UiArea.css"
-import DateWidget from "./DateWidget"
-import FuelPriceWidget from "./FuelPriceWidget"
-import TimetableWidget from "./TimetableWidget"
-import { IUiSettingsDto } from "@yellowgarbagebag/snow-white-dto"
-import Api from "../../utils/api"
-import WeatherWidget from "./WeatherWidget"
+import React from 'react'
+import TrafficWidget from './TrafficWidget'
+import './UiArea.css'
+import DateWidget from './DateWidget'
+import FuelPriceWidget from './FuelPriceWidget'
+import TimetableWidget from './TimetableWidget'
+import { IUiSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import Api from '../../utils/api'
+import WeatherWidget from './WeatherWidget'
 
 interface IState {
   dto: IUiSettingsDto
@@ -59,18 +59,14 @@ class UiArea extends React.Component<IProps, IState> {
 
   public render(): JSX.Element {
     // Hacky background color
-    document.body.style.backgroundColor = "black"
-    document.body.style.lineHeight = "unset"
+    document.body.style.backgroundColor = 'black'
+    document.body.style.lineHeight = 'unset'
 
     return (
       <div>
         <div className="float-lg-left">
-          {this.state.dto.weather.isActive && (
-            <WeatherWidget refreshRate={2 * 60 * 1000} />
-          )}
-          {this.state.dto.traffic.isActive && (
-            <TrafficWidget refreshRate={2 * 60 * 1000} />
-          )}
+          {this.state.dto.weather.isActive && <WeatherWidget refreshRate={2 * 60 * 1000} />}
+          {this.state.dto.traffic.isActive && <TrafficWidget refreshRate={2 * 60 * 1000} />}
           {this.state.dto.fuelPrice.isActive && (
             <FuelPriceWidget
               refreshRate={this.state.dto.fuelPrice.interval * 1000}
@@ -82,23 +78,16 @@ class UiArea extends React.Component<IProps, IState> {
         </div>
         <div className="float-lg-right">
           {this.state.dto.date.isActive && (
-            <DateWidget
-              refreshRate={1 * 1000}
-              fontSize={this.state.dto.date.fontSize}
-            />
+            <DateWidget refreshRate={1 * 1000} fontSize={this.state.dto.date.fontSize} />
           )}
-          {this.state.dto.timetable.isActive && (
-            <TimetableWidget refreshRate={2 * 60 * 1000} />
-          )}
+          {this.state.dto.timetable.isActive && <TimetableWidget refreshRate={2 * 60 * 1000} />}
         </div>
       </div>
     )
   }
 
   private async loadData(): Promise<void> {
-    const dto: IUiSettingsDto = await Api.get<IUiSettingsDto>(
-      "/v1/smartmirror/ui/settings"
-    )
+    const dto: IUiSettingsDto = await Api.get<IUiSettingsDto>('/v1/smartmirror/ui/settings')
     this.setState({
       dto,
     })

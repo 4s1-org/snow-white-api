@@ -1,14 +1,10 @@
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSearch, faPlus } from "@fortawesome/free-solid-svg-icons"
-import Api from "../../../utils/api"
-import {
-  ITankerkoenigStationDto,
-  ICommonLocationDto,
-  ICoordinatesDto,
-} from "@yellowgarbagebag/snow-white-dto"
-import Card from "../../common/Card"
-import Select from "react-select"
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons'
+import Api from '../../../utils/api'
+import { ITankerkoenigStationDto, ICommonLocationDto, ICoordinatesDto } from '@yellowgarbagebag/snow-white-dto'
+import Card from '../../common/Card'
+import Select from 'react-select'
 
 interface IState {
   selectedLocation: ICommonLocationDto | null
@@ -33,15 +29,12 @@ class GasStationSearch extends React.Component<IProps, IState> {
   }
 
   public async componentDidMount(): Promise<void> {
-    const locations: Array<ICommonLocationDto> = await Api.get<
-      Array<ICommonLocationDto>
-    >("/v1/smartmirror/admin/common/locations")
+    const locations: Array<ICommonLocationDto> = await Api.get<Array<ICommonLocationDto>>(
+      '/v1/smartmirror/admin/common/locations',
+    )
 
     this.setState({
-      locations: locations.sort(
-        (a: ICommonLocationDto, b: ICommonLocationDto): number =>
-          a.sortNo - b.sortNo
-      ),
+      locations: locations.sort((a: ICommonLocationDto, b: ICommonLocationDto): number => a.sortNo - b.sortNo),
     })
   }
 
@@ -56,7 +49,7 @@ class GasStationSearch extends React.Component<IProps, IState> {
       control: (base: any): any => ({
         ...base,
         borderBottomRightRadius: 0,
-        borderRadius: "0.25rem",
+        borderRadius: '0.25rem',
         borderTopRightRadius: 0,
       }),
     }
@@ -70,15 +63,11 @@ class GasStationSearch extends React.Component<IProps, IState> {
             onChange={this.onSelectLocationChange}
             getOptionLabel={(option: ICommonLocationDto): string => option.name}
             getOptionValue={(option: ICommonLocationDto): string => option.id}
-            placeholder={"Bitte auswählen..."}
+            placeholder={'Bitte auswählen...'}
           />
 
           <div className="input-group-append">
-            <button
-              className="btn btn-secondary"
-              type="button"
-              onClick={this.onBtnSearchClick}
-            >
+            <button className="btn btn-secondary" type="button" onClick={this.onBtnSearchClick}>
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
@@ -96,11 +85,7 @@ class GasStationSearch extends React.Component<IProps, IState> {
                   {station.postCode} {station.city}
                 </td>
                 <td>
-                  <button
-                    type="button"
-                    className="btn btn-light"
-                    onClick={this.onBtnAddClick.bind(this, station)}
-                  >
+                  <button type="button" className="btn btn-light" onClick={this.onBtnAddClick.bind(this, station)}>
                     <FontAwesomeIcon icon={faPlus} />
                   </button>
                 </td>
@@ -119,16 +104,14 @@ class GasStationSearch extends React.Component<IProps, IState> {
   }
 
   // ToDo: Typ von event nochmal prüfen
-  private async onBtnSearchClick(
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): Promise<void> {
+  private async onBtnSearchClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
     e.preventDefault()
     await this.doSearch()
   }
 
   private async onBtnAddClick(
     location: ITankerkoenigStationDto,
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): Promise<void> {
     e.preventDefault()
     await this.doAdd(location)
@@ -146,9 +129,10 @@ class GasStationSearch extends React.Component<IProps, IState> {
         longitude: this.state.selectedLocation.longitude,
       }
 
-      const res: Array<ITankerkoenigStationDto> = await Api.post<
-        Array<ITankerkoenigStationDto>
-      >(`/v1/smartmirror/admin/fuelprice/stations/search`, coords)
+      const res: Array<ITankerkoenigStationDto> = await Api.post<Array<ITankerkoenigStationDto>>(
+        `/v1/smartmirror/admin/fuelprice/stations/search`,
+        coords,
+      )
       this.setState({
         stations: res,
       })

@@ -1,8 +1,8 @@
-import React from "react"
-import { IRmvTripsDto, IRmvTripDto } from "@yellowgarbagebag/snow-white-dto"
-import Api from "../../utils/api"
-import moment from "moment"
-import Widget from "../common/Widget"
+import React from 'react'
+import { IRmvTripsDto, IRmvTripDto } from '@yellowgarbagebag/snow-white-dto'
+import Api from '../../utils/api'
+import moment from 'moment'
+import Widget from '../common/Widget'
 
 interface IState {
   dto: IRmvTripsDto
@@ -21,10 +21,10 @@ class TimetableWidget extends React.Component<IProps, IState> {
     super(props)
     this.state = {
       dto: {
-        text: "",
+        text: '',
         trips: [],
       },
-      lastUpdate: "",
+      lastUpdate: '',
     }
   }
 
@@ -41,11 +41,7 @@ class TimetableWidget extends React.Component<IProps, IState> {
 
   public render(): JSX.Element {
     return (
-      <Widget
-        title={this.state.dto.text}
-        footer={this.state.lastUpdate}
-        width={400}
-      >
+      <Widget title={this.state.dto.text} footer={this.state.lastUpdate} width={400}>
         <table className="table table-borderless table-sm">
           <thead>
             <tr>
@@ -64,10 +60,7 @@ class TimetableWidget extends React.Component<IProps, IState> {
                   <br />
                   <div
                     className={
-                      trip.startTimeReal >
-                      trip.startTimePlanned + this.okDelaySec
-                        ? "text-danger"
-                        : "text-success"
+                      trip.startTimeReal > trip.startTimePlanned + this.okDelaySec ? 'text-danger' : 'text-success'
                     }
                   >
                     {this.formatTime(trip.startTimeReal)}
@@ -78,10 +71,7 @@ class TimetableWidget extends React.Component<IProps, IState> {
                   <br />
                   <div
                     className={
-                      trip.arrivalTimeReal >
-                      trip.arrivalTimePlanned + this.okDelaySec
-                        ? "text-danger"
-                        : "text-success"
+                      trip.arrivalTimeReal > trip.arrivalTimePlanned + this.okDelaySec ? 'text-danger' : 'text-success'
                     }
                   >
                     {this.formatTime(trip.arrivalTimeReal)}
@@ -92,9 +82,7 @@ class TimetableWidget extends React.Component<IProps, IState> {
                   <br />
                   <div
                     className={
-                      trip.durationReal > trip.durationPlanned + this.okDelaySec
-                        ? "text-danger"
-                        : "text-success"
+                      trip.durationReal > trip.durationPlanned + this.okDelaySec ? 'text-danger' : 'text-success'
                     }
                   >
                     {this.formatTime(trip.durationReal)}
@@ -103,17 +91,11 @@ class TimetableWidget extends React.Component<IProps, IState> {
                 <td className="text-center">
                   {trip.trackPlanned}
                   <br />
-                  <div
-                    className={
-                      trip.trackPlanned !== trip.trackReal
-                        ? "text-danger"
-                        : "text-success"
-                    }
-                  >
+                  <div className={trip.trackPlanned !== trip.trackReal ? 'text-danger' : 'text-success'}>
                     {trip.trackReal}
                   </div>
                 </td>
-                <td className="text-center">{trip.lines.join(", ")}</td>
+                <td className="text-center">{trip.lines.join(', ')}</td>
               </tr>
             ))}
           </tbody>
@@ -123,16 +105,14 @@ class TimetableWidget extends React.Component<IProps, IState> {
   }
 
   private formatTime(value: number): string {
-    return moment.utc(value * 1000).format("HH:mm")
+    return moment.utc(value * 1000).format('HH:mm')
   }
 
   private async loadData(): Promise<void> {
-    const dto: IRmvTripsDto = await Api.get<IRmvTripsDto>(
-      "/v1/smartmirror/ui/timetable"
-    )
+    const dto: IRmvTripsDto = await Api.get<IRmvTripsDto>('/v1/smartmirror/ui/timetable')
     this.setState({
       dto,
-      lastUpdate: moment().format("HH:mm:ss"),
+      lastUpdate: moment().format('HH:mm:ss'),
     })
   }
 }

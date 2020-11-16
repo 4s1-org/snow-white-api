@@ -1,14 +1,11 @@
-import React from "react"
-import Api from "../../../utils/api"
-import Card from "../../common/Card"
-import {
-  ITrafficSettingsDto,
-  IDateSettingsDto,
-} from "@yellowgarbagebag/snow-white-dto"
-import moment from "moment"
-import "moment/locale/de"
-import Select from "react-select"
-moment.locale("de")
+import React from 'react'
+import Api from '../../../utils/api'
+import Card from '../../common/Card'
+import { ITrafficSettingsDto, IDateSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import moment from 'moment'
+import 'moment/locale/de'
+import Select from 'react-select'
+moment.locale('de')
 
 interface IState {
   dto: IDateSettingsDto
@@ -26,9 +23,9 @@ class Settings extends React.Component<IProps, IState> {
       dto: {
         fontSize: 12,
         isActive: false,
-        pattern: "",
+        pattern: '',
       },
-      preview: "",
+      preview: '',
     }
 
     this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this)
@@ -37,9 +34,7 @@ class Settings extends React.Component<IProps, IState> {
   }
 
   public async componentDidMount(): Promise<void> {
-    const dto: IDateSettingsDto = await Api.get<IDateSettingsDto>(
-      "/v1/smartmirror/admin/date/settings"
-    )
+    const dto: IDateSettingsDto = await Api.get<IDateSettingsDto>('/v1/smartmirror/admin/date/settings')
 
     this.setState({
       dto,
@@ -89,28 +84,18 @@ class Settings extends React.Component<IProps, IState> {
                 options={fontSizeOptions}
                 onChange={this.onSelectFontSizeChange}
                 value={fontSizeOptions.filter(
-                  (option: { id: number }): boolean =>
-                    option.id === this.state.dto.fontSize
+                  (option: { id: number }): boolean => option.id === this.state.dto.fontSize,
                 )}
-                getOptionLabel={(option: { id: number }): string =>
-                  option.id.toString()
-                }
-                getOptionValue={(option: { id: number }): string =>
-                  option.id.toString()
-                }
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: { id: number }): string => option.id.toString()}
+                getOptionValue={(option: { id: number }): string => option.id.toString()}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
           <div className="form-group row">
             <label className="col-sm-4 col-form-label">Vorschau</label>
             <div className="col-sm-8">
-              <input
-                type="text"
-                className="form-control"
-                disabled={true}
-                value={this.state.preview}
-              />
+              <input type="text" className="form-control" disabled={true} value={this.state.preview} />
             </div>
           </div>
         </form>
@@ -188,13 +173,11 @@ class Settings extends React.Component<IProps, IState> {
           fontSize: value.id,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
-  private onCheckboxIsActiveChange(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onCheckboxIsActiveChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         dto: {
@@ -202,7 +185,7 @@ class Settings extends React.Component<IProps, IState> {
           isActive: e.currentTarget.checked,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
@@ -215,17 +198,14 @@ class Settings extends React.Component<IProps, IState> {
         },
         preview: moment().format(e.currentTarget.value),
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
   private saveValues(): void {
     clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<ITrafficSettingsDto>(
-        "/v1/smartmirror/admin/date/settings",
-        this.state.dto
-      )
+      await Api.put<ITrafficSettingsDto>('/v1/smartmirror/admin/date/settings', this.state.dto)
     }, 333)
   }
 }

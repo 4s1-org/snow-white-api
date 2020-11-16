@@ -1,19 +1,11 @@
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Api from "../../../utils/api"
-import {
-  ICommonLocationDto,
-  ISortOrderDto,
-} from "@yellowgarbagebag/snow-white-dto"
-import {
-  faCaretDown,
-  faCaretUp,
-  faEdit,
-  faTrashAlt,
-} from "@fortawesome/free-solid-svg-icons"
-import Dialog from "../../common/Dialog"
-import LocationEdit from "./LocationEdit"
-import Card from "../../common/Card"
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Api from '../../../utils/api'
+import { ICommonLocationDto, ISortOrderDto } from '@yellowgarbagebag/snow-white-dto'
+import { faCaretDown, faCaretUp, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import Dialog from '../../common/Dialog'
+import LocationEdit from './LocationEdit'
+import Card from '../../common/Card'
 
 interface IState {
   locations: ICommonLocationDto[]
@@ -101,24 +93,19 @@ class LocationList extends React.Component<IProps, IState> {
             </tbody>
           </table>
         </Card>
-        {this.state.showDeleteDialog && (
-          <Dialog
-            title="Löschen"
-            dialogCloseCallback={this.onDeleteDialogClose}
-            showBtnYes={true}
-            showBtnNo={true}
-          >
-            Möchten Sie "{this.state.selectedLocation!.name}" wirklich löschen?
+        {this.state.showDeleteDialog && this.state.selectedLocation && (
+          <Dialog title="Löschen" dialogCloseCallback={this.onDeleteDialogClose} showBtnYes={true} showBtnNo={true}>
+            Möchten Sie "{this.state.selectedLocation.name}" wirklich löschen?
           </Dialog>
         )}
-        {this.state.showEditDialog && (
+        {this.state.showEditDialog && this.state.selectedLocation && (
           <Dialog
             title="Bearbeiten"
             dialogCloseCallback={this.onEditDialogClose}
             showBtnSave={true}
             showBtnAbort={true}
           >
-            <LocationEdit location={this.state.selectedLocation!} />
+            <LocationEdit location={this.state.selectedLocation} />
           </Dialog>
         )}
       </div>
@@ -126,16 +113,13 @@ class LocationList extends React.Component<IProps, IState> {
   }
 
   private async onEditDialogClose(name: DialogButtonName): Promise<void> {
-    if (this.state.selectedLocation && name === "save") {
+    if (this.state.selectedLocation && name === 'save') {
       const location: ICommonLocationDto = this.state.selectedLocation
-      await Api.put<void>(
-        `/v1/smartmirror/admin/common/locations/${location.id}`,
-        location
-      )
+      await Api.put<void>(`/v1/smartmirror/admin/common/locations/${location.id}`, location)
 
-      const existingLocation: ICommonLocationDto = this.state.locations.find(
-        (x: ICommonLocationDto) => x.id === location.id
-      )!
+      const existingLocation: ICommonLocationDto | undefined = this.state.locations.find(
+        (x: ICommonLocationDto) => x.id === location.id,
+      )
       Object.assign(existingLocation, location)
 
       this.setState({
@@ -150,15 +134,11 @@ class LocationList extends React.Component<IProps, IState> {
   }
 
   private async onDeleteDialogClose(name: DialogButtonName): Promise<void> {
-    if (this.state.selectedLocation && name === "yes") {
+    if (this.state.selectedLocation && name === 'yes') {
       const location: ICommonLocationDto = this.state.selectedLocation
-      await Api.delete<void>(
-        `/v1/smartmirror/admin/common/locations/${location.id}`
-      )
+      await Api.delete<void>(`/v1/smartmirror/admin/common/locations/${location.id}`)
       this.setState({
-        locations: this.state.locations.filter(
-          (x: ICommonLocationDto) => x.id !== location.id
-        ),
+        locations: this.state.locations.filter((x: ICommonLocationDto) => x.id !== location.id),
         selectedLocation: null,
         showDeleteDialog: false,
       })
@@ -171,7 +151,7 @@ class LocationList extends React.Component<IProps, IState> {
 
   private async onBtnDeleteClick(
     location: ICommonLocationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): Promise<void> {
     event.preventDefault()
 
@@ -183,7 +163,7 @@ class LocationList extends React.Component<IProps, IState> {
 
   private async onBtnEditClick(
     location: ICommonLocationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): Promise<void> {
     event.preventDefault()
 
@@ -195,7 +175,7 @@ class LocationList extends React.Component<IProps, IState> {
 
   private async onBtnUpClick(
     location: ICommonLocationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): Promise<void> {
     event.preventDefault()
 
@@ -207,7 +187,7 @@ class LocationList extends React.Component<IProps, IState> {
 
   private async onBtnDownClick(
     location: ICommonLocationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): Promise<void> {
     event.preventDefault()
 
@@ -217,11 +197,7 @@ class LocationList extends React.Component<IProps, IState> {
     }
   }
 
-  private async insertAndShift(
-    arr: ICommonLocationDto[],
-    from: number,
-    to: number
-  ): Promise<void> {
+  private async insertAndShift(arr: ICommonLocationDto[], from: number, to: number): Promise<void> {
     const cutOut: ICommonLocationDto = arr.splice(from, 1)[0]
     arr.splice(to, 0, cutOut)
 
@@ -241,14 +217,10 @@ class LocationList extends React.Component<IProps, IState> {
   }
 
   private async loadData(): Promise<void> {
-    const res: ICommonLocationDto[] = await Api.get<ICommonLocationDto[]>(
-      "/v1/smartmirror/admin/common/locations"
-    )
+    const res: ICommonLocationDto[] = await Api.get<ICommonLocationDto[]>('/v1/smartmirror/admin/common/locations')
 
     this.setState({
-      locations: res.sort(
-        (a: ICommonLocationDto, b: ICommonLocationDto) => a.sortNo - b.sortNo
-      ),
+      locations: res.sort((a: ICommonLocationDto, b: ICommonLocationDto) => a.sortNo - b.sortNo),
     })
   }
 }

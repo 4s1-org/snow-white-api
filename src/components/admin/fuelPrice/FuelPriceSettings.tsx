@@ -1,11 +1,8 @@
-import React from "react"
-import Api from "../../../utils/api"
-import Card from "../../common/Card"
-import {
-  IFuelPriceSettingsDto,
-  IFuelPriceStationDto,
-} from "@yellowgarbagebag/snow-white-dto"
-import Select from "react-select"
+import React from 'react'
+import Api from '../../../utils/api'
+import Card from '../../common/Card'
+import { IFuelPriceSettingsDto, IFuelPriceStationDto } from '@yellowgarbagebag/snow-white-dto'
+import Select from 'react-select'
 
 interface IState {
   dto: IFuelPriceSettingsDto
@@ -23,7 +20,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
     super(props)
     this.state = {
       dto: {
-        apiKey: "",
+        apiKey: '',
         interval: 15,
         isActive: false,
         showDiesel: false,
@@ -54,15 +51,15 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
   public render(): JSX.Element {
     const intervalOptions: Array<{ value: number; label: string }> = [
       {
-        label: "15 Minuten",
+        label: '15 Minuten',
         value: 15 * 3600,
       },
       {
-        label: "30 Minuten",
+        label: '30 Minuten',
         value: 30 * 3600,
       },
       {
-        label: "60 Minuten",
+        label: '60 Minuten',
         value: 60 * 3600,
       },
     ]
@@ -94,11 +91,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
                 onChange={this.onTextApiKeyChange}
               />
               <div className="text-right">
-                <a
-                  href="https://creativecommons.tankerkoenig.de/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://creativecommons.tankerkoenig.de/" target="_blank" rel="noopener noreferrer">
                   API-Key beantragen
                 </a>
               </div>
@@ -112,18 +105,11 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
                 options={intervalOptions}
                 onChange={this.onSelectIntervalChange}
                 value={intervalOptions.filter(
-                  (option: { value: number; label: string }): boolean =>
-                    option.value === this.state.dto.interval
+                  (option: { value: number; label: string }): boolean => option.value === this.state.dto.interval,
                 )}
-                getOptionLabel={(option: {
-                  value: number
-                  label: string
-                }): string => option.label}
-                getOptionValue={(option: {
-                  value: number
-                  label: string
-                }): string => option.value.toString()}
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: { value: number; label: string }): string => option.label}
+                getOptionValue={(option: { value: number; label: string }): string => option.value.toString()}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
@@ -168,12 +154,10 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
   }
 
   private async loadData(): Promise<void> {
-    const stations: Array<IFuelPriceStationDto> = await Api.get<
-      Array<IFuelPriceStationDto>
-    >("/v1/smartmirror/admin/fuelprice/stations")
-    const dto: IFuelPriceSettingsDto = await Api.get<IFuelPriceSettingsDto>(
-      "/v1/smartmirror/admin/fuelprice/settings"
+    const stations: Array<IFuelPriceStationDto> = await Api.get<Array<IFuelPriceStationDto>>(
+      '/v1/smartmirror/admin/fuelprice/stations',
     )
+    const dto: IFuelPriceSettingsDto = await Api.get<IFuelPriceSettingsDto>('/v1/smartmirror/admin/fuelprice/settings')
     this.setState({
       dto,
       stations,
@@ -188,13 +172,11 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           interval: value.value,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
-  private onCheckboxIsActiveChange(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onCheckboxIsActiveChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         dto: {
@@ -202,7 +184,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           isActive: e.currentTarget.checked,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
@@ -214,7 +196,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           showE5: e.currentTarget.checked,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
@@ -226,7 +208,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           showE10: e.currentTarget.checked,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
@@ -238,7 +220,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           showDiesel: e.currentTarget.checked,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
@@ -250,17 +232,14 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           apiKey: e.currentTarget.value,
         },
       },
-      this.saveValues
+      this.saveValues,
     )
   }
 
   private saveValues(): void {
     clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<IFuelPriceSettingsDto>(
-        "/v1/smartmirror/admin/fuelprice/settings",
-        this.state.dto
-      )
+      await Api.put<IFuelPriceSettingsDto>('/v1/smartmirror/admin/fuelprice/settings', this.state.dto)
     }, 333)
   }
 }

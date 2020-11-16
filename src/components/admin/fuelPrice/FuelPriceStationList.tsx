@@ -1,19 +1,11 @@
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Api from "../../../utils/api"
-import {
-  ISortOrderDto,
-  IFuelPriceStationDto,
-} from "@yellowgarbagebag/snow-white-dto"
-import {
-  faCaretDown,
-  faCaretUp,
-  faEdit,
-  faTrashAlt,
-} from "@fortawesome/free-solid-svg-icons"
-import Dialog from "../../common/Dialog"
-import Card from "../../common/Card"
-import FuelPriceStationEdit from "./FuelPriceStationEdit"
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Api from '../../../utils/api'
+import { ISortOrderDto, IFuelPriceStationDto } from '@yellowgarbagebag/snow-white-dto'
+import { faCaretDown, faCaretUp, faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import Dialog from '../../common/Dialog'
+import Card from '../../common/Card'
+import FuelPriceStationEdit from './FuelPriceStationEdit'
 
 interface IState {
   stations: Array<IFuelPriceStationDto>
@@ -104,24 +96,19 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
             </tbody>
           </table>
         </Card>
-        {this.state.showDeleteDialog && (
-          <Dialog
-            title="Löschen"
-            dialogCloseCallback={this.onDeleteDialogClose}
-            showBtnYes={true}
-            showBtnNo={true}
-          >
-            Möchten Sie "{this.state.selectedStation!.name}" wirklich löschen?
+        {this.state.showDeleteDialog && this.state.selectedStation && (
+          <Dialog title="Löschen" dialogCloseCallback={this.onDeleteDialogClose} showBtnYes={true} showBtnNo={true}>
+            Möchten Sie "{this.state.selectedStation.name}" wirklich löschen?
           </Dialog>
         )}
-        {this.state.showEditDialog && (
+        {this.state.showEditDialog && this.state.selectedStation && (
           <Dialog
             title="Bearbeiten"
             dialogCloseCallback={this.onEditDialogClose}
             showBtnSave={true}
             showBtnAbort={true}
           >
-            <FuelPriceStationEdit station={this.state.selectedStation!} />
+            <FuelPriceStationEdit station={this.state.selectedStation} />
           </Dialog>
         )}
       </div>
@@ -129,16 +116,13 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
   }
 
   private async onEditDialogClose(name: DialogButtonName): Promise<void> {
-    if (this.state.selectedStation && name === "save") {
+    if (this.state.selectedStation && name === 'save') {
       const station: IFuelPriceStationDto = this.state.selectedStation
-      await Api.put<void>(
-        `/v1/smartmirror/admin/fuelprice/stations/${station.id}`,
-        station
-      )
+      await Api.put<void>(`/v1/smartmirror/admin/fuelprice/stations/${station.id}`, station)
 
-      const existingLocation: IFuelPriceStationDto = this.state.stations.find(
-        (x: IFuelPriceStationDto) => x.id === station.id
-      )!
+      const existingLocation: IFuelPriceStationDto | undefined = this.state.stations.find(
+        (x: IFuelPriceStationDto) => x.id === station.id,
+      )
       Object.assign(existingLocation, station)
 
       this.setState({
@@ -155,18 +139,14 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
   }
 
   private async onDeleteDialogClose(name: DialogButtonName): Promise<void> {
-    if (this.state.selectedStation && name === "yes") {
+    if (this.state.selectedStation && name === 'yes') {
       const station: IFuelPriceStationDto = this.state.selectedStation
-      await Api.delete<void>(
-        `/v1/smartmirror/admin/fuelprice/stations/${station.id}`
-      )
+      await Api.delete<void>(`/v1/smartmirror/admin/fuelprice/stations/${station.id}`)
 
       this.setState({
         selectedStation: null,
         showDeleteDialog: false,
-        stations: this.state.stations.filter(
-          (x: IFuelPriceStationDto) => x.id !== station.id
-        ),
+        stations: this.state.stations.filter((x: IFuelPriceStationDto) => x.id !== station.id),
       })
 
       this.props.onStationChanged()
@@ -179,7 +159,7 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
 
   private onBtnDeleteClick(
     station: IFuelPriceStationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ): void {
     event.preventDefault()
 
@@ -189,10 +169,7 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
     })
   }
 
-  private onBtnEditClick(
-    station: IFuelPriceStationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void {
+  private onBtnEditClick(station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
     event.preventDefault()
 
     this.setState({
@@ -201,10 +178,7 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
     })
   }
 
-  private onBtnUpClick(
-    station: IFuelPriceStationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void {
+  private onBtnUpClick(station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
     event.preventDefault()
 
     const idx: number = this.state.stations.indexOf(station)
@@ -213,10 +187,7 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
     }
   }
 
-  private onBtnDownClick(
-    station: IFuelPriceStationDto,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void {
+  private onBtnDownClick(station: IFuelPriceStationDto, event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
     event.preventDefault()
 
     const idx: number = this.state.stations.indexOf(station)
@@ -225,11 +196,7 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
     }
   }
 
-  private insertAndShift(
-    arr: Array<IFuelPriceStationDto>,
-    from: number,
-    to: number
-  ): void {
+  private insertAndShift(arr: Array<IFuelPriceStationDto>, from: number, to: number): void {
     const cutOut: IFuelPriceStationDto = arr.splice(from, 1)[0]
     arr.splice(to, 0, cutOut)
 
@@ -247,23 +214,17 @@ class FuelPriceStationList extends React.Component<IProps, IState> {
 
     clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<void>(
-        "/v1/smartmirror/admin/fuelprice/stations/reorder",
-        data
-      )
+      await Api.put<void>('/v1/smartmirror/admin/fuelprice/stations/reorder', data)
     }, 500)
   }
 
   private async loadData(): Promise<void> {
-    const res: Array<IFuelPriceStationDto> = await Api.get<
-      Array<IFuelPriceStationDto>
-    >("/v1/smartmirror/admin/fuelprice/stations")
+    const res: Array<IFuelPriceStationDto> = await Api.get<Array<IFuelPriceStationDto>>(
+      '/v1/smartmirror/admin/fuelprice/stations',
+    )
 
     this.setState({
-      stations: res.sort(
-        (a: IFuelPriceStationDto, b: IFuelPriceStationDto) =>
-          a.sortNo - b.sortNo
-      ),
+      stations: res.sort((a: IFuelPriceStationDto, b: IFuelPriceStationDto) => a.sortNo - b.sortNo),
     })
   }
 }

@@ -1,19 +1,12 @@
-import React from "react"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  RouteComponentProps,
-  NavLink,
-  Redirect,
-} from "react-router-dom"
-import CommonArea from "./common/CommonArea"
-import DateArea from "./date/DateArea"
-import FuelPriceArea from "./fuelPrice/FuelPriceArea"
-import TimetableArea from "./timetable/TimetableArea"
-import TrafficArea from "./traffic/TrafficArea"
-import WeatherArea from "./weather/WeatherArea"
-import "./AdminArea.css"
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, RouteComponentProps, NavLink, Redirect } from 'react-router-dom'
+import CommonArea from './common/CommonArea'
+import DateArea from './date/DateArea'
+import FuelPriceArea from './fuelPrice/FuelPriceArea'
+import TimetableArea from './timetable/TimetableArea'
+import TrafficArea from './traffic/TrafficArea'
+import WeatherArea from './weather/WeatherArea'
+import './AdminArea.css'
 
 interface IState {
   collapsed: boolean
@@ -36,12 +29,10 @@ class AdminArea extends React.Component<IProps, IState> {
 
   public render(): JSX.Element {
     const collapsed: boolean = this.state.collapsed
-    const classOne: string = collapsed
-      ? "collapse navbar-collapse"
-      : "collapse navbar-collapse show"
+    const classOne: string = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show'
     const classTwo: string = collapsed
-      ? "navbar-toggler navbar-toggler-right collapsed"
-      : "navbar-toggler navbar-toggler-right"
+      ? 'navbar-toggler navbar-toggler-right collapsed'
+      : 'navbar-toggler navbar-toggler-right'
 
     return (
       <div className="adminarea">
@@ -60,22 +51,12 @@ class AdminArea extends React.Component<IProps, IState> {
             <div className={`${classOne}`} id="navbarResponsive">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <NavLink
-                    to="/admin/common"
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.toggleNavbar}
-                  >
+                  <NavLink to="/admin/common" className="nav-link" activeClassName="active" onClick={this.toggleNavbar}>
                     Allgemein
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink
-                    to="/admin/date"
-                    className="nav-link"
-                    activeClassName="active"
-                    onClick={this.toggleNavbar}
-                  >
+                  <NavLink to="/admin/date" className="nav-link" activeClassName="active" onClick={this.toggleNavbar}>
                     Datum
                   </NavLink>
                 </li>
