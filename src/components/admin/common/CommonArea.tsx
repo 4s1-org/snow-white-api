@@ -7,13 +7,13 @@ interface IState {
   updateLocationList: number
 }
 
-interface IProps { }
+interface IProps {}
 
-class CommonArea extends React.Component<IProps, IState>  {
+class CommonArea extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props)
     this.state = {
-      updateLocationList: 0
+      updateLocationList: 0,
     }
 
     this.onLocationAdd = this.onLocationAdd.bind(this)
@@ -21,7 +21,7 @@ class CommonArea extends React.Component<IProps, IState>  {
 
   public render(): JSX.Element {
     return (
-      <div className='content'>
+      <div className="content">
         <CommonSettings />
         <LocationList update={this.state.updateLocationList} />
         <LocationSearch onLocationAdd={this.onLocationAdd} />
@@ -31,7 +31,7 @@ class CommonArea extends React.Component<IProps, IState>  {
 
   private onLocationAdd(): void {
     this.setState({
-      updateLocationList: new Date().valueOf()
+      updateLocationList: new Date().valueOf(),
     })
   }
 }

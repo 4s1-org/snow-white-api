@@ -1,56 +1,51 @@
-import React from "react";
-import Api from "../../../utils/api";
-import Card from "../../common/Card";
-import {
-  ITrafficSettingsDto,
-  IDateSettingsDto,
-} from "@yellowgarbagebag/rest-api-dto";
-import moment from "moment";
-import "moment/locale/de";
-import Select from "react-select";
-moment.locale("de");
+import React from 'react'
+import Api from '../../../utils/api'
+import Card from '../../common/Card'
+import { ITrafficSettingsDto, IDateSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import moment from 'moment'
+import 'moment/locale/de'
+import Select from 'react-select'
+moment.locale('de')
 
 interface IState {
-  dto: IDateSettingsDto;
-  preview: string;
+  dto: IDateSettingsDto
+  preview: string
 }
 
 interface IProps {}
 
 class Settings extends React.Component<IProps, IState> {
-  private timer: any = null;
+  private timer: any = null
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
         fontSize: 12,
         isActive: false,
-        pattern: "",
+        pattern: '',
       },
-      preview: "",
-    };
+      preview: '',
+    }
 
-    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this);
-    this.onTextPatternChange = this.onTextPatternChange.bind(this);
-    this.onSelectFontSizeChange = this.onSelectFontSizeChange.bind(this);
+    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this)
+    this.onTextPatternChange = this.onTextPatternChange.bind(this)
+    this.onSelectFontSizeChange = this.onSelectFontSizeChange.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
-    const dto: IDateSettingsDto = await Api.get<IDateSettingsDto>(
-      "/v1/smartmirror/admin/date/settings"
-    );
+    const dto: IDateSettingsDto = await Api.get<IDateSettingsDto>('/v1/smartmirror/admin/date/settings')
 
     this.setState({
       dto,
       preview: moment().format(dto.pattern),
-    });
+    })
   }
 
   public render(): JSX.Element {
-    const fontSizeOptions: Array<{ id: number }> = [];
-    for (let i: number = 8; i <= 28; i += 2) {
-      fontSizeOptions.push({ id: i });
+    const fontSizeOptions: Array<{ id: number }> = []
+    for (let i = 8; i <= 28; i += 2) {
+      fontSizeOptions.push({ id: i })
     }
 
     return (
@@ -89,28 +84,18 @@ class Settings extends React.Component<IProps, IState> {
                 options={fontSizeOptions}
                 onChange={this.onSelectFontSizeChange}
                 value={fontSizeOptions.filter(
-                  (option: { id: number }): boolean =>
-                    option.id === this.state.dto.fontSize
+                  (option: { id: number }): boolean => option.id === this.state.dto.fontSize,
                 )}
-                getOptionLabel={(option: { id: number }): string =>
-                  option.id.toString()
-                }
-                getOptionValue={(option: { id: number }): string =>
-                  option.id.toString()
-                }
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: { id: number }): string => option.id.toString()}
+                getOptionValue={(option: { id: number }): string => option.id.toString()}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
           <div className="form-group row">
             <label className="col-sm-4 col-form-label">Vorschau</label>
             <div className="col-sm-8">
-              <input
-                type="text"
-                className="form-control"
-                disabled={true}
-                value={this.state.preview}
-              />
+              <input type="text" className="form-control" disabled={true} value={this.state.preview} />
             </div>
           </div>
         </form>
@@ -177,7 +162,7 @@ class Settings extends React.Component<IProps, IState> {
           </tbody>
         </table>
       </Card>
-    );
+    )
   }
 
   private onSelectFontSizeChange(value: any): void {
@@ -188,13 +173,11 @@ class Settings extends React.Component<IProps, IState> {
           fontSize: value.id,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
-  private onCheckboxIsActiveChange(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onCheckboxIsActiveChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         dto: {
@@ -202,8 +185,8 @@ class Settings extends React.Component<IProps, IState> {
           isActive: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onTextPatternChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -215,19 +198,16 @@ class Settings extends React.Component<IProps, IState> {
         },
         preview: moment().format(e.currentTarget.value),
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private saveValues(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<ITrafficSettingsDto>(
-        "/v1/smartmirror/admin/date/settings",
-        this.state.dto
-      );
-    }, 333);
+      await Api.put<ITrafficSettingsDto>('/v1/smartmirror/admin/date/settings', this.state.dto)
+    }, 333)
   }
 }
 
-export default Settings;
+export default Settings

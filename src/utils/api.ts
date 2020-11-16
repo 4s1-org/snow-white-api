@@ -5,11 +5,11 @@ class Api {
     return this.request<T>(path, 'GET')
   }
 
-  public static post<T>(path: string, data: any): Promise<T> {
+  public static post<T>(path: string, data: unknown): Promise<T> {
     return this.request<T>(path, 'POST', data)
   }
 
-  public static put<T>(path: string, data: any): Promise<T> {
+  public static put<T>(path: string, data: unknown): Promise<T> {
     return this.request<T>(path, 'PUT', data)
   }
 
@@ -17,11 +17,7 @@ class Api {
     return this.request<T>(path, 'DELETE')
   }
 
-  private static async request<T>(
-    path: string,
-    method: 'GET' | 'PUT' | 'POST' | 'DELETE',
-    data?: any,
-  ): Promise<T> {
+  private static async request<T>(path: string, method: 'GET' | 'PUT' | 'POST' | 'DELETE', data?: any): Promise<T> {
     const config: AxiosRequestConfig = {
       baseURL: process.env.REACT_APP_BACKEND_URL,
       data,

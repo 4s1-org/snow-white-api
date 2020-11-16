@@ -1,29 +1,26 @@
-import React from "react";
-import Api from "../../../utils/api";
-import Card from "../../common/Card";
-import {
-  IFuelPriceSettingsDto,
-  IFuelPriceStationDto,
-} from "@yellowgarbagebag/rest-api-dto";
-import Select from "react-select";
+import React from 'react'
+import Api from '../../../utils/api'
+import Card from '../../common/Card'
+import { IFuelPriceSettingsDto, IFuelPriceStationDto } from '@yellowgarbagebag/snow-white-dto'
+import Select from 'react-select'
 
 interface IState {
-  dto: IFuelPriceSettingsDto;
-  stations: Array<IFuelPriceStationDto>;
+  dto: IFuelPriceSettingsDto
+  stations: Array<IFuelPriceStationDto>
 }
 
 interface IProps {
-  update: number;
+  update: number
 }
 
 class FuelPriceSettings extends React.Component<IProps, IState> {
-  private timer: any = null;
+  private timer: any = null
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
-        apiKey: "",
+        apiKey: '',
         interval: 15,
         isActive: false,
         showDiesel: false,
@@ -31,41 +28,41 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
         showE5: false,
       },
       stations: [],
-    };
+    }
 
-    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this);
-    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this);
-    this.onCheckboxE5Change = this.onCheckboxE5Change.bind(this);
-    this.onCheckboxE10Change = this.onCheckboxE10Change.bind(this);
-    this.onCheckboxDieselChange = this.onCheckboxDieselChange.bind(this);
-    this.onSelectIntervalChange = this.onSelectIntervalChange.bind(this);
+    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this)
+    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this)
+    this.onCheckboxE5Change = this.onCheckboxE5Change.bind(this)
+    this.onCheckboxE10Change = this.onCheckboxE10Change.bind(this)
+    this.onCheckboxDieselChange = this.onCheckboxDieselChange.bind(this)
+    this.onSelectIntervalChange = this.onSelectIntervalChange.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
-    await this.loadData();
+    await this.loadData()
   }
 
   public async componentDidUpdate(prevProps: IProps): Promise<void> {
     if (prevProps.update !== this.props.update) {
-      await this.loadData();
+      await this.loadData()
     }
   }
 
   public render(): JSX.Element {
     const intervalOptions: Array<{ value: number; label: string }> = [
       {
-        label: "15 Minuten",
+        label: '15 Minuten',
         value: 15 * 3600,
       },
       {
-        label: "30 Minuten",
+        label: '30 Minuten',
         value: 30 * 3600,
       },
       {
-        label: "60 Minuten",
+        label: '60 Minuten',
         value: 60 * 3600,
       },
-    ];
+    ]
 
     return (
       <Card title="Einstellungen">
@@ -94,11 +91,7 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
                 onChange={this.onTextApiKeyChange}
               />
               <div className="text-right">
-                <a
-                  href="https://creativecommons.tankerkoenig.de/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://creativecommons.tankerkoenig.de/" target="_blank" rel="noopener noreferrer">
                   API-Key beantragen
                 </a>
               </div>
@@ -112,18 +105,11 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
                 options={intervalOptions}
                 onChange={this.onSelectIntervalChange}
                 value={intervalOptions.filter(
-                  (option: { value: number; label: string }): boolean =>
-                    option.value === this.state.dto.interval
+                  (option: { value: number; label: string }): boolean => option.value === this.state.dto.interval,
                 )}
-                getOptionLabel={(option: {
-                  value: number;
-                  label: string;
-                }): string => option.label}
-                getOptionValue={(option: {
-                  value: number;
-                  label: string;
-                }): string => option.value.toString()}
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: { value: number; label: string }): string => option.label}
+                getOptionValue={(option: { value: number; label: string }): string => option.value.toString()}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
@@ -164,20 +150,18 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           </div>
         </form>
       </Card>
-    );
+    )
   }
 
   private async loadData(): Promise<void> {
-    const stations: Array<IFuelPriceStationDto> = await Api.get<
-      Array<IFuelPriceStationDto>
-    >("/v1/smartmirror/admin/fuelprice/stations");
-    const dto: IFuelPriceSettingsDto = await Api.get<IFuelPriceSettingsDto>(
-      "/v1/smartmirror/admin/fuelprice/settings"
-    );
+    const stations: Array<IFuelPriceStationDto> = await Api.get<Array<IFuelPriceStationDto>>(
+      '/v1/smartmirror/admin/fuelprice/stations',
+    )
+    const dto: IFuelPriceSettingsDto = await Api.get<IFuelPriceSettingsDto>('/v1/smartmirror/admin/fuelprice/settings')
     this.setState({
       dto,
       stations,
-    });
+    })
   }
 
   private onSelectIntervalChange(value: any): void {
@@ -188,13 +172,11 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           interval: value.value,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
-  private onCheckboxIsActiveChange(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onCheckboxIsActiveChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         dto: {
@@ -202,8 +184,8 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           isActive: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxE5Change(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -214,8 +196,8 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           showE5: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxE10Change(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -226,8 +208,8 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           showE10: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxDieselChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -238,8 +220,8 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           showDiesel: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onTextApiKeyChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -250,19 +232,16 @@ class FuelPriceSettings extends React.Component<IProps, IState> {
           apiKey: e.currentTarget.value,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private saveValues(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<IFuelPriceSettingsDto>(
-        "/v1/smartmirror/admin/fuelprice/settings",
-        this.state.dto
-      );
-    }, 333);
+      await Api.put<IFuelPriceSettingsDto>('/v1/smartmirror/admin/fuelprice/settings', this.state.dto)
+    }, 333)
   }
 }
 
-export default FuelPriceSettings;
+export default FuelPriceSettings

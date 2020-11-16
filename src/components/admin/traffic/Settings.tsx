@@ -1,57 +1,47 @@
-import React from "react";
-import Api from "../../../utils/api";
-import Card from "../../common/Card";
-import {
-  ITrafficSettingsDto,
-  ICommonLocationDto,
-} from "@yellowgarbagebag/rest-api-dto";
-import Select from "react-select";
+import React from 'react'
+import Api from '../../../utils/api'
+import Card from '../../common/Card'
+import { ITrafficSettingsDto, ICommonLocationDto } from '@yellowgarbagebag/snow-white-dto'
+import Select from 'react-select'
 
 interface IState {
-  dto: ITrafficSettingsDto;
-  locations: Array<ICommonLocationDto>;
+  dto: ITrafficSettingsDto
+  locations: Array<ICommonLocationDto>
 }
 
 interface IProps {}
 
 class Settings extends React.Component<IProps, IState> {
-  private timer: any = null;
+  private timer: any = null
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
-        apiKey: "",
+        apiKey: '',
         isActive: false,
-        locationFromId: "",
-        locationToId: "",
+        locationFromId: '',
+        locationToId: '',
       },
       locations: [],
-    };
+    }
 
-    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this);
-    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this);
-    this.onSelectLocationFromChange = this.onSelectLocationFromChange.bind(
-      this
-    );
-    this.onSelectLocationToChange = this.onSelectLocationToChange.bind(this);
+    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this)
+    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this)
+    this.onSelectLocationFromChange = this.onSelectLocationFromChange.bind(this)
+    this.onSelectLocationToChange = this.onSelectLocationToChange.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
-    const dto: ITrafficSettingsDto = await Api.get<ITrafficSettingsDto>(
-      "/v1/smartmirror/admin/traffic/settings"
-    );
-    const locations: Array<ICommonLocationDto> = await Api.get<
-      Array<ICommonLocationDto>
-    >("/v1/smartmirror/admin/common/locations");
+    const dto: ITrafficSettingsDto = await Api.get<ITrafficSettingsDto>('/v1/smartmirror/admin/traffic/settings')
+    const locations: Array<ICommonLocationDto> = await Api.get<Array<ICommonLocationDto>>(
+      '/v1/smartmirror/admin/common/locations',
+    )
 
     this.setState({
       dto,
-      locations: locations.sort(
-        (a: ICommonLocationDto, b: ICommonLocationDto): number =>
-          a.sortNo - b.sortNo
-      ),
-    });
+      locations: locations.sort((a: ICommonLocationDto, b: ICommonLocationDto): number => a.sortNo - b.sortNo),
+    })
   }
 
   public render(): JSX.Element {
@@ -82,11 +72,7 @@ class Settings extends React.Component<IProps, IState> {
                 onChange={this.onTextApiKeyChange}
               />
               <div className="text-right">
-                <a
-                  href="https://developer.here.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://developer.here.com/" target="_blank" rel="noopener noreferrer">
                   API-Key beantragen
                 </a>
               </div>
@@ -100,16 +86,11 @@ class Settings extends React.Component<IProps, IState> {
                 options={this.state.locations}
                 onChange={this.onSelectLocationFromChange}
                 value={this.state.locations.filter(
-                  (location: ICommonLocationDto): boolean =>
-                    location.id === this.state.dto.locationFromId
+                  (location: ICommonLocationDto): boolean => location.id === this.state.dto.locationFromId,
                 )}
-                getOptionLabel={(option: ICommonLocationDto): string =>
-                  option.name
-                }
-                getOptionValue={(option: ICommonLocationDto): string =>
-                  option.id
-                }
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: ICommonLocationDto): string => option.name}
+                getOptionValue={(option: ICommonLocationDto): string => option.id}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
@@ -121,22 +102,17 @@ class Settings extends React.Component<IProps, IState> {
                 options={this.state.locations}
                 onChange={this.onSelectLocationToChange}
                 value={this.state.locations.filter(
-                  (location: ICommonLocationDto): boolean =>
-                    location.id === this.state.dto.locationToId
+                  (location: ICommonLocationDto): boolean => location.id === this.state.dto.locationToId,
                 )}
-                getOptionLabel={(option: ICommonLocationDto): string =>
-                  option.name
-                }
-                getOptionValue={(option: ICommonLocationDto): string =>
-                  option.id
-                }
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: ICommonLocationDto): string => option.name}
+                getOptionValue={(option: ICommonLocationDto): string => option.id}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
         </form>
       </Card>
-    );
+    )
   }
 
   private onSelectLocationFromChange(value: any): void {
@@ -147,8 +123,8 @@ class Settings extends React.Component<IProps, IState> {
           locationFromId: value.id,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onSelectLocationToChange(value: any): void {
@@ -159,13 +135,11 @@ class Settings extends React.Component<IProps, IState> {
           locationToId: value.id,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
-  private onCheckboxIsActiveChange(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onCheckboxIsActiveChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         dto: {
@@ -173,8 +147,8 @@ class Settings extends React.Component<IProps, IState> {
           isActive: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onTextApiKeyChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -185,19 +159,16 @@ class Settings extends React.Component<IProps, IState> {
           apiKey: e.currentTarget.value,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private saveValues(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<ITrafficSettingsDto>(
-        "/v1/smartmirror/admin/traffic/settings",
-        this.state.dto
-      );
-    }, 333);
+      await Api.put<ITrafficSettingsDto>('/v1/smartmirror/admin/traffic/settings', this.state.dto)
+    }, 333)
   }
 }
 
-export default Settings;
+export default Settings

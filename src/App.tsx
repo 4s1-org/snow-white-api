@@ -7,10 +7,10 @@ const App: React.FC = (): JSX.Element => {
   return (
     <Router>
       <Switch>
-        <Route path='/admin' component={AdminArea} />
-        <Route path='/' component={UiArea} />
+        <Route path="/admin" component={AdminArea} />
+        <Route path="/" component={UiArea} />
       </Switch>
-    </Router >
+    </Router>
   )
 }
 

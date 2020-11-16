@@ -1,29 +1,26 @@
-import React from "react";
-import Api from "../../../utils/api";
-import Card from "../../common/Card";
-import {
-  ITimetableSettingsDto,
-  ITimetableStationDto,
-} from "@yellowgarbagebag/rest-api-dto";
-import Select from "react-select";
+import React from 'react'
+import Api from '../../../utils/api'
+import Card from '../../common/Card'
+import { ITimetableSettingsDto, ITimetableStationDto } from '@yellowgarbagebag/snow-white-dto'
+import Select from 'react-select'
 
 interface IState {
-  dto: ITimetableSettingsDto;
-  stations: Array<ITimetableStationDto>;
+  dto: ITimetableSettingsDto
+  stations: Array<ITimetableStationDto>
 }
 
 interface IProps {
-  update: number;
+  update: number
 }
 
 class TimetableSettings extends React.Component<IProps, IState> {
-  private timer: any = null;
+  private timer: any = null
 
   constructor(props: IProps) {
-    super(props);
+    super(props)
     this.state = {
       dto: {
-        apiKey: "",
+        apiKey: '',
         isActive: false,
         lines: {
           showBus: false,
@@ -40,30 +37,30 @@ class TimetableSettings extends React.Component<IProps, IState> {
         stationToId: null,
       },
       stations: [],
-    };
+    }
 
-    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this);
-    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this);
-    this.onSelectStationFromChange = this.onSelectStationFromChange.bind(this);
-    this.onSelectStationToChange = this.onSelectStationToChange.bind(this);
+    this.onCheckboxIsActiveChange = this.onCheckboxIsActiveChange.bind(this)
+    this.onTextApiKeyChange = this.onTextApiKeyChange.bind(this)
+    this.onSelectStationFromChange = this.onSelectStationFromChange.bind(this)
+    this.onSelectStationToChange = this.onSelectStationToChange.bind(this)
 
-    this.onCheckboxICEChange = this.onCheckboxICEChange.bind(this);
-    this.onCheckboxICChange = this.onCheckboxICChange.bind(this);
-    this.onCheckboxREChange = this.onCheckboxREChange.bind(this);
-    this.onCheckboxRBChange = this.onCheckboxRBChange.bind(this);
-    this.onCheckboxSBahnChange = this.onCheckboxSBahnChange.bind(this);
-    this.onCheckboxBusChange = this.onCheckboxBusChange.bind(this);
-    this.onCheckboxTramChange = this.onCheckboxTramChange.bind(this);
-    this.onCheckboxUBahnChange = this.onCheckboxUBahnChange.bind(this);
+    this.onCheckboxICEChange = this.onCheckboxICEChange.bind(this)
+    this.onCheckboxICChange = this.onCheckboxICChange.bind(this)
+    this.onCheckboxREChange = this.onCheckboxREChange.bind(this)
+    this.onCheckboxRBChange = this.onCheckboxRBChange.bind(this)
+    this.onCheckboxSBahnChange = this.onCheckboxSBahnChange.bind(this)
+    this.onCheckboxBusChange = this.onCheckboxBusChange.bind(this)
+    this.onCheckboxTramChange = this.onCheckboxTramChange.bind(this)
+    this.onCheckboxUBahnChange = this.onCheckboxUBahnChange.bind(this)
   }
 
   public async componentDidMount(): Promise<void> {
-    await this.loadData();
+    await this.loadData()
   }
 
   public async componentDidUpdate(prevProps: IProps): Promise<void> {
     if (prevProps.update !== this.props.update) {
-      await this.loadData();
+      await this.loadData()
     }
   }
 
@@ -95,11 +92,7 @@ class TimetableSettings extends React.Component<IProps, IState> {
                 onChange={this.onTextApiKeyChange}
               />
               <div className="text-right">
-                <a
-                  href="https://opendata.rmv.de/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://opendata.rmv.de/" target="_blank" rel="noopener noreferrer">
                   API-Key beantragen
                 </a>
               </div>
@@ -113,16 +106,11 @@ class TimetableSettings extends React.Component<IProps, IState> {
                 options={this.state.stations}
                 onChange={this.onSelectStationFromChange}
                 value={this.state.stations.filter(
-                  (station: ITimetableStationDto): boolean =>
-                    station.id === this.state.dto.stationFromId
+                  (station: ITimetableStationDto): boolean => station.id === this.state.dto.stationFromId,
                 )}
-                getOptionLabel={(option: ITimetableStationDto): string =>
-                  option.name
-                }
-                getOptionValue={(option: ITimetableStationDto): string =>
-                  option.id
-                }
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: ITimetableStationDto): string => option.name}
+                getOptionValue={(option: ITimetableStationDto): string => option.id}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
@@ -134,16 +122,11 @@ class TimetableSettings extends React.Component<IProps, IState> {
                 options={this.state.stations}
                 onChange={this.onSelectStationToChange}
                 value={this.state.stations.filter(
-                  (station: ITimetableStationDto): boolean =>
-                    station.id === this.state.dto.stationToId
+                  (station: ITimetableStationDto): boolean => station.id === this.state.dto.stationToId,
                 )}
-                getOptionLabel={(option: ITimetableStationDto): string =>
-                  option.name
-                }
-                getOptionValue={(option: ITimetableStationDto): string =>
-                  option.id
-                }
-                placeholder={"Bitte auswählen..."}
+                getOptionLabel={(option: ITimetableStationDto): string => option.name}
+                getOptionValue={(option: ITimetableStationDto): string => option.id}
+                placeholder={'Bitte auswählen...'}
               />
             </div>
           </div>
@@ -234,7 +217,7 @@ class TimetableSettings extends React.Component<IProps, IState> {
           </div>
         </form>
       </Card>
-    );
+    )
   }
 
   private onCheckboxTramChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -248,8 +231,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxICEChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -263,8 +246,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxICChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -278,8 +261,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxSBahnChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -293,8 +276,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxUBahnChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -308,8 +291,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxRBChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -323,8 +306,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxREChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -338,8 +321,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onCheckboxBusChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -353,8 +336,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           },
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onSelectStationFromChange(value: any): void {
@@ -365,8 +348,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           stationFromId: value.id,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onSelectStationToChange(value: any): void {
@@ -377,13 +360,11 @@ class TimetableSettings extends React.Component<IProps, IState> {
           stationToId: value.id,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
-  private onCheckboxIsActiveChange(
-    e: React.ChangeEvent<HTMLInputElement>
-  ): void {
+  private onCheckboxIsActiveChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState(
       {
         dto: {
@@ -391,8 +372,8 @@ class TimetableSettings extends React.Component<IProps, IState> {
           isActive: e.currentTarget.checked,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private onTextApiKeyChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -403,35 +384,27 @@ class TimetableSettings extends React.Component<IProps, IState> {
           apiKey: e.currentTarget.value,
         },
       },
-      this.saveValues
-    );
+      this.saveValues,
+    )
   }
 
   private saveValues(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
     this.timer = setTimeout(async () => {
-      await Api.put<ITimetableSettingsDto>(
-        "/v1/smartmirror/admin/timetable/settings",
-        this.state.dto
-      );
-    }, 333);
+      await Api.put<ITimetableSettingsDto>('/v1/smartmirror/admin/timetable/settings', this.state.dto)
+    }, 333)
   }
 
   private async loadData(): Promise<void> {
-    const stations: Array<ITimetableStationDto> = await Api.get<
-      Array<ITimetableStationDto>
-    >("/v1/smartmirror/admin/timetable/stations");
-    const dto: ITimetableSettingsDto = await Api.get<ITimetableSettingsDto>(
-      "/v1/smartmirror/admin/timetable/settings"
-    );
+    const stations: Array<ITimetableStationDto> = await Api.get<Array<ITimetableStationDto>>(
+      '/v1/smartmirror/admin/timetable/stations',
+    )
+    const dto: ITimetableSettingsDto = await Api.get<ITimetableSettingsDto>('/v1/smartmirror/admin/timetable/settings')
     this.setState({
       dto,
-      stations: stations.sort(
-        (a: ITimetableStationDto, b: ITimetableStationDto): number =>
-          a.sortNo - b.sortNo
-      ),
-    });
+      stations: stations.sort((a: ITimetableStationDto, b: ITimetableStationDto): number => a.sortNo - b.sortNo),
+    })
   }
 }
 
-export default TimetableSettings;
+export default TimetableSettings

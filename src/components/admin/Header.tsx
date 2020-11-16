@@ -1,15 +1,15 @@
 import React from 'react'
 
-interface IState { }
+interface IState {}
 
-interface IProps { }
+interface IProps {}
 
-class Header extends React.Component<IProps, IState>  {
+class Header extends React.Component<IProps, IState> {
   // constructor (props) {
-  //   super(props);
+  //   super(props)
   // }
 
-  public render (): JSX.Element {
+  public render(): JSX.Element {
     return (
       <div>
         <p>Hello World!</p>
