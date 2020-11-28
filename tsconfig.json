@@ -11,6 +11,8 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    /* For sqlite */
+    "lib": ["ES6"]
   }
 }
