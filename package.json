@@ -19,9 +19,11 @@
     "build": "tsc",
     "build:watch": "nodemon -x npm run build --ignore dist -i *.spec.ts -e ts",
     "format": "prettier --write \"src/**/*.ts\"",
+    "lbt": "npm run lint && npm run build && npm run test",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "npm run lint -- --fix",
-    "publish:patch": "npm run lint && npm run build && npm version patch && npm publish && git push --tags"
+    "publish:patch": "npm run lint && npm run build && npm version patch && npm publish && git push --tags",
+    "test": "echo No tests available"
   },
   "prettier": "@hest-lab/eslint-config",
   "dependencies": {},
