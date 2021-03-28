@@ -27,13 +27,12 @@
     "test": "echo No tests available"
   },
   "prettier": "@hest-lab/eslint-config",
-  "dependencies": {},
   "devDependencies": {
-    "@hest-lab/eslint-config": "^1.2.0",
-    "@types/node": "^14.14.7",
-    "eslint": "^7.13.0",
-    "prettier": "^2.1.2",
-    "typescript": "^4.0.5"
+    "@hest-lab/eslint-config": "^1.5.0",
+    "@types/node": "^14.14.37",
+    "eslint": "^7.23.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.3"
   },
   "publishConfig": {
     "access": "public"
