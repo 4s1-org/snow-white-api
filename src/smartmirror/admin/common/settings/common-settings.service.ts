@@ -35,7 +35,7 @@ export class CommonSettingsService {
   }
 
   public async getRecord(): Promise<CommonSettingsEntity> {
-    let record: CommonSettingsEntity = await this.commonSettingEntityRepository.findOne()
+    let record = await this.commonSettingEntityRepository.findOne()
 
     // If settings not present, create it
     if (!record) {

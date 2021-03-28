@@ -39,7 +39,7 @@ export class CommonLocationsService {
   }
 
   public async loadSingle(id: string): Promise<CommonLocationDto | null> {
-    const res: CommonLocationEntity = await this.commonLocationEntityRepository.findOne(id)
+    const res = await this.commonLocationEntityRepository.findOne(id)
     if (!res) {
       return null
     }
@@ -69,7 +69,7 @@ export class CommonLocationsService {
 
   private convertLocation(entity: CommonLocationEntity): CommonLocationDto {
     return {
-      id: entity.id,
+      id: entity.id || '',
       latitude: entity.latitude,
       longitude: entity.longitude,
       name: entity.name,

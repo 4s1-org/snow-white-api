@@ -51,7 +51,7 @@ export class FuelPriceSettingsService {
   }
 
   public async getRecord(): Promise<FuelPriceSettingsEntity> {
-    let record: FuelPriceSettingsEntity = await this.fuelPriceSettingEntityRepository.findOne()
+    let record = await this.fuelPriceSettingEntityRepository.findOne()
 
     // If settings not present, create it
     if (!record) {

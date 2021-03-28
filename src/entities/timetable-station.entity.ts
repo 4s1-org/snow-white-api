@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
 @Entity('TimetableStations')
 export class TimetableStationEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id!: string
+  public id!: string | null
 
   @Column({ length: 255 })
   public name!: string
