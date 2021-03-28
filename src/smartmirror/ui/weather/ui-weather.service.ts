@@ -12,7 +12,7 @@ export class UiWeatherService {
 
   public async getWeather(): Promise<WeatherDatasDto> {
     const settingsEntity: WeatherSettingsEntity = await this.settings.getRecord()
-    const apiKey: string = settingsEntity.apiKey || process.env.APIKEY_OPENWEATHER
+    const apiKey = settingsEntity.apiKey || process.env.APIKEY_OPENWEATHER
 
     if (settingsEntity.isActive && apiKey && settingsEntity.commonLocation) {
       const weather: WeatherDatasDto = await this.openWeather.getByCoordinates(

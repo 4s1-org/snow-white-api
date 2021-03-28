@@ -19,7 +19,7 @@ export class UiFuelPriceService {
 
   public async getPrices(): Promise<Array<FuelPricePricesDto>> {
     const settingsEntity: FuelPriceSettingsEntity = await this.settings.getRecord()
-    const apiKey: string = settingsEntity.apiKey || process.env.APIKEY_TANKERKOENIG
+    const apiKey = settingsEntity.apiKey || process.env.APIKEY_TANKERKOENIG
 
     if (settingsEntity.isActive && apiKey) {
       const stations: Array<FuelPriceStationEntity> = await this.stationRepository.find()

@@ -31,7 +31,7 @@ export class FuelPriceController {
   // POST - /v1/smartmirror/admin/fuelprice/stations/search
   @Post('/stations/search')
   public async searchStations(@Body() latlon: CoordinatesDto): Promise<Array<TankerkoenigStationDto>> {
-    const apiKey: string = (await this.settings.getRecord()).apiKey || process.env.APIKEY_TANKERKOENIG
+    const apiKey = (await this.settings.getRecord()).apiKey || process.env.APIKEY_TANKERKOENIG || ''
     return this.stations.search(apiKey, latlon)
   }
 
@@ -55,7 +55,7 @@ export class FuelPriceController {
 
   // GET - /v1/smartmirror/admin/fuelprice/stations/:id
   @Get('/stations/:id')
-  public async loadSingleGasStation(@Param('id') id: string): Promise<FuelPriceStationDto> {
+  public async loadSingleGasStation(@Param('id') id: string): Promise<FuelPriceStationDto | null> {
     return this.stations.loadSingle(id)
   }
 

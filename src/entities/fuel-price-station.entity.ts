@@ -3,23 +3,23 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('FuelPriceStations')
 export class FuelPriceStationEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column({ length: 255 })
-  public name: string
+  public name!: string
 
   @Column({ length: 255 })
-  public nameOrigin: string
+  public nameOrigin!: string
 
   @Column('int')
-  public latitude: number
+  public latitude!: number
 
   @Column('int')
-  public longitude: number
+  public longitude!: number
 
   @Column('int', { nullable: true })
-  public sortNo: number
+  public sortNo!: number
 
   @Column({ type: 'uuid', length: 36 })
-  public remoteId: string
+  public remoteId!: string
 }

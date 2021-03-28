@@ -1,29 +1,29 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ICommonLocationDto } from '@yellowgarbagebag/snow-white-dto'
+import { ICommonLocationDto } from '@yellowgarbagebag/snow-white-shared'
 
 export class CommonLocationDto implements ICommonLocationDto {
   @IsNotEmpty()
   @ApiProperty()
-  public id: string
+  public id!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public name: string
+  public name!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public nameOrigin: string
+  public nameOrigin!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public latitude: number
+  public latitude!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public longitude: number
+  public longitude!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public sortNo: number
+  public sortNo!: number
 }

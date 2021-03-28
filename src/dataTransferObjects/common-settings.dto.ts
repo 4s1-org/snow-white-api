@@ -1,13 +1,13 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ICommonSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import { ICommonSettingsDto } from '@yellowgarbagebag/snow-white-shared'
 
 export class CommonSettingsDto implements ICommonSettingsDto {
   @IsNotEmpty()
   @ApiProperty()
-  public morningStart: number
+  public morningStart!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public morningEnd: number
+  public morningEnd!: number
 }

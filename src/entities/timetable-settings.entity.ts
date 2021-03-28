@@ -4,50 +4,50 @@ import { TimetableStationEntity } from './timetable-station.entity'
 @Entity('TimetableSettings')
 export class TimetableSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column()
-  public isActive: boolean
+  public isActive!: boolean
 
   @Column({ length: 255 })
-  public apiKey: string
+  public apiKey!: string
 
   @ManyToOne(/* istanbul ignore next */ () => TimetableStationEntity, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public timetableStationFrom: TimetableStationEntity
+  public timetableStationFrom!: TimetableStationEntity | null
 
   @ManyToOne(/* istanbul ignore next */ () => TimetableStationEntity, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public timetableStationTo: TimetableStationEntity
+  public timetableStationTo!: TimetableStationEntity | null
 
   @Column('int')
-  public maxChanges: number
+  public maxChanges!: number
 
   @Column()
-  public showICE: boolean
+  public showICE!: boolean
 
   @Column()
-  public showIC: boolean
+  public showIC!: boolean
 
   @Column()
-  public showBus: boolean
+  public showBus!: boolean
 
   @Column()
-  public showTram: boolean
+  public showTram!: boolean
 
   @Column()
-  public showSBahn: boolean
+  public showSBahn!: boolean
 
   @Column()
-  public showRE: boolean
+  public showRE!: boolean
 
   @Column()
-  public showRB: boolean
+  public showRB!: boolean
 
   @Column()
-  public showUBahn: boolean
+  public showUBahn!: boolean
 }

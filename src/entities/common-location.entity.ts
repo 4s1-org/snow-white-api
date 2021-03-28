@@ -3,20 +3,20 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('CommonLocations')
 export class CommonLocationEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column({ length: 255 })
-  public name: string
+  public name!: string
 
   @Column({ length: 255 })
-  public nameOrigin: string
+  public nameOrigin!: string
 
   @Column('double')
-  public latitude: number
+  public latitude!: number
 
   @Column('double')
-  public longitude: number
+  public longitude!: number
 
   @Column('int', { nullable: true })
-  public sortNo: number
+  public sortNo!: number
 }

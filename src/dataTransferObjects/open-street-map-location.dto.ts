@@ -1,24 +1,24 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IOpenStreetMapLocationDto } from '@yellowgarbagebag/snow-white-dto'
+import { IOpenStreetMapLocationDto } from '@yellowgarbagebag/snow-white-shared'
 
 export class OpenStreetMapLocationDto implements IOpenStreetMapLocationDto {
   @IsNotEmpty()
   @ApiProperty()
-  public remoteId: number
+  public remoteId!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public name: string
+  public name!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public latitude: number
+  public latitude!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public longitude: number
+  public longitude!: number
 
   @ApiProperty()
-  public importance: number
+  public importance!: number
 }

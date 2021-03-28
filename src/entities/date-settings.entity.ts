@@ -3,14 +3,14 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('DateSettings')
 export class DateSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column()
-  public isActive: boolean
+  public isActive!: boolean
 
   @Column({ length: 255 })
-  public pattern: string
+  public pattern!: string
 
   @Column()
-  public fontSize: number
+  public fontSize!: number
 }

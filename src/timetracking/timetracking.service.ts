@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import * as nodemailer from 'nodemailer'
 import { ConfigService } from '../config/config.service'
-import * as moment from 'moment'
+import moment from 'moment'
 import 'moment-timezone'
 
 @Injectable()
@@ -9,10 +9,7 @@ export class TimetrackingService {
   constructor(private readonly config: ConfigService) {}
 
   public sendEmail(): string {
-    const time =
-      moment()
-        .tz('Europe/Berlin')
-        .format('DD.MM.YYYY - HH:mm:ss') + ' Uhr'
+    const time = moment().tz('Europe/Berlin').format('DD.MM.YYYY - HH:mm:ss') + ' Uhr'
 
     const transporter: any = nodemailer.createTransport({
       auth: {
