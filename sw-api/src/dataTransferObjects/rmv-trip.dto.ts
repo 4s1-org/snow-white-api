@@ -1,45 +1,45 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IRmvTripDto } from '@yellowgarbagebag/snow-white-dto'
+import { IRmvTripDto } from '@yellowgarbagebag/snow-white-shared'
 
 export class RmvTripDto implements IRmvTripDto {
   @IsNotEmpty()
   @ApiProperty()
-  public tripId: string
+  public tripId!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public arrivalTimePlanned: number
+  public arrivalTimePlanned!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public arrivalTimeReal: number
+  public arrivalTimeReal!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public startTimePlanned: number
+  public startTimePlanned!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public startTimeReal: number
+  public startTimeReal!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public trackPlanned: string
+  public trackPlanned!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public trackReal: string
+  public trackReal!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public durationPlanned: number
+  public durationPlanned!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public durationReal: number
+  public durationReal!: number
 
   @IsNotEmpty()
   @ApiProperty()
-  public lines: Array<string>
+  public lines!: Array<string>
 }

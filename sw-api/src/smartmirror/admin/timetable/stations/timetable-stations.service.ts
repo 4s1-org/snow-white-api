@@ -39,7 +39,7 @@ export class TimetableStationsService {
   }
 
   public async loadSingle(id: string): Promise<TimetableStationDto | null> {
-    const res: TimetableStationEntity = await this.timetableStationEntityRepository.findOne(id)
+    const res = await this.timetableStationEntityRepository.findOne(id)
     if (!res) {
       return null
     }

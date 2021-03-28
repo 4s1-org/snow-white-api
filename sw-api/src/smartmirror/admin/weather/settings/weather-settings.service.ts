@@ -47,7 +47,7 @@ export class WeatherSettingsService {
   }
 
   public async getRecord(): Promise<WeatherSettingsEntity> {
-    let record: WeatherSettingsEntity = await this.trafficSettingEntityRepository.findOne({
+    let record: WeatherSettingsEntity | undefined = await this.trafficSettingEntityRepository.findOne({
       relations: ['commonLocation'],
     })
 

@@ -3,23 +3,23 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('FuelPriceSettings')
 export class FuelPriceSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column()
-  public isActive: boolean
+  public isActive!: boolean
 
   @Column({ length: 255 })
-  public apiKey: string
+  public apiKey!: string
 
   @Column()
-  public showE5: boolean
+  public showE5!: boolean
 
   @Column()
-  public showE10: boolean
+  public showE10!: boolean
 
   @Column()
-  public showDiesel: boolean
+  public showDiesel!: boolean
 
   @Column()
-  public interval: number
+  public interval!: number
 }

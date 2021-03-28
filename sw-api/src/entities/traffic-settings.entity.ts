@@ -4,23 +4,23 @@ import { CommonLocationEntity } from './common-location.entity'
 @Entity('TrafficSettings')
 export class TrafficSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column()
-  public isActive: boolean
+  public isActive!: boolean
 
   @Column({ length: 255 })
-  public apiKey: string
+  public apiKey!: string
 
   @ManyToOne(/* istanbul ignore next */ () => CommonLocationEntity, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public commonLocationFrom: CommonLocationEntity
+  public commonLocationFrom!: CommonLocationEntity
 
   @ManyToOne(/* istanbul ignore next */ () => CommonLocationEntity, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public commonLocationTo: CommonLocationEntity
+  public commonLocationTo!: CommonLocationEntity
 }
