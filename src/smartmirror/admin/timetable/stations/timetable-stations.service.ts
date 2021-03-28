@@ -69,7 +69,7 @@ export class TimetableStationsService {
 
   private convertStation(entity: TimetableStationEntity): TimetableStationDto {
     return {
-      id: entity.id,
+      id: entity.id || '',
       name: entity.name,
       nameOrigin: entity.nameOrigin,
       remoteId: entity.remoteId,

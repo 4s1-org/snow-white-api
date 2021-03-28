@@ -29,13 +29,13 @@ export class UiFuelPriceService {
       const result: Array<FuelPricePricesDto> = []
 
       for (const station of stations) {
-        const price: TankerkoenigPrice = prices.find((x: TankerkoenigPrice) => x.remoteId === station.remoteId)
+        const price = prices.find((x: TankerkoenigPrice) => x.remoteId === station.remoteId)
         result.push({
-          diesel: price.diesel,
-          e10: price.e10,
-          e5: price.e5,
+          diesel: price?.diesel || 0,
+          e10: price?.e10 || 0,
+          e5: price?.e5 || 0,
           name: station.name,
-          open: price.status === 'open',
+          open: price?.status === 'open',
           sortNo: station.sortNo,
         })
       }

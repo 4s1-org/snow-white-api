@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('CommonLocations')
 export class CommonLocationEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id!: string
+  public id!: string | null
 
   @Column({ length: 255 })
   public name!: string

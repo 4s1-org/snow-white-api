@@ -36,7 +36,7 @@ export class DateSettingsService {
   }
 
   public async getRecord(): Promise<DateSettingsEntity> {
-    let record: DateSettingsEntity = await this.dateSettingEntityRepository.findOne()
+    let record = await this.dateSettingEntityRepository.findOne()
 
     // If settings not present, create it
     if (!record) {
