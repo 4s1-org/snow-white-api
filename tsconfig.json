@@ -1,16 +1,10 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "resolveJsonModule": true
-  }
+    "outDir": "./dist",           /* Redirect output structure to the directory. */
+    "rootDir": "./src",           /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }
