@@ -17,6 +17,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
+    "preinstall": "npx only-allow pnpm",
     "build:watch": "nodemon -x npm run build --ignore dist -i *.spec.ts -e ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lbt": "npm run lint && npm run build && npm run test",
