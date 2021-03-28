@@ -1,15 +1,15 @@
 {
-  "name": "@yellowgarbagebag/snow-white-rest-api",
+  "name": "@yellowgarbagebag/snow-white-api",
   "version": "1.0.1",
   "private": true,
-  "description": "SnowWhite - REST API",
-  "homepage": "https://gitlab.com/YellowGarbageBag/snow-white-rest-api",
+  "description": "Snow White API",
+  "homepage": "https://gitlab.com/yellow-garbage-group/snow-white",
   "bugs": {
-    "url": "https://gitlab.com/YellowGarbageBag/snow-white-rest-api/issues"
+    "url": "https://gitlab.com/yellow-garbage-group/snow-white/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com:YellowGarbageBag/snow-white-rest-api.git"
+    "url": "git@gitlab.com:yellow-garbage-group/snow-white.git"
   },
   "license": "ISC",
   "author": "Steffen",
