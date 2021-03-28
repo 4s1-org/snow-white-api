@@ -37,7 +37,7 @@ export class TimetableController {
   // GET - /v1/smartmirror/admin/timetable/stations/search
   @Post('/stations/search')
   public async searchForStations(@Body() coordinates: CoordinatesDto): Promise<Array<RmvStationDto>> {
-    const apiKey: string = (await this.settings.getRecord()).apiKey || process.env.APIKEY_RMV
+    const apiKey = (await this.settings.getRecord()).apiKey || process.env.APIKEY_RMV || ''
     return this.stations.search(apiKey, coordinates.latitude, coordinates.longitude)
   }
 
@@ -55,7 +55,7 @@ export class TimetableController {
 
   // GET - /v1/smartmirror/admin/timetable/stations/:id
   @Get('/stations/:id')
-  public loadSingleStation(@Param('id') id: string): Promise<TimetableStationDto> {
+  public loadSingleStation(@Param('id') id: string): Promise<TimetableStationDto | null> {
     return this.stations.loadSingle(id)
   }
 

@@ -66,7 +66,7 @@ export class FuelPriceStationsService {
   }
 
   public async loadSingle(id: string): Promise<FuelPriceStationDto | null> {
-    const res: FuelPriceStationEntity = await this.fuelPriceStationEntityRepository.findOne(id)
+    const res = await this.fuelPriceStationEntityRepository.findOne(id)
     if (!res) {
       return null
     }

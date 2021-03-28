@@ -1,36 +1,36 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ITankerkoenigStationDto } from '@yellowgarbagebag/snow-white-dto'
+import { ITankerkoenigStationDto } from '@yellowgarbagebag/snow-white-shared'
 
 export class TankerkoenigStationDto implements ITankerkoenigStationDto {
   @IsNotEmpty()
   @ApiProperty()
-  public remoteId: string
+  public remoteId!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public name: string
+  public name!: string
 
   @ApiProperty()
-  public brand: string
+  public brand!: string
 
   @ApiProperty()
-  public street: string
+  public street!: string
 
   @ApiProperty()
-  public city: string
-
-  @IsNotEmpty()
-  @ApiProperty()
-  public latitude: number
+  public city!: string
 
   @IsNotEmpty()
   @ApiProperty()
-  public longitude: number
+  public latitude!: number
+
+  @IsNotEmpty()
+  @ApiProperty()
+  public longitude!: number
 
   @ApiProperty()
-  public houseNumber: string
+  public houseNumber!: string
 
   @ApiProperty()
-  public postCode: number
+  public postCode!: number
 }

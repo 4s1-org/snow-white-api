@@ -22,7 +22,7 @@ export class UiTimetableService {
 
   public async getTimetable(): Promise<RmvTripsDto> {
     const settingsEntity: TimetableSettingsEntity = await this.settings.getRecord()
-    const apiKey: string = settingsEntity.apiKey || process.env.APIKEY_RMV
+    const apiKey = settingsEntity.apiKey || process.env.APIKEY_RMV || ''
 
     if (settingsEntity.isActive && apiKey && settingsEntity.timetableStationFrom && settingsEntity.timetableStationTo) {
       const commonSettingsEntity: CommonSettingsEntity = await this.commonSettings.getRecord()

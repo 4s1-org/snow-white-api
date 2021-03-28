@@ -1,36 +1,36 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IUiSettingsDto } from '@yellowgarbagebag/snow-white-dto'
+import { IUiSettingsDto } from '@yellowgarbagebag/snow-white-shared'
 
 export class UiSettingsDto implements IUiSettingsDto {
   @IsNotEmpty()
   @ApiProperty()
-  public traffic: {
+  public traffic!: {
     isActive: boolean
   }
 
   @IsNotEmpty()
   @ApiProperty()
-  public date: {
+  public date!: {
     isActive: boolean
     fontSize: number
   }
 
   @IsNotEmpty()
   @ApiProperty()
-  public weather: {
+  public weather!: {
     isActive: boolean
   }
 
   @IsNotEmpty()
   @ApiProperty()
-  public timetable: {
+  public timetable!: {
     isActive: boolean
   }
 
   @IsNotEmpty()
   @ApiProperty()
-  public fuelPrice: {
+  public fuelPrice!: {
     isActive: boolean
     showE5: boolean
     showE10: boolean

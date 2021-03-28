@@ -3,17 +3,17 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
 @Entity('TimetableStations')
 export class TimetableStationEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column({ length: 255 })
-  public name: string
+  public name!: string
 
   @Column({ length: 255 })
-  public nameOrigin: string
+  public nameOrigin!: string
 
   @Column('int', { nullable: true })
-  public sortNo: number
+  public sortNo!: number
 
   @Column('int')
-  public remoteId: number
+  public remoteId!: number
 }

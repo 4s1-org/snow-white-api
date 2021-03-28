@@ -8,7 +8,7 @@ import {
 import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
 import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
 import { IRmvSearchTripRemoteResponse, ITrip, ILocation, ILeg } from './rmv-search-trip.remote-response'
-import * as moment from 'moment'
+import moment from 'moment'
 import 'moment-timezone'
 import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
 

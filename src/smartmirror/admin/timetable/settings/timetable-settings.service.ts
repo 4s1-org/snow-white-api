@@ -71,7 +71,7 @@ export class TimetableSettingsService {
   }
 
   public async getRecord(): Promise<TimetableSettingsEntity> {
-    let record: TimetableSettingsEntity = await this.timetableSettingEntityRepository.findOne({
+    let record = await this.timetableSettingEntityRepository.findOne({
       relations: ['timetableStationFrom', 'timetableStationTo'],
     })
 

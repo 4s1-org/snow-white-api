@@ -38,7 +38,7 @@ export interface IRoadShield {
 }
 
 export interface IManeuver {
-  position: Position
+  position: any // was Position
   instruction: string
   travelTime: number
   length: number

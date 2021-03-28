@@ -21,7 +21,7 @@ export class UiTrafficService {
 
   public async getRoute(): Promise<CarRoutesDto> {
     const trafficSettingsEntity: TrafficSettingsEntity = await this.trafficSettings.getRecord()
-    const apiKey: string = trafficSettingsEntity.apiKey || process.env.APIKEY_HERE
+    const apiKey = trafficSettingsEntity.apiKey || process.env.APIKEY_HERE
 
     if (
       trafficSettingsEntity.isActive &&

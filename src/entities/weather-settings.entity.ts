@@ -4,17 +4,17 @@ import { CommonLocationEntity } from './common-location.entity'
 @Entity('WeatherSettings')
 export class WeatherSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
-  public id: string
+  public id!: string
 
   @Column()
-  public isActive: boolean
+  public isActive!: boolean
 
   @Column({ length: 255 })
-  public apiKey: string
+  public apiKey!: string
 
   @ManyToOne(/* istanbul ignore next */ () => CommonLocationEntity, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public commonLocation: CommonLocationEntity
+  public commonLocation!: CommonLocationEntity | null
 }
