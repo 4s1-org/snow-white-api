@@ -44,14 +44,14 @@ export class TrafficSettingsService {
     const result: TrafficSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       isActive: record.isActive,
-      locationFromId: record.commonLocationFrom?.id,
-      locationToId: record.commonLocationTo?.id,
+      locationFromId: record.commonLocationFrom?.id || null,
+      locationToId: record.commonLocationTo?.id || null,
     }
     return result
   }
 
   public async getRecord(): Promise<TrafficSettingsEntity> {
-    let record: TrafficSettingsEntity = await this.trafficSettingEntityRepository.findOne({
+    let record = await this.trafficSettingEntityRepository.findOne({
       relations: ['commonLocationFrom', 'commonLocationTo'],
     })
 

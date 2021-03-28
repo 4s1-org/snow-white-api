@@ -84,7 +84,15 @@ export class TankerkoenigService {
     const result: Array<TankerkoenigPrice> = []
     for (const remoteId of Object.keys(prices)) {
       const priceEntry: ITankerkoenigIPrice = prices[remoteId]
-      result.push(new TankerkoenigPrice(remoteId, priceEntry.status, priceEntry.e5, priceEntry.e10, priceEntry.diesel))
+      result.push(
+        new TankerkoenigPrice(
+          remoteId,
+          priceEntry.status,
+          priceEntry.e5 || false,
+          priceEntry.e10 || false,
+          priceEntry.diesel || false,
+        ),
+      )
     }
     return result
   }

@@ -48,7 +48,7 @@ export class CommonController {
 
   // GET - /v1/smartmirror/admin/common/locations/:id
   @Get('/locations/:id')
-  public loadSingleLocation(@Param('id') id: string): Promise<CommonLocationDto> {
+  public loadSingleLocation(@Param('id') id: string): Promise<CommonLocationDto | null> {
     return this.location.loadSingle(id)
   }
 

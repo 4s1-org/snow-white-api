@@ -41,7 +41,7 @@ export class WeatherSettingsService {
     const result: WeatherSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       isActive: record.isActive,
-      locationId: record.commonLocation?.id,
+      locationId: record.commonLocation?.id || null,
     }
     return result
   }

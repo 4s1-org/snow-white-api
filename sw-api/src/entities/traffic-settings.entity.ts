@@ -16,11 +16,11 @@ export class TrafficSettingsEntity {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public commonLocationFrom!: CommonLocationEntity
+  public commonLocationFrom!: CommonLocationEntity | null
 
   @ManyToOne(/* istanbul ignore next */ () => CommonLocationEntity, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  public commonLocationTo!: CommonLocationEntity
+  public commonLocationTo!: CommonLocationEntity | null
 }

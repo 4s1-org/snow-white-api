@@ -5,6 +5,8 @@ export class ConfigService {
 
   constructor() {
     dotenv.config()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     this.envConfig = process.env
   }
 
