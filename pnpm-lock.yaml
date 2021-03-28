@@ -100,9 +100,11 @@ importers:
       '@nestjs/swagger': 4.8.0_28f0e69670a76988f773282765c127c6
       '@nestjs/typeorm': 7.1.5_5132052c488a3330b1ba44e2060552df
       '@yellowgarbagebag/snow-white-shared': link:../sw-shared
+      axios: 0.21.1
       class-transformer: 0.3.1
       class-validator: 0.12.2
       dotenv: 8.2.0
+      moment: 2.29.1
       moment-timezone: 0.5.33
       mysql: 2.18.1
       nodemailer: 6.5.0
@@ -118,6 +120,7 @@ importers:
       '@nestjs/testing': 7.6.15_1c895fe2530e9c7ea231db6d21b4ac4c
       '@types/express': 4.17.11
       '@types/jest': 26.0.15
+      '@types/moment': 2.13.0
       '@types/node': 14.14.37
       '@types/nodemailer': 6.4.1
       '@types/supertest': 2.0.10
@@ -145,6 +148,7 @@ importers:
       '@nestjs/typeorm': ^7.1.0
       '@types/express': ^4.17.3
       '@types/jest': 26.0.15
+      '@types/moment': ^2.13.0
       '@types/node': ^14.14.7
       '@types/nodemailer': ^6.4.0
       '@types/supertest': ^2.0.8
@@ -152,11 +156,13 @@ importers:
       '@typescript-eslint/eslint-plugin': ^4.7.0
       '@typescript-eslint/parser': ^4.7.0
       '@yellowgarbagebag/snow-white-shared': workspace:*
+      axios: ^0.21.1
       class-transformer: ^0.3.1
       class-validator: ^0.12.2
       dotenv: ^8.2.0
       eslint: ^7.13.0
       jest: ^26.6.3
+      moment: ^2.29.1
       moment-timezone: ^0.5.31
       mysql: ^2.18.1
       nodemailer: ^6.4.10
@@ -3381,6 +3387,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1z8k4wzFnNjVK/tlxvrWuK5WMt6mydWWP7+zvH5eFep4oj+UkrfiJTRtjCeBXNpwaA/FYqqtb4/QS4ianFpIRA==
+  /@types/moment/2.13.0:
+    dependencies:
+      moment: 2.29.1
+    deprecated: This is a stub types definition for Moment (https://github.com/moment/moment). Moment provides its own type definitions, so you don't need @types/moment installed!
+    dev: true
+    resolution:
+      integrity: sha1-YE69GJvDvDShVIaJQE5hoqSqyJY=
   /@types/node/14.14.37:
     resolution:
       integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
@@ -10957,7 +10970,6 @@ packages:
     resolution:
       integrity: sha512-PTc2vcT8K9J5/9rDEPe5czSIKgLoGsH8UNpA4qZTVw0Vd/Uz19geE9abbIOQKaAQFcnQ3v5YEXrbSc5BpshH+w==
   /moment/2.29.1:
-    dev: false
     resolution:
       integrity: sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
   /move-concurrently/1.0.1:
