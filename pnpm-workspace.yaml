@@ -1,4 +1,4 @@
 packages:
-  - "shared/"
-  - "api/"
-  - "ui/"
+  - "sw-shared/"
+  - "sw-api/"
+  - "sw-ui/"
