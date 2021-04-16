@@ -118,6 +118,7 @@ importers:
       axios: ^0.21.1
       bootstrap: ^4.6.0
       eslint: ^7.24.0
+      moment: ^2.29.1
       moment-timezone: ^0.5.33
       prettier: ^2.2.1
       react: ^17.0.2
@@ -136,6 +137,7 @@ importers:
       '@yellowgarbagebag/snow-white-shared': link:../sw-shared
       axios: 0.21.1
       bootstrap: 4.6.0
+      moment: 2.29.1
       moment-timezone: 0.5.33
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -3799,7 +3801,7 @@ packages:
   /axios/0.21.1:
     resolution: {integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==}
     dependencies:
-      follow-redirects: 1.13.3
+      follow-redirects: 1.13.3_debug@4.3.1
     transitivePeerDependencies:
       - debug
     dev: false
@@ -6518,16 +6520,6 @@ packages:
     dependencies:
       inherits: 2.0.4
       readable-stream: 2.3.7
-    dev: false
-
-  /follow-redirects/1.13.3:
-    resolution: {integrity: sha512-DUgl6+HDzB0iEptNQEXLx/KhTmDb8tZUHSeLqpnjpknR70H0nC2t9N73BK6fN4hOvJ84pKlIQVQ4k5FFlBedKA==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
     dev: false
 
   /follow-redirects/1.13.3_debug@4.3.1:
