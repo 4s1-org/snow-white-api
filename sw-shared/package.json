@@ -23,7 +23,6 @@
     "lbt": "npm run lint && npm run build && npm run test",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "npm run lint -- --fix",
-    "publish:patch": "npm run lint && npm run build && npm version patch && npm publish && git push --tags",
     "test": "echo No tests available"
   },
   "prettier": "@hest-lab/eslint-config",
@@ -34,7 +33,7 @@
     "prettier": "^2.2.1",
     "typescript": "^4.2.3"
   },
-  "publishConfig": {
-    "access": "public"
+  "engines": {
+    "node": ">=14"
   }
 }
