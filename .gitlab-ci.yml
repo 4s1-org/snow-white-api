@@ -13,7 +13,7 @@ validate-all:
     - cd sw-shared
     - pnpm run lint
     - pnpm run build
-    #- pnpm run test
+    - pnpm run test
     - cd ..
 
     - cd sw-api
@@ -25,5 +25,5 @@ validate-all:
     - cd sw-ui
     - pnpm run lint
     - pnpm run build
-    #- pnpm run test
+    - pnpm run test
     - cd ..
