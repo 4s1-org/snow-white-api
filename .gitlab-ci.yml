@@ -1,0 +1,29 @@
+stages:
+  - validation
+
+validate-all:
+  stage: validation
+  image: node:14-alpine
+  tags:
+    - Yellow
+  script:
+    - npm i pnpm -g
+    - pnpm install -r
+
+    - cd sw-shared
+    - pnpm run lint
+    - pnpm run build
+    - pnpm run test
+    - cd ..
+
+    - cd sw-api
+    - pnpm run lint
+    - pnpm run build
+    #- pnpm run test
+    - cd ..
+
+    - cd sw-ui
+    - pnpm run lint
+    - pnpm run build
+    - pnpm run test
+    - cd ..
