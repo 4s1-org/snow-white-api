@@ -2,28 +2,23 @@ import { Injectable, Logger } from '@nestjs/common'
 import { OpenStreetMapService } from '../../../../remote-api-call/open-street-map/open-street-map.service'
 import { OpenStreetMapLocationDto } from '../../../../dataTransferObjects/open-street-map-location.dto'
 import { CommonLocationDto } from '../../../../dataTransferObjects/common-location.dto'
-import { CommonLocationEntity } from '../../../../entities/common-location.entity'
 import { v4 as uuid } from 'uuid'
-import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
 import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
+import { CommonLocationDbService } from '../../../../database/common-location-db.service'
+import { CommonLocation } from '@prisma/client'
 
 @Injectable()
 export class CommonLocationsService {
   private readonly logger: Logger = new Logger(CommonLocationsService.name)
 
-  constructor(
-    private readonly openStreeMap: OpenStreetMapService,
-    @InjectRepository(CommonLocationEntity)
-    private readonly commonLocationEntityRepository: Repository<CommonLocationEntity>,
-  ) {}
+  constructor(private readonly openStreeMap: OpenStreetMapService, private readonly commonLocationDb: CommonLocationDbService) {}
 
   public async search(text: string): Promise<Array<OpenStreetMapLocationDto>> {
     return this.openStreeMap.searchByText(text)
   }
 
   public async add(location: OpenStreetMapLocationDto): Promise<void> {
-    await this.commonLocationEntityRepository.insert({
+    await this.commonLocationDb.createCommonLocation({
       id: uuid(),
       latitude: location.latitude,
       longitude: location.longitude,
@@ -34,12 +29,12 @@ export class CommonLocationsService {
   }
 
   public async loadAll(): Promise<Array<CommonLocationDto>> {
-    const res: Array<CommonLocationEntity> = await this.commonLocationEntityRepository.find()
-    return res.map((x: CommonLocationEntity) => this.convertLocation(x))
+    const res = await this.commonLocationDb.readCommonLocations({})
+    return res.map((x) => this.convertLocation(x))
   }
 
   public async loadSingle(id: string): Promise<CommonLocationDto | null> {
-    const res = await this.commonLocationEntityRepository.findOne(id)
+    const res = await this.commonLocationDb.readCommonLocation({ id })
     if (!res) {
       return null
     }
@@ -48,26 +43,32 @@ export class CommonLocationsService {
   }
 
   public async delete(id: string): Promise<void> {
-    await this.commonLocationEntityRepository.delete(id)
+    await this.commonLocationDb.deleteCommonLocation({ id })
   }
 
   public async save(id: string, location: CommonLocationDto): Promise<void> {
-    await this.commonLocationEntityRepository.update(id, {
-      name: location.name,
-      sortNo: location.sortNo,
+    await this.commonLocationDb.updateCommonLocation({
+      where: { id },
+      data: {
+        name: location.name,
+        sortNo: location.sortNo,
+      },
     })
   }
 
   public async reorderLocations(sortOrders: Array<SortOrderDto>): Promise<void> {
     this.logger.log(`Reorder ${sortOrders.length} locations`)
     for (const sortOrder of sortOrders) {
-      await this.commonLocationEntityRepository.update(sortOrder.id, {
-        sortNo: sortOrder.sortNo,
+      await this.commonLocationDb.updateCommonLocation({
+        where: { id: sortOrder.id },
+        data: {
+          sortNo: sortOrder.sortNo,
+        },
       })
     }
   }
 
-  private convertLocation(entity: CommonLocationEntity): CommonLocationDto {
+  private convertLocation(entity: CommonLocation): CommonLocationDto {
     return {
       id: entity.id || '',
       latitude: entity.latitude,

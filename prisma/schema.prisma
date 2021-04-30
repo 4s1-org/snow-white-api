@@ -10,83 +10,93 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model CommonLocations {
-  id         String  @id @default(uuid())
-  name       String?
-  nameOrigin String?
-  latitude   Float?
-  longitude  Float?
-  sortNo     Int?
+model CommonLocation {
+  id                 String           @id @default(uuid())
+  name               String
+  nameOrigin         String
+  latitude           Float
+  longitude          Float
+  sortNo             Int
+  WeatherSetting     WeatherSetting[]
+  TrafficSettingFrom TrafficSetting[] @relation("commonLocationFrom")
+  TrafficSettingTo   TrafficSetting[] @relation("commonLocationTo")
 }
 
-model CommonSettings {
-  id           String  @id @default(uuid())
-  morningStart Int?
-  morningEnd   Int?
+model CommonSetting {
+  id           String @id @default(uuid())
+  morningStart Int
+  morningEnd   Int
 }
 
-model DateSettings {
+model DateSetting {
   id       String  @id @default(uuid())
-  isActive Boolean?
-  pattern  String?
-  fontSize Int?
+  isActive Boolean
+  pattern  String
+  fontSize Int
 }
 
-model FuelPriceSettings {
+model FuelPriceSetting {
   id         String  @id @default(uuid())
-  isActive   Boolean?
-  apiKey     String?
-  showE5     Boolean?
-  showE10    Boolean?
-  showDiesel Boolean?
-  interval   Boolean?
+  isActive   Boolean
+  apiKey     String
+  showE5     Boolean
+  showE10    Boolean
+  showDiesel Boolean
+  interval   Int
 }
 
-model FuelPriceStations {
-  id         String  @id @default(uuid())
-  name       String?
-  nameOrigin String?
-  latitude   Float?
-  longitude  Float?
-  sortNo     Int?
-  remoteId   String? // ToDo: Referenz
+model FuelPriceStation {
+  id         String @id @default(uuid())
+  name       String
+  nameOrigin String
+  latitude   Float
+  longitude  Float
+  sortNo     Int
+  remoteId   String
 }
 
-model TimetableSettings {
- id                   String  @id @default(uuid())
- isActive             Boolean?
- timetableStationFrom String? // ToDo: Referenz
- timetableStationTo   String? // ToDo: Referenz
- maxChanges           Int?
- showICE              Boolean?
- showIC               Boolean?
- showBus              Boolean?
- showTram             Boolean?
- showSBahn            Boolean?
- showRE               Boolean?
- showRB               Boolean?
- showUBahn            Boolean?
+model TimetableSetting {
+  id                     String           @id @default(uuid())
+  isActive               Boolean
+  timetableStationFromId String
+  timetableStationFrom   TimetableStation @relation("timetableStationFrom", fields: [timetableStationFromId], references: [id])
+  timetableStationToId   String
+  timetableStationTo     TimetableStation @relation("timetableStationTo", fields: [timetableStationToId], references: [id])
+  maxChanges             Int
+  showICE                Boolean
+  showIC                 Boolean
+  showBus                Boolean
+  showTram               Boolean
+  showSBahn              Boolean
+  showRE                 Boolean
+  showRB                 Boolean
+  showUBahn              Boolean
 }
 
-model TimetableStations {
-  id         String  @id @default(uuid())
-  name       String?
-  nameOrigin String?
-  sortNo     Int?
-  remoteId   Int?
+model TimetableStation {
+  id                   String             @id @default(uuid())
+  name                 String
+  nameOrigin           String
+  sortNo               Int
+  remoteId             Int
+  TimetableSettingFrom TimetableSetting[] @relation("timetableStationFrom")
+  TimetableSettingTo   TimetableSetting[] @relation("timetableStationTo")
 }
 
-model TrafficSettings {
-  id                 String  @id @default(uuid())
-  isActive           Boolean?
-  apiKey             String?
-  commonLocationFrom String? // ToDo: Referenz
-  commonLocationTo   String? // ToDo: Referenz
+model TrafficSetting {
+  id                   String         @id @default(uuid())
+  isActive             Boolean
+  apiKey               String
+  commonLocationFromId String
+  commonLocationFrom   CommonLocation @relation("commonLocationFrom", fields: [commonLocationFromId], references: [id])
+  commonLocationToId   String
+  commonLocationTo     CommonLocation @relation("commonLocationTo", fields: [commonLocationToId], references: [id])
 }
 
-model WeatherSettings {
-  id             String  @id @default(uuid())
-  isActive       Boolean?
-  apiKey         String?
-  commonLocation String? // ToDo: Referenz
+model WeatherSetting {
+  id               String         @id @default(uuid())
+  isActive         Boolean
+  apiKey           String
+  commonLocationId String
+  commonLocation   CommonLocation @relation(fields: [commonLocationId], references: [id])
 }

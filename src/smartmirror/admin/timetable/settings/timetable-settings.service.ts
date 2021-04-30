@@ -1,21 +1,15 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { Repository } from 'typeorm'
-import { InjectRepository } from '@nestjs/typeorm'
 import { v4 as uuid } from 'uuid'
 import { ConstantsService } from '../../../../global/constants/constants.service'
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
 import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity'
 import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto'
+import { TimetableSettingDbService } from '../../../../database/timetable-setting-db.service'
 
 @Injectable()
 export class TimetableSettingsService {
   private readonly logger: Logger = new Logger(TimetableSettingsService.name)
 
-  constructor(
-    @InjectRepository(TimetableSettingsEntity)
-    private readonly timetableSettingEntityRepository: Repository<TimetableSettingsEntity>,
-    private readonly constants: ConstantsService,
-  ) {}
+  constructor(private readonly timetableSettingDb: TimetableSettingDbService, private readonly constants: ConstantsService) {}
 
   public async save(settings: TimetableSettingsDto): Promise<void> {
     const record: TimetableSettingsEntity = await this.getRecord()
@@ -44,7 +38,7 @@ export class TimetableSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.timetableSettingEntityRepository.update(record.id, dataToSave)
+    await this.timetableSettingDb.update(record.id, dataToSave)
   }
 
   public async load(): Promise<TimetableSettingsDto> {
@@ -71,7 +65,7 @@ export class TimetableSettingsService {
   }
 
   public async getRecord(): Promise<TimetableSettingsEntity> {
-    let record = await this.timetableSettingEntityRepository.findOne({
+    let record = await this.timetableSettingDb.findOne({
       relations: ['timetableStationFrom', 'timetableStationTo'],
     })
 
@@ -95,7 +89,7 @@ export class TimetableSettingsService {
         timetableStationFrom: null,
         timetableStationTo: null,
       }
-      await this.timetableSettingEntityRepository.insert(record)
+      await this.timetableSettingDb.insert(record)
     }
 
     return record
