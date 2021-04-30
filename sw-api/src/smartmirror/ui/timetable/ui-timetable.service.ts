@@ -6,6 +6,7 @@ import { TimetableSettingsService } from '../../admin/timetable/settings/timetab
 import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto'
 import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
+import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
 
 @Injectable()
 export class UiTimetableService {
@@ -16,10 +17,14 @@ export class UiTimetableService {
     private readonly commonSettings: CommonSettingsService,
     private readonly settings: TimetableSettingsService,
     private readonly rmv: RmvService,
+    private readonly timetableSettingDb: TimetableSettingDbService,
   ) {}
 
   public async getTimetable(): Promise<RmvTripsDto> {
-    const settingsEntity = await this.settings.getRecord()
+    const settingsEntity = await this.timetableSettingDb.getUi()
+    if (!settingsEntity) {
+      throw new Error('null')
+    }
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_RMV || ''
 
     if (settingsEntity.isActive && apiKey && settingsEntity.timetableStationFrom && settingsEntity.timetableStationTo) {
