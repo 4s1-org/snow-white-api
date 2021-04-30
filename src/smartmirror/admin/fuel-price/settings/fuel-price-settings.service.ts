@@ -1,26 +1,21 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity'
 import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto'
 import { ConstantsService } from '../../../../global/constants/constants.service'
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
+import { FuelPriceStationDbService } from '../../../../database/fuel-price-station-db.service'
+import { FuelPriceSetting } from '@prisma/client'
 
 @Injectable()
 export class FuelPriceSettingsService {
   private readonly logger: Logger = new Logger(FuelPriceSettingsService.name)
 
-  constructor(
-    @InjectRepository(FuelPriceSettingsEntity)
-    private readonly fuelPriceSettingEntityRepository: Repository<FuelPriceSettingsEntity>,
-    private readonly constants: ConstantsService,
-  ) {}
+  constructor(private readonly fuelPriceSettingDb: FuelPriceStationDbService, private readonly constants: ConstantsService) {}
 
   public async save(settings: FuelPriceSettingsDto): Promise<void> {
     const record: FuelPriceSettingsEntity = await this.getRecord()
 
-    const dataToSave: QueryDeepPartialEntity<FuelPriceSettingsEntity> = {
+    const dataToSave: FuelPriceSetting = {
       isActive: settings.isActive,
       interval: settings.interval,
       showDiesel: settings.showDiesel,
@@ -32,7 +27,7 @@ export class FuelPriceSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.fuelPriceSettingEntityRepository.update(record.id, dataToSave)
+    await this.fuelPriceSettingDb.update(record.id, dataToSave)
   }
 
   public async load(): Promise<FuelPriceSettingsDto> {
@@ -51,7 +46,7 @@ export class FuelPriceSettingsService {
   }
 
   public async getRecord(): Promise<FuelPriceSettingsEntity> {
-    let record = await this.fuelPriceSettingEntityRepository.findOne()
+    let record = await this.fuelPriceSettingDb.findOne()
 
     // If settings not present, create it
     if (!record) {
@@ -66,7 +61,7 @@ export class FuelPriceSettingsService {
         showE10: true,
         showE5: true,
       }
-      await this.fuelPriceSettingEntityRepository.insert(record)
+      await this.fuelPriceSettingDb.insert(record)
     }
 
     return record

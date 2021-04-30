@@ -1,26 +1,20 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { Repository } from 'typeorm'
-import { InjectRepository } from '@nestjs/typeorm'
 import { v4 as uuid } from 'uuid'
 import { ConstantsService } from '../../../../global/constants/constants.service'
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
-import { WeatherSettingsEntity } from '../../../../entities/weather-settings.entity'
 import { WeatherSettingsDto } from '../../../../dataTransferObjects/weather-settings.dto'
+import { WeatherSettingDbService } from '../../../../database/weather-setting-db.service'
+import { WeatherSetting } from '@prisma/client'
 
 @Injectable()
 export class WeatherSettingsService {
   private readonly logger: Logger = new Logger(WeatherSettingsService.name)
 
-  constructor(
-    @InjectRepository(WeatherSettingsEntity)
-    private readonly trafficSettingEntityRepository: Repository<WeatherSettingsEntity>,
-    private readonly constants: ConstantsService,
-  ) {}
+  constructor(private readonly trafficSettingDb: WeatherSettingDbService, private readonly constants: ConstantsService) {}
 
   public async save(settings: WeatherSettingsDto): Promise<void> {
-    const record: WeatherSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
-    const dataToSave: QueryDeepPartialEntity<WeatherSettingsEntity> = {
+    const dataToSave: WeatherSetting = {
       apiKey: settings.apiKey,
       commonLocation: {
         id: settings.locationId,
@@ -32,11 +26,11 @@ export class WeatherSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.trafficSettingEntityRepository.update(record.id, dataToSave)
+    await this.trafficSettingDb.update(record.id, dataToSave)
   }
 
   public async load(): Promise<WeatherSettingsDto> {
-    const record: WeatherSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
     const result: WeatherSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
@@ -46,8 +40,8 @@ export class WeatherSettingsService {
     return result
   }
 
-  public async getRecord(): Promise<WeatherSettingsEntity> {
-    let record: WeatherSettingsEntity | undefined = await this.trafficSettingEntityRepository.findOne({
+  public async getRecord(): Promise<WeatherSetting> {
+    let record: WeatherSettingsEntity | undefined = await this.trafficSettingDb.findOne({
       relations: ['commonLocation'],
     })
 
@@ -61,7 +55,7 @@ export class WeatherSettingsService {
         id: uuid(),
         isActive: false,
       }
-      await this.trafficSettingEntityRepository.insert(record)
+      await this.trafficSettingDb.insert(record)
     }
 
     return record
