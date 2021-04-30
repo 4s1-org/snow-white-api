@@ -2,10 +2,8 @@ import { Injectable, Logger, BadRequestException } from '@nestjs/common'
 import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service'
 import { HereService } from '../../../remote-api-call/here/here.service'
 import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto'
-import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity'
 import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto'
 import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
 import { ConstantsService } from '../../../global/constants/constants.service'
 
 @Injectable()
@@ -20,16 +18,11 @@ export class UiTrafficService {
   ) {}
 
   public async getRoute(): Promise<CarRoutesDto> {
-    const trafficSettingsEntity: TrafficSettingsEntity = await this.trafficSettings.getRecord()
+    const trafficSettingsEntity = await this.trafficSettings.getRecord()
     const apiKey = trafficSettingsEntity.apiKey || process.env.APIKEY_HERE
 
-    if (
-      trafficSettingsEntity.isActive &&
-      apiKey &&
-      trafficSettingsEntity.commonLocationFrom &&
-      trafficSettingsEntity.commonLocationTo
-    ) {
-      const commonSettingsEntity: CommonSettingsEntity = await this.commonSettings.getRecord()
+    if (trafficSettingsEntity.isActive && apiKey && trafficSettingsEntity.commonLocationFrom && trafficSettingsEntity.commonLocationTo) {
+      const commonSettingsEntity = await this.commonSettings.getRecord()
       const timestamp: number = this.constantsService.getCurrentTimestamp()
 
       let fromLat: number = trafficSettingsEntity.commonLocationFrom.latitude

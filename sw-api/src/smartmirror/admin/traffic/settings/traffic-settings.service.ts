@@ -15,13 +15,10 @@ export class TrafficSettingsService {
     const record = await this.getRecord()
 
     const dataToSave: TrafficSetting = {
+      id: uuid(),
       apiKey: settings.apiKey,
-      commonLocationFrom: {
-        id: settings.locationFromId,
-      },
-      commonLocationTo: {
-        id: settings.locationToId,
-      },
+      commonLocationFromId: settings.locationFromId,
+      commonLocationToId: settings.locationToId,
       isActive: settings.isActive,
     }
 
@@ -29,24 +26,28 @@ export class TrafficSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.trafficSettingDb.update(record.id, dataToSave)
+    await this.trafficSettingDb.updateTrafficSetting({
+      where: { id: record.id },
+      data: dataToSave,
+    })
   }
 
   public async load(): Promise<TrafficSettingsDto> {
-    const record: TrafficSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
     const result: TrafficSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       isActive: record.isActive,
-      locationFromId: record.commonLocationFrom?.id || null,
-      locationToId: record.commonLocationTo?.id || null,
+      locationFromId: record.commonLocationFromId,
+      locationToId: record.commonLocationToId,
     }
     return result
   }
 
-  public async getRecord(): Promise<TrafficSettingsEntity> {
-    let record = await this.trafficSettingDb.findOne({
-      relations: ['commonLocationFrom', 'commonLocationTo'],
+  public async getRecord(): Promise<TrafficSetting> {
+    let record = await this.trafficSettingDb.readTrafficSetting({
+      // ToDo
+      //relations: ['commonLocationFrom', 'commonLocationTo'],
     })
 
     // If settings not present, create it
@@ -54,13 +55,13 @@ export class TrafficSettingsService {
       this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: '',
-        commonLocationFrom: null,
-        commonLocationTo: null,
         id: uuid(),
+        apiKey: '',
+        commonLocationFromId: null,
+        commonLocationToId: null,
         isActive: false,
       }
-      await this.trafficSettingDb.insert(record)
+      await this.trafficSettingDb.createTrafficSetting(record)
     }
 
     return record

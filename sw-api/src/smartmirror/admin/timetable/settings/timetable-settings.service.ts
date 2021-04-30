@@ -1,9 +1,9 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { v4 as uuid } from 'uuid'
 import { ConstantsService } from '../../../../global/constants/constants.service'
-import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity'
 import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto'
 import { TimetableSettingDbService } from '../../../../database/timetable-setting-db.service'
+import { TimetableSetting } from '@prisma/client'
 
 @Injectable()
 export class TimetableSettingsService {
@@ -12,9 +12,10 @@ export class TimetableSettingsService {
   constructor(private readonly timetableSettingDb: TimetableSettingDbService, private readonly constants: ConstantsService) {}
 
   public async save(settings: TimetableSettingsDto): Promise<void> {
-    const record: TimetableSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
-    const dataToSave: QueryDeepPartialEntity<TimetableSettingsEntity> = {
+    const dataToSave: TimetableSetting = {
+      id: uuid(),
       apiKey: settings.apiKey,
       isActive: settings.isActive,
       maxChanges: settings.maxChanges,
@@ -26,23 +27,22 @@ export class TimetableSettingsService {
       showSBahn: settings.lines.showSBahn,
       showTram: settings.lines.showTram,
       showUBahn: settings.lines.showUBahn,
-      timetableStationFrom: {
-        id: settings.stationFromId,
-      },
-      timetableStationTo: {
-        id: settings.stationToId,
-      },
+      timetableStationFromId: settings.stationFromId,
+      timetableStationToId: settings.stationToId,
     }
 
     if (!settings.apiKey.endsWith(this.constants.hiddenValue)) {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.timetableSettingDb.update(record.id, dataToSave)
+    await this.timetableSettingDb.updateTimetableSetting({
+      where: { id: record.id },
+      data: dataToSave,
+    })
   }
 
   public async load(): Promise<TimetableSettingsDto> {
-    const record: TimetableSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
     const result: TimetableSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
@@ -58,15 +58,19 @@ export class TimetableSettingsService {
         showUBahn: record.showUBahn,
       },
       maxChanges: 3,
-      stationFromId: record.timetableStationFrom?.id || null,
-      stationToId: record.timetableStationTo?.id || null,
+      stationFromId: record.timetableStationFromId || null,
+      stationToId: record.timetableStationToId || null,
     }
     return result
   }
 
-  public async getRecord(): Promise<TimetableSettingsEntity> {
-    let record = await this.timetableSettingDb.findOne({
-      relations: ['timetableStationFrom', 'timetableStationTo'],
+  public async getRecord(): Promise<TimetableSetting> {
+    let record = await this.timetableSettingDb.readTimetableSetting({
+      // ToDo: Muss das mitgeladen werden?
+      // include: {
+      //   timetableStationFrom: true,
+      //   timetableStationTo: true,
+      // },
     })
 
     // If settings not present, create it
@@ -74,8 +78,8 @@ export class TimetableSettingsService {
       this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: '',
         id: uuid(),
+        apiKey: '',
         isActive: false,
         maxChanges: 3,
         showBus: false,
@@ -86,10 +90,10 @@ export class TimetableSettingsService {
         showSBahn: true,
         showTram: true,
         showUBahn: true,
-        timetableStationFrom: null,
-        timetableStationTo: null,
+        timetableStationFromId: null,
+        timetableStationToId: null,
       }
-      await this.timetableSettingDb.insert(record)
+      await this.timetableSettingDb.createTimetableSetting(record)
     }
 
     return record
