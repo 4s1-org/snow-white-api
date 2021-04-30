@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CommonLocations {
+  id         String  @id @default(uuid())
+  name       String?
+  nameOrigin String?
+  latitude   Float?
+  longitude  Float?
+  sortNo     Int?
+}
+
+model CommonSettings {
+  id           String  @id @default(uuid())
+  morningStart Int?
+  morningEnd   Int?
+}
+
+model DateSettings {
+  id       String  @id @default(uuid())
+  isActive Boolean?
+  pattern  String?
+  fontSize Int?
+}
+
+model FuelPriceSettings {
+  id         String  @id @default(uuid())
+  isActive   Boolean?
+  apiKey     String?
+  showE5     Boolean?
+  showE10    Boolean?
+  showDiesel Boolean?
+  interval   Boolean?
+}
+
+model FuelPriceStations {
+  id         String  @id @default(uuid())
+  name       String?
+  nameOrigin String?
+  latitude   Float?
+  longitude  Float?
+  sortNo     Int?
+  remoteId   String? // ToDo: Referenz
+}
+
+model TimetableSettings {
+ id                   String  @id @default(uuid())
+ isActive             Boolean?
+ timetableStationFrom String? // ToDo: Referenz
+ timetableStationTo   String? // ToDo: Referenz
+ maxChanges           Int?
+ showICE              Boolean?
+ showIC               Boolean?
+ showBus              Boolean?
+ showTram             Boolean?
+ showSBahn            Boolean?
+ showRE               Boolean?
+ showRB               Boolean?
+ showUBahn            Boolean?
+}
+
+model TimetableStations {
+  id         String  @id @default(uuid())
+  name       String?
+  nameOrigin String?
+  sortNo     Int?
+  remoteId   Int?
+}
+
+model TrafficSettings {
+  id                 String  @id @default(uuid())
+  isActive           Boolean?
+  apiKey             String?
+  commonLocationFrom String? // ToDo: Referenz
+  commonLocationTo   String? // ToDo: Referenz
+}
+
+model WeatherSettings {
+  id             String  @id @default(uuid())
+  isActive       Boolean?
+  apiKey         String?
+  commonLocation String? // ToDo: Referenz
+}
