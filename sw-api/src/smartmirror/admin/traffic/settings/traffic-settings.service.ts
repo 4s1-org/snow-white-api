@@ -1,26 +1,20 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { TrafficSettingsEntity } from '../../../../entities/traffic-settings.entity'
-import { Repository } from 'typeorm'
 import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto'
-import { InjectRepository } from '@nestjs/typeorm'
 import { v4 as uuid } from 'uuid'
 import { ConstantsService } from '../../../../global/constants/constants.service'
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
+import { TrafficSettingDbService } from '../../../../database/traffic-setting-db.service'
+import { TrafficSetting } from '@prisma/client'
 
 @Injectable()
 export class TrafficSettingsService {
   private readonly logger: Logger = new Logger(TrafficSettingsService.name)
 
-  constructor(
-    @InjectRepository(TrafficSettingsEntity)
-    private readonly trafficSettingEntityRepository: Repository<TrafficSettingsEntity>,
-    private readonly constants: ConstantsService,
-  ) {}
+  constructor(private readonly trafficSettingDb: TrafficSettingDbService, private readonly constants: ConstantsService) {}
 
   public async save(settings: TrafficSettingsDto): Promise<void> {
-    const record: TrafficSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
-    const dataToSave: QueryDeepPartialEntity<TrafficSettingsEntity> = {
+    const dataToSave: TrafficSetting = {
       apiKey: settings.apiKey,
       commonLocationFrom: {
         id: settings.locationFromId,
@@ -35,7 +29,7 @@ export class TrafficSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.trafficSettingEntityRepository.update(record.id, dataToSave)
+    await this.trafficSettingDb.update(record.id, dataToSave)
   }
 
   public async load(): Promise<TrafficSettingsDto> {
@@ -51,7 +45,7 @@ export class TrafficSettingsService {
   }
 
   public async getRecord(): Promise<TrafficSettingsEntity> {
-    let record = await this.trafficSettingEntityRepository.findOne({
+    let record = await this.trafficSettingDb.findOne({
       relations: ['commonLocationFrom', 'commonLocationTo'],
     })
 
@@ -66,7 +60,7 @@ export class TrafficSettingsService {
         id: uuid(),
         isActive: false,
       }
-      await this.trafficSettingEntityRepository.insert(record)
+      await this.trafficSettingDb.insert(record)
     }
 
     return record

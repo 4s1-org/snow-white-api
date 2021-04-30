@@ -1,26 +1,21 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { Repository } from 'typeorm'
-import { InjectRepository } from '@nestjs/typeorm'
-import { FuelPriceStationEntity } from '../../../../entities/fuel-price-station.entity'
 import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service'
 import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto'
 import { CoordinatesDto } from '../../../../dataTransferObjects/coordinates.dto'
 import { v4 as uuid } from 'uuid'
 import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto'
 import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
+import { FuelPriceStationDbService } from '../../../../database/fuel-price-station-db.service'
+import { FuelPriceStation } from '@prisma/client'
 
 @Injectable()
 export class FuelPriceStationsService {
   private readonly logger: Logger = new Logger(FuelPriceStationsService.name)
 
-  constructor(
-    private readonly tankerkoenig: TankerkoenigService,
-    @InjectRepository(FuelPriceStationEntity)
-    private readonly fuelPriceStationEntityRepository: Repository<FuelPriceStationEntity>,
-  ) {}
+  constructor(private readonly tankerkoenig: TankerkoenigService, private readonly fuelPriceStationDb: FuelPriceStationDbService) {}
 
-  public findAll(): Promise<Array<FuelPriceStationEntity>> {
-    return this.fuelPriceStationEntityRepository.find()
+  public findAll(): Promise<Array<FuelPriceStation>> {
+    return this.fuelPriceStationDb.readFuelPriceStations({})
   }
 
   public search(apikey: string, latlon: CoordinatesDto): Promise<Array<TankerkoenigStationDto>> {
@@ -29,7 +24,7 @@ export class FuelPriceStationsService {
   }
 
   public async add(station: TankerkoenigStationDto): Promise<void> {
-    await this.fuelPriceStationEntityRepository.insert({
+    await this.fuelPriceStationDb.createFuelPriceStation({
       id: uuid(),
       latitude: station.latitude,
       longitude: station.longitude,
@@ -41,32 +36,36 @@ export class FuelPriceStationsService {
   }
 
   public async save(id: string, station: FuelPriceStationDto): Promise<void> {
-    await this.fuelPriceStationEntityRepository.update(id, {
-      name: station.name,
-      sortNo: station.sortNo,
+    await this.fuelPriceStationDb.updateFuelPriceStation({
+      where: { id },
+      data: {
+        name: station.name,
+        sortNo: station.sortNo,
+      },
     })
   }
 
   public async delete(id: string): Promise<void> {
-    await this.fuelPriceStationEntityRepository.delete(id)
+    await this.fuelPriceStationDb.deleteFuelPriceStation({ id })
   }
 
   public async reorderGasStations(sortOrders: Array<SortOrderDto>): Promise<void> {
     this.logger.log(`Reorder ${sortOrders.length} gas stations`)
     for (const sortOrder of sortOrders) {
-      await this.fuelPriceStationEntityRepository.update(sortOrder.id, {
-        sortNo: sortOrder.sortNo,
-      })
+      // ToDo: Umstellung
+      // await this.fuelPriceStationDb.updateFuelPriceStation(sortOrder.id, {
+      //   sortNo: sortOrder.sortNo,
+      // })
     }
   }
 
   public async loadAll(): Promise<Array<FuelPriceStationDto>> {
-    const res: Array<FuelPriceStationEntity> = await this.fuelPriceStationEntityRepository.find()
-    return res.map((x: FuelPriceStationEntity) => this.convertLocation(x))
+    const res = await this.fuelPriceStationDb.readFuelPriceStations({})
+    return res.map((x) => this.convertLocation(x))
   }
 
   public async loadSingle(id: string): Promise<FuelPriceStationDto | null> {
-    const res = await this.fuelPriceStationEntityRepository.findOne(id)
+    const res = await this.fuelPriceStationDb.readFuelPriceStation({ id })
     if (!res) {
       return null
     }
@@ -74,7 +73,7 @@ export class FuelPriceStationsService {
     return this.convertLocation(res)
   }
 
-  private convertLocation(entity: FuelPriceStationEntity): FuelPriceStationDto {
+  private convertLocation(entity: FuelPriceStation): FuelPriceStationDto {
     return {
       id: entity.id,
       latitude: entity.latitude,
