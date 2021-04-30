@@ -6,13 +6,13 @@ import { TrafficSetting, Prisma } from '@prisma/client'
 export class TrafficSettingDbService {
   constructor(private prisma: PrismaService) {}
 
-  public async TrafficSetting(TrafficSettingWhereUniqueInput: Prisma.TrafficSettingWhereUniqueInput): Promise<TrafficSetting | null> {
+  public async readTrafficSetting(TrafficSettingWhereUniqueInput: Prisma.TrafficSettingWhereUniqueInput): Promise<TrafficSetting | null> {
     return this.prisma.trafficSetting.findUnique({
       where: TrafficSettingWhereUniqueInput,
     })
   }
 
-  public async TrafficSettings(params: {
+  public async readTrafficSettings(params: {
     skip?: number
     take?: number
     cursor?: Prisma.TrafficSettingWhereUniqueInput

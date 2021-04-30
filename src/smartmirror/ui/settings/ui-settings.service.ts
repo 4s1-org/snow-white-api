@@ -1,14 +1,9 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity'
 import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service'
-import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity'
 import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
 import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
 import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service'
 import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
-import { FuelPriceSettingsEntity } from '../../../entities/fuel-price-settings.entity'
-import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity'
-import { DateSettingsEntity } from '../../../entities/date-settings.entity'
 import { UiSettingsDto } from '../../../dataTransferObjects/ui-settings.dto'
 
 @Injectable()
@@ -24,11 +19,11 @@ export class UiSettingsService {
   ) {}
 
   public async load(): Promise<UiSettingsDto> {
-    const trafficRecord: TrafficSettingsEntity = await this.trafficSettings.getRecord()
-    const fuelPriceRecord: FuelPriceSettingsEntity = await this.fuelPriceSettings.getRecord()
-    const timetableRecord: TimetableSettingsEntity = await this.timetableSettings.getRecord()
-    const weatherRecord: WeatherSettingsEntity = await this.weatherSettings.getRecord()
-    const dateRecord: DateSettingsEntity = await this.dateSettings.getRecord()
+    const trafficRecord = await this.trafficSettings.getRecord()
+    const fuelPriceRecord = await this.fuelPriceSettings.getRecord()
+    const timetableRecord = await this.timetableSettings.getRecord()
+    const weatherRecord = await this.weatherSettings.getRecord()
+    const dateRecord = await this.dateSettings.getRecord()
 
     const result: UiSettingsDto = {
       date: {

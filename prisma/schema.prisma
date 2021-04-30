@@ -56,12 +56,13 @@ model FuelPriceStation {
 }
 
 model TimetableSetting {
-  id                     String           @id @default(uuid())
+  id                     String            @id @default(uuid())
   isActive               Boolean
-  timetableStationFromId String
-  timetableStationFrom   TimetableStation @relation("timetableStationFrom", fields: [timetableStationFromId], references: [id])
-  timetableStationToId   String
-  timetableStationTo     TimetableStation @relation("timetableStationTo", fields: [timetableStationToId], references: [id])
+  apiKey                 String
+  timetableStationFromId String?
+  timetableStationFrom   TimetableStation? @relation("timetableStationFrom", fields: [timetableStationFromId], references: [id])
+  timetableStationToId   String?
+  timetableStationTo     TimetableStation? @relation("timetableStationTo", fields: [timetableStationToId], references: [id])
   maxChanges             Int
   showICE                Boolean
   showIC                 Boolean
@@ -84,19 +85,19 @@ model TimetableStation {
 }
 
 model TrafficSetting {
-  id                   String         @id @default(uuid())
+  id                   String          @id @default(uuid())
   isActive             Boolean
   apiKey               String
-  commonLocationFromId String
-  commonLocationFrom   CommonLocation @relation("commonLocationFrom", fields: [commonLocationFromId], references: [id])
-  commonLocationToId   String
-  commonLocationTo     CommonLocation @relation("commonLocationTo", fields: [commonLocationToId], references: [id])
+  commonLocationFromId String?
+  commonLocationFrom   CommonLocation? @relation("commonLocationFrom", fields: [commonLocationFromId], references: [id])
+  commonLocationToId   String?
+  commonLocationTo     CommonLocation? @relation("commonLocationTo", fields: [commonLocationToId], references: [id])
 }
 
 model WeatherSetting {
-  id               String         @id @default(uuid())
+  id               String          @id @default(uuid())
   isActive         Boolean
   apiKey           String
-  commonLocationId String
-  commonLocation   CommonLocation @relation(fields: [commonLocationId], references: [id])
+  commonLocationId String?
+  commonLocation   CommonLocation? @relation(fields: [commonLocationId], references: [id])
 }

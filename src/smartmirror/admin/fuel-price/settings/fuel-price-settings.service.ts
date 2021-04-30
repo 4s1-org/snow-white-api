@@ -1,21 +1,22 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { v4 as uuid } from 'uuid'
-import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity'
 import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto'
 import { ConstantsService } from '../../../../global/constants/constants.service'
-import { FuelPriceStationDbService } from '../../../../database/fuel-price-station-db.service'
 import { FuelPriceSetting } from '@prisma/client'
+import { FuelPriceSettingDbService } from '../../../../database/fuel-price-setting-db.service'
 
 @Injectable()
 export class FuelPriceSettingsService {
   private readonly logger: Logger = new Logger(FuelPriceSettingsService.name)
 
-  constructor(private readonly fuelPriceSettingDb: FuelPriceStationDbService, private readonly constants: ConstantsService) {}
+  constructor(private readonly fuelPriceSettingDb: FuelPriceSettingDbService, private readonly constants: ConstantsService) {}
 
   public async save(settings: FuelPriceSettingsDto): Promise<void> {
-    const record: FuelPriceSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
     const dataToSave: FuelPriceSetting = {
+      id: uuid(),
+      apiKey: '',
       isActive: settings.isActive,
       interval: settings.interval,
       showDiesel: settings.showDiesel,
@@ -27,11 +28,14 @@ export class FuelPriceSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.fuelPriceSettingDb.update(record.id, dataToSave)
+    await this.fuelPriceSettingDb.updateFuelPriceSetting({
+      where: { id: record.id },
+      data: dataToSave,
+    })
   }
 
   public async load(): Promise<FuelPriceSettingsDto> {
-    const record: FuelPriceSettingsEntity = await this.getRecord()
+    const record = await this.getRecord()
 
     const result: FuelPriceSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
@@ -45,23 +49,23 @@ export class FuelPriceSettingsService {
     return result
   }
 
-  public async getRecord(): Promise<FuelPriceSettingsEntity> {
-    let record = await this.fuelPriceSettingDb.findOne()
+  public async getRecord(): Promise<FuelPriceSetting> {
+    let record = await this.fuelPriceSettingDb.readFuelPriceSetting({})
 
     // If settings not present, create it
     if (!record) {
       this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: '',
         id: uuid(),
+        apiKey: '',
         interval: 15 * 3600,
         isActive: false,
         showDiesel: true,
         showE10: true,
         showE5: true,
       }
-      await this.fuelPriceSettingDb.insert(record)
+      await this.fuelPriceSettingDb.createFuelPriceSetting(record)
     }
 
     return record

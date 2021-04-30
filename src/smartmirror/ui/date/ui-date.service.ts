@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
-import { DateSettingsEntity } from '../../../entities/date-settings.entity'
 
 @Injectable()
 export class UiDateService {
@@ -9,7 +8,7 @@ export class UiDateService {
   constructor(private readonly settings: DateSettingsService) {}
 
   public async getPattern(): Promise<string> {
-    const settingsEntity: DateSettingsEntity = await this.settings.getRecord()
+    const settingsEntity = await this.settings.getRecord()
     if (settingsEntity.isActive && settingsEntity.pattern) {
       return settingsEntity.pattern
     } else {

@@ -15,10 +15,9 @@ export class WeatherSettingsService {
     const record = await this.getRecord()
 
     const dataToSave: WeatherSetting = {
+      id: uuid(),
       apiKey: settings.apiKey,
-      commonLocation: {
-        id: settings.locationId,
-      },
+      commonLocationId: settings.locationId,
       isActive: settings.isActive,
     }
 
@@ -26,7 +25,10 @@ export class WeatherSettingsService {
       dataToSave.apiKey = settings.apiKey
     }
 
-    await this.trafficSettingDb.update(record.id, dataToSave)
+    await this.trafficSettingDb.updateWeatherSetting({
+      where: { id: record.id },
+      data: dataToSave,
+    })
   }
 
   public async load(): Promise<WeatherSettingsDto> {
@@ -35,14 +37,15 @@ export class WeatherSettingsService {
     const result: WeatherSettingsDto = {
       apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
       isActive: record.isActive,
-      locationId: record.commonLocation?.id || null,
+      locationId: record.commonLocationId || null,
     }
     return result
   }
 
   public async getRecord(): Promise<WeatherSetting> {
-    let record: WeatherSettingsEntity | undefined = await this.trafficSettingDb.findOne({
-      relations: ['commonLocation'],
+    let record = await this.trafficSettingDb.readWeatherSetting({
+      // ToDo
+      //relations: ['commonLocation'],
     })
 
     // If settings not present, create it
@@ -50,12 +53,12 @@ export class WeatherSettingsService {
       this.logger.log('Settings not present, create a new record')
 
       record = {
-        apiKey: '',
-        commonLocation: null,
         id: uuid(),
+        apiKey: '',
+        commonLocationId: null,
         isActive: false,
       }
-      await this.trafficSettingDb.insert(record)
+      await this.trafficSettingDb.createWeatherSetting(record)
     }
 
     return record
