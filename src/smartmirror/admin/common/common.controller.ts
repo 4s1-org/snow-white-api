@@ -5,10 +5,15 @@ import { CommonSettingsService } from './settings/common-settings.service'
 import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto'
 import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto'
 import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
+import { CommonLocationDbService } from '../../../database/common-location-db.service'
 
 @Controller('/v1/smartmirror/admin/common')
 export class CommonController {
-  constructor(private readonly location: CommonLocationsService, private readonly settings: CommonSettingsService) {}
+  constructor(
+    private readonly location: CommonLocationsService,
+    private readonly settings: CommonSettingsService,
+    private readonly commonLocationDb: CommonLocationDbService,
+  ) {}
 
   // GET - /v1/smartmirror/admin/common/settings
   @Get('/settings')
@@ -60,7 +65,7 @@ export class CommonController {
 
   // DELETE - /v1/smartmirror/admin/common/locations/:id
   @Delete('/locations/:id')
-  public deleteLocation(@Param('id') id: string): Promise<void> {
-    return this.location.delete(id)
+  public deleteLocation(@Param('id') id: string): void {
+    this.commonLocationDb.delete({ id })
   }
 }

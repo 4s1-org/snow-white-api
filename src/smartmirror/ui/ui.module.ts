@@ -15,6 +15,8 @@ import { AdminModule } from '../admin/admin.module'
 import { FuelPriceSettingsService } from '../admin/fuel-price/settings/fuel-price-settings.service'
 import { UiSettingsService } from './settings/ui-settings.service'
 import { CommonSettingsService } from '../admin/common/settings/common-settings.service'
+import { CommonLocationDbService } from '../../database/common-location-db.service'
+import { TimetrackingService } from '../../timetracking/timetracking.service'
 
 @Module({
   controllers: [UiController],

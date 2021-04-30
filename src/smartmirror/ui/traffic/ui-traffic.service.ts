@@ -5,6 +5,7 @@ import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto'
 import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto'
 import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
+import { TrafficSettingDbService } from '../../../database/traffic-setting-db.service'
 
 @Injectable()
 export class UiTrafficService {
@@ -15,10 +16,14 @@ export class UiTrafficService {
     private readonly commonSettings: CommonSettingsService,
     private readonly trafficSettings: TrafficSettingsService,
     private readonly here: HereService,
+    private readonly trafficSettingDb: TrafficSettingDbService,
   ) {}
 
   public async getRoute(): Promise<CarRoutesDto> {
-    const trafficSettingsEntity = await this.trafficSettings.getRecord()
+    const trafficSettingsEntity = await this.trafficSettingDb.getUi()
+    if (!trafficSettingsEntity) {
+      throw new Error('null')
+    }
     const apiKey = trafficSettingsEntity.apiKey || process.env.APIKEY_HERE
 
     if (trafficSettingsEntity.isActive && apiKey && trafficSettingsEntity.commonLocationFrom && trafficSettingsEntity.commonLocationTo) {
