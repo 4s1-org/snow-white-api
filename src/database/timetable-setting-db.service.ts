@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
 import { TimetableSetting, Prisma } from '@prisma/client'
@@ -6,9 +8,17 @@ import { TimetableSetting, Prisma } from '@prisma/client'
 export class TimetableSettingDbService {
   constructor(private prisma: PrismaService) {}
 
-  public async readTimetableSetting(
-    TimetableSettingWhereUniqueInput: Prisma.TimetableSettingWhereUniqueInput,
-  ): Promise<TimetableSetting | null> {
+  public async getUi() {
+    const res = this.prisma.timetableSetting.findFirst({
+      include: {
+        timetableStationFrom: true,
+        timetableStationTo: true,
+      },
+    })
+    return res
+  }
+
+  public async read(TimetableSettingWhereUniqueInput: Prisma.TimetableSettingWhereUniqueInput): Promise<TimetableSetting | null> {
     return this.prisma.timetableSetting.findUnique({
       where: TimetableSettingWhereUniqueInput,
     })

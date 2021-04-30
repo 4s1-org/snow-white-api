@@ -65,7 +65,7 @@ export class TimetableSettingsService {
   }
 
   public async getRecord(): Promise<TimetableSetting> {
-    let record = await this.timetableSettingDb.readTimetableSetting({
+    let record = await this.timetableSettingDb.read({
       // ToDo: Muss das mitgeladen werden?
       // include: {
       //   timetableStationFrom: true,

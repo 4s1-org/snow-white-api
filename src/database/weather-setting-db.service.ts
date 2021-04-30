@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
 import { WeatherSetting, Prisma } from '@prisma/client'
@@ -5,6 +7,15 @@ import { WeatherSetting, Prisma } from '@prisma/client'
 @Injectable()
 export class WeatherSettingDbService {
   constructor(private prisma: PrismaService) {}
+
+  public async getUi() {
+    const res = this.prisma.weatherSetting.findFirst({
+      include: {
+        commonLocation: true,
+      },
+    })
+    return res
+  }
 
   public async readWeatherSetting(WeatherSettingWhereUniqueInput: Prisma.WeatherSettingWhereUniqueInput): Promise<WeatherSetting | null> {
     return this.prisma.weatherSetting.findUnique({

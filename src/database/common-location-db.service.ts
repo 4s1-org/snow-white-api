@@ -46,7 +46,7 @@ export class CommonLocationDbService {
     })
   }
 
-  public async deleteCommonLocation(where: Prisma.CommonLocationWhereUniqueInput): Promise<CommonLocation> {
+  public async delete(where: Prisma.CommonLocationWhereUniqueInput): Promise<CommonLocation> {
     return this.prisma.commonLocation.delete({
       where,
     })

@@ -42,10 +42,6 @@ export class CommonLocationsService {
     return this.convertLocation(res)
   }
 
-  public async delete(id: string): Promise<void> {
-    await this.commonLocationDb.deleteCommonLocation({ id })
-  }
-
   public async save(id: string, location: CommonLocationDto): Promise<void> {
     await this.commonLocationDb.updateCommonLocation({
       where: { id },
