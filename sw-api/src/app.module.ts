@@ -5,6 +5,8 @@ import { TimetrackingModule } from './timetracking/timetracking.module'
 import { RemoteApiCallModule } from './remote-api-call/remote-api-call.module'
 import { SmartmirrorModule } from './smartmirror/smartmirror.module'
 import { PrismaService } from './database/prisma.service'
+import { ConfigService } from './config/config.service'
+
 import * as dotenv from 'dotenv'
 dotenv.config()
 
@@ -14,6 +16,6 @@ logger.log('Lets go')
 @Module({
   controllers: [TimetrackingController],
   imports: [HttpModule, TimetrackingModule, RemoteApiCallModule, SmartmirrorModule],
-  providers: [TimetrackingService, PrismaService],
+  providers: [TimetrackingService, PrismaService, ConfigService],
 })
 export class AppModule {}

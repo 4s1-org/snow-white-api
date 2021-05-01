@@ -6,10 +6,18 @@ import { RemoteApiCallModule } from '../../../remote-api-call/remote-api-call.mo
 import { ConstantsService } from '../../../global/constants/constants.service'
 import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
 import { TimetableStationDbService } from '../../../database/timetable-station-db.service'
+import { PrismaService } from '../../../database/prisma.service'
 
 @Module({
   controllers: [TimetableController],
   imports: [RemoteApiCallModule],
-  providers: [TimetableSettingsService, TimetableStationsService, ConstantsService, TimetableSettingDbService, TimetableStationDbService],
+  providers: [
+    TimetableSettingsService,
+    TimetableStationsService,
+    ConstantsService,
+    TimetableSettingDbService,
+    TimetableStationDbService,
+    PrismaService,
+  ],
 })
 export class TimetableModule {}

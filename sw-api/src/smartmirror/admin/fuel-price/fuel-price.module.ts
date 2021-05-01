@@ -7,11 +7,19 @@ import { ConstantsModule } from '../../../global/constants/constants.module'
 import { ConstantsService } from '../../../global/constants/constants.service'
 import { FuelPriceSettingDbService } from '../../../database/fuel-price-setting-db.service'
 import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service'
+import { PrismaService } from '../../../database/prisma.service'
 
 @Module({
   controllers: [FuelPriceController],
   // ToDo: ConstantsModule ist global, daher sollte es hier eigentlich nicht eingebunden werden müssen.
   imports: [RemoteApiCallModule, ConstantsModule],
-  providers: [FuelPriceStationsService, FuelPriceSettingsService, ConstantsService, FuelPriceSettingDbService, FuelPriceStationDbService],
+  providers: [
+    FuelPriceStationsService,
+    FuelPriceSettingsService,
+    ConstantsService,
+    FuelPriceSettingDbService,
+    FuelPriceStationDbService,
+    PrismaService,
+  ],
 })
 export class FuelPriceModule {}
