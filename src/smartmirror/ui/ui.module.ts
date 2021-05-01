@@ -15,8 +15,14 @@ import { AdminModule } from '../admin/admin.module'
 import { FuelPriceSettingsService } from '../admin/fuel-price/settings/fuel-price-settings.service'
 import { UiSettingsService } from './settings/ui-settings.service'
 import { CommonSettingsService } from '../admin/common/settings/common-settings.service'
-import { CommonLocationDbService } from '../../database/common-location-db.service'
-import { TimetrackingService } from '../../timetracking/timetracking.service'
+import { TimetableSettingDbService } from '../../database/timetable-setting-db.service'
+import { TrafficSettingDbService } from '../../database/traffic-setting-db.service'
+import { WeatherSettingDbService } from '../../database/weather-setting-db.service'
+import { FuelPriceStationDbService } from '../../database/fuel-price-station-db.service'
+import { CommonSettingDbService } from '../../database/common-setting-db.service'
+import { PrismaService } from '../../database/prisma.service'
+import { FuelPriceSettingDbService } from '../../database/fuel-price-setting-db.service'
+import { DateSettingDbService } from '../../database/date-setting-db.service'
 
 @Module({
   controllers: [UiController],
@@ -34,6 +40,14 @@ import { TimetrackingService } from '../../timetracking/timetracking.service'
     WeatherSettingsService,
     TimetableSettingsService,
     UiSettingsService,
+    PrismaService,
+    WeatherSettingDbService,
+    TrafficSettingDbService,
+    CommonSettingDbService,
+    DateSettingDbService,
+    FuelPriceSettingDbService,
+    TimetableSettingDbService,
+    FuelPriceStationDbService,
   ],
 })
 export class UiModule {}
