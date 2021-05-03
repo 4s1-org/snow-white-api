@@ -19,7 +19,7 @@ export class UiFuelPriceService {
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_TANKERKOENIG
 
     if (settingsEntity.isActive && apiKey) {
-      const stations: Array<FuelPriceStation> = await this.fuelStatationDb.readFuelPriceStations({})
+      const stations = await this.fuelStatationDb.readAll()
       const stationIds: Array<string> = stations.map((station) => station.remoteId)
       const prices: Array<TankerkoenigPrice> = await this.tankerkoenig.getPrices(apiKey, stationIds)
 
