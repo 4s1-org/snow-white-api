@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common'
 import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service'
 import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto'
 import { CoordinatesDto } from '../../../../dataTransferObjects/coordinates.dto'
-import { v4 as uuid } from 'uuid'
 import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto'
 import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 import { FuelPriceStationDbService } from '../../../../database/fuel-price-station-db.service'
@@ -15,7 +14,7 @@ export class FuelPriceStationsService {
   constructor(private readonly tankerkoenig: TankerkoenigService, private readonly fuelPriceStationDb: FuelPriceStationDbService) {}
 
   public findAll(): Promise<Array<FuelPriceStation>> {
-    return this.fuelPriceStationDb.readFuelPriceStations({})
+    return this.fuelPriceStationDb.readAll()
   }
 
   public search(apikey: string, latlon: CoordinatesDto): Promise<Array<TankerkoenigStationDto>> {
@@ -24,8 +23,7 @@ export class FuelPriceStationsService {
   }
 
   public async add(station: TankerkoenigStationDto): Promise<void> {
-    await this.fuelPriceStationDb.createFuelPriceStation({
-      id: uuid(),
+    await this.fuelPriceStationDb.create({
       latitude: station.latitude,
       longitude: station.longitude,
       name: station.name,
@@ -36,7 +34,7 @@ export class FuelPriceStationsService {
   }
 
   public async save(id: string, station: FuelPriceStationDto): Promise<void> {
-    await this.fuelPriceStationDb.updateFuelPriceStation({
+    await this.fuelPriceStationDb.update({
       where: { id },
       data: {
         name: station.name,
@@ -46,7 +44,7 @@ export class FuelPriceStationsService {
   }
 
   public async delete(id: string): Promise<void> {
-    await this.fuelPriceStationDb.deleteFuelPriceStation({ id })
+    await this.fuelPriceStationDb.delete({ id })
   }
 
   public async reorderGasStations(sortOrders: Array<SortOrderDto>): Promise<void> {
@@ -60,12 +58,12 @@ export class FuelPriceStationsService {
   }
 
   public async loadAll(): Promise<Array<FuelPriceStationDto>> {
-    const res = await this.fuelPriceStationDb.readFuelPriceStations({})
+    const res = await this.fuelPriceStationDb.readAll()
     return res.map((x) => this.convertLocation(x))
   }
 
   public async loadSingle(id: string): Promise<FuelPriceStationDto | null> {
-    const res = await this.fuelPriceStationDb.readFuelPriceStation({ id })
+    const res = await this.fuelPriceStationDb.read({ id })
     if (!res) {
       return null
     }
