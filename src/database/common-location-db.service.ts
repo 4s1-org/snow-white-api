@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
 import { CommonLocation, Prisma } from '@prisma/client'
@@ -6,27 +8,14 @@ import { CommonLocation, Prisma } from '@prisma/client'
 export class CommonLocationDbService {
   constructor(private prisma: PrismaService) {}
 
-  public async readCommonLocation(CommonLocationWhereUniqueInput: Prisma.CommonLocationWhereUniqueInput): Promise<CommonLocation | null> {
+  public read(CommonLocationWhereUniqueInput: Prisma.CommonLocationWhereUniqueInput): Promise<CommonLocation | null> {
     return this.prisma.commonLocation.findUnique({
       where: CommonLocationWhereUniqueInput,
     })
   }
 
-  public async readCommonLocations(params: {
-    skip?: number
-    take?: number
-    cursor?: Prisma.CommonLocationWhereUniqueInput
-    where?: Prisma.CommonLocationWhereInput
-    orderBy?: Prisma.CommonLocationOrderByInput
-  }): Promise<CommonLocation[]> {
-    const { skip, take, cursor, where, orderBy } = params
-    return this.prisma.commonLocation.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    })
+  public readAll() {
+    return this.prisma.commonLocation.findMany()
   }
 
   public async createCommonLocation(data: Prisma.CommonLocationCreateInput): Promise<CommonLocation> {
@@ -35,10 +24,7 @@ export class CommonLocationDbService {
     })
   }
 
-  public async updateCommonLocation(params: {
-    where: Prisma.CommonLocationWhereUniqueInput
-    data: Prisma.CommonLocationUpdateInput
-  }): Promise<CommonLocation> {
+  public async update(params: { where: Prisma.CommonLocationWhereUniqueInput; data: Prisma.CommonLocationUpdateInput }) {
     const { data, where } = params
     return this.prisma.commonLocation.update({
       data,
@@ -46,7 +32,7 @@ export class CommonLocationDbService {
     })
   }
 
-  public async delete(where: Prisma.CommonLocationWhereUniqueInput): Promise<CommonLocation> {
+  public async delete(where: Prisma.CommonLocationWhereUniqueInput) {
     return this.prisma.commonLocation.delete({
       where,
     })
