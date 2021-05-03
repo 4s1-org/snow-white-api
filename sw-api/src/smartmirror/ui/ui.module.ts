@@ -14,7 +14,6 @@ import { TrafficModule } from '../admin/traffic/traffic.module'
 import { AdminModule } from '../admin/admin.module'
 import { FuelPriceSettingsService } from '../admin/fuel-price/settings/fuel-price-settings.service'
 import { UiSettingsService } from './settings/ui-settings.service'
-import { CommonSettingsService } from '../admin/common/settings/common-settings.service'
 import { TimetableSettingDbService } from '../../database/timetable-setting-db.service'
 import { TrafficSettingDbService } from '../../database/traffic-setting-db.service'
 import { WeatherSettingDbService } from '../../database/weather-setting-db.service'
@@ -28,7 +27,6 @@ import { DateSettingDbService } from '../../database/date-setting-db.service'
   controllers: [UiController],
   imports: [RemoteApiCallModule, TrafficModule, AdminModule],
   providers: [
-    CommonSettingsService,
     UiFuelPriceService,
     UiDateService,
     UiTimetableService,

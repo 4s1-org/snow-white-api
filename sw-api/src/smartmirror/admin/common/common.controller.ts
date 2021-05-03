@@ -1,30 +1,40 @@
 import { Controller, Get, Post, Delete, Put, Param, Body } from '@nestjs/common'
 import { CommonLocationsService } from './locations/common-locations.service'
 import { OpenStreetMapLocationDto } from '../../../dataTransferObjects/open-street-map-location.dto'
-import { CommonSettingsService } from './settings/common-settings.service'
 import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto'
 import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto'
 import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
 import { CommonLocationDbService } from '../../../database/common-location-db.service'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service'
 
 @Controller('/v1/smartmirror/admin/common')
 export class CommonController {
   constructor(
     private readonly location: CommonLocationsService,
-    private readonly settings: CommonSettingsService,
+    private readonly commonSettingDb: CommonSettingDbService,
     private readonly commonLocationDb: CommonLocationDbService,
   ) {}
 
   // GET - /v1/smartmirror/admin/common/settings
   @Get('/settings')
-  public loadSettings(): Promise<CommonSettingsDto> {
-    return this.settings.load()
+  public async loadSettings(): Promise<CommonSettingsDto> {
+    const record = await this.commonSettingDb.readFirstRecord()
+    const result: CommonSettingsDto = {
+      morningEnd: record.morningEnd,
+      morningStart: record.morningStart,
+    }
+    return result
   }
 
   // PUT - /v1/smartmirror/admin/common/settings
   @Put('/settings')
-  public saveSettings(@Body() body: CommonSettingsDto): Promise<void> {
-    return this.settings.save(body)
+  public async saveSettings(@Body() body: CommonSettingsDto): Promise<void> {
+    await this.commonSettingDb.update({
+      data: {
+        morningEnd: body.morningEnd,
+        morningStart: body.morningStart,
+      },
+    })
   }
 
   // GET - /v1/smartmirror/admin/common/locations/search/:text
