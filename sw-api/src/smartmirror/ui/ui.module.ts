@@ -8,7 +8,6 @@ import { UiFuelPriceService } from './fuel-price/ui-fuel-price.service'
 import { RemoteApiCallModule } from '../../remote-api-call/remote-api-call.module'
 import { TrafficSettingsService } from '../admin/traffic/settings/traffic-settings.service'
 import { WeatherSettingsService } from '../admin/weather/settings/weather-settings.service'
-import { DateSettingsService } from '../admin/date/settings/date-settings.service'
 import { TimetableSettingsService } from '../admin/timetable/settings/timetable-settings.service'
 import { TrafficModule } from '../admin/traffic/traffic.module'
 import { AdminModule } from '../admin/admin.module'
@@ -34,7 +33,6 @@ import { DateSettingDbService } from '../../database/date-setting-db.service'
     UiTrafficService,
     TrafficSettingsService,
     FuelPriceSettingsService,
-    DateSettingsService,
     WeatherSettingsService,
     TimetableSettingsService,
     UiSettingsService,
