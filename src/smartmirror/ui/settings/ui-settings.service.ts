@@ -3,8 +3,8 @@ import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-set
 import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
 import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
 import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service'
-import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
 import { UiSettingsDto } from '../../../dataTransferObjects/ui-settings.dto'
+import { DateSettingDbService } from '../../../database/date-setting-db.service'
 
 @Injectable()
 export class UiSettingsService {
@@ -15,7 +15,7 @@ export class UiSettingsService {
     private readonly fuelPriceSettings: FuelPriceSettingsService,
     private readonly timetableSettings: TimetableSettingsService,
     private readonly weatherSettings: WeatherSettingsService,
-    private readonly dateSettings: DateSettingsService,
+    private readonly dateSettingDb: DateSettingDbService,
   ) {}
 
   public async load(): Promise<UiSettingsDto> {
@@ -23,7 +23,7 @@ export class UiSettingsService {
     const fuelPriceRecord = await this.fuelPriceSettings.getRecord()
     const timetableRecord = await this.timetableSettings.getRecord()
     const weatherRecord = await this.weatherSettings.getRecord()
-    const dateRecord = await this.dateSettings.getRecord()
+    const dateRecord = await this.dateSettingDb.readFirstRecord()
 
     const result: UiSettingsDto = {
       date: {
