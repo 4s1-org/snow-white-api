@@ -4,9 +4,9 @@ import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto'
 import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto'
 import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
 import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto'
-import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
 import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service'
 
 @Injectable()
 export class UiTimetableService {
@@ -14,7 +14,7 @@ export class UiTimetableService {
 
   constructor(
     private readonly constantsService: ConstantsService,
-    private readonly commonSettings: CommonSettingsService,
+    private readonly commonSettingDb: CommonSettingDbService,
     private readonly settings: TimetableSettingsService,
     private readonly rmv: RmvService,
     private readonly timetableSettingDb: TimetableSettingDbService,
@@ -28,7 +28,7 @@ export class UiTimetableService {
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_RMV || ''
 
     if (settingsEntity.isActive && apiKey && settingsEntity.timetableStationFrom && settingsEntity.timetableStationTo) {
-      const commonSettingsEntity = await this.commonSettings.getRecord()
+      const commonSettingsEntity = await this.commonSettingDb.readFirstRecord()
       const timestamp: number = this.constantsService.getCurrentTimestamp()
 
       let stationFrom: number = settingsEntity.timetableStationFrom.remoteId
