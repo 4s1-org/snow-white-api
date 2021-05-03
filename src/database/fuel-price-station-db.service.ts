@@ -1,46 +1,30 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
-import { FuelPriceStation, Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 
 @Injectable()
 export class FuelPriceStationDbService {
   constructor(private prisma: PrismaService) {}
 
-  public async readFuelPriceStation(
-    FuelPriceStationWhereUniqueInput: Prisma.FuelPriceStationWhereUniqueInput,
-  ): Promise<FuelPriceStation | null> {
+  public read(FuelPriceStationWhereUniqueInput: Prisma.FuelPriceStationWhereUniqueInput) {
     return this.prisma.fuelPriceStation.findUnique({
       where: FuelPriceStationWhereUniqueInput,
     })
   }
 
-  public async readFuelPriceStations(params: {
-    skip?: number
-    take?: number
-    cursor?: Prisma.FuelPriceStationWhereUniqueInput
-    where?: Prisma.FuelPriceStationWhereInput
-    orderBy?: Prisma.FuelPriceStationOrderByInput
-  }): Promise<FuelPriceStation[]> {
-    const { skip, take, cursor, where, orderBy } = params
-    return this.prisma.fuelPriceStation.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    })
+  public readAll() {
+    return this.prisma.fuelPriceStation.findMany()
   }
 
-  public async createFuelPriceStation(data: Prisma.FuelPriceStationCreateInput): Promise<FuelPriceStation> {
+  public create(data: Prisma.FuelPriceStationCreateInput) {
     return this.prisma.fuelPriceStation.create({
       data,
     })
   }
 
-  public async updateFuelPriceStation(params: {
-    where: Prisma.FuelPriceStationWhereUniqueInput
-    data: Prisma.FuelPriceStationUpdateInput
-  }): Promise<FuelPriceStation> {
+  public update(params: { where: Prisma.FuelPriceStationWhereUniqueInput; data: Prisma.FuelPriceStationUpdateInput }) {
     const { data, where } = params
     return this.prisma.fuelPriceStation.update({
       data,
@@ -48,7 +32,7 @@ export class FuelPriceStationDbService {
     })
   }
 
-  public async deleteFuelPriceStation(where: Prisma.FuelPriceStationWhereUniqueInput): Promise<FuelPriceStation> {
+  public async delete(where: Prisma.FuelPriceStationWhereUniqueInput) {
     return this.prisma.fuelPriceStation.delete({
       where,
     })
