@@ -1,54 +1,38 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
-import { CommonSetting, Prisma } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 
 @Injectable()
 export class CommonSettingDbService {
   constructor(private prisma: PrismaService) {}
 
-  public async readCommonSetting(CommonSettingWhereUniqueInput: Prisma.CommonSettingWhereUniqueInput): Promise<CommonSetting | null> {
-    return this.prisma.commonSetting.findUnique({
-      where: CommonSettingWhereUniqueInput,
-    })
+  public async readFirstRecord() {
+    const record = await this.prisma.commonSetting.findFirst()
+
+    if (record) {
+      return record
+    } else {
+      return this.createDummyRecord()
+    }
   }
 
-  public async readCommonSettings(params: {
-    skip?: number
-    take?: number
-    cursor?: Prisma.CommonSettingWhereUniqueInput
-    where?: Prisma.CommonSettingWhereInput
-    orderBy?: Prisma.CommonSettingOrderByInput
-  }): Promise<CommonSetting[]> {
-    const { skip, take, cursor, where, orderBy } = params
-    return this.prisma.commonSetting.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    })
-  }
-
-  public async createCommonSetting(data: Prisma.CommonSettingCreateInput): Promise<CommonSetting> {
+  private createDummyRecord() {
     return this.prisma.commonSetting.create({
-      data,
+      data: {
+        morningStart: 5 * 3600,
+        morningEnd: 12 * 3600,
+      },
     })
   }
 
-  public async updateCommonSetting(params: {
-    where: Prisma.CommonSettingWhereUniqueInput
-    data: Prisma.CommonSettingUpdateInput
-  }): Promise<CommonSetting> {
-    const { data, where } = params
+  public async update(params: { data: Prisma.CommonSettingUpdateInput }) {
+    const { data } = params
+    const record = await this.readFirstRecord()
     return this.prisma.commonSetting.update({
       data,
-      where,
-    })
-  }
-
-  public async deleteCommonSetting(where: Prisma.CommonSettingWhereUniqueInput): Promise<CommonSetting> {
-    return this.prisma.commonSetting.delete({
-      where,
+      where: { id: record.id },
     })
   }
 }
