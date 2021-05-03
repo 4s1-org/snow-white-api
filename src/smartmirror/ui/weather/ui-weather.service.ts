@@ -1,6 +1,5 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
 import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service'
-import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service'
 import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto'
 import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
 
@@ -8,11 +7,7 @@ import { WeatherSettingDbService } from '../../../database/weather-setting-db.se
 export class UiWeatherService {
   private readonly logger: Logger = new Logger(UiWeatherService.name)
 
-  constructor(
-    private readonly settings: WeatherSettingsService,
-    private readonly openWeather: OpenWeatherService,
-    private readonly weatherSettingDb: WeatherSettingDbService,
-  ) {}
+  constructor(private readonly openWeather: OpenWeatherService, private readonly weatherSettingDb: WeatherSettingDbService) {}
 
   public async getWeather(): Promise<WeatherDatasDto> {
     const settingsEntity = await this.weatherSettingDb.getUi()
