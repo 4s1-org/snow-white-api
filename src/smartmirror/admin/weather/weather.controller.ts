@@ -2,6 +2,7 @@ import { Controller, Get, Put, Logger, Body } from '@nestjs/common'
 import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto'
 import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
+import { Prisma } from '@prisma/client'
 
 @Controller('/v1/smartmirror/admin/weather')
 export class WeatherController {
@@ -25,9 +26,9 @@ export class WeatherController {
   public async saveSettings(@Body() body: WeatherSettingsDto): Promise<void> {
     const record = await this.weatherSettingDb.readFirstRecord()
 
-    const data = {
+    const data: Prisma.WeatherSettingUpdateInput = {
       apiKey: body.apiKey,
-      commonLocationId: body.locationId,
+      //commonLocationId: body.locationId,
       isActive: body.isActive,
     }
 
