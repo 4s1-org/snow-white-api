@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common'
 import { FuelPriceController } from './fuel-price.controller'
-import { FuelPriceStationsService } from './stations/fuel-price-stations.service'
 import { RemoteApiCallModule } from '../../../remote-api-call/remote-api-call.module'
 import { ConstantsModule } from '../../../global/constants/constants.module'
 import { ConstantsService } from '../../../global/constants/constants.service'
@@ -12,12 +11,6 @@ import { PrismaService } from '../../../database/prisma.service'
   controllers: [FuelPriceController],
   // ToDo: ConstantsModule ist global, daher sollte es hier eigentlich nicht eingebunden werden müssen.
   imports: [RemoteApiCallModule, ConstantsModule],
-  providers: [
-    FuelPriceStationsService,
-    ConstantsService,
-    FuelPriceSettingDbService,
-    FuelPriceStationDbService,
-    PrismaService,
-  ],
+  providers: [ConstantsService, FuelPriceSettingDbService, FuelPriceStationDbService, PrismaService],
 })
 export class FuelPriceModule {}
