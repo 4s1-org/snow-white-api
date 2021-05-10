@@ -1,57 +1,40 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
+import { Prisma } from '@prisma/client'
 import { PrismaService } from './prisma.service'
-import { FuelPriceSetting, Prisma } from '@prisma/client'
 
 @Injectable()
 export class FuelPriceSettingDbService {
   constructor(private prisma: PrismaService) {}
 
-  public async readFuelPriceSetting(
-    FuelPriceSettingWhereUniqueInput: Prisma.FuelPriceSettingWhereUniqueInput,
-  ): Promise<FuelPriceSetting | null> {
-    return this.prisma.fuelPriceSetting.findUnique({
-      where: FuelPriceSettingWhereUniqueInput,
-    })
+  public async readFirstRecord() {
+    const record = await this.prisma.fuelPriceSetting.findFirst()
+
+    if (record) {
+      return record
+    } else {
+      return this.createDummyRecord()
+    }
   }
 
-  public async readFuelPriceSettings(params: {
-    skip?: number
-    take?: number
-    cursor?: Prisma.FuelPriceSettingWhereUniqueInput
-    where?: Prisma.FuelPriceSettingWhereInput
-    orderBy?: Prisma.FuelPriceSettingOrderByInput
-  }): Promise<FuelPriceSetting[]> {
-    const { skip, take, cursor, where, orderBy } = params
-    return this.prisma.fuelPriceSetting.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    })
-  }
-
-  public async createFuelPriceSetting(data: Prisma.FuelPriceSettingCreateInput): Promise<FuelPriceSetting> {
+  private createDummyRecord() {
     return this.prisma.fuelPriceSetting.create({
-      data,
+      data: {
+        apiKey: '',
+        interval: 15 * 3600,
+        isActive: false,
+        showDiesel: true,
+        showE10: true,
+        showE5: true,
+      },
     })
   }
 
-  public async updateFuelPriceSetting(params: {
-    where: Prisma.FuelPriceSettingWhereUniqueInput
-    data: Prisma.FuelPriceSettingUpdateInput
-  }): Promise<FuelPriceSetting> {
+  public update(params: { where: Prisma.FuelPriceSettingWhereUniqueInput; data: Prisma.FuelPriceSettingUpdateInput }) {
     const { data, where } = params
     return this.prisma.fuelPriceSetting.update({
       data,
-      where,
-    })
-  }
-
-  public async deleteFuelPriceSetting(where: Prisma.FuelPriceSettingWhereUniqueInput): Promise<FuelPriceSetting> {
-    return this.prisma.fuelPriceSetting.delete({
       where,
     })
   }
