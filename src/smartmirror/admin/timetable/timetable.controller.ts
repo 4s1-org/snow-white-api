@@ -1,31 +1,79 @@
 import { Controller, Get, Put, Post, Delete, Logger, Body, Param } from '@nestjs/common'
-import { TimetableSettingsService } from './settings/timetable-settings.service'
 import { TimetableStationsService } from './stations/timetable-stations.service'
 import { RmvStationDto } from '../../../dataTransferObjects/rmv-station.dto'
 import { CoordinatesDto } from '../../../dataTransferObjects/coordinates.dto'
 import { TimetableStationDto } from '../../../dataTransferObjects/timetable-station.dto'
 import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
 import { TimetableSettingsDto } from '../../../dataTransferObjects/timetable-settings.dto'
+import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
+import { ConstantsService } from '../../../global/constants/constants.service'
+import { Prisma } from '@prisma/client'
 
 @Controller('/v1/smartmirror/admin/timetable')
 export class TimetableController {
   private readonly logger: Logger = new Logger(TimetableController.name)
 
   constructor(
-    private readonly settings: TimetableSettingsService,
     private readonly stations: TimetableStationsService,
+    private readonly timetableSettingDb: TimetableSettingDbService,
+    private readonly constants: ConstantsService,
   ) {}
 
   // GET - /v1/smartmirror/admin/timetable/settings
   @Get('/settings')
-  public loadSettings(): Promise<TimetableSettingsDto> {
-    return this.settings.load()
+  public async loadSettings(): Promise<TimetableSettingsDto> {
+    const record = await this.timetableSettingDb.readFirstRecord()
+
+    const result: TimetableSettingsDto = {
+      apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
+      isActive: record.isActive,
+      lines: {
+        showBus: record.showBus,
+        showIC: record.showIC,
+        showICE: record.showICE,
+        showRB: record.showRB,
+        showRE: record.showRE,
+        showSBahn: record.showSBahn,
+        showTram: record.showTram,
+        showUBahn: record.showUBahn,
+      },
+      maxChanges: 3,
+      stationFromId: record.timetableStationFromId || null,
+      stationToId: record.timetableStationToId || null,
+    }
+    return result
   }
 
   // PUT - /v1/smartmirror/admin/timetable/settings
   @Put('/settings')
-  public saveSettings(@Body() settings: TimetableSettingsDto): Promise<void> {
-    return this.settings.save(settings)
+  public async saveSettings(@Body() body: TimetableSettingsDto): Promise<void> {
+    const record = await this.timetableSettingDb.readFirstRecord()
+
+    const data: Prisma.TimetableSettingUpdateInput = {
+      apiKey: body.apiKey,
+      isActive: body.isActive,
+      maxChanges: body.maxChanges,
+      showBus: body.lines.showBus,
+      showIC: body.lines.showIC,
+      showICE: body.lines.showICE,
+      showRB: body.lines.showRB,
+      showRE: body.lines.showRE,
+      showSBahn: body.lines.showSBahn,
+      showTram: body.lines.showTram,
+      showUBahn: body.lines.showUBahn,
+      // ToDo
+      //timetableStationFromId: body.stationFromId,
+      //timetableStationToId: body.stationToId,
+    }
+
+    if (body.apiKey.endsWith(this.constants.hiddenValue)) {
+      data.apiKey = record.apiKey
+    }
+
+    await this.timetableSettingDb.update({
+      where: { id: record.id },
+      data: data,
+    })
   }
 
   // PUT - /v1/smartmirror/admin/timetable/stations/reorder
@@ -37,7 +85,7 @@ export class TimetableController {
   // GET - /v1/smartmirror/admin/timetable/stations/search
   @Post('/stations/search')
   public async searchForStations(@Body() coordinates: CoordinatesDto): Promise<Array<RmvStationDto>> {
-    const apiKey = (await this.settings.getRecord()).apiKey || process.env.APIKEY_RMV || ''
+    const apiKey = (await this.timetableSettingDb.readFirstRecord()).apiKey || process.env.APIKEY_RMV || ''
     return this.stations.search(apiKey, coordinates.latitude, coordinates.longitude)
   }
 
