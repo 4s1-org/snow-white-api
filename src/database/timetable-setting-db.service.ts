@@ -18,48 +18,43 @@ export class TimetableSettingDbService {
     return res
   }
 
-  public async read(TimetableSettingWhereUniqueInput: Prisma.TimetableSettingWhereUniqueInput): Promise<TimetableSetting | null> {
-    return this.prisma.timetableSetting.findUnique({
-      where: TimetableSettingWhereUniqueInput,
-    })
+  public async readFirstRecord() {
+    const record = await this.prisma.timetableSetting.findFirst()
+
+    if (record) {
+      return record
+    } else {
+      return this.createDummyRecord()
+    }
   }
 
-  public async readTimetableSettings(params: {
-    skip?: number
-    take?: number
-    cursor?: Prisma.TimetableSettingWhereUniqueInput
-    where?: Prisma.TimetableSettingWhereInput
-    orderBy?: Prisma.TimetableSettingOrderByInput
-  }): Promise<TimetableSetting[]> {
-    const { skip, take, cursor, where, orderBy } = params
-    return this.prisma.timetableSetting.findMany({
-      skip,
-      take,
-      cursor,
-      where,
-      orderBy,
-    })
-  }
-
-  public async createTimetableSetting(data: Prisma.TimetableSettingCreateInput): Promise<TimetableSetting> {
+  private createDummyRecord() {
     return this.prisma.timetableSetting.create({
-      data,
+      data: {
+        apiKey: '',
+        isActive: false,
+        maxChanges: 3,
+        showBus: false,
+        showIC: false,
+        showICE: false,
+        showRB: true,
+        showRE: true,
+        showSBahn: true,
+        showTram: true,
+        showUBahn: true,
+        timetableStationFromId: null,
+        timetableStationToId: null,
+      },
     })
   }
 
-  public async updateTimetableSetting(params: {
+  public async update(params: {
     where: Prisma.TimetableSettingWhereUniqueInput
     data: Prisma.TimetableSettingUpdateInput
   }): Promise<TimetableSetting> {
     const { data, where } = params
     return this.prisma.timetableSetting.update({
       data,
-      where,
-    })
-  }
-
-  public async deleteTimetableSetting(where: Prisma.TimetableSettingWhereUniqueInput): Promise<TimetableSetting> {
-    return this.prisma.timetableSetting.delete({
       where,
     })
   }
