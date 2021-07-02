@@ -1,17 +1,19 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
 import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service'
-import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service'
-import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity'
 import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto'
+import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
 
 @Injectable()
 export class UiWeatherService {
   private readonly logger: Logger = new Logger(UiWeatherService.name)
 
-  constructor(private readonly settings: WeatherSettingsService, private readonly openWeather: OpenWeatherService) {}
+  constructor(private readonly openWeather: OpenWeatherService, private readonly weatherSettingDb: WeatherSettingDbService) {}
 
   public async getWeather(): Promise<WeatherDatasDto> {
-    const settingsEntity: WeatherSettingsEntity = await this.settings.getRecord()
+    const settingsEntity = await this.weatherSettingDb.getUi()
+    if (!settingsEntity) {
+      throw new Error('null')
+    }
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_OPENWEATHER
 
     if (settingsEntity.isActive && apiKey && settingsEntity.commonLocation) {

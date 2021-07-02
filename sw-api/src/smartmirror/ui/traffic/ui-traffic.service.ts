@@ -2,11 +2,10 @@ import { Injectable, Logger, BadRequestException } from '@nestjs/common'
 import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service'
 import { HereService } from '../../../remote-api-call/here/here.service'
 import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto'
-import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity'
 import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto'
-import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
 import { ConstantsService } from '../../../global/constants/constants.service'
+import { TrafficSettingDbService } from '../../../database/traffic-setting-db.service'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service'
 
 @Injectable()
 export class UiTrafficService {
@@ -14,22 +13,21 @@ export class UiTrafficService {
 
   constructor(
     private readonly constantsService: ConstantsService,
-    private readonly commonSettings: CommonSettingsService,
+    private readonly commonSettingsDb: CommonSettingDbService,
     private readonly trafficSettings: TrafficSettingsService,
     private readonly here: HereService,
+    private readonly trafficSettingDb: TrafficSettingDbService,
   ) {}
 
   public async getRoute(): Promise<CarRoutesDto> {
-    const trafficSettingsEntity: TrafficSettingsEntity = await this.trafficSettings.getRecord()
+    const trafficSettingsEntity = await this.trafficSettingDb.getUi()
+    if (!trafficSettingsEntity) {
+      throw new Error('null')
+    }
     const apiKey = trafficSettingsEntity.apiKey || process.env.APIKEY_HERE
 
-    if (
-      trafficSettingsEntity.isActive &&
-      apiKey &&
-      trafficSettingsEntity.commonLocationFrom &&
-      trafficSettingsEntity.commonLocationTo
-    ) {
-      const commonSettingsEntity: CommonSettingsEntity = await this.commonSettings.getRecord()
+    if (trafficSettingsEntity.isActive && apiKey && trafficSettingsEntity.commonLocationFrom && trafficSettingsEntity.commonLocationTo) {
+      const commonSettingsEntity = await this.commonSettingsDb.readFirstRecord()
       const timestamp: number = this.constantsService.getCurrentTimestamp()
 
       let fromLat: number = trafficSettingsEntity.commonLocationFrom.latitude
