@@ -18,6 +18,7 @@ validate-all:
 
     - cd sw-api
     #- pnpm run lint
+    - ./node_modules/.bin/prisma generate
     - pnpm run build
     #- pnpm run test
     - cd ..
