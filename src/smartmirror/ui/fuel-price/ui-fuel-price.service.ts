@@ -1,21 +1,20 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
 import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service'
 import { TankerkoenigPrice } from '../../../remote-api-call/tankerkoenig/tankerkoenig-price'
-import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
+//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
 import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto'
-import { FuelPriceStation } from '@prisma/client'
 import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service'
 
 @Injectable()
 export class UiFuelPriceService {
   constructor(
-    private readonly settings: FuelPriceSettingsService,
+    //private readonly settings: FuelPriceSettingsService,
     private readonly tankerkoenig: TankerkoenigService,
     private readonly fuelStatationDb: FuelPriceStationDbService,
   ) {}
 
   public async getPrices(): Promise<Array<FuelPricePricesDto>> {
-    const settingsEntity = await this.settings.getRecord()
+    const settingsEntity = {} as any //await this.settings.getRecord()
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_TANKERKOENIG
 
     if (settingsEntity.isActive && apiKey) {

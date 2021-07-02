@@ -2,7 +2,6 @@ import { Injectable, Logger, BadRequestException } from '@nestjs/common'
 import { RmvService } from '../../../remote-api-call/rmv/rmv.service'
 import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto'
 import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto'
-import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
 import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto'
 import { ConstantsService } from '../../../global/constants/constants.service'
 import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
@@ -15,7 +14,6 @@ export class UiTimetableService {
   constructor(
     private readonly constantsService: ConstantsService,
     private readonly commonSettingDb: CommonSettingDbService,
-    private readonly settings: TimetableSettingsService,
     private readonly rmv: RmvService,
     private readonly timetableSettingDb: TimetableSettingDbService,
   ) {}
