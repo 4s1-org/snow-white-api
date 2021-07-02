@@ -1,29 +1,30 @@
 stages:
   - validation
 
-.validate-all:
+validate-all:
   stage: validation
   image: node:14-alpine
   tags:
     - Yellow
   script:
     - npm i pnpm -g
-    - pnpm install -r
+    - pnpm i
 
     - cd sw-shared
-    - pnpm run lint
-    - pnpm run build
-    - pnpm run test
-    - cd ..
-
-    - cd sw-api
-    - pnpm run lint
+    #- pnpm run lint
     - pnpm run build
     #- pnpm run test
     - cd ..
 
-    - cd sw-ui
-    - pnpm run lint
+    - cd sw-api
+    #- pnpm run lint
+    - ./node_modules/.bin/prisma generate
     - pnpm run build
-    - pnpm run test
+    #- pnpm run test
     - cd ..
+
+    #- cd sw-ui
+    #- pnpm run lint
+    #- pnpm run build
+    #- pnpm run test
+    #- cd ..

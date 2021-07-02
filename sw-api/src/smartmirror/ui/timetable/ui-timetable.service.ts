@@ -1,13 +1,11 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
 import { RmvService } from '../../../remote-api-call/rmv/rmv.service'
 import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto'
-import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity'
 import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto'
-import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
 import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto'
-import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
 import { ConstantsService } from '../../../global/constants/constants.service'
+import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service'
 
 @Injectable()
 export class UiTimetableService {
@@ -15,17 +13,20 @@ export class UiTimetableService {
 
   constructor(
     private readonly constantsService: ConstantsService,
-    private readonly commonSettings: CommonSettingsService,
-    private readonly settings: TimetableSettingsService,
+    private readonly commonSettingDb: CommonSettingDbService,
     private readonly rmv: RmvService,
+    private readonly timetableSettingDb: TimetableSettingDbService,
   ) {}
 
   public async getTimetable(): Promise<RmvTripsDto> {
-    const settingsEntity: TimetableSettingsEntity = await this.settings.getRecord()
+    const settingsEntity = await this.timetableSettingDb.getUi()
+    if (!settingsEntity) {
+      throw new Error('null')
+    }
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_RMV || ''
 
     if (settingsEntity.isActive && apiKey && settingsEntity.timetableStationFrom && settingsEntity.timetableStationTo) {
-      const commonSettingsEntity: CommonSettingsEntity = await this.commonSettings.getRecord()
+      const commonSettingsEntity = await this.commonSettingDb.readFirstRecord()
       const timestamp: number = this.constantsService.getCurrentTimestamp()
 
       let stationFrom: number = settingsEntity.timetableStationFrom.remoteId

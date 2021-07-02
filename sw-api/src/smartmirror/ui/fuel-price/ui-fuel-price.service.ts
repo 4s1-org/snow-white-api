@@ -1,29 +1,25 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
-import { Repository } from 'typeorm'
-import { InjectRepository } from '@nestjs/typeorm'
 import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service'
 import { TankerkoenigPrice } from '../../../remote-api-call/tankerkoenig/tankerkoenig-price'
-import { FuelPriceStationEntity } from '../../../entities/fuel-price-station.entity'
-import { FuelPriceSettingsEntity } from '../../../entities/fuel-price-settings.entity'
-import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
+//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
 import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto'
+import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service'
 
 @Injectable()
 export class UiFuelPriceService {
   constructor(
-    private readonly settings: FuelPriceSettingsService,
+    //private readonly settings: FuelPriceSettingsService,
     private readonly tankerkoenig: TankerkoenigService,
-    @InjectRepository(FuelPriceStationEntity)
-    private readonly stationRepository: Repository<FuelPriceStationEntity>,
+    private readonly fuelStatationDb: FuelPriceStationDbService,
   ) {}
 
   public async getPrices(): Promise<Array<FuelPricePricesDto>> {
-    const settingsEntity: FuelPriceSettingsEntity = await this.settings.getRecord()
+    const settingsEntity = {} as any //await this.settings.getRecord()
     const apiKey = settingsEntity.apiKey || process.env.APIKEY_TANKERKOENIG
 
     if (settingsEntity.isActive && apiKey) {
-      const stations: Array<FuelPriceStationEntity> = await this.stationRepository.find()
-      const stationIds: Array<string> = stations.map((station: FuelPriceStationEntity) => station.remoteId)
+      const stations = await this.fuelStatationDb.readAll()
+      const stationIds: Array<string> = stations.map((station) => station.remoteId)
       const prices: Array<TankerkoenigPrice> = await this.tankerkoenig.getPrices(apiKey, stationIds)
 
       const result: Array<FuelPricePricesDto> = []
