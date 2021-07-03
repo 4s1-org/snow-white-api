@@ -9,7 +9,7 @@ validate-all:
     - Yellow
   script:
     - npm i pnpm -g
-    - pnpm install --r
+    - pnpm install -r
 
     - cd sw-shared
     #- pnpm run lint
@@ -18,9 +18,10 @@ validate-all:
     - cd ..
 
     - cd sw-api
+    - pnpm install
     #- pnpm run lint
     - echo DATABASE_URL=file:./dev.db > .env
-  #  - ./node_modules/.bin/prisma generate
+    - ./node_modules/.bin/prisma generate
     - pnpm run build
     #- pnpm run test
     - cd ..
