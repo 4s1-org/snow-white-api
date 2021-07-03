@@ -21,7 +21,8 @@ validate-all:
     - pnpm install
     #- pnpm run lint
     - echo DATABASE_URL=file:./dev.db > .env
-    - ./node_modules/.bin/prisma generate
+   # - ./node_modules/.bin/prisma generate
+    - npx prisma generate
     - pnpm run build
     #- pnpm run test
     - cd ..
