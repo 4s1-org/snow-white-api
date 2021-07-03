@@ -9,7 +9,7 @@ validate-all:
     - Yellow
   script:
     - npm i pnpm -g
-    - pnpm i
+    - pnpm install --r
 
     - cd sw-shared
     #- pnpm run lint
