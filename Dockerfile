@@ -9,8 +9,16 @@ COPY package.json .
 COPY pnpm-lock.yaml .
 RUN pnpm i
 COPY . .
+
+WORKDIR /app/sw-shared
 RUN pnpm run build
 
-RUN ls -la
+WORKDIR /app/sw-api
+RUN ./node_modules/.bin/prisma generate
+RUN pnpm run build
+
+WORKDIR /app/sw-shared
+RUN pnpm run build
+
 WORKDIR /app/sw-api
 CMD ["pnpm", "run", "start"]
