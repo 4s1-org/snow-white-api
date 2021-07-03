@@ -19,6 +19,7 @@ validate-all:
 
     - cd sw-api
     #- pnpm run lint
+    - echo DATABASE_URL=file:./dev.db > .env
     - ./node_modules/.bin/prisma generate
     - pnpm run build
     #- pnpm run test
