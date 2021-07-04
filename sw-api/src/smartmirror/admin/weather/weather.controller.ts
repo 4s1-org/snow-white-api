@@ -2,7 +2,7 @@ import { Controller, Get, Put, Logger, Body } from '@nestjs/common'
 import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto'
 import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
-import { Prisma } from '@prisma/client'
+import { Prisma } from '../../../generated/prisma'
 
 @Controller('/v1/smartmirror/admin/weather')
 export class WeatherController {
