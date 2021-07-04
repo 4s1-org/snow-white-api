@@ -1,9 +1,9 @@
 stages:
-  - validation
+  - building
   - deploying
 
-.validate-all:
-  stage: validation
+.lbt:
+  stage: building
   image: node:14-alpine
   tags:
     - Yellow
