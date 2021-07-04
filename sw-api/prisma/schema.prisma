@@ -8,6 +8,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  // https://github.com/prisma/prisma/issues/6603
   output   = "../src/generated/prisma"
 }
 
