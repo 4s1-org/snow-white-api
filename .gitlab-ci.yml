@@ -2,7 +2,7 @@ stages:
   - validation
   - deploying
 
-validate-all:
+.validate-all:
   stage: validation
   image: node:14-alpine
   tags:
