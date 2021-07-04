@@ -7,7 +7,7 @@ import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
 import { TimetableSettingsDto } from '../../../dataTransferObjects/timetable-settings.dto'
 import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
-import { Prisma } from '@prisma/client'
+import { Prisma } from '../../../generated/prisma'
 
 @Controller('/v1/smartmirror/admin/timetable')
 export class TimetableController {
