@@ -24,5 +24,6 @@ RUN ./node_modules/.bin/prisma generate
 RUN pnpm run build
 RUN cp -r ./src/generated ./dist/
 
+EXPOSE 3000
 WORKDIR /app/sw-api
 CMD ["pnpm", "run", "start"]
