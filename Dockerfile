@@ -15,7 +15,7 @@ RUN pnpm run build
 
 WORKDIR /app/sw-api
 RUN echo DATABASE_URL=file:./dev.db > .env
-RUN ./node_modules/.bin/prisma generate
+RUN pnpx prisma generate
 RUN pnpm run build
 
 WORKDIR /app/sw-shared
