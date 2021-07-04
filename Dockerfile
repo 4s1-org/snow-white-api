@@ -22,6 +22,7 @@ RUN pnpm i
 RUN echo DATABASE_URL=file:./dev.db > .env
 RUN ./node_modules/.bin/prisma generate
 RUN pnpm run build
+RUN cp -r ./src/generated ./dist/
 
 WORKDIR /app/sw-api
 CMD ["pnpm", "run", "start"]
