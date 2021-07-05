@@ -2,14 +2,14 @@ stages:
   - building
   - deploying
 
-.lbt:
+lbt:
   stage: building
   image: node:14-alpine
   tags:
     - Yellow
   script:
     - npm i pnpm -g
-    - pnpm i
+    - pnpm i -r
 
     - cd sw-shared
     #- pnpm run lint
@@ -18,7 +18,6 @@ stages:
     - cd ..
 
     - cd sw-api
-    - pnpm install
     #- pnpm run lint
     - echo DATABASE_URL=file:./dev.db > .env
     - ./node_modules/.bin/prisma generate
