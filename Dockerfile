@@ -5,11 +5,11 @@ WORKDIR /app
 
 RUN npm i pnpm -g
 
-COPY pnpm-workspace.yaml .
+COPY pnpm-workspace.yaml    .
 COPY sw-shared/package.json ./sw-shared/
-COPY sw-api/package.json ./sw-api/
-COPY sw-ui/package.json ./sw-api/
-COPY pnpm-lock.yaml .
+COPY sw-api/package.json    ./sw-api/
+COPY sw-ui/package.json     ./sw-ui/
+COPY pnpm-lock.yaml         .
 RUN pnpm i -r
 COPY . .
 
