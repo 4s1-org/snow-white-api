@@ -17,11 +17,7 @@ async function bootstrap(): Promise<void> {
     next()
   })
 
-  const options: any = new DocumentBuilder()
-    .setTitle('REST API')
-    .setDescription('REST API Documentation')
-    .setVersion('1.1.0')
-    .build()
+  const options: any = new DocumentBuilder().setTitle('REST API').setDescription('REST API Documentation').setVersion('1.1.0').build()
   const document: OpenAPIObject = SwaggerModule.createDocument(app, options)
   SwaggerModule.setup('apidoc', app, document)
 
