@@ -8,7 +8,6 @@ importers:
       '@nestjs/cli': ^7.6.0
       '@nestjs/common': ^7.6.18
       '@nestjs/core': ^7.6.18
-      '@nestjs/microservices': ^7.6.18
       '@nestjs/platform-express': ^7.6.18
       '@nestjs/schematics': ^7.3.1
       '@nestjs/swagger': ^4.8.2
@@ -48,8 +47,7 @@ importers:
       uuid: ^8.3.2
     dependencies:
       '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_13a45281e2880c07d7463ea18e250d31
-      '@nestjs/microservices': 7.6.18_8ac8a3aff3d61af1a4cdcdc3de55b028
+      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
       '@nestjs/platform-express': 7.6.18_2664420588e0901c7943acb4693cbaf4
       '@nestjs/swagger': 4.8.2_0d542cb4e210f05d96ba504c599ba722
       '@prisma/client': 2.27.0-integration-fix-sdk-pnpm.1_e65d142a06ef7e93699c380be6b525d3
@@ -71,7 +69,7 @@ importers:
       '@hest-lab/eslint-config': 1.6.1_980800e9dd52e0cffee9d1b5847827f5
       '@nestjs/cli': 7.6.0
       '@nestjs/schematics': 7.3.1_typescript@4.2.4
-      '@nestjs/testing': 7.6.18_f5a1174e3de4a07338e712ff09df4167
+      '@nestjs/testing': 7.6.18_9cd0f963ae6f35bf288217e4f1c45cb4
       '@types/express': 4.17.12
       '@types/jest': 26.0.22
       '@types/node': 14.17.4
@@ -2147,7 +2145,7 @@ packages:
       - debug
     dev: false
 
-  /@nestjs/core/7.6.18_13a45281e2880c07d7463ea18e250d31:
+  /@nestjs/core/7.6.18_cf22c14faf7a8288645a80ae61717d6f:
     resolution: {integrity: sha512-CGu20OjIxgFDY7RJT5t1TDGL8wSlTSlbZEkn8U5OlICZEB3WIpi98G7ajJpnRWmEgW8S4aDJmRKGjT+Ntj5U4A==}
     requiresBuild: true
     peerDependencies:
@@ -2166,7 +2164,6 @@ packages:
         optional: true
     dependencies:
       '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/microservices': 7.6.18_8ac8a3aff3d61af1a4cdcdc3de55b028
       '@nestjs/platform-express': 7.6.18_2664420588e0901c7943acb4693cbaf4
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.0.7
@@ -2193,52 +2190,6 @@ packages:
       reflect-metadata: 0.1.13
     dev: false
 
-  /@nestjs/microservices/7.6.18_8ac8a3aff3d61af1a4cdcdc3de55b028:
-    resolution: {integrity: sha512-vSSl9hgHgBtTye57f2PZIg36MLcv5TRdqu3QEsS50WlUmxIjISCfAeCMLk+hWQNM8zjvlLwNbKUJW+NOZ2aovA==}
-    peerDependencies:
-      '@nestjs/common': ^7.0.0
-      '@nestjs/core': ^7.0.0
-      '@nestjs/websockets': ^7.0.0
-      amqp-connection-manager: '*'
-      amqplib: '*'
-      cache-manager: '*'
-      grpc: '*'
-      kafkajs: '*'
-      mqtt: '*'
-      nats: '*'
-      redis: '*'
-      reflect-metadata: ^0.1.12
-      rxjs: ^6.0.0
-    peerDependenciesMeta:
-      '@nestjs/websockets':
-        optional: true
-      amqp-connection-manager:
-        optional: true
-      amqplib:
-        optional: true
-      cache-manager:
-        optional: true
-      grpc:
-        optional: true
-      kafkajs:
-        optional: true
-      mqtt:
-        optional: true
-      nats:
-        optional: true
-      redis:
-        optional: true
-    dependencies:
-      '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_13a45281e2880c07d7463ea18e250d31
-      iterare: 1.2.1
-      json-socket: 0.3.0
-      mqtt: 4.2.8
-      reflect-metadata: 0.1.13
-      rxjs: 6.6.7
-      tslib: 2.2.0
-    dev: false
-
   /@nestjs/platform-express/7.6.18_2664420588e0901c7943acb4693cbaf4:
     resolution: {integrity: sha512-Dty2bBhsW7EInMRPS1pkXKJ3GBBusEj6fnEpb0UfkaT3E7asay9c64kCmZE+8hU430qQjY+fhBb1RNWWPnUiwQ==}
     peerDependencies:
@@ -2246,7 +2197,7 @@ packages:
       '@nestjs/core': ^7.0.0
     dependencies:
       '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_13a45281e2880c07d7463ea18e250d31
+      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
       body-parser: 1.19.0
       cors: 2.8.5
       express: 4.17.1
@@ -2295,7 +2246,7 @@ packages:
         optional: true
     dependencies:
       '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_13a45281e2880c07d7463ea18e250d31
+      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
       '@nestjs/mapped-types': 0.4.1_6f8ce2e44b5ac9a8ad69c2d324f2c358
       lodash: 4.17.21
       path-to-regexp: 3.2.0
@@ -2306,7 +2257,7 @@ packages:
       - class-validator
     dev: false
 
-  /@nestjs/testing/7.6.18_f5a1174e3de4a07338e712ff09df4167:
+  /@nestjs/testing/7.6.18_9cd0f963ae6f35bf288217e4f1c45cb4:
     resolution: {integrity: sha512-1AVk9vWZlPpx4CmzY6z9z0DHFgGCadfr01QdisGFAN740JwKqZWEqz12cVd+nsXDlYQPFRkp2ICBIS/6k1qZGQ==}
     peerDependencies:
       '@nestjs/common': ^7.0.0
@@ -2321,8 +2272,7 @@ packages:
     dependencies:
       optional: 0.1.4
       '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_13a45281e2880c07d7463ea18e250d31
-      '@nestjs/microservices': 7.6.18_8ac8a3aff3d61af1a4cdcdc3de55b028
+      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
       '@nestjs/platform-express': 7.6.18_2664420588e0901c7943acb4693cbaf4
       tslib: 2.2.0
     dev: true
@@ -5178,6 +5128,18 @@ packages:
     dependencies:
       ms: 2.1.2
       supports-color: 6.1.0
+    dev: false
+
+  /debug/4.3.2:
+    resolution: {integrity: sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
     dev: false
 
   /decamelize/1.2.0:
@@ -8220,10 +8182,6 @@ packages:
   /json-schema/0.2.3:
     resolution: {integrity: sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=}
 
-  /json-socket/0.3.0:
-    resolution: {integrity: sha512-jc8ZbUnYIWdxERFWQKVgwSLkGSe+kyzvmYxwNaRgx/c8NNyuHes4UHnPM3LUrAFXUx1BhNJ94n1h/KCRlbvV0g==}
-    dev: false
-
   /json-stable-stringify-without-jsonify/1.0.1:
     resolution: {integrity: sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=}
 
@@ -8818,7 +8776,7 @@ packages:
     resolution: {integrity: sha512-ja8+mFKIHdB1Tpl6vac+sktqy3gA8t9Mduom1BA75cI+R9AHnZOiaBQwpGiWnaVJLDGRdNhQmFaAqd7tkKSMGA==}
     dependencies:
       bl: 4.1.0
-      debug: 4.3.1
+      debug: 4.3.2
       process-nextick-args: 2.0.1
     transitivePeerDependencies:
       - supports-color
@@ -8831,7 +8789,7 @@ packages:
     dependencies:
       commist: 1.1.0
       concat-stream: 2.0.0
-      debug: 4.3.1
+      debug: 4.3.2
       duplexify: 4.1.1
       help-me: 3.0.0
       inherits: 2.0.4
@@ -8841,7 +8799,7 @@ packages:
       readable-stream: 3.6.0
       reinterval: 1.1.0
       split2: 3.2.2
-      ws: 7.5.1
+      ws: 7.5.3
       xtend: 4.0.2
     transitivePeerDependencies:
       - bufferutil
@@ -13216,8 +13174,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  /ws/7.5.1:
-    resolution: {integrity: sha512-2c6faOUH/nhoQN6abwMloF7Iyl0ZS2E9HGtsiLrWn0zOOMWlhtDmdf/uihDt6jnuCxgtwGBNy6Onsoy2s2O2Ow==}
+  /ws/7.5.3:
+    resolution: {integrity: sha512-kQ/dHIzuLrS6Je9+uv81ueZomEwH0qVYstcAQ4/Z93K8zeko9gtAbttJWzoC5ukqXY1PpoouV3+VSOqEAFt5wg==}
     engines: {node: '>=8.3.0'}
     peerDependencies:
       bufferutil: ^4.0.1
