@@ -3,11 +3,13 @@ FROM node:14-alpine
 RUN mkdir -p /app
 WORKDIR /app
 
+RUN apk add --no-cache tzdata
 ENV TZ=Europe/Berlin
-RUN apk add --no-cache tzdata && \
-    cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
-    echo ${TZ} > /etc/timezone && \
-    apk del tzdata
+
+#RUN apk add --no-cache tzdata && \
+#    cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
+#    echo ${TZ} > /etc/timezone && \
+#    apk del tzdata
 
 RUN npm i pnpm -g
 
