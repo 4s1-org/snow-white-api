@@ -3,6 +3,9 @@ FROM node:14-alpine
 RUN mkdir -p /app
 WORKDIR /app
 
+RUN apk add --no-cache tzdata
+ENV TZ=Europe/Berlin
+
 RUN npm i pnpm -g
 
 COPY pnpm-workspace.yaml    .
