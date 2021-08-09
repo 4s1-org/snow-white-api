@@ -2,7 +2,7 @@
   "name": "@yellowgarbagebag/snow-white-api",
   "version": "1.0.1",
   "private": true,
-  "description": "Snow White API",
+  "description": "Snow White - REST API",
   "homepage": "https://gitlab.com/yellow-garbage-group/snow-white",
   "bugs": {
     "url": "https://gitlab.com/yellow-garbage-group/snow-white/issues"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git@gitlab.com:yellow-garbage-group/snow-white.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "author": "Steffen",
   "scripts": {
     "prebuild": "rm -rf dist",
