@@ -9,10 +9,10 @@ export class StockController {
   private readonly logger = new Logger('Foo')
 
   constructor() {
-    this.client2 = connect('mqtts://172.22.21.2', {
+    this.client2 = connect('mqtts://192.168.0.1', {
       port: 8883,
-      username: 'steffen',
-      password: 'enter',
+      username: 'username',
+      password: 'password',
       rejectUnauthorized: false,
     })
 
