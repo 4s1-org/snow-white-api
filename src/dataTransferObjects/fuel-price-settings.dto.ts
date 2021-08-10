@@ -1,4 +1,4 @@
-import { IFuelPriceSettingsDto } from '@yellowgarbagebag/snow-white-shared'
+import { IFuelPriceSettingsDto } from '@yellowgarbagegroup/snow-white-shared'
 import { ApiProperty } from '@nestjs/swagger'
 import { IsNotEmpty } from 'class-validator'
 

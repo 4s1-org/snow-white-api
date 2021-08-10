@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IFuelPriceStationDto } from '@yellowgarbagebag/snow-white-shared'
+import { IFuelPriceStationDto } from '@yellowgarbagegroup/snow-white-shared'
 
 export class FuelPriceStationDto implements IFuelPriceStationDto {
   @IsNotEmpty()
