@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ITimetableStationDto } from '@yellowgarbagebag/snow-white-shared'
+import { ITimetableStationDto } from '@yellowgarbagegroup/snow-white-shared'
 
 export class TimetableStationDto implements ITimetableStationDto {
   @IsNotEmpty()
