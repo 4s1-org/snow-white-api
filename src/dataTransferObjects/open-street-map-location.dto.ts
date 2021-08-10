@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IOpenStreetMapLocationDto } from '@yellowgarbagebag/snow-white-shared'
+import { IOpenStreetMapLocationDto } from '@yellowgarbagegroup/snow-white-shared'
 
 export class OpenStreetMapLocationDto implements IOpenStreetMapLocationDto {
   @IsNotEmpty()

@@ -1,4 +1,4 @@
-# Snow White API
+# Snow White - Rest API
 
 ## Kommandos
 
