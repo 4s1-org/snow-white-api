@@ -4,7 +4,7 @@ stages:
 
 validate:
   stage: validating
-  image: node:14-alpine
+  image: node:16-alpine
   script:
     - npm i pnpm -g
     - echo DATABASE_URL=file:./dev.db > .env
