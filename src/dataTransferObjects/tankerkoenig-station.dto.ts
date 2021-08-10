@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ITankerkoenigStationDto } from '@yellowgarbagebag/snow-white-shared'
+import { ITankerkoenigStationDto } from '@yellowgarbagegroup/snow-white-shared'
 
 export class TankerkoenigStationDto implements ITankerkoenigStationDto {
   @IsNotEmpty()

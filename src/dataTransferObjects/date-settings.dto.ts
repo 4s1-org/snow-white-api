@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IDateSettingsDto } from '@yellowgarbagebag/snow-white-shared'
+import { IDateSettingsDto } from '@yellowgarbagegroup/snow-white-shared'
 
 export class DateSettingsDto implements IDateSettingsDto {
   @IsNotEmpty()
