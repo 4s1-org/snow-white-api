@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IWeatherSettingsDto } from '@yellowgarbagebag/snow-white-shared'
+import { IWeatherSettingsDto } from '@yellowgarbagegroup/snow-white-shared'
 
 export class WeatherSettingsDto implements IWeatherSettingsDto {
   @IsNotEmpty()

@@ -1,14 +1,14 @@
 {
-  "name": "@yellowgarbagebag/snow-white-api",
+  "name": "@yellowgarbagegroup/snow-white-api",
   "version": "1.0.1",
-  "description": "Snow White - REST API",
-  "homepage": "https://gitlab.com/yellow-garbage-group/snow-white",
+  "description": "Snow White - Rest API",
+  "homepage": "https://gitlab.com/YellowGarbageGroup/snow-white/snow-white-rest-api",
   "bugs": {
-    "url": "https://gitlab.com/yellow-garbage-group/snow-white/issues"
+    "url": "https://gitlab.com/YellowGarbageGroup/snow-white/snow-white-rest-api/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:yellow-garbage-group/snow-white.git"
+    "url": "git@gitlab.com:YellowGarbageGroup/snow-white/snow-white-rest-api.git"
   },
   "license": "MIT",
   "author": "Steffen <YellowGarbageBag@4s1.de>",
@@ -29,14 +29,14 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
-  "prettier": "@hest-lab/eslint-config",
+  "prettier": "@yellowgarbagegroup/eslint-config",
   "dependencies": {
     "@nestjs/common": "^7.6.18",
     "@nestjs/core": "^7.6.18",
     "@nestjs/platform-express": "^7.6.18",
     "@nestjs/swagger": "^4.8.2",
     "@prisma/client": "2.27.0-integration-fix-sdk-pnpm.1",
-    "@yellowgarbagebag/snow-white-shared": "workspace:*",
+    "@yellowgarbagegroup/snow-white-shared": "^3.0.0",
     "axios": "^0.21.1",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
@@ -52,7 +52,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@hest-lab/eslint-config": "^1.6.1",
     "@nestjs/cli": "^7.6.0",
     "@nestjs/schematics": "^7.3.1",
     "@nestjs/testing": "^7.6.18",
@@ -64,6 +63,7 @@
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "@yellowgarbagegroup/eslint-config": "^2.0.1",
     "eslint": "^7.24.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",

@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ITimetableLinesFilter } from '@yellowgarbagebag/snow-white-shared'
+import { ITimetableLinesFilter } from '@yellowgarbagegroup/snow-white-shared'
 
 export class TimetableLinesFilter implements ITimetableLinesFilter {
   @IsNotEmpty()
