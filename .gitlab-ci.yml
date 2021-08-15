@@ -4,9 +4,8 @@ stages:
 
 validate:
   stage: validating
-  image: node:14-alpine
+  image: registry.gitlab.com/yellowgarbagegroup/docker-images/node-with-pnpm:14-alpine
   script:
-    - npm i pnpm -g
     - echo DATABASE_URL=file:./dev.db > .env
     - pnpm i
     - ./node_modules/.bin/prisma generate
@@ -30,7 +29,6 @@ dockerize:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
     - docker build
-      --build-arg NODE_VERSION=latest
       --cache-from $CI_REGISTRY_IMAGE:latest
       --tag $CI_REGISTRY_IMAGE:latest
       --file Dockerfile .
