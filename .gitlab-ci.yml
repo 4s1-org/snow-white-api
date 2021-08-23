@@ -4,7 +4,11 @@ stages:
 
 validate:
   stage: validating
-  image: registry.gitlab.com/yellowgarbagegroup/docker-images/node-with-pnpm:14-alpine
+  image: registry.gitlab.com/yellowgarbagegroup/docker-images/node:14-alpine
+  cache:
+    key: "$CI_COMMIT_REF_SLUG"
+    paths:
+      - .pnpm-store
   script:
     - echo DATABASE_URL=file:./dev.db > .env
     - pnpm i
