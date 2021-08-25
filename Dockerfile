@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/yellowgarbagegroup/docker-images/node-with-pnpm:14-alpine
+FROM registry.gitlab.com/yellowgarbagegroup/docker-images/node:14-alpine
 
 WORKDIR /app
 
