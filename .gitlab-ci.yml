@@ -1,14 +1,16 @@
 stages:
-  - validating
-  - deploying
+  - validate
+  - deploy
 
-validate:
-  stage: validating
-  image: registry.gitlab.com/yellowgarbagegroup/docker-images/node:14-alpine
+validate-job:
+  stage: validate
+  image: registry.gitlab.com/yellowgarbagegroup/docker-images/node:14-alpine-dev
   cache:
     key: "$CI_COMMIT_REF_SLUG"
     paths:
       - .pnpm-store
+  before_script:
+    - pnpm config set store-dir .pnpm-store
   script:
     - echo DATABASE_URL=file:./dev.db > .env
     - pnpm i
@@ -16,13 +18,17 @@ validate:
     - pnpm run lint
     - pnpm run build
 
-dockerize:
-  stage: deploying
+deploy-job:
+  stage: deploy
   image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
   rules:
     - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+  cache:
+    key: "$CI_COMMIT_REF_SLUG"
+    paths:
+      - .pnpm-store
   script:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" > /kaniko/.docker/config.json
