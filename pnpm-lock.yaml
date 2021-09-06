@@ -19,7 +19,7 @@ specifiers:
   '@typescript-eslint/parser': 4.30.0
   '@yellowgarbagegroup/eslint-config': 2.2.0
   '@yellowgarbagegroup/snow-white-shared': 3.1.2
-  axios: 0.21.3
+  axios: 0.21.4
   class-transformer: 0.4.0
   class-validator: 0.13.1
   dotenv: 8.6.0
@@ -50,7 +50,7 @@ dependencies:
   '@nestjs/swagger': 4.8.2_0d542cb4e210f05d96ba504c599ba722
   '@prisma/client': 2.27.0-integration-fix-sdk-pnpm.1_e65d142a06ef7e93699c380be6b525d3
   '@yellowgarbagegroup/snow-white-shared': 3.1.2
-  axios: 0.21.3
+  axios: 0.21.4
   class-transformer: 0.4.0
   class-validator: 0.13.1
   dotenv: 8.6.0
@@ -1643,8 +1643,8 @@ packages:
       - debug
     dev: false
 
-  /axios/0.21.3:
-    resolution: {integrity: sha512-JtoZ3Ndke/+Iwt5n+BgSli/3idTvpt5OjKyoCmz4LX5+lPiY5l7C1colYezhlxThjNa/NhngCUWZSZFypIFuaA==}
+  /axios/0.21.4:
+    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
       follow-redirects: 1.14.1
     transitivePeerDependencies:
