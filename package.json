@@ -37,7 +37,7 @@
     "@nestjs/swagger": "4.8.2",
     "@prisma/client": "2.27.0-integration-fix-sdk-pnpm.1",
     "@yellowgarbagegroup/snow-white-shared": "3.1.2",
-    "axios": "0.21.3",
+    "axios": "0.21.4",
     "class-transformer": "0.4.0",
     "class-validator": "0.13.1",
     "dotenv": "8.6.0",
