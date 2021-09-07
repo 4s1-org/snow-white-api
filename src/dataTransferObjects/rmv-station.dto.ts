@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IRmvStationDto } from '@yellowgarbagegroup/snow-white-shared'
+import { IRmvStationDto } from '@4s1/snow-white-shared'
 
 export class RmvStationDto implements IRmvStationDto {
   @IsNotEmpty()

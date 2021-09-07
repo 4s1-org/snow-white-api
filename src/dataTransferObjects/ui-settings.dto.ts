@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IUiSettingsDto } from '@yellowgarbagegroup/snow-white-shared'
+import { IUiSettingsDto } from '@4s1/snow-white-shared'
 
 export class UiSettingsDto implements IUiSettingsDto {
   @IsNotEmpty()

@@ -1,5 +1,5 @@
 root: true
 extends:
-  - "@yellowgarbagegroup/eslint-config/.eslintrc.yaml"
+  - "@4s1/eslint-config/.eslintrc.yaml"
 ignorePatterns:
   - src/generated/*

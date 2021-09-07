@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ISortOrderDto } from '@yellowgarbagegroup/snow-white-shared'
+import { ISortOrderDto } from '@4s1/snow-white-shared'
 
 export class SortOrderDto implements ISortOrderDto {
   @IsNotEmpty()

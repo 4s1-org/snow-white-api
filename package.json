@@ -1,17 +1,17 @@
 {
-  "name": "@yellowgarbagegroup/snow-white-api",
+  "name": "@4s1/snow-white-api",
   "version": "1.0.1",
   "description": "Snow White - Rest API",
-  "homepage": "https://gitlab.com/YellowGarbageGroup/snow-white/snow-white-rest-api",
+  "homepage": "https://gitlab.com/4s1/snow-white/snow-white-rest-api",
   "bugs": {
-    "url": "https://gitlab.com/YellowGarbageGroup/snow-white/snow-white-rest-api/issues"
+    "url": "https://gitlab.com/4s1/snow-white/snow-white-rest-api/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:YellowGarbageGroup/snow-white/snow-white-rest-api.git"
+    "url": "git+ssh://git@gitlab.com/4s1/snow-white/snow-white-rest-api.git"
   },
   "license": "MIT",
-  "author": "Steffen <YellowGarbageBag@4s1.de>",
+  "author": "Steffen <steffen@4s1.de>",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "nest build",
@@ -29,14 +29,14 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
-  "prettier": "@yellowgarbagegroup/eslint-config",
+  "prettier": "@4s1/eslint-config",
   "dependencies": {
+    "@4s1/snow-white-shared": "4.0.0",
     "@nestjs/common": "7.6.18",
     "@nestjs/core": "7.6.18",
     "@nestjs/platform-express": "7.6.18",
     "@nestjs/swagger": "4.8.2",
     "@prisma/client": "2.27.0-integration-fix-sdk-pnpm.1",
-    "@yellowgarbagegroup/snow-white-shared": "3.1.2",
     "axios": "0.21.4",
     "class-transformer": "0.4.0",
     "class-validator": "0.13.1",
@@ -52,6 +52,7 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
+    "@4s1/eslint-config": "3.0.0",
     "@nestjs/cli": "7.6.0",
     "@nestjs/schematics": "7.3.1",
     "@nestjs/testing": "7.6.18",
@@ -61,9 +62,8 @@
     "@types/nodemailer": "6.4.4",
     "@types/supertest": "2.0.11",
     "@types/uuid": "8.3.1",
-    "@typescript-eslint/eslint-plugin": "4.30.0",
-    "@typescript-eslint/parser": "4.30.0",
-    "@yellowgarbagegroup/eslint-config": "2.2.0",
+    "@typescript-eslint/eslint-plugin": "4.31.0",
+    "@typescript-eslint/parser": "4.31.0",
     "eslint": "7.32.0",
     "jest": "27.1.0",
     "prettier": "2.3.2",

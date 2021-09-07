@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { IRmvTripsDto } from '@yellowgarbagegroup/snow-white-shared'
+import { IRmvTripsDto } from '@4s1/snow-white-shared'
 import { RmvTripDto } from './rmv-trip.dto'
 
 // ToDo: Bessere Namen für RmvTripsDto und RmvTripDto wählen.

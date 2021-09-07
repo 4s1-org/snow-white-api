@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
-import { ITimetableSettingsDto } from '@yellowgarbagegroup/snow-white-shared'
+import { ITimetableSettingsDto } from '@4s1/snow-white-shared'
 import { TimetableLinesFilter } from './timetable-lines-filter.dto'
 
 export class TimetableSettingsDto implements ITimetableSettingsDto {
