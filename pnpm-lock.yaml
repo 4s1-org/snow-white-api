@@ -30,7 +30,7 @@ specifiers:
   mqtt: 4.2.8
   mysql: 2.18.1
   nodemailer: 6.6.3
-  prettier: 2.3.2
+  prettier: 2.4.0
   prisma: 2.27.0-integration-fix-sdk-pnpm.1
   reflect-metadata: 0.1.13
   rxjs: 6.6.7
@@ -65,7 +65,7 @@ dependencies:
   uuid: 8.3.2
 
 devDependencies:
-  '@4s1/eslint-config': 3.0.0_00f214669faf97932d4fbf8bb2889514
+  '@4s1/eslint-config': 3.0.0_4fa6e7bd7b74e131ac98c8b75e0eea1c
   '@nestjs/cli': 7.6.0
   '@nestjs/schematics': 7.3.1_typescript@4.4.2
   '@nestjs/testing': 7.6.18_9cd0f963ae6f35bf288217e4f1c45cb4
@@ -79,7 +79,7 @@ devDependencies:
   '@typescript-eslint/parser': 4.31.0_eslint@7.32.0+typescript@4.4.2
   eslint: 7.32.0
   jest: 27.1.1_ts-node@9.1.1
-  prettier: 2.3.2
+  prettier: 2.4.0
   prisma: 2.27.0-integration-fix-sdk-pnpm.1
   supertest: 6.1.6
   ts-jest: 27.0.5_b0de3831a3508d250bf516b99371e877
@@ -90,7 +90,7 @@ devDependencies:
 
 packages:
 
-  /@4s1/eslint-config/3.0.0_00f214669faf97932d4fbf8bb2889514:
+  /@4s1/eslint-config/3.0.0_4fa6e7bd7b74e131ac98c8b75e0eea1c:
     resolution: {integrity: sha1-+Mtffuh+Cg652gQa/pqA02/I6Fo=, tarball: https://gitlab.com/api/v4/projects/28730798/packages/npm/@4s1/eslint-config/-/@4s1/eslint-config-3.0.0.tgz}
     peerDependencies:
       eslint: '>=7.30.0'
@@ -101,7 +101,7 @@ packages:
       eslint: 7.32.0
       eslint-config-prettier: 8.3.0_eslint@7.32.0
       eslint-plugin-import: 2.24.2_eslint@7.32.0
-      prettier: 2.3.2
+      prettier: 2.4.0
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -4800,8 +4800,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier/2.3.2:
-    resolution: {integrity: sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==}
+  /prettier/2.4.0:
+    resolution: {integrity: sha512-DsEPLY1dE5HF3BxCRBmD4uYZ+5DCbvatnolqTqcxEgKVZnL2kUfyu7b8pPQ5+hTBkdhU9SLUmK0/pHb07RE4WQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
