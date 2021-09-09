@@ -1,15 +1,11 @@
 {
-  "name": "@4s1/snow-white-api",
+  "name": "@4s1/snow-white-rest-api",
   "version": "1.0.1",
   "description": "Snow White - Rest API",
-  "homepage": "https://gitlab.com/4s1/snow-white/snow-white-rest-api",
   "bugs": {
-    "url": "https://gitlab.com/4s1/snow-white/snow-white-rest-api/issues"
+    "url": "https://gitlab.com/4s1/snow-white-rest-api/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/4s1/snow-white/snow-white-rest-api.git"
-  },
+  "repository": "gitlab:4s1/snow-white-rest-api",
   "license": "MIT",
   "author": "Steffen <steffen@4s1.de>",
   "scripts": {
