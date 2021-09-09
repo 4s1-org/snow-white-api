@@ -48,7 +48,7 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@4s1/eslint-config": "3.0.0",
+    "@4s1/eslint-config": "3.1.1",
     "@nestjs/cli": "7.6.0",
     "@nestjs/schematics": "7.3.1",
     "@nestjs/testing": "7.6.18",
