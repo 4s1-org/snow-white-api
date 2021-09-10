@@ -5,7 +5,10 @@
   "bugs": {
     "url": "https://gitlab.com/4s1/snow-white-rest-api/issues"
   },
-  "repository": "gitlab:4s1/snow-white-rest-api",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/4s1/snow-white/snow-white-rest-api.git"
+  },
   "license": "MIT",
   "author": "Steffen <steffen@4s1.de>",
   "scripts": {
