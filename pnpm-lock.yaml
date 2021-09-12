@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@4s1/eslint-config': 3.1.1
+  '@4s1/eslint-config': 3.1.2
   '@4s1/snow-white-shared': 4.0.1
   '@nestjs/cli': 7.6.0
   '@nestjs/common': 7.6.18
@@ -65,7 +65,7 @@ dependencies:
   uuid: 8.3.2
 
 devDependencies:
-  '@4s1/eslint-config': 3.1.1_23d955de50983a3ab287a8805fd5b8d1
+  '@4s1/eslint-config': 3.1.2_23d955de50983a3ab287a8805fd5b8d1
   '@nestjs/cli': 7.6.0
   '@nestjs/schematics': 7.3.1_typescript@4.4.3
   '@nestjs/testing': 7.6.18_9cd0f963ae6f35bf288217e4f1c45cb4
@@ -90,10 +90,10 @@ devDependencies:
 
 packages:
 
-  /@4s1/eslint-config/3.1.1_23d955de50983a3ab287a8805fd5b8d1:
-    resolution: {integrity: sha1-hrPfT6pGZ/FF5M4l2VuhmWYa19g=, tarball: https://gitlab.com/api/v4/projects/28730798/packages/npm/@4s1/eslint-config/-/@4s1/eslint-config-3.1.1.tgz}
+  /@4s1/eslint-config/3.1.2_23d955de50983a3ab287a8805fd5b8d1:
+    resolution: {integrity: sha1-FJW2W7txRUEt82UAoC6qHCQpVFM=, tarball: https://gitlab.com/api/v4/projects/28730798/packages/npm/@4s1/eslint-config/-/@4s1/eslint-config-3.1.2.tgz}
     peerDependencies:
-      eslint: '>=7.30.0'
+      eslint: '>=7.32.0'
       prettier: '>= 2.4.0'
     dependencies:
       '@typescript-eslint/eslint-plugin': 4.31.0_d9c1bc16c4e2aea4e8e177a5961dd3bf
