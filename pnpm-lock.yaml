@@ -33,7 +33,7 @@ specifiers:
   prettier: 2.4.0
   prisma: 2.27.0-integration-fix-sdk-pnpm.1
   reflect-metadata: 0.1.13
-  rxjs: 6.6.7
+  rxjs: 7.3.0
   supertest: 6.1.6
   swagger-ui-express: 4.1.6
   ts-jest: 27.0.5
@@ -45,8 +45,8 @@ specifiers:
 
 dependencies:
   '@4s1/snow-white-shared': 4.0.1
-  '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-  '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
+  '@nestjs/common': 7.6.18_7de7ece315067f012f2001b6a7f20971
+  '@nestjs/core': 7.6.18_3111ef5313cb3be26ac1dcc779950b07
   '@nestjs/platform-express': 7.6.18_2664420588e0901c7943acb4693cbaf4
   '@nestjs/swagger': 4.8.2_0d542cb4e210f05d96ba504c599ba722
   '@prisma/client': 2.27.0-integration-fix-sdk-pnpm.1_e65d142a06ef7e93699c380be6b525d3
@@ -60,7 +60,7 @@ dependencies:
   mysql: 2.18.1
   nodemailer: 6.6.3
   reflect-metadata: 0.1.13
-  rxjs: 6.6.7
+  rxjs: 7.3.0
   swagger-ui-express: 4.1.6
   uuid: 8.3.2
 
@@ -804,7 +804,7 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7:
+  /@nestjs/common/7.6.18_7de7ece315067f012f2001b6a7f20971:
     resolution: {integrity: sha512-BUJQHNhWzwWOkS4Ryndzd4HTeRObcAWV2Fh+ermyo3q3xYQQzNoEWclJVL/wZec8AONELwIJ+PSpWI53VP0leg==}
     peerDependencies:
       cache-manager: '*'
@@ -825,14 +825,14 @@ packages:
       class-validator: 0.13.1
       iterare: 1.2.1
       reflect-metadata: 0.1.13
-      rxjs: 6.6.7
+      rxjs: 7.3.0
       tslib: 2.2.0
       uuid: 8.3.2
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /@nestjs/core/7.6.18_cf22c14faf7a8288645a80ae61717d6f:
+  /@nestjs/core/7.6.18_3111ef5313cb3be26ac1dcc779950b07:
     resolution: {integrity: sha512-CGu20OjIxgFDY7RJT5t1TDGL8wSlTSlbZEkn8U5OlICZEB3WIpi98G7ajJpnRWmEgW8S4aDJmRKGjT+Ntj5U4A==}
     requiresBuild: true
     peerDependencies:
@@ -850,7 +850,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
+      '@nestjs/common': 7.6.18_7de7ece315067f012f2001b6a7f20971
       '@nestjs/platform-express': 7.6.18_2664420588e0901c7943acb4693cbaf4
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.0.7
@@ -858,7 +858,7 @@ packages:
       object-hash: 2.1.1
       path-to-regexp: 3.2.0
       reflect-metadata: 0.1.13
-      rxjs: 6.6.7
+      rxjs: 7.3.0
       tslib: 2.2.0
       uuid: 8.3.2
     dev: false
@@ -871,7 +871,7 @@ packages:
       class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0
       reflect-metadata: ^0.1.12
     dependencies:
-      '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
+      '@nestjs/common': 7.6.18_7de7ece315067f012f2001b6a7f20971
       class-transformer: 0.4.0
       class-validator: 0.13.1
       reflect-metadata: 0.1.13
@@ -883,8 +883,8 @@ packages:
       '@nestjs/common': ^7.0.0
       '@nestjs/core': ^7.0.0
     dependencies:
-      '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
+      '@nestjs/common': 7.6.18_7de7ece315067f012f2001b6a7f20971
+      '@nestjs/core': 7.6.18_3111ef5313cb3be26ac1dcc779950b07
       body-parser: 1.19.0
       cors: 2.8.5
       express: 4.17.1
@@ -932,8 +932,8 @@ packages:
       swagger-ui-express:
         optional: true
     dependencies:
-      '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
+      '@nestjs/common': 7.6.18_7de7ece315067f012f2001b6a7f20971
+      '@nestjs/core': 7.6.18_3111ef5313cb3be26ac1dcc779950b07
       '@nestjs/mapped-types': 0.4.1_6f8ce2e44b5ac9a8ad69c2d324f2c358
       lodash: 4.17.21
       path-to-regexp: 3.2.0
@@ -958,8 +958,8 @@ packages:
         optional: true
     dependencies:
       optional: 0.1.4
-      '@nestjs/common': 7.6.18_70b9cb8466d4e99d08d6dbcbe914d3b7
-      '@nestjs/core': 7.6.18_cf22c14faf7a8288645a80ae61717d6f
+      '@nestjs/common': 7.6.18_7de7ece315067f012f2001b6a7f20971
+      '@nestjs/core': 7.6.18_3111ef5313cb3be26ac1dcc779950b07
       '@nestjs/platform-express': 7.6.18_2664420588e0901c7943acb4693cbaf4
       tslib: 2.2.0
     dev: true
@@ -5072,6 +5072,13 @@ packages:
     engines: {npm: '>=2.0.0'}
     dependencies:
       tslib: 1.14.1
+    dev: true
+
+  /rxjs/7.3.0:
+    resolution: {integrity: sha512-p2yuGIg9S1epc3vrjKf6iVb3RCaAYjYskkO+jHIaV0IjOPlJop4UnodOoFb2xeNwlguqLYvGw1b1McillYb5Gw==}
+    dependencies:
+      tslib: 2.1.0
+    dev: false
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
@@ -5693,6 +5700,11 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
+    dev: true
+
+  /tslib/2.1.0:
+    resolution: {integrity: sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==}
+    dev: false
 
   /tslib/2.2.0:
     resolution: {integrity: sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==}
