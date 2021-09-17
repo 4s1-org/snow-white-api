@@ -13,7 +13,7 @@ specifiers:
   '@prisma/client': 2.27.0-integration-fix-sdk-pnpm.1
   '@types/express': 4.17.13
   '@types/jest': 27.0.1
-  '@types/node': 14.17.16
+  '@types/node': 14.17.17
   '@types/nodemailer': 6.4.4
   '@types/supertest': 2.0.11
   '@types/uuid': 8.3.1
@@ -71,7 +71,7 @@ devDependencies:
   '@nestjs/testing': 7.6.18_9cd0f963ae6f35bf288217e4f1c45cb4
   '@types/express': 4.17.13
   '@types/jest': 27.0.1
-  '@types/node': 14.17.16
+  '@types/node': 14.17.17
   '@types/nodemailer': 6.4.4
   '@types/supertest': 2.0.11
   '@types/uuid': 8.3.1
@@ -1164,6 +1164,10 @@ packages:
 
   /@types/node/14.17.16:
     resolution: {integrity: sha512-WiFf2izl01P1CpeY8WqFAeKWwByMueBEkND38EcN8N68qb0aDG3oIS1P5MhAX5kUdr469qRyqsY/MjanLjsFbQ==}
+    dev: true
+
+  /@types/node/14.17.17:
+    resolution: {integrity: sha512-niAjcewgEYvSPCZm3OaM9y6YQrL2SEPH9PymtE6fuZAvFiP6ereCcvApGl2jKTq7copTIguX3PBvfP08LN4LvQ==}
     dev: true
 
   /@types/node/14.17.9:
