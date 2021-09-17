@@ -1,6 +1,7 @@
 {
   "name": "@4s1/snow-white-rest-api",
   "version": "1.0.1",
+  "private": true,
   "description": "Snow White - Rest API",
   "bugs": {
     "url": "https://gitlab.com/4s1/snow-white-rest-api/issues"
