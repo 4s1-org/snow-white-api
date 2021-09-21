@@ -15,7 +15,7 @@ specifiers:
   '@nestjs/testing': 7.6.18
   '@prisma/client': 2.27.0-integration-fix-sdk-pnpm.1
   '@types/express': 4.17.13
-  '@types/jest': 27.0.1
+  '@types/jest': 27.0.2
   '@types/node': 14.17.17
   '@types/nodemailer': 6.4.4
   '@types/supertest': 2.0.11
@@ -78,7 +78,7 @@ devDependencies:
   '@nestjs/schematics': 7.3.1_typescript@4.4.3
   '@nestjs/testing': 7.6.18_9cd0f963ae6f35bf288217e4f1c45cb4
   '@types/express': 4.17.13
-  '@types/jest': 27.0.1
+  '@types/jest': 27.0.2
   '@types/node': 14.17.17
   '@types/nodemailer': 6.4.4
   '@types/supertest': 2.0.11
@@ -92,7 +92,7 @@ devDependencies:
   prisma: 2.27.0-integration-fix-sdk-pnpm.1
   standard-version: 9.3.1
   supertest: 6.1.6
-  ts-jest: 27.0.5_a3830dc85c792fbb18bedbcc872cb0f9
+  ts-jest: 27.0.5_4983e9b3d1f913260771a36e4b65b206
   ts-loader: 8.3.0_typescript@4.4.3
   ts-node: 9.1.1_typescript@4.4.3
   tsconfig-paths: 3.11.0
@@ -1293,8 +1293,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/27.0.1:
-    resolution: {integrity: sha512-HTLpVXHrY69556ozYkcq47TtQJXpcWAWfkoqz+ZGz2JnmZhzlRjprCIyFnetSy8gpDWwTTGBcRVv1J1I1vBrHw==}
+  /@types/jest/27.0.2:
+    resolution: {integrity: sha512-4dRxkS/AFX0c5XW6IPMNOydLn2tEhNhJV7DnYK+0bjoJZ+QTmfucBlihX7aoEsh/ocYtkLC73UbnBXBXIxsULA==}
     dependencies:
       jest-diff: 27.2.0
       pretty-format: 27.2.0
@@ -6334,7 +6334,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-jest/27.0.5_a3830dc85c792fbb18bedbcc872cb0f9:
+  /ts-jest/27.0.5_4983e9b3d1f913260771a36e4b65b206:
     resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
@@ -6352,7 +6352,7 @@ packages:
       babel-jest:
         optional: true
     dependencies:
-      '@types/jest': 27.0.1
+      '@types/jest': 27.0.2
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
       jest: 27.2.1_ts-node@9.1.1
