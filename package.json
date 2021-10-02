@@ -52,7 +52,7 @@
     "nodemailer": "6.6.4",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.6.7",
-    "source-map-support": "^0.5.20",
+    "source-map-support": "0.5.20",
     "swagger-ui-express": "4.1.6",
     "uuid": "8.3.2"
   },
