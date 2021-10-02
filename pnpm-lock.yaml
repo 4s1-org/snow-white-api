@@ -38,7 +38,7 @@ specifiers:
   prisma: 2.27.0-integration-fix-sdk-pnpm.1
   reflect-metadata: 0.1.13
   rxjs: 6.6.7
-  source-map-support: ^0.5.20
+  source-map-support: 0.5.20
   standard-version: 9.3.1
   supertest: 6.1.6
   swagger-ui-express: 4.1.6
