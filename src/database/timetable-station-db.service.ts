@@ -21,15 +21,13 @@ export class TimetableStationDbService {
     take?: number
     cursor?: Prisma.TimetableStationWhereUniqueInput
     where?: Prisma.TimetableStationWhereInput
-    orderBy?: Prisma.TimetableStationOrderByInput
   }): Promise<TimetableStation[]> {
-    const { skip, take, cursor, where, orderBy } = params
+    const { skip, take, cursor, where } = params
     return this.prisma.timetableStation.findMany({
       skip,
       take,
       cursor,
       where,
-      orderBy,
     })
   }
 

@@ -34,14 +34,14 @@ export class RequestService {
     }
 
     this.logger.log('GET request - ' + url)
-    const response: AxiosResponse<T> = await this.httpService.get<T>(url).toPromise()
+    const response = await this.httpService.get<T>(url).toPromise()
 
     this.cache.push({
       date: dtNow,
-      responseData: response.data,
+      responseData: response!.data,
       urlBegin,
     })
 
-    return response.data
+    return response!.data
   }
 }

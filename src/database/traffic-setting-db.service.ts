@@ -29,15 +29,13 @@ export class TrafficSettingDbService {
     take?: number
     cursor?: Prisma.TrafficSettingWhereUniqueInput
     where?: Prisma.TrafficSettingWhereInput
-    orderBy?: Prisma.TrafficSettingOrderByInput
   }): Promise<TrafficSetting[]> {
-    const { skip, take, cursor, where, orderBy } = params
+    const { skip, take, cursor, where } = params
     return this.prisma.trafficSetting.findMany({
       skip,
       take,
       cursor,
       where,
-      orderBy,
     })
   }
 
