@@ -20,7 +20,7 @@ specifiers:
   '@types/nodemailer': 6.4.4
   '@types/supertest': 2.0.11
   '@types/uuid': 8.3.1
-  axios: 0.22.0
+  axios: 0.23.0
   class-transformer: 0.4.0
   class-validator: 0.13.1
   dotenv: 10.0.0
@@ -54,7 +54,7 @@ dependencies:
   '@nestjs/platform-express': 8.0.11_1b23cd5ccb3fa850be22a42de16aab17
   '@nestjs/swagger': 4.8.2_31be8548eb4762d5cba9b6869836bc72
   '@prisma/client': 2.30.3_prisma@2.30.3
-  axios: 0.22.0
+  axios: 0.23.0
   class-transformer: 0.4.0
   class-validator: 0.13.1
   dotenv: 10.0.0
@@ -1871,6 +1871,14 @@ packages:
 
   /axios/0.22.0:
     resolution: {integrity: sha512-Z0U3uhqQeg1oNcihswf4ZD57O3NrR1+ZXhxaROaWpDmsDTx7T2HNBV2ulBtie2hwJptu8UvgnJoK+BIqdzh/1w==}
+    dependencies:
+      follow-redirects: 1.14.4
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /axios/0.23.0:
+    resolution: {integrity: sha512-NmvAE4i0YAv5cKq8zlDoPd1VLKAqX5oLuZKs8xkJa4qi6RGn0uhCYFjWtHHC9EM/MwOwYWOs53W+V0aqEXq1sg==}
     dependencies:
       follow-redirects: 1.14.4
     transitivePeerDependencies:
