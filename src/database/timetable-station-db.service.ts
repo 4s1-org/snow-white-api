@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
-import { TimetableStation, Prisma } from '../generated/prisma.js'
+import { TimetableStation, Prisma } from '../generated/prisma/index.js'
 
 @Injectable()
 export class TimetableStationDbService {

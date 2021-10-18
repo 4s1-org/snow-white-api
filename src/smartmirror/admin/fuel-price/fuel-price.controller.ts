@@ -6,7 +6,7 @@ import { FuelPriceStationDto } from '../../../dataTransferObjects/fuel-price-sta
 import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
 import { FuelPriceSettingDbService } from '../../../database/fuel-price-setting-db.service'
 import { ConstantsService } from '../../../global/constants/constants.service'
-import { Prisma } from '../../../generated/prisma.js'
+import { Prisma } from '../../../generated/prisma/index.js'
 import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service'
 import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service'
 
