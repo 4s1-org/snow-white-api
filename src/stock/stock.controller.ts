@@ -1,26 +1,28 @@
 import { Controller, Get, Param, Logger } from '@nestjs/common'
 import { connect, MqttClient } from 'mqtt'
+import path from 'path'
+import { ProcessEnv } from '../process-env'
 import { StockCourseDto } from './stock-course.dto'
 
 @Controller('stock')
 export class StockController {
   private cache: StockCourseDto[] = []
-  private client2: MqttClient
+  private client: MqttClient
   private readonly logger = new Logger('Foo')
 
   constructor() {
-    this.client2 = connect('mqtts://192.168.0.2', {
-      port: 8883,
-      username: 'steffen',
-      password: 'psw',
+    this.client = connect(`mqtts://${ProcessEnv.MQTT_SERVER}`, {
+      port: ProcessEnv.MQTT_PORT,
+      username: ProcessEnv.MQTT_USERNAME,
+      password: ProcessEnv.MQTT_PASSWORD,
       rejectUnauthorized: false,
     })
 
-    this.client2.on('message', (topic, payload) => {
+    this.client.on('message', (topic, payload) => {
       this.buildCache(topic, JSON.parse(payload.toString()))
     })
 
-    this.client2.subscribe('snowwhite/stock/+')
+    this.client.subscribe(path.join(ProcessEnv.MQTT_TOPIC_STOCK, '+'))
   }
 
   async onApplicationBootstrap(): Promise<void> {
@@ -70,7 +72,7 @@ export class StockController {
       this.logger.warn(`${isin} | not found in cache`)
       const stock = new StockCourseDto()
       stock.isin = isin
-      this.client2.publish(`snowwhite/stock/${stock.isin}`, JSON.stringify(stock), { retain: true })
+      this.client.publish(path.join(ProcessEnv.MQTT_TOPIC_STOCK, stock.isin), JSON.stringify(stock), { retain: true })
       return stock
     }
   }
