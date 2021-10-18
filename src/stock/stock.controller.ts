@@ -1,8 +1,8 @@
 import { Controller, Get, Param, Logger } from '@nestjs/common'
 import { connect, MqttClient } from 'mqtt'
 import path from 'path'
-import { ProcessEnv } from '../process-env'
-import { StockCourseDto } from './stock-course.dto'
+import { ProcessEnv } from '../process-env.js'
+import { StockCourseDto } from './stock-course.dto.js'
 
 @Controller('stock')
 export class StockController {

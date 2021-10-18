@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Put, Delete, Logger, Body, Param } from '@nestjs/common'
-import { FuelPriceSettingsDto } from '../../../dataTransferObjects/fuel-price-settings.dto'
-import { TankerkoenigStationDto } from '../../../dataTransferObjects/tankerkoenig-station.dto'
-import { CoordinatesDto } from '../../../dataTransferObjects/coordinates.dto'
-import { FuelPriceStationDto } from '../../../dataTransferObjects/fuel-price-station.dto'
-import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
-import { FuelPriceSettingDbService } from '../../../database/fuel-price-setting-db.service'
-import { ConstantsService } from '../../../global/constants/constants.service'
+import { FuelPriceSettingsDto } from '../../../dataTransferObjects/fuel-price-settings.dto.js'
+import { TankerkoenigStationDto } from '../../../dataTransferObjects/tankerkoenig-station.dto.js'
+import { CoordinatesDto } from '../../../dataTransferObjects/coordinates.dto.js'
+import { FuelPriceStationDto } from '../../../dataTransferObjects/fuel-price-station.dto.js'
+import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
+import { FuelPriceSettingDbService } from '../../../database/fuel-price-setting-db.service.js'
+import { ConstantsService } from '../../../global/constants/constants.service.js'
 import { Prisma } from '../../../generated/prisma/index.js'
-import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service'
-import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service'
+import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service.js'
+import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service.js'
 
 @Controller('/v1/smartmirror/admin/fuelprice')
 export class FuelPriceController {

@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { RmvService } from './rmv.service'
-import { RequestService } from '../request/request.service'
+import { RmvService } from './rmv.service.js'
+import { RequestService } from '../request/request.service.js'
 import { IRmvSearchStationRemoteResponse } from './rmv-search-station.remote-response'
-import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
+import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto.js'
 import * as tripExample from './tripExample-Friedberg-Taunusanlage.json'
-import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
-import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
+import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto.js'
+import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto.js'
 
 describe('RmvService', () => {
   let service: RmvService

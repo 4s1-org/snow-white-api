@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { OpenWeatherService } from './open-weather.service'
-import { RequestService } from '../request/request.service'
+import { OpenWeatherService } from './open-weather.service.js'
+import { RequestService } from '../request/request.service.js'
 import * as weatherExample from './weatherExample.json'
-import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto'
+import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto.js'
 
 describe('OpenWeatherService', () => {
   let service: OpenWeatherService

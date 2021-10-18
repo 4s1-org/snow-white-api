@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { TrafficController } from './traffic.controller'
-import { TrafficSettingsService } from './settings/traffic-settings.service'
-import { TrafficSettingsDto } from '../../../dataTransferObjects/traffic-settings.dto'
+import { TrafficController } from './traffic.controller.js'
+import { TrafficSettingsService } from './settings/traffic-settings.service.js'
+import { TrafficSettingsDto } from '../../../dataTransferObjects/traffic-settings.dto.js'
 
 describe('Traffic Controller', () => {
   let controller: TrafficController

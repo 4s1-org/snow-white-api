@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service'
-import { RequestService } from '../../../remote-api-call/request/request.service'
+import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service.js'
+import { RequestService } from '../../../remote-api-call/request/request.service.js'
 import { Repository } from 'typeorm'
 import { getRepositoryToken } from '@nestjs/typeorm'
-import { UiFuelPriceService } from './ui-fuel-price.service'
+import { UiFuelPriceService } from './ui-fuel-price.service.js'
 import { ITankerkoenigPricesRemoteResponse } from '../../../remote-api-call/tankerkoenig/tankerkoenig-prices.remote-response'
 import { CommonLocationEntity } from '../../../entities/common-location.entity'
 import { FuelPriceStationEntity } from '../../../entities/fuel-price-station.entity'
-import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
-import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto'
+import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
+import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto.js'
 
 describe('UiFuelPriceService', () => {
   let service: UiFuelPriceService

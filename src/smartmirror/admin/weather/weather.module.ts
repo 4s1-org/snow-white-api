@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common'
-import { WeatherController } from './weather.controller'
-import { ConstantsService } from '../../../global/constants/constants.service'
-import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
-import { PrismaService } from '../../../database/prisma.service'
+import { WeatherController } from './weather.controller.js'
+import { ConstantsService } from '../../../global/constants/constants.service.js'
+import { WeatherSettingDbService } from '../../../database/weather-setting-db.service.js'
+import { PrismaService } from '../../../database/prisma.service.js'
 
 @Module({
   controllers: [WeatherController],

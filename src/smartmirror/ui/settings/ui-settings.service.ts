@@ -1,10 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service'
-//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
-//import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
-import { UiSettingsDto } from '../../../dataTransferObjects/ui-settings.dto'
-import { DateSettingDbService } from '../../../database/date-setting-db.service'
-import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
+import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service.js'
+//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
+//import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service.js'
+import { UiSettingsDto } from '../../../dataTransferObjects/ui-settings.dto.js'
+import { DateSettingDbService } from '../../../database/date-setting-db.service.js'
+import { WeatherSettingDbService } from '../../../database/weather-setting-db.service.js'
 
 @Injectable()
 export class UiSettingsService {

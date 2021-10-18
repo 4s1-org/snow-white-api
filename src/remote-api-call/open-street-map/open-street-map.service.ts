@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { RequestService } from '../request/request.service'
-import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response'
-import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto'
+import { RequestService } from '../request/request.service.js'
+import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response.js'
+import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto.js'
 
 @Injectable()
 export class OpenStreetMapService {
@@ -21,16 +21,11 @@ export class OpenStreetMapService {
     return this.search(postalcode, 'postalcode')
   }
 
-  private async search(
-    searchValue: string,
-    searchField: 'q' | 'city' | 'postalcode',
-  ): Promise<Array<OpenStreetMapLocationDto>> {
+  private async search(searchValue: string, searchField: 'q' | 'city' | 'postalcode'): Promise<Array<OpenStreetMapLocationDto>> {
     const url: string = this.baseUrl
     const urlParams: Array<string> = ['format=json', `${searchField}=${encodeURIComponent(searchValue)}`]
 
-    const res: Array<IOpenStreetMapSearchRemoteResponse> = await this.request.get<
-      Array<IOpenStreetMapSearchRemoteResponse>
-    >(url, urlParams)
+    const res: Array<IOpenStreetMapSearchRemoteResponse> = await this.request.get<Array<IOpenStreetMapSearchRemoteResponse>>(url, urlParams)
     return this.convertResponse(res)
   }
 

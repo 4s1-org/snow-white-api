@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import * as nodemailer from 'nodemailer'
-import { ConfigService } from '../config/config.service'
+import { ConfigService } from '../config/config.service.js'
 import moment from 'moment'
 import 'moment-timezone'
 
