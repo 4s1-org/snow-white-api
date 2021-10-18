@@ -2,12 +2,8 @@ import { Injectable, BadRequestException } from '@nestjs/common'
 import { ConfigService } from '../../config/config.service'
 import { RequestService } from '../request/request.service'
 import { ITankerkoenigListRemoteResponse, ITankerkoenigStationRemote } from './tankerkoenig-list.remote-response'
-import {
-  ITankerkoenigIPriceMeta,
-  ITankerkoenigPricesRemoteResponse,
-  ITankerkoenigIPrice,
-} from './tankerkoenig-prices.remote-response'
-import { TankerkoenigPrice } from './tankerkoenig-price'
+import { ITankerkoenigIPriceMeta, ITankerkoenigPricesRemoteResponse, ITankerkoenigIPrice } from './tankerkoenig-prices.remote-response'
+import { TankerkoenigPrice } from './tankerkoenig-price.js'
 import { ITankerkoenigErrorRemoteResponse } from './tankerkoenig-error.remote-response'
 import { TankerkoenigStationDto } from '../../dataTransferObjects/tankerkoenig-station.dto'
 
@@ -17,20 +13,9 @@ export class TankerkoenigService {
 
   constructor(private readonly request: RequestService) {}
 
-  public async searchStations(
-    apiKey: string,
-    latitude: number,
-    longitude: number,
-  ): Promise<Array<TankerkoenigStationDto>> {
+  public async searchStations(apiKey: string, latitude: number, longitude: number): Promise<Array<TankerkoenigStationDto>> {
     const url = `${this.baseUrl}/list.php`
-    const urlParams: Array<string> = [
-      `apikey=${apiKey}`,
-      `lat=${latitude}`,
-      `lng=${longitude}`,
-      'rad=5.0',
-      'sort=dist',
-      'type=all',
-    ]
+    const urlParams: Array<string> = [`apikey=${apiKey}`, `lat=${latitude}`, `lng=${longitude}`, 'rad=5.0', 'sort=dist', 'type=all']
 
     const res: ITankerkoenigListRemoteResponse | ITankerkoenigErrorRemoteResponse = await this.request.get<
       ITankerkoenigListRemoteResponse | ITankerkoenigErrorRemoteResponse
@@ -85,13 +70,7 @@ export class TankerkoenigService {
     for (const remoteId of Object.keys(prices)) {
       const priceEntry: ITankerkoenigIPrice = prices[remoteId]
       result.push(
-        new TankerkoenigPrice(
-          remoteId,
-          priceEntry.status,
-          priceEntry.e5 || false,
-          priceEntry.e10 || false,
-          priceEntry.diesel || false,
-        ),
+        new TankerkoenigPrice(remoteId, priceEntry.status, priceEntry.e5 || false, priceEntry.e10 || false, priceEntry.diesel || false),
       )
     }
     return result

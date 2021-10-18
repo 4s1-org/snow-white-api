@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from './prisma.service'
-import { CommonLocation, Prisma } from '../generated/prisma'
+import { CommonLocation, Prisma } from '../generated/prisma.js'
 
 @Injectable()
 export class CommonLocationDbService {

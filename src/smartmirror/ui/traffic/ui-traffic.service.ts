@@ -1,11 +1,11 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
-import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service'
-import { HereService } from '../../../remote-api-call/here/here.service'
-import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto'
-import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto'
-import { ConstantsService } from '../../../global/constants/constants.service'
-import { TrafficSettingDbService } from '../../../database/traffic-setting-db.service'
-import { CommonSettingDbService } from '../../../database/common-setting-db.service'
+import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service.js'
+import { HereService } from '../../../remote-api-call/here/here.service.js'
+import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto.js'
+import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto.js'
+import { ConstantsService } from '../../../global/constants/constants.service.js'
+import { TrafficSettingDbService } from '../../../database/traffic-setting-db.service.js'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service.js'
 
 @Injectable()
 export class UiTrafficService {
