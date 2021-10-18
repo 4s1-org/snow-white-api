@@ -1,11 +1,11 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
-import { RmvService } from '../../../remote-api-call/rmv/rmv.service'
-import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto'
-import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto'
-import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto'
-import { ConstantsService } from '../../../global/constants/constants.service'
-import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service'
-import { CommonSettingDbService } from '../../../database/common-setting-db.service'
+import { RmvService } from '../../../remote-api-call/rmv/rmv.service.js'
+import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto.js'
+import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto.js'
+import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto.js'
+import { ConstantsService } from '../../../global/constants/constants.service.js'
+import { TimetableSettingDbService } from '../../../database/timetable-setting-db.service.js'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service.js'
 
 @Injectable()
 export class UiTimetableService {

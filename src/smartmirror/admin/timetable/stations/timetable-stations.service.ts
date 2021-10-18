@@ -5,7 +5,7 @@ import { RmvService } from '../../../../remote-api-call/rmv/rmv.service'
 import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto'
 import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto'
 import { TimetableStationDbService } from '../../../../database/timetable-station-db.service'
-import { TimetableStation } from '../../../../generated/prisma'
+import { TimetableStation } from '../../../../generated/prisma/index.js'
 
 @Injectable()
 export class TimetableStationsService {

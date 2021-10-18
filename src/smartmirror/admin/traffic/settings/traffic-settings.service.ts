@@ -3,7 +3,7 @@ import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-sett
 import { v4 as uuid } from 'uuid'
 import { ConstantsService } from '../../../../global/constants/constants.service'
 import { TrafficSettingDbService } from '../../../../database/traffic-setting-db.service'
-import { TrafficSetting } from '../../../../generated/prisma'
+import { TrafficSetting } from '../../../../generated/prisma/index.js'
 
 @Injectable()
 export class TrafficSettingsService {

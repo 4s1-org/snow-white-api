@@ -4,12 +4,12 @@ import { UiDateService } from './date/ui-date.service'
 import { UiTimetableService } from './timetable/ui-timetable.service'
 import { UiTrafficService } from './traffic/ui-traffic.service'
 import { UiWeatherService } from './weather/ui-weather.service'
-import { CarRoutesDto } from '../../dataTransferObjects/car-routes.dto'
-import { RmvTripsDto } from '../../dataTransferObjects/rmv-trips.dto'
-import { FuelPricePricesDto } from '../../dataTransferObjects/fuel-price-prices.dto'
-import { UiSettingsService } from './settings/ui-settings.service'
-import { UiSettingsDto } from '../../dataTransferObjects/ui-settings.dto'
-import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto'
+import { CarRoutesDto } from '../../dataTransferObjects/car-routes.dto.js'
+import { RmvTripsDto } from '../../dataTransferObjects/rmv-trips.dto.js'
+import { FuelPricePricesDto } from '../../dataTransferObjects/fuel-price-prices.dto.js'
+import { UiSettingsService } from './settings/ui-settings.service.js'
+import { UiSettingsDto } from '../../dataTransferObjects/ui-settings.dto.js'
+import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto.js'
 
 @Controller('/v1/smartmirror/ui')
 export class UiController {
