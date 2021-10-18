@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common'
-import { TimetrackingService } from './timetracking.service'
+import { TimetrackingService } from './timetracking.service.js'
 
 @Controller('timetracking')
 export class TimetrackingController {

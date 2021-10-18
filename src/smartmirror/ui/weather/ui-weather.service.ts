@@ -1,7 +1,7 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
-import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service'
-import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto'
-import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
+import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service.js'
+import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto.js'
+import { WeatherSettingDbService } from '../../../database/weather-setting-db.service.js'
 
 @Injectable()
 export class UiWeatherService {

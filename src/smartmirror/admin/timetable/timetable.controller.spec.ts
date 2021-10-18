@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { TimetableController } from './timetable.controller'
-import { TimetableSettingsService } from './settings/timetable-settings.service'
-import { TimetableStationsService } from './stations/timetable-stations.service'
-import { RmvStationDto } from '../../../dataTransferObjects/rmv-station.dto'
-import { TimetableStationDto } from '../../../dataTransferObjects/timetable-station.dto'
-import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
-import { TimetableSettingsDto } from '../../../dataTransferObjects/timetable-settings.dto'
+import { TimetableController } from './timetable.controller.js'
+import { TimetableSettingsService } from './settings/timetable-settings.service.js'
+import { TimetableStationsService } from './stations/timetable-stations.service.js'
+import { RmvStationDto } from '../../../dataTransferObjects/rmv-station.dto.js'
+import { TimetableStationDto } from '../../../dataTransferObjects/timetable-station.dto.js'
+import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
+import { TimetableSettingsDto } from '../../../dataTransferObjects/timetable-settings.dto.js'
 
 describe('Timetable Controller', () => {
   let controller: TimetableController

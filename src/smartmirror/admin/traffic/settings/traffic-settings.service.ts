@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto'
+import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto.js'
 import { v4 as uuid } from 'uuid'
-import { ConstantsService } from '../../../../global/constants/constants.service'
-import { TrafficSettingDbService } from '../../../../database/traffic-setting-db.service'
+import { ConstantsService } from '../../../../global/constants/constants.service.js'
+import { TrafficSettingDbService } from '../../../../database/traffic-setting-db.service.js'
 import { TrafficSetting } from '../../../../generated/prisma/index.js'
 
 @Injectable()

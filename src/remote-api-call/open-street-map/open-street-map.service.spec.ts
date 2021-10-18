@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { HttpModule } from '@nestjs/common'
-import { OpenStreetMapService } from './open-street-map.service'
-import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response'
-import { RequestService } from '../request/request.service'
-import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto'
+import { OpenStreetMapService } from './open-street-map.service.js'
+import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response.js'
+import { RequestService } from '../request/request.service.js'
+import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto.js'
 
 describe('OpenStreetMapService', () => {
   let service: OpenStreetMapService

@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { RequestService } from '../request/request.service'
-import { IOpenWeatherForecast, IWeather } from './open-weather-geographic.remote-response'
-import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto'
+import { RequestService } from '../request/request.service.js'
+import { IOpenWeatherForecast, IWeather } from './open-weather-geographic.remote-response.js'
+import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto.js'
 
 @Injectable()
 export class OpenWeatherService {
@@ -13,13 +13,7 @@ export class OpenWeatherService {
 
   public async getByCoordinates(apiKey: string, latitude: number, longitude: number): Promise<WeatherDatasDto> {
     const url: string = this.baseUrl
-    const urlParams: Array<string> = [
-      `appid=${apiKey}`,
-      `lat=${latitude}`,
-      `lon=${longitude}`,
-      'units=metric',
-      'lang=de',
-    ]
+    const urlParams: Array<string> = [`appid=${apiKey}`, `lat=${latitude}`, `lon=${longitude}`, 'units=metric', 'lang=de']
 
     const res: IOpenWeatherForecast = await this.request.get<IOpenWeatherForecast>(url, urlParams)
     return this.convert(res)

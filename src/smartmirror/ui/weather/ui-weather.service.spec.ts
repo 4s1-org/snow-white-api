@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { CommonLocationEntity } from '../../../entities/common-location.entity'
-import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service'
-import { UiWeatherService } from './ui-weather.service'
-import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service'
+import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service.js'
+import { UiWeatherService } from './ui-weather.service.js'
+import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service.js'
 import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity'
-import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto'
+import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto.js'
 
 describe('UiWeatherService', () => {
   let service: UiWeatherService

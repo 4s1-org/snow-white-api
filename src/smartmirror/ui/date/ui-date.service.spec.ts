@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
+import { DateSettingsService } from '../../admin/date/settings/date-settings.service.js'
 import { DateSettingsEntity } from '../../../entities/date-settings.entity'
-import { UiDateService } from './ui-date.service'
+import { UiDateService } from './ui-date.service.js'
 
 describe('UiDateService', () => {
   let service: UiDateService

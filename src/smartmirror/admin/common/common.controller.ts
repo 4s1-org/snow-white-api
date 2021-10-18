@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Delete, Put, Param, Body } from '@nestjs/common'
-import { OpenStreetMapLocationDto } from '../../../dataTransferObjects/open-street-map-location.dto'
-import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto'
-import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto'
-import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
-import { CommonLocationDbService } from '../../../database/common-location-db.service'
-import { CommonSettingDbService } from '../../../database/common-setting-db.service'
-import { OpenStreetMapService } from '../../../remote-api-call/open-street-map/open-street-map.service'
+import { OpenStreetMapLocationDto } from '../../../dataTransferObjects/open-street-map-location.dto.js'
+import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto.js'
+import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto.js'
+import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
+import { CommonLocationDbService } from '../../../database/common-location-db.service.js'
+import { CommonSettingDbService } from '../../../database/common-setting-db.service.js'
+import { OpenStreetMapService } from '../../../remote-api-call/open-street-map/open-street-map.service.js'
 
 @Controller('/v1/smartmirror/admin/common')
 export class CommonController {

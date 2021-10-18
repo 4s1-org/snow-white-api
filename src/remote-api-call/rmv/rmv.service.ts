@@ -1,16 +1,12 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { RequestService } from '../request/request.service'
-import {
-  IRmvSearchStationRemoteResponse,
-  IStopLocationOrCoordLocation,
-  IStopLocation,
-} from './rmv-search-station.remote-response'
-import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
-import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
+import { RequestService } from '../request/request.service.js'
+import { IRmvSearchStationRemoteResponse, IStopLocationOrCoordLocation, IStopLocation } from './rmv-search-station.remote-response'
+import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto.js'
+import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto.js'
 import { IRmvSearchTripRemoteResponse, ITrip, ILocation, ILeg } from './rmv-search-trip.remote-response'
 import moment from 'moment'
 import 'moment-timezone'
-import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
+import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto.js'
 
 @Injectable()
 export class RmvService {
@@ -22,12 +18,7 @@ export class RmvService {
 
   public async getStations(apiKey: string, latitude: number, longitude: number): Promise<Array<RmvStationDto>> {
     const url: string = this.baseUrl + '/location.nearbystops'
-    const urlParams: Array<string> = [
-      `accessId=${apiKey}`,
-      `originCoordLat=${latitude}`,
-      `originCoordLong=${longitude}`,
-      'format=json',
-    ]
+    const urlParams: Array<string> = [`accessId=${apiKey}`, `originCoordLat=${latitude}`, `originCoordLong=${longitude}`, 'format=json']
 
     const res: IRmvSearchStationRemoteResponse = await this.request.get<IRmvSearchStationRemoteResponse>(url, urlParams)
     if (res.stopLocationOrCoordLocation) {
@@ -39,19 +30,9 @@ export class RmvService {
     }
   }
 
-  public async getTrip(
-    apiKey: string,
-    originExtId: number,
-    destExtId: number,
-    filter: TimetableLinesFilter,
-  ): Promise<Array<RmvTripDto>> {
+  public async getTrip(apiKey: string, originExtId: number, destExtId: number, filter: TimetableLinesFilter): Promise<Array<RmvTripDto>> {
     const url: string = this.baseUrl + '/trip'
-    const urlParams: Array<string> = [
-      `accessId=${apiKey}`,
-      `originExtId=${originExtId}`,
-      `destExtId=${destExtId}`,
-      'format=json',
-    ]
+    const urlParams: Array<string> = [`accessId=${apiKey}`, `originExtId=${originExtId}`, `destExtId=${destExtId}`, 'format=json']
     const res: IRmvSearchTripRemoteResponse = await this.request.get<IRmvSearchTripRemoteResponse>(url, urlParams)
     return this.convertTrip(res.Trip, filter)
   }
@@ -76,18 +57,10 @@ export class RmvService {
       const locationStart: ILocation = trip.LegList.Leg[0].Origin
       const locationEnd: ILocation = trip.LegList.Leg[trip.LegList.Leg.length - 1].Destination
 
-      const arrivalTimePlanned: number = moment
-        .utc(locationEnd.date + ' ' + locationEnd.time, 'YYYY-MM-DD hh:mm:ss')
-        .unix()
-      const arrivalTimeReal: number = moment
-        .utc(locationEnd.rtDate + ' ' + locationEnd.rtTime, 'YYYY-MM-DD hh:mm:ss')
-        .unix()
-      const startTimePlanned: number = moment
-        .utc(locationStart.date + ' ' + locationStart.time, 'YYYY-MM-DD hh:mm:ss')
-        .unix()
-      const startTimeReal: number = moment
-        .utc(locationStart.rtDate + ' ' + locationStart.rtTime, 'YYYY-MM-DD hh:mm:ss')
-        .unix()
+      const arrivalTimePlanned: number = moment.utc(locationEnd.date + ' ' + locationEnd.time, 'YYYY-MM-DD hh:mm:ss').unix()
+      const arrivalTimeReal: number = moment.utc(locationEnd.rtDate + ' ' + locationEnd.rtTime, 'YYYY-MM-DD hh:mm:ss').unix()
+      const startTimePlanned: number = moment.utc(locationStart.date + ' ' + locationStart.time, 'YYYY-MM-DD hh:mm:ss').unix()
+      const startTimeReal: number = moment.utc(locationStart.rtDate + ' ' + locationStart.rtTime, 'YYYY-MM-DD hh:mm:ss').unix()
       let showStopper = false
 
       const lines: Array<string> = trip.LegList.Leg.filter((x: ILeg) => {

@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { DateController } from './date.controller'
-import { DateSettingsService } from './settings/date-settings.service'
-import { DateSettingsEntity } from '../../../entities/date-settings.entity'
+import { DateController } from './date.controller.js'
+import { DateSettingsService } from './settings/date-settings.service.js'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity.js'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { DateSettingsDto } from '../../../dataTransferObjects/date-settings.dto'
+import { DateSettingsDto } from '../../../dataTransferObjects/date-settings.dto.js'
 
 describe('Date Controller', () => {
   let controller: DateController

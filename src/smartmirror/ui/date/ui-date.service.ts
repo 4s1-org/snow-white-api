@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { DateSettingDbService } from '../../../database/date-setting-db.service'
+import { DateSettingDbService } from '../../../database/date-setting-db.service.js'
 
 @Injectable()
 export class UiDateService {

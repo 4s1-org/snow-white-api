@@ -1,7 +1,7 @@
 import { Controller, Get, Put, Logger, Body } from '@nestjs/common'
-import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto'
-import { WeatherSettingDbService } from '../../../database/weather-setting-db.service'
-import { ConstantsService } from '../../../global/constants/constants.service'
+import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto.js'
+import { WeatherSettingDbService } from '../../../database/weather-setting-db.service.js'
+import { ConstantsService } from '../../../global/constants/constants.service.js'
 import { Prisma } from '../../../generated/prisma/index.js'
 
 @Controller('/v1/smartmirror/admin/weather')
