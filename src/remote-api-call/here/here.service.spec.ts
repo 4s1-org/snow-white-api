@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { HereService } from './here.service'
-import { RequestService } from '../request/request.service'
+import { HereService } from './here.service.js'
+import { RequestService } from '../request/request.service.js'
 import * as routeExample from './routeExample.json'
-import { CarRouteDto } from '../../dataTransferObjects/car-route.dto'
+import { CarRouteDto } from '../../dataTransferObjects/car-route.dto.js'
 
 describe('HereService', () => {
   let service: HereService

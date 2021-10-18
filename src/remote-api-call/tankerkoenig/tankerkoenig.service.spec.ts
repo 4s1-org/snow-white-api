@@ -1,13 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { TankerkoenigService } from './tankerkoenig.service'
-import { ConfigModule } from '../../config/config.module'
-import { RequestService } from '../request/request.service'
+import { TankerkoenigService } from './tankerkoenig.service.js'
+import { ConfigModule } from '../../config/config.module.js'
+import { RequestService } from '../request/request.service.js'
 import { HttpModule } from '@nestjs/common'
 import { TankerkoenigPrice } from './tankerkoenig-price.js'
-import { ITankerkoenigErrorRemoteResponse } from './tankerkoenig-error.remote-response'
-import { ITankerkoenigPricesRemoteResponse } from './tankerkoenig-prices.remote-response'
-import { ITankerkoenigListRemoteResponse } from './tankerkoenig-list.remote-response'
-import { TankerkoenigStationDto } from '../../dataTransferObjects/tankerkoenig-station.dto'
+import { ITankerkoenigErrorRemoteResponse } from './tankerkoenig-error.remote-response.js'
+import { ITankerkoenigPricesRemoteResponse } from './tankerkoenig-prices.remote-response.js'
+import { ITankerkoenigListRemoteResponse } from './tankerkoenig-list.remote-response.js'
+import { TankerkoenigStationDto } from '../../dataTransferObjects/tankerkoenig-station.dto.js'
 
 describe('TankerkoenigService', () => {
   let service: TankerkoenigService

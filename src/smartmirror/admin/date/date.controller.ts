@@ -1,6 +1,6 @@
 import { Controller, Get, Put, Body } from '@nestjs/common'
-import { DateSettingsDto } from '../../../dataTransferObjects/date-settings.dto'
-import { DateSettingDbService } from '../../../database/date-setting-db.service'
+import { DateSettingsDto } from '../../../dataTransferObjects/date-settings.dto.js'
+import { DateSettingDbService } from '../../../database/date-setting-db.service.js'
 
 @Controller('/v1/smartmirror/admin/date')
 export class DateController {

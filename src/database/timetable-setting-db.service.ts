@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from './prisma.service'
+import { PrismaService } from './prisma.service.js'
 import { TimetableSetting, Prisma } from '../generated/prisma/index.js'
 
 @Injectable()

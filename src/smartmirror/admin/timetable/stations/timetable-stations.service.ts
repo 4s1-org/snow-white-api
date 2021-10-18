@@ -1,10 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { v4 as uuid } from 'uuid'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
-import { RmvService } from '../../../../remote-api-call/rmv/rmv.service'
-import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto'
-import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto'
-import { TimetableStationDbService } from '../../../../database/timetable-station-db.service'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
+import { RmvService } from '../../../../remote-api-call/rmv/rmv.service.js'
+import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto.js'
+import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto.js'
+import { TimetableStationDbService } from '../../../../database/timetable-station-db.service.js'
 import { TimetableStation } from '../../../../generated/prisma/index.js'
 
 @Injectable()

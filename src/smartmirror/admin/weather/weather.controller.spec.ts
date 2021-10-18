@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { WeatherController } from './weather.controller'
-import { WeatherSettingsService } from './settings/weather-settings.service'
-import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto'
+import { WeatherController } from './weather.controller.js'
+import { WeatherSettingsService } from './settings/weather-settings.service.js'
+import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto.js'
 
 describe('WeatherController', () => {
   let controller: WeatherController

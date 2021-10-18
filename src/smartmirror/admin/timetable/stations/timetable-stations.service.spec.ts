@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
-import { TimetableStationEntity } from '../../../../entities/timetable-station.entity'
-import { TimetableStationsService } from './timetable-stations.service'
-import { RmvService } from '../../../../remote-api-call/rmv/rmv.service'
-import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto'
-import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
+import { TimetableStationEntity } from '../../../../entities/timetable-station.entity.js'
+import { TimetableStationsService } from './timetable-stations.service.js'
+import { RmvService } from '../../../../remote-api-call/rmv/rmv.service.js'
+import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto.js'
+import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto.js'
 
 describe('TimetableStationsService', () => {
   let service: TimetableStationsService

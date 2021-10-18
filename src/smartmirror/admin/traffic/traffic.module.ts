@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
-import { TrafficController } from './traffic.controller'
-import { TrafficSettingsService } from './settings/traffic-settings.service'
-import { ConstantsService } from '../../../global/constants/constants.service'
-import { TrafficSettingDbService } from '../../../database/traffic-setting-db.service'
-import { PrismaService } from '../../../database/prisma.service'
+import { TrafficController } from './traffic.controller.js'
+import { TrafficSettingsService } from './settings/traffic-settings.service.js'
+import { ConstantsService } from '../../../global/constants/constants.service.js'
+import { TrafficSettingDbService } from '../../../database/traffic-setting-db.service.js'
+import { PrismaService } from '../../../database/prisma.service.js'
 
 @Module({
   controllers: [TrafficController],

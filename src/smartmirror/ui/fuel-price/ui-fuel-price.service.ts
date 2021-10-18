@@ -1,9 +1,9 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
-import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service'
+import { TankerkoenigService } from '../../../remote-api-call/tankerkoenig/tankerkoenig.service.js'
 import { TankerkoenigPrice } from '../../../remote-api-call/tankerkoenig/tankerkoenig-price.js'
-//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service'
-import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto'
-import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service'
+//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
+import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto.js'
+import { FuelPriceStationDbService } from '../../../database/fuel-price-station-db.service.js'
 
 @Injectable()
 export class UiFuelPriceService {
