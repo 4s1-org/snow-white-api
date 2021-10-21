@@ -23,7 +23,7 @@ specifiers:
   class-validator: 0.13.1
   dotenv: 10.0.0
   eslint: 8.0.1
-  husky: 7.0.2
+  husky: 7.0.4
   jest: 27.3.1
   moment: 2.29.1
   moment-timezone: 0.5.33
@@ -78,7 +78,7 @@ devDependencies:
   '@types/nodemailer': 6.4.4
   '@types/uuid': 8.3.1
   eslint: 8.0.1
-  husky: 7.0.2
+  husky: 7.0.4
   jest: 27.3.1_ts-node@10.3.0
   prettier: 2.4.1
   standard-version: 9.3.2
@@ -3629,8 +3629,8 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /husky/7.0.2:
-    resolution: {integrity: sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==}
+  /husky/7.0.4:
+    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
     engines: {node: '>=12'}
     hasBin: true
     dev: true
