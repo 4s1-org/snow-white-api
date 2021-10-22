@@ -15,7 +15,7 @@ specifiers:
   '@nestjs/testing': 8.1.1
   '@types/express': 4.17.13
   '@types/jest': 27.0.2
-  '@types/node': 14.17.27
+  '@types/node': 14.17.28
   '@types/nodemailer': 6.4.4
   '@types/uuid': 8.3.1
   axios: 0.23.0
@@ -74,7 +74,7 @@ devDependencies:
   '@nestjs/testing': 8.1.1_89e103a9c7054b932bde2e86d9ce498a
   '@types/express': 4.17.13
   '@types/jest': 27.0.2
-  '@types/node': 14.17.27
+  '@types/node': 14.17.28
   '@types/nodemailer': 6.4.4
   '@types/uuid': 8.3.1
   eslint: 8.0.1
@@ -84,7 +84,7 @@ devDependencies:
   standard-version: 9.3.2
   ts-jest: 27.0.7_2c4ca6574207836d1023f54689cc81ac
   ts-loader: 9.2.6_typescript@4.4.4
-  ts-node: 10.3.1_64c822b0f0ef3f125d8d3681dcee4e14
+  ts-node: 10.3.1_2ffd90076e2c9e55b025ec2c8025c4ae
   tsconfig-paths: 3.11.0
   typescript: 4.4.4
 
@@ -1321,6 +1321,10 @@ packages:
 
   /@types/node/14.17.27:
     resolution: {integrity: sha512-94+Ahf9IcaDuJTle/2b+wzvjmutxXAEXU6O81JHblYXUg2BDG+dnBy7VxIPHKAyEEDHzCMQydTJuWvrE+Aanzw==}
+    dev: true
+
+  /@types/node/14.17.28:
+    resolution: {integrity: sha512-1Nh2wEWN8y9hyC4yTDPccUnRunqNeBEFmmTU+K5FpGZOEixqAzMhUXzrBwajNYCZq5uoGaztaMN9Yy1PDMMB6Q==}
     dev: true
 
   /@types/node/14.17.9:
@@ -4075,7 +4079,7 @@ packages:
       jest-validate: 27.3.1
       micromatch: 4.0.4
       pretty-format: 27.3.1
-      ts-node: 10.3.1_64c822b0f0ef3f125d8d3681dcee4e14
+      ts-node: 10.3.1_2ffd90076e2c9e55b025ec2c8025c4ae
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -6225,7 +6229,7 @@ packages:
       typescript: 4.4.4
     dev: true
 
-  /ts-node/10.3.1_64c822b0f0ef3f125d8d3681dcee4e14:
+  /ts-node/10.3.1_2ffd90076e2c9e55b025ec2c8025c4ae:
     resolution: {integrity: sha512-Yw3W2mYzhHfCHOICGNJqa0i+rbL0rAyg7ZIHxU+K4pgY8gd2Lh1j+XbHCusJMykbj6RZMJVOY0MlHVd+GOivcw==}
     hasBin: true
     peerDependencies:
@@ -6244,7 +6248,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 14.17.27
+      '@types/node': 14.17.28
       acorn: 8.5.0
       acorn-walk: 8.2.0
       arg: 4.1.3
