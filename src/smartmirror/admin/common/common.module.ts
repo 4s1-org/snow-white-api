@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common'
 import { CommonController } from './common.controller.js'
+import { CommonSettingsService } from './settings/common-settings.service.js'
+import { CommonLocationsService } from './locations/common-locations.service.js'
 import { RemoteApiCallModule } from '../../../remote-api-call/remote-api-call.module.js'
-import { CommonSettingDbService } from '../../../database/common-setting-db.service.js'
-import { CommonLocationDbService } from '../../../database/common-location-db.service.js'
-import { PrismaService } from '../../../database/prisma.service.js'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { CommonSettingsEntity } from '../../../entities/common-settings.entity.js'
+import { CommonLocationEntity } from '../../../entities/common-location.entity.js'
 
 @Module({
   controllers: [CommonController],
-  imports: [RemoteApiCallModule],
-  providers: [CommonSettingDbService, CommonLocationDbService, PrismaService],
+  imports: [RemoteApiCallModule, TypeOrmModule.forFeature([CommonSettingsEntity, CommonLocationEntity])],
+  providers: [CommonSettingsService, CommonLocationsService],
 })
 export class CommonModule {}

@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { CommonLocationEntity } from '../../../entities/common-location.entity'
+import { CommonLocationEntity } from '../../../entities/common-location.entity.js'
 import { OpenWeatherService } from '../../../remote-api-call/open-weather/open-weather.service.js'
 import { UiWeatherService } from './ui-weather.service.js'
 import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service.js'
-import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity'
+import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity.js'
 import { WeatherDatasDto } from '../../../dataTransferObjects/weather-datas.dto.js'
 
 describe('UiWeatherService', () => {
