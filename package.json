@@ -21,7 +21,6 @@
     "lint": "eslint --ext .ts src/",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky install",
-    "prisma": "pnpm dlx prisma generate",
     "release": "git diff --exit-code --quiet && pnpm run lbt && standard-version",
     "release:major": "pnpm run release -- --release-as major",
     "release:minor": "pnpm run release -- --release-as minor",
@@ -30,7 +29,7 @@
     "start:debug": "nest start --debug --watch",
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main",
-    "test": "echo tests disabled # node --experimental-vm-modules node_modules/jest/bin/jest.js --passWithNoTests",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --passWithNoTests",
     "test:cov": "pnpm run test -- --coverage",
     "test:watch": "pnpm run test -- --watch"
   },
@@ -41,6 +40,7 @@
     "@nestjs/core": "8.1.2",
     "@nestjs/platform-express": "8.1.2",
     "@nestjs/swagger": "5.1.4",
+    "@nestjs/typeorm": "8.0.2",
     "axios": "0.24.0",
     "class-transformer": "0.4.0",
     "class-validator": "0.13.1",
@@ -53,7 +53,9 @@
     "reflect-metadata": "0.1.13",
     "rxjs": "7.4.0",
     "source-map-support": "0.5.20",
+    "sqlite3": "5.0.2",
     "swagger-ui-express": "4.1.6",
+    "typeorm": "0.2.38",
     "uuid": "8.3.2"
   },
   "devDependencies": {

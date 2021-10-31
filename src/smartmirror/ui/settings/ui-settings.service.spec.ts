@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { DateSettingsService } from '../../admin/date/settings/date-settings.service.js'
-import { DateSettingsEntity } from '../../../entities/date-settings.entity'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity.js'
 import { UiSettingsService } from './ui-settings.service.js'
 import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service.js'
 import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
 import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service.js'
 import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service.js'
 import { UiSettingsDto } from '../../../dataTransferObjects/ui-settings.dto.js'
-import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity'
-import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity'
-import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity'
-import { FuelPriceSettingsEntity } from '../../../entities/fuel-price-settings.entity'
+import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity.js'
+import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity.js'
+import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity.js'
+import { FuelPriceSettingsEntity } from '../../../entities/fuel-price-settings.entity.js'
 
 describe('UiSettingsService', () => {
   let service: UiSettingsService

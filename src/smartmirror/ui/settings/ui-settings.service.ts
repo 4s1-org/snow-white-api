@@ -1,10 +1,15 @@
 import { Injectable, Logger } from '@nestjs/common'
+import { WeatherSettingsEntity } from '../../../entities/weather-settings.entity.js'
 import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service.js'
-//import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
-//import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service.js'
+import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity.js'
+import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
+import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service.js'
+import { WeatherSettingsService } from '../../admin/weather/settings/weather-settings.service.js'
+import { DateSettingsService } from '../../admin/date/settings/date-settings.service.js'
+import { FuelPriceSettingsEntity } from '../../../entities/fuel-price-settings.entity.js'
+import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity.js'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity.js'
 import { UiSettingsDto } from '../../../dataTransferObjects/ui-settings.dto.js'
-import { DateSettingDbService } from '../../../database/date-setting-db.service.js'
-import { WeatherSettingDbService } from '../../../database/weather-setting-db.service.js'
 
 @Injectable()
 export class UiSettingsService {
@@ -12,18 +17,18 @@ export class UiSettingsService {
 
   constructor(
     private readonly trafficSettings: TrafficSettingsService,
-    //private readonly fuelPriceSettings: FuelPriceSettingsService,
-    //private readonly timetableSettings: TimetableSettingsService,
-    private readonly weatherSettingDb: WeatherSettingDbService,
-    private readonly dateSettingDb: DateSettingDbService,
+    private readonly fuelPriceSettings: FuelPriceSettingsService,
+    private readonly timetableSettings: TimetableSettingsService,
+    private readonly weatherSettings: WeatherSettingsService,
+    private readonly dateSettings: DateSettingsService,
   ) {}
 
   public async load(): Promise<UiSettingsDto> {
-    const trafficRecord = await this.trafficSettings.getRecord()
-    const fuelPriceRecord = {} as any // await this.fuelPriceSettings.getRecord()
-    const timetableRecord = {} as any // await this.timetableSettings.getRecord()
-    const weatherRecord = await this.weatherSettingDb.readFirstRecord()
-    const dateRecord = await this.dateSettingDb.readFirstRecord()
+    const trafficRecord: TrafficSettingsEntity = await this.trafficSettings.getRecord()
+    const fuelPriceRecord: FuelPriceSettingsEntity = await this.fuelPriceSettings.getRecord()
+    const timetableRecord: TimetableSettingsEntity = await this.timetableSettings.getRecord()
+    const weatherRecord: WeatherSettingsEntity = await this.weatherSettings.getRecord()
+    const dateRecord: DateSettingsEntity = await this.dateSettings.getRecord()
 
     const result: UiSettingsDto = {
       date: {

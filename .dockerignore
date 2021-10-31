@@ -20,3 +20,4 @@ Dockerfile
 **/*.tgz
 *.tar.gz
 **/.env
+data/

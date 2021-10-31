@@ -9,3 +9,4 @@
 /.pnpm-debug.log
 /tsconfig.build.tsbuildinfo
 /package-lock.json
+/data/
