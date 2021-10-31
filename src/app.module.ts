@@ -4,7 +4,6 @@ import { TimetrackingController } from './timetracking/timetracking.controller.j
 import { TimetrackingModule } from './timetracking/timetracking.module.js'
 import { RemoteApiCallModule } from './remote-api-call/remote-api-call.module.js'
 import { SmartmirrorModule } from './smartmirror/smartmirror.module.js'
-import { PrismaService } from './database/prisma.service.js'
 import { ConfigService } from './config/config.service.js'
 import { StockController } from './stock/stock.controller.js'
 
@@ -17,6 +16,6 @@ logger.log('Lets go')
 @Module({
   controllers: [TimetrackingController, StockController],
   imports: [HttpModule, TimetrackingModule, RemoteApiCallModule, SmartmirrorModule],
-  providers: [TimetrackingService, PrismaService, ConfigService],
+  providers: [TimetrackingService, ConfigService],
 })
 export class AppModule {}
