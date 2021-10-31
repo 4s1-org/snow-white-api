@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common'
-import { UiController } from './ui.controller'
+import { UiController } from './ui.controller.js'
 import { UiDateService } from './date/ui-date.service.js'
 import { UiTimetableService } from './timetable/ui-timetable.service.js'
 import { UiWeatherService } from './weather/ui-weather.service.js'

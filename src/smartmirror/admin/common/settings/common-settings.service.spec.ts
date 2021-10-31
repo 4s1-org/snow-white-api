@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { CommonSettingsService } from './common-settings.service'
-import { CommonSettingsEntity } from '../../../../entities/common-settings.entity'
+import { CommonSettingsService } from './common-settings.service.js'
+import { CommonSettingsEntity } from '../../../../entities/common-settings.entity.js'
 import { Repository } from 'typeorm'
 import { getRepositoryToken } from '@nestjs/typeorm'
-import { CommonSettingsDto } from '../../../../dataTransferObjects/common-settings.dto'
+import { CommonSettingsDto } from '../../../../dataTransferObjects/common-settings.dto.js'
 
 describe('CommonSettingsService', () => {
   let service: CommonSettingsService

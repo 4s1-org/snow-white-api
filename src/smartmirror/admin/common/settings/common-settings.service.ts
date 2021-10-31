@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { CommonSettingsDto } from '../../../../dataTransferObjects/common-settings.dto'
-import { CommonSettingsEntity } from '../../../../entities/common-settings.entity'
+import { CommonSettingsDto } from '../../../../dataTransferObjects/common-settings.dto.js'
+import { CommonSettingsEntity } from '../../../../entities/common-settings.entity.js'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { v4 as uuid } from 'uuid'
