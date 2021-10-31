@@ -4,11 +4,11 @@ import { TimetrackingController } from './timetracking/timetracking.controller.j
 import { TimetrackingModule } from './timetracking/timetracking.module.js'
 import { RemoteApiCallModule } from './remote-api-call/remote-api-call.module.js'
 import { SmartmirrorModule } from './smartmirror/smartmirror.module.js'
-import { PrismaService } from './database/prisma.service.js'
 import { ConfigService } from './config/config.service.js'
 import { StockController } from './stock/stock.controller.js'
-
+import * as entities from './entities/index.js'
 import * as dotenv from 'dotenv'
+import { TypeOrmModule } from '@nestjs/typeorm'
 dotenv.config()
 
 const logger = new Logger('App Module')
@@ -16,7 +16,18 @@ logger.log('Lets go')
 
 @Module({
   controllers: [TimetrackingController, StockController],
-  imports: [HttpModule, TimetrackingModule, RemoteApiCallModule, SmartmirrorModule],
-  providers: [TimetrackingService, PrismaService, ConfigService],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'data/db.sqlite',
+      entities: [...Object.values(entities)],
+      synchronize: true,
+    }),
+    HttpModule,
+    TimetrackingModule,
+    RemoteApiCallModule,
+    SmartmirrorModule,
+  ],
+  providers: [TimetrackingService, ConfigService],
 })
 export class AppModule {}

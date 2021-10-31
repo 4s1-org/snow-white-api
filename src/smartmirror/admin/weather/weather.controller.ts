@@ -1,44 +1,22 @@
 import { Controller, Get, Put, Logger, Body } from '@nestjs/common'
+import { WeatherSettingsService } from './settings/weather-settings.service.js'
 import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto.js'
-import { WeatherSettingDbService } from '../../../database/weather-setting-db.service.js'
-import { ConstantsService } from '../../../global/constants/constants.service.js'
-import { Prisma } from '../../../generated/prisma/index.js'
 
 @Controller('/v1/smartmirror/admin/weather')
 export class WeatherController {
   private readonly logger: Logger = new Logger(WeatherController.name)
 
-  constructor(private readonly constants: ConstantsService, private readonly weatherSettingDb: WeatherSettingDbService) {}
+  constructor(private readonly settings: WeatherSettingsService) {}
 
   // GET - /v1/smartmirror/admin/weather/settings
   @Get('/settings')
-  public async loadSettings(): Promise<WeatherSettingsDto> {
-    const record = await this.weatherSettingDb.readFirstRecord()
-    return {
-      apiKey: record.apiKey.length > 0 ? `${record.apiKey.substr(0, 4)}${this.constants.hiddenValue}` : '',
-      isActive: record.isActive,
-      locationId: record.commonLocationId || null,
-    }
+  public loadSettings(): Promise<WeatherSettingsDto> {
+    return this.settings.load()
   }
 
   // PUT - //v1/smartmirror/admin/weather/settings
   @Put('/settings')
-  public async saveSettings(@Body() body: WeatherSettingsDto): Promise<void> {
-    const record = await this.weatherSettingDb.readFirstRecord()
-
-    const data: Prisma.WeatherSettingUpdateInput = {
-      apiKey: body.apiKey,
-      //commonLocationId: body.locationId,
-      isActive: body.isActive,
-    }
-
-    if (body.apiKey.endsWith(this.constants.hiddenValue)) {
-      data.apiKey = record.apiKey
-    }
-
-    await this.weatherSettingDb.update({
-      where: { id: record.id },
-      data,
-    })
+  public saveSettings(@Body() settings: WeatherSettingsDto): Promise<void> {
+    return this.settings.save(settings)
   }
 }

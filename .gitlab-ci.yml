@@ -15,12 +15,10 @@ validate-job:
     # Access to private packages
     - echo "//gitlab.com/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
   script:
-    - echo DATABASE_URL=file:./dev.db > .env
     - pnpm i
-    - pnpm dlx prisma generate
     - pnpm run lint
     - pnpm run build
-    - pnpm run test
+    #- pnpm run test
 
 deploy-job:
   stage: deploy

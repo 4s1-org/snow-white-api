@@ -5,11 +5,11 @@ import { RemoteApiCallModule } from '../../../remote-api-call/remote-api-call.mo
 import { OpenStreetMapLocationDto } from '../../../dataTransferObjects/open-street-map-location.dto.js'
 import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto.js'
 import { Repository } from 'typeorm'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
+import { CommonSettingsEntity } from '../../../entities/common-settings.entity.js'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { CommonSettingsService } from './settings/common-settings.service.js'
 import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto.js'
-import { CommonLocationEntity } from '../../../entities/common-location.entity'
+import { CommonLocationEntity } from '../../../entities/common-location.entity.js'
 import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
 
 describe('Common Controller', () => {

@@ -4,9 +4,9 @@ import { RequestService } from '../../../remote-api-call/request/request.service
 import { Repository } from 'typeorm'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { UiFuelPriceService } from './ui-fuel-price.service.js'
-import { ITankerkoenigPricesRemoteResponse } from '../../../remote-api-call/tankerkoenig/tankerkoenig-prices.remote-response'
-import { CommonLocationEntity } from '../../../entities/common-location.entity'
-import { FuelPriceStationEntity } from '../../../entities/fuel-price-station.entity'
+import { ITankerkoenigPricesRemoteResponse } from '../../../remote-api-call/tankerkoenig/tankerkoenig-prices.remote-response.js'
+import { CommonLocationEntity } from '../../../entities/common-location.entity.js'
+import { FuelPriceStationEntity } from '../../../entities/fuel-price-station.entity.js'
 import { FuelPriceSettingsService } from '../../admin/fuel-price/settings/fuel-price-settings.service.js'
 import { FuelPricePricesDto } from '../../../dataTransferObjects/fuel-price-prices.dto.js'
 
