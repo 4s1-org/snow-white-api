@@ -10,4 +10,5 @@ COPY . .
 RUN pnpm run build
 
 EXPOSE 3000
+VOLUME ["/app/data"]
 CMD ["pnpm", "run", "start"]
