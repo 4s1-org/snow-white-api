@@ -8,7 +8,6 @@ RUN pnpm i -r
 COPY . .
 
 RUN pnpm run build
-RUN cp -r ./src/generated ./dist/
 
 EXPOSE 3000
 CMD ["pnpm", "run", "start"]
