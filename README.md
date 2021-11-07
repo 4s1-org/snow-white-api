@@ -1,1 +1,1 @@
-# Snow White - Rest API
+# Snow White - API
