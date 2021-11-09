@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { CommonLocationsService } from './common-locations.service'
-import { IOpenStreetMapSearchRemoteResponse } from '../../../../remote-api-call/open-street-map/open-street-map-search.remote-response.js'
-import { OpenStreetMapLocationDto } from '../../../../dataTransferObjects/open-street-map-location.dto.js'
-import { CommonLocationEntity } from '../../../../entities/common-location.entity.js'
+import { IOpenStreetMapSearchRemoteResponse } from '../../../../remote-api-call/open-street-map/open-street-map-search.remote-response'
+import { OpenStreetMapLocationDto } from '../../../../dataTransferObjects/open-street-map-location.dto'
+import { CommonLocationEntity } from '../../../../entities/common-location.entity'
 import { Repository } from 'typeorm'
 import { getRepositoryToken } from '@nestjs/typeorm'
-import { OpenStreetMapService } from '../../../../remote-api-call/open-street-map/open-street-map.service.js'
-import { RequestService } from '../../../../remote-api-call/request/request.service.js'
-import { CommonLocationDto } from '../../../../dataTransferObjects/common-location.dto.js'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
+import { OpenStreetMapService } from '../../../../remote-api-call/open-street-map/open-street-map.service'
+import { RequestService } from '../../../../remote-api-call/request/request.service'
+import { CommonLocationDto } from '../../../../dataTransferObjects/common-location.dto'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 
 describe('CommonLocationsService', () => {
   let service: CommonLocationsService

@@ -2,8 +2,8 @@ import { Injectable, Logger } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { v4 as uuid } from 'uuid'
-import { DateSettingsEntity } from '../../../../entities/date-settings.entity.js'
-import { DateSettingsDto } from '../../../../dataTransferObjects/date-settings.dto.js'
+import { DateSettingsEntity } from '../../../../entities/date-settings.entity'
+import { DateSettingsDto } from '../../../../dataTransferObjects/date-settings.dto'
 
 @Injectable()
 export class DateSettingsService {

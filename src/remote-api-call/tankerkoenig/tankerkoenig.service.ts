@@ -1,11 +1,11 @@
 import { Injectable, BadRequestException } from '@nestjs/common'
-import { ConfigService } from '../../config/config.service.js'
-import { RequestService } from '../request/request.service.js'
-import { ITankerkoenigListRemoteResponse, ITankerkoenigStationRemote } from './tankerkoenig-list.remote-response.js'
-import { ITankerkoenigIPriceMeta, ITankerkoenigPricesRemoteResponse, ITankerkoenigIPrice } from './tankerkoenig-prices.remote-response.js'
-import { TankerkoenigPrice } from './tankerkoenig-price.js'
-import { ITankerkoenigErrorRemoteResponse } from './tankerkoenig-error.remote-response.js'
-import { TankerkoenigStationDto } from '../../dataTransferObjects/tankerkoenig-station.dto.js'
+import { ConfigService } from '../../config/config.service'
+import { RequestService } from '../request/request.service'
+import { ITankerkoenigListRemoteResponse, ITankerkoenigStationRemote } from './tankerkoenig-list.remote-response'
+import { ITankerkoenigIPriceMeta, ITankerkoenigPricesRemoteResponse, ITankerkoenigIPrice } from './tankerkoenig-prices.remote-response'
+import { TankerkoenigPrice } from './tankerkoenig-price'
+import { ITankerkoenigErrorRemoteResponse } from './tankerkoenig-error.remote-response'
+import { TankerkoenigStationDto } from '../../dataTransferObjects/tankerkoenig-station.dto'
 
 @Injectable()
 export class TankerkoenigService {

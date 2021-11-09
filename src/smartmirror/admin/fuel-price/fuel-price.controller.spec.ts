@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { FuelPriceController } from './fuel-price.controller.js'
-import { FuelPriceStationsService } from './stations/fuel-price-stations.service.js'
-import { FuelPriceSettingsService } from './settings/fuel-price-settings.service.js'
-import { FuelPriceSettingsDto } from '../../../dataTransferObjects/fuel-price-settings.dto.js'
-import { TankerkoenigStationDto } from '../../../dataTransferObjects/tankerkoenig-station.dto.js'
-import { FuelPriceStationDto } from '../../../dataTransferObjects/fuel-price-station.dto.js'
-import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
+import { FuelPriceController } from './fuel-price.controller'
+import { FuelPriceStationsService } from './stations/fuel-price-stations.service'
+import { FuelPriceSettingsService } from './settings/fuel-price-settings.service'
+import { FuelPriceSettingsDto } from '../../../dataTransferObjects/fuel-price-settings.dto'
+import { TankerkoenigStationDto } from '../../../dataTransferObjects/tankerkoenig-station.dto'
+import { FuelPriceStationDto } from '../../../dataTransferObjects/fuel-price-station.dto'
+import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
 
 describe('FuelPrice Controller', () => {
   let controller: FuelPriceController

@@ -2,11 +2,11 @@ import { Injectable, Logger } from '@nestjs/common'
 import { v4 as uuid } from 'uuid'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
-import { RmvService } from '../../../../remote-api-call/rmv/rmv.service.js'
-import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto.js'
-import { TimetableStationEntity } from '../../../../entities/timetable-station.entity.js'
-import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto.js'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
+import { RmvService } from '../../../../remote-api-call/rmv/rmv.service'
+import { RmvStationDto } from '../../../../dataTransferObjects/rmv-station.dto'
+import { TimetableStationEntity } from '../../../../entities/timetable-station.entity'
+import { TimetableStationDto } from '../../../../dataTransferObjects/timetable-station.dto'
 
 @Injectable()
 export class TimetableStationsService {

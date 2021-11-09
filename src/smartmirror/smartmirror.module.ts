@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
-import { AdminModule } from './admin/admin.module.js'
-import { UiModule } from './ui/ui.module.js'
+import { AdminModule } from './admin/admin.module'
+import { UiModule } from './ui/ui.module'
 
 @Module({
   imports: [AdminModule, UiModule],

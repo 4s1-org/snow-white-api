@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Delete, Put, Param, Body } from '@nestjs/common'
-import { CommonLocationsService } from './locations/common-locations.service.js'
-import { OpenStreetMapLocationDto } from '../../../dataTransferObjects/open-street-map-location.dto.js'
-import { CommonSettingsService } from './settings/common-settings.service.js'
-import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto.js'
-import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto.js'
-import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
+import { CommonLocationsService } from './locations/common-locations.service'
+import { OpenStreetMapLocationDto } from '../../../dataTransferObjects/open-street-map-location.dto'
+import { CommonSettingsService } from './settings/common-settings.service'
+import { CommonSettingsDto } from '../../../dataTransferObjects/common-settings.dto'
+import { CommonLocationDto } from '../../../dataTransferObjects/common-location.dto'
+import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
 
 @Controller('/v1/smartmirror/admin/common')
 export class CommonController {

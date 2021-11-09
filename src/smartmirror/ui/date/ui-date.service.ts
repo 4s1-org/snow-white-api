@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { DateSettingsService } from '../../admin/date/settings/date-settings.service.js'
-import { DateSettingsEntity } from '../../../entities/date-settings.entity.js'
+import { DateSettingsService } from '../../admin/date/settings/date-settings.service'
+import { DateSettingsEntity } from '../../../entities/date-settings.entity'
 
 @Injectable()
 export class UiDateService {

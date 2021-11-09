@@ -1,6 +1,6 @@
 import { Controller, Get, Put, Logger, Body } from '@nestjs/common'
-import { TrafficSettingsService } from './settings/traffic-settings.service.js'
-import { TrafficSettingsDto } from '../../../dataTransferObjects/traffic-settings.dto.js'
+import { TrafficSettingsService } from './settings/traffic-settings.service'
+import { TrafficSettingsDto } from '../../../dataTransferObjects/traffic-settings.dto'
 
 // ToDo: Namen korrigieren
 @Controller('/v1/smartmirror/admin/traffic')

@@ -1,13 +1,10 @@
 {
-  "extends": "@4s1/ts-config/tsconfig-es2020.json",
+  "extends": "@4s1/ts-config/tsconfig-es2020-commonjs.json",
   "compilerOptions": {
     "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitReturns": false,
-
-    /* Custom */
-    "incremental": true,
 
     /* Basic Options */
     "outDir": "./dist",
@@ -18,5 +15,5 @@
     "baseUrl": "./",
     "allowSyntheticDefaultImports": true
   },
-  "exclude": ["node_modules", "test", "dist", "**/*spec.ts", "src/generated/**"]
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
 }

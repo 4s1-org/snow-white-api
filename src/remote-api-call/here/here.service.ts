@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { RequestService } from '../request/request.service.js'
+import { RequestService } from '../request/request.service'
 
 import { IHereSearchRemoteResponse, IResponse } from './here-search.remote-response'
-import { CarRouteDto } from '../../dataTransferObjects/car-route.dto.js'
+import { CarRouteDto } from '../../dataTransferObjects/car-route.dto'
 
 @Injectable()
 export class HereService {

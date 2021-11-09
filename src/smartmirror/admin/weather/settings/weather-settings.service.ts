@@ -2,10 +2,10 @@ import { Injectable, Logger } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { v4 as uuid } from 'uuid'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js'
-import { WeatherSettingsEntity } from '../../../../entities/weather-settings.entity.js'
-import { WeatherSettingsDto } from '../../../../dataTransferObjects/weather-settings.dto.js'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
+import { WeatherSettingsEntity } from '../../../../entities/weather-settings.entity'
+import { WeatherSettingsDto } from '../../../../dataTransferObjects/weather-settings.dto'
 
 @Injectable()
 export class WeatherSettingsService {

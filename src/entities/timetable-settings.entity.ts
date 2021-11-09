@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
-import { TimetableStationEntity } from './timetable-station.entity.js'
+import { TimetableStationEntity } from './timetable-station.entity'
 
 @Entity('TimetableSettings')
 export class TimetableSettingsEntity {

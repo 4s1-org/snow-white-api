@@ -1,12 +1,12 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { OpenStreetMapService } from '../../../../remote-api-call/open-street-map/open-street-map.service.js'
-import { OpenStreetMapLocationDto } from '../../../../dataTransferObjects/open-street-map-location.dto.js'
-import { CommonLocationDto } from '../../../../dataTransferObjects/common-location.dto.js'
-import { CommonLocationEntity } from '../../../../entities/common-location.entity.js'
+import { OpenStreetMapService } from '../../../../remote-api-call/open-street-map/open-street-map.service'
+import { OpenStreetMapLocationDto } from '../../../../dataTransferObjects/open-street-map-location.dto'
+import { CommonLocationDto } from '../../../../dataTransferObjects/common-location.dto'
+import { CommonLocationEntity } from '../../../../entities/common-location.entity'
 import { v4 as uuid } from 'uuid'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 
 @Injectable()
 export class CommonLocationsService {

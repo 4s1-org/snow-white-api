@@ -1,10 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { TrafficSettingsEntity } from '../../../../entities/traffic-settings.entity.js'
+import { TrafficSettingsEntity } from '../../../../entities/traffic-settings.entity'
 import { Repository } from 'typeorm'
-import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto.js'
+import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto'
 import { InjectRepository } from '@nestjs/typeorm'
 import { v4 as uuid } from 'uuid'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
+import { ConstantsService } from '../../../../global/constants/constants.service'
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
 
 @Injectable()

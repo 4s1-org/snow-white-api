@@ -1,12 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { FuelPriceStationsService } from './fuel-price-stations.service.js'
+import { FuelPriceStationsService } from './fuel-price-stations.service'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { FuelPriceStationEntity } from '../../../../entities/fuel-price-station.entity.js'
-import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto.js'
-import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service.js'
-import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto.js'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
+import { FuelPriceStationEntity } from '../../../../entities/fuel-price-station.entity'
+import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto'
+import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service'
+import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 
 describe('FuelPriceStationsService', () => {
   let service: FuelPriceStationsService
