@@ -7,22 +7,24 @@ import { StockCourseDto } from './stock-course.dto.js'
 @Controller('stock')
 export class StockController {
   private cache: StockCourseDto[] = []
-  private client: MqttClient
+  private client: MqttClient | undefined = undefined
   private readonly logger = new Logger('Foo')
 
   constructor() {
-    this.client = connect(`mqtts://${ProcessEnv.MQTT_SERVER}`, {
-      port: ProcessEnv.MQTT_PORT,
-      username: ProcessEnv.MQTT_USERNAME,
-      password: ProcessEnv.MQTT_PASSWORD,
-      rejectUnauthorized: false,
-    })
+    if (ProcessEnv.MQTT_SERVER) {
+      this.client = connect(`mqtts://${ProcessEnv.MQTT_SERVER}`, {
+        port: ProcessEnv.MQTT_PORT,
+        username: ProcessEnv.MQTT_USERNAME,
+        password: ProcessEnv.MQTT_PASSWORD,
+        rejectUnauthorized: false,
+      })
 
-    this.client.on('message', (topic, payload) => {
-      this.buildCache(topic, JSON.parse(payload.toString()))
-    })
+      this.client.on('message', (topic, payload) => {
+        this.buildCache(topic, JSON.parse(payload.toString()))
+      })
 
-    this.client.subscribe(path.join(ProcessEnv.MQTT_TOPIC_STOCK, '+'))
+      this.client.subscribe(path.join(ProcessEnv.MQTT_TOPIC_STOCK, '+'))
+    }
   }
 
   async onApplicationBootstrap(): Promise<void> {
@@ -72,7 +74,9 @@ export class StockController {
       this.logger.warn(`${isin} | not found in cache`)
       const stock = new StockCourseDto()
       stock.isin = isin
-      this.client.publish(path.join(ProcessEnv.MQTT_TOPIC_STOCK, stock.isin), JSON.stringify(stock), { retain: true })
+      if (this.client) {
+        this.client.publish(path.join(ProcessEnv.MQTT_TOPIC_STOCK, stock.isin), JSON.stringify(stock), { retain: true })
+      }
       return stock
     }
   }
