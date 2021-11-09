@@ -42,7 +42,7 @@ specifiers:
   ts-loader: 9.2.6
   ts-node: 10.4.0
   tsconfig-paths: 3.11.0
-  typeorm: 0.2.38
+  typeorm: 0.2.39
   typescript: 4.4.4
   uuid: 8.3.2
 
@@ -52,7 +52,7 @@ dependencies:
   '@nestjs/core': 8.2.0_4cd843d44b7cc56d7dd061c958134502
   '@nestjs/platform-express': 8.2.0_3be9f4a5443d29d58a8c4813bc34ec98
   '@nestjs/swagger': 5.1.4_953ef440701d0fdb30f9ee304eb3b907
-  '@nestjs/typeorm': 8.0.2_e52a09161d9f860fa3e7f4499644ea7d
+  '@nestjs/typeorm': 8.0.2_160c9b6fbeb930c4f83acf994aefe5c2
   axios: 0.24.0
   class-transformer: 0.4.0
   class-validator: 0.13.1
@@ -67,7 +67,7 @@ dependencies:
   source-map-support: 0.5.20
   sqlite3: 5.0.2
   swagger-ui-express: 4.1.6
-  typeorm: 0.2.38_sqlite3@5.0.2
+  typeorm: 0.2.39_sqlite3@5.0.2
   uuid: 8.3.2
 
 devDependencies:
@@ -1135,7 +1135,7 @@ packages:
       tslib: 2.3.1
     dev: true
 
-  /@nestjs/typeorm/8.0.2_e52a09161d9f860fa3e7f4499644ea7d:
+  /@nestjs/typeorm/8.0.2_160c9b6fbeb930c4f83acf994aefe5c2:
     resolution: {integrity: sha512-UHn4IsRkzm22eNDir/uI+x8gmgo66EO7SxWfVOiPpeLSdrTfZHKYz6q/P9KRgYbwXs8TrywVdIbJhp+4C0tzjQ==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -1148,7 +1148,7 @@ packages:
       '@nestjs/core': 8.2.0_4cd843d44b7cc56d7dd061c958134502
       reflect-metadata: 0.1.13
       rxjs: 7.4.0
-      typeorm: 0.2.38_sqlite3@5.0.2
+      typeorm: 0.2.39_sqlite3@5.0.2
       uuid: 8.3.2
     dev: false
 
@@ -1780,11 +1780,6 @@ packages:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
 
-  /ansi-styles/2.2.1:
-    resolution: {integrity: sha1-tDLdM1i2NM914eRmQ2gkBTPB3b4=}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
     engines: {node: '>=4'}
@@ -2161,17 +2156,6 @@ packages:
     resolution: {integrity: sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=}
     dev: false
     optional: true
-
-  /chalk/1.1.3:
-    resolution: {integrity: sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      ansi-styles: 2.2.1
-      escape-string-regexp: 1.0.5
-      has-ansi: 2.0.0
-      strip-ansi: 3.0.1
-      supports-color: 2.0.0
-    dev: false
 
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -2979,6 +2963,7 @@ packages:
   /escape-string-regexp/1.0.5:
     resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
     engines: {node: '>=0.8.0'}
+    dev: true
 
   /escape-string-regexp/2.0.0:
     resolution: {integrity: sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==}
@@ -3326,11 +3311,6 @@ packages:
     dependencies:
       bser: 2.1.1
     dev: true
-
-  /figlet/1.5.2:
-    resolution: {integrity: sha512-WOn21V8AhyE1QqVfPIVxe3tupJacq1xGkPTB4iagT6o+P2cAgEOOwIxMftr4+ZCTI6d551ij9j61DFr0nsP2uQ==}
-    engines: {node: '>= 0.4.0'}
-    dev: false
 
   /figures/3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
@@ -3753,13 +3733,6 @@ packages:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
     engines: {node: '>=6'}
     dev: true
-
-  /has-ansi/2.0.0:
-    resolution: {integrity: sha1-NPUEnOHs3ysGSa8+8k5F7TVBbZE=}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      ansi-regex: 2.1.1
-    dev: false
 
   /has-bigints/1.0.1:
     resolution: {integrity: sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==}
@@ -5680,11 +5653,6 @@ packages:
       callsites: 3.1.0
     dev: true
 
-  /parent-require/1.0.0:
-    resolution: {integrity: sha1-dGoWdjgIOoYLDu9nMssn7UbDKXc=}
-    engines: {node: '>= 0.4.0'}
-    dev: false
-
   /parse-json/4.0.0:
     resolution: {integrity: sha1-vjX1Qlvh9/bHRxhPmKeIy5lHfuA=}
     engines: {node: '>=4'}
@@ -6560,11 +6528,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /supports-color/2.0.0:
-    resolution: {integrity: sha1-U10EXOa2Nj+kARcIRimZXp3zJMc=}
-    engines: {node: '>=0.8.0'}
-    dev: false
-
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -6997,8 +6960,8 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
 
-  /typeorm/0.2.38_sqlite3@5.0.2:
-    resolution: {integrity: sha512-M6Y3KQcAREQcphOVJciywf4mv6+A0I/SeR+lWNjKsjnQ+a3XcMwGYMGL0Jonsx3H0Cqlf/3yYqVki1jIXSK/xg==}
+  /typeorm/0.2.39_sqlite3@5.0.2:
+    resolution: {integrity: sha512-yQdvDpmmmn8wp1We25V76KIBPYR/lDbymNbGC++Uq8mSRhpHIPnlg26VAT4CF6Ypqx72zn8eqr+/72uSo7HdJQ==}
     hasBin: true
     peerDependencies:
       '@sap/hana-client': '*'
@@ -7063,7 +7026,6 @@ packages:
       sqlite3: 5.0.2
       tslib: 2.3.1
       xml2js: 0.4.23
-      yargonaut: 1.1.4
       yargs: 17.1.1
       zen-observable-ts: 1.1.0
     transitivePeerDependencies:
@@ -7408,14 +7370,6 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
     dev: true
-
-  /yargonaut/1.1.4:
-    resolution: {integrity: sha512-rHgFmbgXAAzl+1nngqOcwEljqHGG9uUZoPjsdZEs1w5JW9RXYzrSvH/u70C1JE5qFi0qjsdhnUX/dJRpWqitSA==}
-    dependencies:
-      chalk: 1.1.3
-      figlet: 1.5.2
-      parent-require: 1.0.0
-    dev: false
 
   /yargs-parser/20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
