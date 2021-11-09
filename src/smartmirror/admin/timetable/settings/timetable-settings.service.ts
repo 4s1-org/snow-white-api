@@ -2,10 +2,10 @@ import { Injectable, Logger } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { v4 as uuid } from 'uuid'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js'
-import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity.js'
-import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto.js'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
+import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity'
+import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto'
 
 @Injectable()
 export class TimetableSettingsService {

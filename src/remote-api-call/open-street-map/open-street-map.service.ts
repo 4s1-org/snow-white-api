@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { RequestService } from '../request/request.service.js'
-import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response.js'
-import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto.js'
+import { RequestService } from '../request/request.service'
+import { IOpenStreetMapSearchRemoteResponse } from './open-street-map-search.remote-response'
+import { OpenStreetMapLocationDto } from '../../dataTransferObjects/open-street-map-location.dto'
 
 @Injectable()
 export class OpenStreetMapService {

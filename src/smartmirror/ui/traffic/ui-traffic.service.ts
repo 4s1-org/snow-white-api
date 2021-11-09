@@ -1,12 +1,12 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
-import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service.js'
-import { HereService } from '../../../remote-api-call/here/here.service.js'
-import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto.js'
-import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity.js'
-import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto.js'
-import { CommonSettingsService } from '../../admin/common/settings/common-settings.service.js'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity.js'
-import { ConstantsService } from '../../../global/constants/constants.service.js'
+import { TrafficSettingsService } from '../../admin/traffic/settings/traffic-settings.service'
+import { HereService } from '../../../remote-api-call/here/here.service'
+import { CarRouteDto } from '../../../dataTransferObjects/car-route.dto'
+import { TrafficSettingsEntity } from '../../../entities/traffic-settings.entity'
+import { CarRoutesDto } from '../../../dataTransferObjects/car-routes.dto'
+import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
+import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
+import { ConstantsService } from '../../../global/constants/constants.service'
 
 @Injectable()
 export class UiTrafficService {
@@ -23,12 +23,7 @@ export class UiTrafficService {
     const trafficSettingsEntity: TrafficSettingsEntity = await this.trafficSettings.getRecord()
     const apiKey = trafficSettingsEntity.apiKey || process.env.APIKEY_HERE
 
-    if (
-      trafficSettingsEntity.isActive &&
-      apiKey &&
-      trafficSettingsEntity.commonLocationFrom &&
-      trafficSettingsEntity.commonLocationTo
-    ) {
+    if (trafficSettingsEntity.isActive && apiKey && trafficSettingsEntity.commonLocationFrom && trafficSettingsEntity.commonLocationTo) {
       const commonSettingsEntity: CommonSettingsEntity = await this.commonSettings.getRecord()
       const timestamp: number = this.constantsService.getCurrentTimestamp()
 

@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
-import { CommonLocationEntity } from './common-location.entity.js'
+import { CommonLocationEntity } from './common-location.entity'
 
 @Entity('WeatherSettings')
 export class WeatherSettingsEntity {

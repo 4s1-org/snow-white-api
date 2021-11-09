@@ -12,11 +12,10 @@
   },
   "license": "MIT",
   "author": "Steffen <steffen@4s1.de>",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",
-    "preinstall": "npx only-allow pnpm",
     "lbt": "npm run lint && npm run build && npm run test",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "npm run lint -- --fix",
@@ -35,7 +34,7 @@
   },
   "prettier": "@4s1/eslint-config",
   "dependencies": {
-    "@4s1/snow-white-shared": "4.1.0",
+    "@4s1/snow-white-shared": "5.0.1",
     "@nestjs/common": "8.2.0",
     "@nestjs/core": "8.2.0",
     "@nestjs/platform-express": "8.2.0",
@@ -60,7 +59,7 @@
   },
   "devDependencies": {
     "@4s1/eslint-config": "3.2.2",
-    "@4s1/ts-config": "1.2.2",
+    "@4s1/ts-config": "1.3.0",
     "@commitlint/cli": "14.1.0",
     "@commitlint/config-conventional": "14.1.0",
     "@nestjs/cli": "8.1.4",

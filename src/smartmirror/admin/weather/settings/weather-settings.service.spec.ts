@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { CommonLocationEntity } from '../../../../entities/common-location.entity.js'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
-import { WeatherSettingsEntity } from '../../../../entities/weather-settings.entity.js'
-import { WeatherSettingsService } from './weather-settings.service.js'
-import { WeatherSettingsDto } from '../../../../dataTransferObjects/weather-settings.dto.js'
+import { CommonLocationEntity } from '../../../../entities/common-location.entity'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { WeatherSettingsEntity } from '../../../../entities/weather-settings.entity'
+import { WeatherSettingsService } from './weather-settings.service'
+import { WeatherSettingsDto } from '../../../../dataTransferObjects/weather-settings.dto'
 
 describe('WeatherSettingsService', () => {
   let service: WeatherSettingsService

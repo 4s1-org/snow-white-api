@@ -1,13 +1,13 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common'
-import { RmvService } from '../../../remote-api-call/rmv/rmv.service.js'
-import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto.js'
-import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity.js'
-import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto.js'
-import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service.js'
-import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto.js'
-import { CommonSettingsService } from '../../admin/common/settings/common-settings.service.js'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity.js'
-import { ConstantsService } from '../../../global/constants/constants.service.js'
+import { RmvService } from '../../../remote-api-call/rmv/rmv.service'
+import { RmvTripDto } from '../../../dataTransferObjects/rmv-trip.dto'
+import { TimetableSettingsEntity } from '../../../entities/timetable-settings.entity'
+import { RmvTripsDto } from '../../../dataTransferObjects/rmv-trips.dto'
+import { TimetableSettingsService } from '../../admin/timetable/settings/timetable-settings.service'
+import { TimetableLinesFilter } from '../../../dataTransferObjects/timetable-lines-filter.dto'
+import { CommonSettingsService } from '../../admin/common/settings/common-settings.service'
+import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
+import { ConstantsService } from '../../../global/constants/constants.service'
 
 @Injectable()
 export class UiTimetableService {

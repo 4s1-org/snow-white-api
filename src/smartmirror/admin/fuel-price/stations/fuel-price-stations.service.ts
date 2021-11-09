@@ -1,13 +1,13 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
-import { FuelPriceStationEntity } from '../../../../entities/fuel-price-station.entity.js'
-import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service.js'
-import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto.js'
-import { CoordinatesDto } from '../../../../dataTransferObjects/coordinates.dto.js'
+import { FuelPriceStationEntity } from '../../../../entities/fuel-price-station.entity'
+import { TankerkoenigService } from '../../../../remote-api-call/tankerkoenig/tankerkoenig.service'
+import { TankerkoenigStationDto } from '../../../../dataTransferObjects/tankerkoenig-station.dto'
+import { CoordinatesDto } from '../../../../dataTransferObjects/coordinates.dto'
 import { v4 as uuid } from 'uuid'
-import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto.js'
-import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto.js'
+import { FuelPriceStationDto } from '../../../../dataTransferObjects/fuel-price-station.dto'
+import { SortOrderDto } from '../../../../dataTransferObjects/sort-order.dto'
 
 @Injectable()
 export class FuelPriceStationsService {

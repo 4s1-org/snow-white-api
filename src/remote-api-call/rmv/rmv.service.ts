@@ -1,12 +1,12 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { RequestService } from '../request/request.service.js'
+import { RequestService } from '../request/request.service'
 import { IRmvSearchStationRemoteResponse, IStopLocationOrCoordLocation, IStopLocation } from './rmv-search-station.remote-response'
-import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto.js'
-import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto.js'
+import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
+import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
 import { IRmvSearchTripRemoteResponse, ITrip, ILocation, ILeg } from './rmv-search-trip.remote-response'
 import moment from 'moment'
 import 'moment-timezone'
-import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto.js'
+import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
 
 @Injectable()
 export class RmvService {

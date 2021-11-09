@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common'
-import { CommonController } from './common.controller.js'
-import { CommonSettingsService } from './settings/common-settings.service.js'
-import { CommonLocationsService } from './locations/common-locations.service.js'
-import { RemoteApiCallModule } from '../../../remote-api-call/remote-api-call.module.js'
+import { CommonController } from './common.controller'
+import { CommonSettingsService } from './settings/common-settings.service'
+import { CommonLocationsService } from './locations/common-locations.service'
+import { RemoteApiCallModule } from '../../../remote-api-call/remote-api-call.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { CommonSettingsEntity } from '../../../entities/common-settings.entity.js'
-import { CommonLocationEntity } from '../../../entities/common-location.entity.js'
+import { CommonSettingsEntity } from '../../../entities/common-settings.entity'
+import { CommonLocationEntity } from '../../../entities/common-location.entity'
 
 @Module({
   controllers: [CommonController],

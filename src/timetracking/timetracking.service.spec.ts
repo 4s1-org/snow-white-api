@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { TimetrackingService } from './timetracking.service.js'
-import { ConfigModule } from '../config/config.module.js'
+import { TimetrackingService } from './timetracking.service'
+import { ConfigModule } from '../config/config.module'
 
 describe('TimetrackingService', () => {
   let service: TimetrackingService
