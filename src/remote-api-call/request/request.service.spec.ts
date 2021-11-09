@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { RequestService } from './request.service.js'
+import { RequestService } from './request.service'
 import { HttpModule } from '@nestjs/common'
 
 // ToDo: Implement tests

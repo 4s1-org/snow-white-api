@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core'
-import { AppModule } from './app.module.js'
+import { AppModule } from './app.module'
 import { SwaggerModule, DocumentBuilder, OpenAPIObject } from '@nestjs/swagger'
 import { ValidationPipe, INestApplication } from '@nestjs/common'
-import { AllExceptionsFilter } from './AllExceptionsFilter.js'
+import { AllExceptionsFilter } from './AllExceptionsFilter'
 
 async function bootstrap(): Promise<void> {
   const app: INestApplication = await NestFactory.create(AppModule)

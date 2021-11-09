@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { RequestService } from '../request/request.service.js'
-import { IOpenWeatherForecast, IWeather } from './open-weather-geographic.remote-response.js'
-import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto.js'
+import { RequestService } from '../request/request.service'
+import { IOpenWeatherForecast, IWeather } from './open-weather-geographic.remote-response'
+import { WeatherDatasDto } from '../../dataTransferObjects/weather-datas.dto'
 
 @Injectable()
 export class OpenWeatherService {

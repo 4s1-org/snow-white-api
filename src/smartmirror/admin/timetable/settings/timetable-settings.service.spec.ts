@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
-import { TimetableSettingsService } from './timetable-settings.service.js'
-import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity.js'
-import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto.js'
+import { ConstantsService } from '../../../../global/constants/constants.service'
+import { TimetableSettingsService } from './timetable-settings.service'
+import { TimetableSettingsEntity } from '../../../../entities/timetable-settings.entity'
+import { TimetableSettingsDto } from '../../../../dataTransferObjects/timetable-settings.dto'
 
 describe('TimetableSettingsService', () => {
   let service: TimetableSettingsService

@@ -1,11 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { TrafficSettingsService } from './traffic-settings.service.js'
+import { TrafficSettingsService } from './traffic-settings.service'
 import { getRepositoryToken } from '@nestjs/typeorm'
-import { TrafficSettingsEntity } from '../../../../entities/traffic-settings.entity.js'
+import { TrafficSettingsEntity } from '../../../../entities/traffic-settings.entity'
 import { Repository } from 'typeorm'
-import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto.js'
-import { CommonLocationEntity } from '../../../../entities/common-location.entity.js'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
+import { TrafficSettingsDto } from '../../../../dataTransferObjects/traffic-settings.dto'
+import { CommonLocationEntity } from '../../../../entities/common-location.entity'
+import { ConstantsService } from '../../../../global/constants/constants.service'
 
 describe('TrafficSettingsService', () => {
   let service: TrafficSettingsService

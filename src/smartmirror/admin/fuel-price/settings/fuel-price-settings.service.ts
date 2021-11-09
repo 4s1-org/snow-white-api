@@ -2,9 +2,9 @@ import { Injectable, Logger } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { v4 as uuid } from 'uuid'
-import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity.js'
-import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto.js'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
+import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity'
+import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto'
+import { ConstantsService } from '../../../../global/constants/constants.service'
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity'
 
 @Injectable()

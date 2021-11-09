@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
-import { ConfigService } from '../config/config.service.js'
-import { TimetrackingController } from './timetracking.controller.js'
-import { TimetrackingService } from './timetracking.service.js'
+import { ConfigService } from '../config/config.service'
+import { TimetrackingController } from './timetracking.controller'
+import { TimetrackingService } from './timetracking.service'
 
 @Module({
   controllers: [TimetrackingController],

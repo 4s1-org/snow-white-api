@@ -1,10 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { FuelPriceSettingsService } from './fuel-price-settings.service.js'
-import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity.js'
+import { FuelPriceSettingsService } from './fuel-price-settings.service'
+import { FuelPriceSettingsEntity } from '../../../../entities/fuel-price-settings.entity'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto.js'
-import { ConstantsService } from '../../../../global/constants/constants.service.js'
+import { FuelPriceSettingsDto } from '../../../../dataTransferObjects/fuel-price-settings.dto'
+import { ConstantsService } from '../../../../global/constants/constants.service'
 
 describe('FuelPriceSettingsService', () => {
   let service: FuelPriceSettingsService

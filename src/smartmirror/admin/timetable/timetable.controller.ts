@@ -1,20 +1,17 @@
 import { Controller, Get, Put, Post, Delete, Logger, Body, Param } from '@nestjs/common'
-import { TimetableSettingsService } from './settings/timetable-settings.service.js'
-import { TimetableStationsService } from './stations/timetable-stations.service.js'
-import { RmvStationDto } from '../../../dataTransferObjects/rmv-station.dto.js'
-import { CoordinatesDto } from '../../../dataTransferObjects/coordinates.dto.js'
-import { TimetableStationDto } from '../../../dataTransferObjects/timetable-station.dto.js'
-import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto.js'
-import { TimetableSettingsDto } from '../../../dataTransferObjects/timetable-settings.dto.js'
+import { TimetableSettingsService } from './settings/timetable-settings.service'
+import { TimetableStationsService } from './stations/timetable-stations.service'
+import { RmvStationDto } from '../../../dataTransferObjects/rmv-station.dto'
+import { CoordinatesDto } from '../../../dataTransferObjects/coordinates.dto'
+import { TimetableStationDto } from '../../../dataTransferObjects/timetable-station.dto'
+import { SortOrderDto } from '../../../dataTransferObjects/sort-order.dto'
+import { TimetableSettingsDto } from '../../../dataTransferObjects/timetable-settings.dto'
 
 @Controller('/v1/smartmirror/admin/timetable')
 export class TimetableController {
   private readonly logger: Logger = new Logger(TimetableController.name)
 
-  constructor(
-    private readonly settings: TimetableSettingsService,
-    private readonly stations: TimetableStationsService,
-  ) {}
+  constructor(private readonly settings: TimetableSettingsService, private readonly stations: TimetableStationsService) {}
 
   // GET - /v1/smartmirror/admin/timetable/settings
   @Get('/settings')

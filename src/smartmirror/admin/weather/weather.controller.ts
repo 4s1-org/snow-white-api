@@ -1,6 +1,6 @@
 import { Controller, Get, Put, Logger, Body } from '@nestjs/common'
-import { WeatherSettingsService } from './settings/weather-settings.service.js'
-import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto.js'
+import { WeatherSettingsService } from './settings/weather-settings.service'
+import { WeatherSettingsDto } from '../../../dataTransferObjects/weather-settings.dto'
 
 @Controller('/v1/smartmirror/admin/weather')
 export class WeatherController {
