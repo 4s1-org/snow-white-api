@@ -27,7 +27,7 @@ specifiers:
   husky: 7.0.4
   jest: 27.3.1
   moment: 2.29.1
-  moment-timezone: 0.5.33
+  moment-timezone: 0.5.34
   mqtt: 4.2.8
   mysql: 2.18.1
   nodemailer: 6.7.0
@@ -58,7 +58,7 @@ dependencies:
   class-validator: 0.13.1
   dotenv: 10.0.0
   moment: 2.29.1
-  moment-timezone: 0.5.33
+  moment-timezone: 0.5.34
   mqtt: 4.2.8
   mysql: 2.18.1
   nodemailer: 6.7.0
@@ -5167,8 +5167,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /moment-timezone/0.5.33:
-    resolution: {integrity: sha512-PTc2vcT8K9J5/9rDEPe5czSIKgLoGsH8UNpA4qZTVw0Vd/Uz19geE9abbIOQKaAQFcnQ3v5YEXrbSc5BpshH+w==}
+  /moment-timezone/0.5.34:
+    resolution: {integrity: sha512-3zAEHh2hKUs3EXLESx/wsgw6IQdusOT8Bxm3D9UrHPQR7zlMmzwybC8zHEM1tQ4LJwP7fcxrWr8tuBg05fFCbg==}
     dependencies:
       moment: 2.29.1
     dev: false
