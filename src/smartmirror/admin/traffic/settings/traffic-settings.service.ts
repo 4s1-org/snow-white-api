@@ -21,7 +21,6 @@ export class TrafficSettingsService {
     const record: TrafficSettingsEntity = await this.getRecord()
 
     const dataToSave: QueryDeepPartialEntity<TrafficSettingsEntity> = {
-      apiKey: settings.apiKey,
       commonLocationFrom: {
         id: settings.locationFromId,
       },
