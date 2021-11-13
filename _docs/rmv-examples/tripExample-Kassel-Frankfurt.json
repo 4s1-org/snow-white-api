@@ -1,0 +1,2389 @@
+{
+  "Trip": [
+    {
+      "Notes": { "Note": [{ "value": "Der Anschluss kann voraussichtlich nicht erreicht werden.", "type": "R" }] },
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "nicht täglich",
+          "sDaysI": "13. Nov",
+          "sDaysB": "00000000000000000000020400000000"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "13:37:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "13:37:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131337$202111131337$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 3,
+              "prognosisType": "PROGNOSED",
+              "time": "13:37:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "13:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 4,
+              "prognosisType": "PROGNOSED",
+              "time": "14:54:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "14:57:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 3, "routeIdxTo": 4 },
+                { "value": "Der Anschluss kann voraussichtlich nicht erreicht werden.", "type": "R" }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|161071|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 577 ",
+              "num": "577",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 577 ",
+            "number": "577",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Stuttgart Hauptbahnhof"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 0,
+              "prognosisType": "PROGNOSED",
+              "time": "15:00:00",
+              "date": "2021-11-13",
+              "rtTime": "15:00:00",
+              "rtDate": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Willy-Brandt-Platz",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Willy-Brandt-Platz@X=8673898@Y=50108992@U=80@L=3000004@",
+              "extId": "3000004",
+              "lon": 8.673898,
+              "lat": 50.108992,
+              "routeIdx": 2,
+              "prognosisType": "PROGNOSED",
+              "time": "15:02:00",
+              "date": "2021-11-13",
+              "rtTime": "15:02:00",
+              "rtDate": "2021-11-13"
+            },
+            "Notes": { "Note": [{ "value": "20530", "key": "FD", "type": "I", "routeIdxFrom": 0, "routeIdxTo": 2 }] },
+            "JourneyDetailRef": { "ref": "1|21500|10|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "      U2",
+              "num": "4026",
+              "line": "U2",
+              "catOut": "U-Bahn  ",
+              "catIn": "BU5",
+              "catCode": "4",
+              "catOutS": "BU5",
+              "catOutL": "U-Bahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBU"
+            },
+            "idx": "2",
+            "name": "      U2",
+            "number": "4026",
+            "category": "BU5",
+            "type": "JNY",
+            "reachable": false,
+            "direction": "Frankfurt (Main) Nieder-Eschbach"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Willy-Brandt-Platz",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Willy-Brandt-Platz@X=8673898@Y=50108992@U=80@L=3000004@",
+              "extId": "3000004",
+              "lon": 8.673898,
+              "lat": 50.108992,
+              "routeIdx": 12,
+              "time": "15:07:00",
+              "date": "2021-11-13",
+              "rtTime": "15:07:00",
+              "rtDate": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 13,
+              "time": "15:09:00",
+              "date": "2021-11-13",
+              "rtTime": "15:09:00",
+              "rtDate": "2021-11-13"
+            },
+            "Notes": { "Note": [{ "value": "50178", "key": "FD", "type": "I", "routeIdxFrom": 12, "routeIdxTo": 13 }] },
+            "JourneyDetailRef": { "ref": "1|21927|12|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "      U5",
+              "num": "7670",
+              "line": "U5",
+              "catOut": "U-Bahn  ",
+              "catIn": "BU5",
+              "catCode": "4",
+              "catOutS": "BU5",
+              "catOutL": "U-Bahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBU"
+            },
+            "idx": "3",
+            "name": "      U5",
+            "number": "7670",
+            "category": "BU5",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Hauptbahnhof"
+          }
+        ]
+      },
+      "valid": false,
+      "idx": 0,
+      "tripId": "C-0",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131337$202111131337$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$202111131337$202111131454$ICE 577 $$1$$$$§T$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$A=1@O=Frankfurt (Main) Willy-Brandt-Platz@L=3000004@a=128@$202111131500$202111131502$      U2$$1$$$$§T$A=1@O=Frankfurt (Main) Willy-Brandt-Platz@L=3000004@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131507$202111131509$      U5$$1$$$$",
+      "duration": "PT1H32M",
+      "checksum": "d596abb6_3"
+    },
+    {
+      "Notes": { "Note": [{ "value": "Der Anschluss kann voraussichtlich nicht erreicht werden.", "type": "R" }] },
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "nicht täglich",
+          "sDaysI": "13. Nov",
+          "sDaysB": "00000000000000000000020400000000"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "13:37:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "13:37:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131337$202111131337$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 3,
+              "prognosisType": "PROGNOSED",
+              "time": "13:37:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "13:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 4,
+              "prognosisType": "PROGNOSED",
+              "time": "14:54:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "14:57:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 3, "routeIdxTo": 4 },
+                { "value": "Der Anschluss kann voraussichtlich nicht erreicht werden.", "type": "R" }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|161071|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 577 ",
+              "num": "577",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 577 ",
+            "number": "577",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Stuttgart Hauptbahnhof"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 12,
+              "prognosisType": "PROGNOSED",
+              "time": "15:01:00",
+              "date": "2021-11-13",
+              "rtTime": "15:01:00",
+              "rtDate": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 18,
+              "prognosisType": "PROGNOSED",
+              "time": "15:11:00",
+              "date": "2021-11-13",
+              "rtTime": "15:11:00",
+              "rtDate": "2021-11-13"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Türen mit Mehrzweckfläche sind mit gelbem Balken über der Tür gekennzeichnet",
+                  "key": "eq",
+                  "type": "A",
+                  "priority": 350,
+                  "routeIdxFrom": 12,
+                  "routeIdxTo": 18
+                },
+                { "value": "160770", "key": "FD", "type": "I", "routeIdxFrom": 12, "routeIdxTo": 18 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|24786|36|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "Tram 16 ",
+              "num": "15796",
+              "line": "16",
+              "catOut": "Tram    ",
+              "catIn": "BTS",
+              "catCode": "5",
+              "catOutS": "BTS",
+              "catOutL": "Niederflurstraßenbahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBT"
+            },
+            "idx": "2",
+            "name": "Tram 16 ",
+            "number": "15796",
+            "category": "BTS",
+            "type": "JNY",
+            "reachable": false,
+            "direction": "Frankfurt (Main) Ginnheim"
+          }
+        ]
+      },
+      "valid": false,
+      "idx": 1,
+      "tripId": "C-1",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131337$202111131337$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$202111131337$202111131454$ICE 577 $$1$$$$§T$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131501$202111131511$Tram 16 $$1$$$$",
+      "duration": "PT1H34M",
+      "checksum": "8d645739_3"
+    },
+    {
+      "Notes": {
+        "Note": [
+          { "value": "Fahrtmöglichkeit gemäß aktueller Verkehrslage.", "type": "R" },
+          { "value": "Fahrtmöglichkeit gemäß aktueller Verkehrslage. Bitte beachten Sie die aktuellen Echtzeitinformationen.", "type": "R" }
+        ]
+      },
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "nicht täglich",
+          "sDaysI": "13. Nov",
+          "sDaysB": "00000000000000000000020400000000"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "13:40:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "13:40:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131340$202111131340$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 3,
+              "prognosisType": "PROGNOSED",
+              "time": "13:37:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "13:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 4,
+              "prognosisType": "PROGNOSED",
+              "time": "14:54:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "14:57:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 3, "routeIdxTo": 4 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|161071|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 577 ",
+              "num": "577",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 577 ",
+            "number": "577",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Stuttgart Hauptbahnhof"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 0,
+              "prognosisType": "PROGNOSED",
+              "time": "15:03:00",
+              "date": "2021-11-13",
+              "rtTime": "15:03:00",
+              "rtDate": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Willy-Brandt-Platz",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Willy-Brandt-Platz@X=8673898@Y=50108992@U=80@L=3000004@",
+              "extId": "3000004",
+              "lon": 8.673898,
+              "lat": 50.108992,
+              "routeIdx": 2,
+              "prognosisType": "PROGNOSED",
+              "time": "15:05:00",
+              "date": "2021-11-13",
+              "rtTime": "15:05:00",
+              "rtDate": "2021-11-13"
+            },
+            "Notes": { "Note": [{ "value": "30311", "key": "FD", "type": "I", "routeIdxFrom": 0, "routeIdxTo": 2 }] },
+            "JourneyDetailRef": { "ref": "1|21580|19|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "      U3",
+              "num": "4512",
+              "line": "U3",
+              "catOut": "U-Bahn  ",
+              "catIn": "BU5",
+              "catCode": "4",
+              "catOutS": "BU5",
+              "catOutL": "U-Bahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBU"
+            },
+            "idx": "2",
+            "name": "      U3",
+            "number": "4512",
+            "category": "BU5",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Oberursel (Taunus)-Hohemark"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Willy-Brandt-Platz",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Willy-Brandt-Platz@X=8673898@Y=50108992@U=80@L=3000004@",
+              "extId": "3000004",
+              "lon": 8.673898,
+              "lat": 50.108992,
+              "routeIdx": 20,
+              "prognosisType": "PROGNOSED",
+              "time": "15:08:00",
+              "date": "2021-11-13",
+              "rtTime": "15:08:00",
+              "rtDate": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 23,
+              "prognosisType": "PROGNOSED",
+              "time": "15:12:00",
+              "date": "2021-11-13",
+              "rtTime": "15:12:00",
+              "rtDate": "2021-11-13"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Türen mit Mehrzweckfläche sind mit gelbem Balken über der Tür gekennzeichnet",
+                  "key": "eq",
+                  "type": "A",
+                  "priority": 350,
+                  "routeIdxFrom": 20,
+                  "routeIdxTo": 23
+                },
+                { "value": "110190", "key": "FD", "type": "I", "routeIdxFrom": 20, "routeIdxTo": 23 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|23220|37|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "Tram 11 ",
+              "num": "4930",
+              "line": "11",
+              "catOut": "Tram    ",
+              "catIn": "BTS",
+              "catCode": "5",
+              "catOutS": "BTS",
+              "catOutL": "Niederflurstraßenbahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBT"
+            },
+            "idx": "3",
+            "name": "Tram 11 ",
+            "number": "4930",
+            "category": "BTS",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Zuckschwerdtstraße"
+          }
+        ]
+      },
+      "alternative": true,
+      "idx": 2,
+      "tripId": "C-2",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131340$202111131340$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$202111131337$202111131454$ICE 577 $$1$$$$§T$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$A=1@O=Frankfurt (Main) Willy-Brandt-Platz@L=3000004@a=128@$202111131503$202111131505$      U3$$1$$$$§T$A=1@O=Frankfurt (Main) Willy-Brandt-Platz@L=3000004@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131508$202111131512$Tram 11 $$3$$$$",
+      "duration": "PT1H35M",
+      "checksum": "9657d3de_3"
+    },
+    {
+      "Notes": {
+        "Note": [
+          { "value": "Fahrtmöglichkeit gemäß aktueller Verkehrslage.", "type": "R" },
+          { "value": "Fahrtmöglichkeit gemäß aktueller Verkehrslage. Bitte beachten Sie die aktuellen Echtzeitinformationen.", "type": "R" }
+        ]
+      },
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "nicht täglich",
+          "sDaysI": "13., 14. Nov",
+          "sDaysB": "00000000000000000000030600000000"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "13:40:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "13:40:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131340$202111131340$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 3,
+              "prognosisType": "PROGNOSED",
+              "time": "13:37:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "13:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 4,
+              "prognosisType": "PROGNOSED",
+              "time": "14:54:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "14:57:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 3, "routeIdxTo": 4 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|161071|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 577 ",
+              "num": "577",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 577 ",
+            "number": "577",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Stuttgart Hauptbahnhof"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 6,
+              "prognosisType": "PROGNOSED",
+              "time": "15:03:00",
+              "date": "2021-11-13",
+              "track": "4",
+              "rtTime": "15:03:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "4"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof tief",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof tief@X=8662500@Y=50107158@U=80@L=3007010@",
+              "extId": "3007010",
+              "lon": 8.6625,
+              "lat": 50.107158,
+              "routeIdx": 12,
+              "prognosisType": "PROGNOSED",
+              "time": "15:13:00",
+              "date": "2021-11-13",
+              "track": "104",
+              "rtTime": "15:13:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "104"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 6,
+                  "routeIdxTo": 12
+                },
+                {
+                  "value": "Fahrzeuggebundene Einstiegshilfe vorhanden",
+                  "key": "pz",
+                  "type": "A",
+                  "priority": 560,
+                  "routeIdxFrom": 6,
+                  "routeIdxTo": 12
+                },
+                { "value": "Klimaanlage", "key": "py", "type": "A", "priority": 610, "routeIdxFrom": 6, "routeIdxTo": 12 },
+                { "value": "35346", "key": "FD", "type": "I", "routeIdxFrom": 6, "routeIdxTo": 12 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|135404|18|80|13112021" },
+            "Messages": {
+              "Message": [
+                {
+                  "id": "2129710",
+                  "act": true,
+                  "head": "S3, S4: Busse statt Bahnen auf Teilstrecke vom 12.11. bis 15.11.",
+                  "lead": "Zwischen \"Langen Bahnhof\" und \"Darmstadt Hauptbahnhof\" fahren ganztags Busse statt Bahnen. Erzhausen wird von den Ersatzbussen nicht bedient, es besteht aber in Darmstadt-Wixhausen Anschluss an einen Pendelbus von und nach Erzhausen. Grund für die Änderungen sind Arbeiten an Weichen.",
+                  "text": "Zwischen \"Langen Bahnhof\" und \"Darmstadt Hauptbahnhof\" fahren ganztags Busse statt Bahnen.<br>Die Ersatzbusse bedienen folgende Haltestellen: <br>\"Darmstadt Hauptbahnhof\" (Halteposition 2), \"Darmstadt-Arheilgen Bahnhof West (B3), \"Darmstadt-Wixhausen Messeler-Park-Straße\", \"Egelsbach Bahnhof\" und \"Langen Bahnhof\".<br>Erzhausen wird wegen der Sperrung des Bahnübergangs in Erzhausen von den Ersatzbussen nicht bedient, es besteht aber in \"Darmstadt-Wixhausen Messeler-Park-Straße\" Anschluss an einen Pendelbus von und nach \"Erzhausen Bahnhof\".<br>Die Fahrradmitnahme ist in den Ersatzbussen nicht möglich.<br>Durch die Änderungen kann es zu längeren Reisedauern kommen.<br>Grund für die Änderungen sind Arbeiten an Weichen.<br><br>Die Änderungen sind weitestgehend in der elektronischen Verbindungsauskunft enthalten.<br>Noch nicht in der Verbindungsauskunft berücksichtigt ist der Pendelbusverkehr nach Erzhausen.<br>Weitere Informationen, Baustellenfahrpläne und Wegeleitungen zu den Bushaltestellen im Artikel",
+                  "company": "RMVU",
+                  "category": "1",
+                  "priority": 75,
+                  "products": 65535,
+                  "sTime": "21:20:00",
+                  "sDate": "2021-11-12",
+                  "eTime": "05:00:00",
+                  "eDate": "2021-11-15",
+                  "altStart": "",
+                  "altEnd": ""
+                }
+              ]
+            },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "      S3",
+              "num": "1332",
+              "line": "S3",
+              "catOut": "S       ",
+              "catIn": "SBU",
+              "catCode": "3",
+              "catOutS": "SBU",
+              "catOutL": "S-Bahn",
+              "operatorCode": "DBR",
+              "operator": "DB Regio AG S-Bahn Rhein-Main",
+              "admin": "800528"
+            },
+            "idx": "2",
+            "name": "      S3",
+            "number": "1332",
+            "category": "SBU",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Bad Soden (Taunus) Bahnhof"
+          }
+        ]
+      },
+      "alternative": true,
+      "idx": 3,
+      "tripId": "C-3",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131340$202111131340$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$202111131337$202111131454$ICE 577 $$1$$$$§T$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof tief@L=3007010@a=128@$202111131503$202111131513$      S3$$1$$$$",
+      "duration": "PT1H36M",
+      "checksum": "79908cfd_3"
+    },
+    {
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "Sa, So",
+          "sDaysB": "0000000000000000000002060C183040"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "13:54:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "13:54:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131354$202111131354$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 3,
+              "prognosisType": "PROGNOSED",
+              "time": "13:54:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "13:54:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 6,
+              "prognosisType": "PROGNOSED",
+              "time": "15:40:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "15:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 6
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 6
+                },
+                {
+                  "value": "Fahrradmitnahme reservierungspflichtig",
+                  "key": "qg",
+                  "type": "A",
+                  "priority": 260,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 6
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 3, "routeIdxTo": 6 },
+                { "value": "1685", "key": "FD", "type": "I", "routeIdxFrom": 3, "routeIdxTo": 6 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|167613|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 24  ",
+              "num": "1515",
+              "line": "24",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 24  ",
+            "number": "1515",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Hauptbahnhof"
+          }
+        ]
+      },
+      "idx": 4,
+      "tripId": "C-4",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131354$202111131354$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131354$202111131540$ICE 24  $$1$$$$",
+      "duration": "PT1H46M",
+      "checksum": "6aee3eaa_3"
+    },
+    {
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "täglich",
+          "sDaysB": "00000000000000000001FFFFFFFFFFC0"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "14:14:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "14:14:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131414$202111131414$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 3,
+              "prognosisType": "PROGNOSED",
+              "time": "14:14:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "14:17:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06631009", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Fulda Bahnhof",
+              "type": "ST",
+              "id": "A=1@O=Fulda Bahnhof@X=9683764@Y=50554920@U=80@L=3011049@",
+              "extId": "3011049",
+              "lon": 9.683675,
+              "lat": 50.554893,
+              "routeIdx": 4,
+              "prognosisType": "PROGNOSED",
+              "time": "14:45:00",
+              "date": "2021-11-13",
+              "track": "4",
+              "rtTime": "14:45:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "4"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                {
+                  "value": "Fahrradmitnahme reservierungspflichtig",
+                  "key": "qg",
+                  "type": "A",
+                  "priority": 260,
+                  "routeIdxFrom": 3,
+                  "routeIdxTo": 4
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 3, "routeIdxTo": 4 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|160318|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 1593",
+              "num": "1593",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 1593",
+            "number": "1593",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Flughafen Fernbahnhof"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06631009", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Fulda Bahnhof",
+              "type": "ST",
+              "id": "A=1@O=Fulda Bahnhof@X=9683764@Y=50554920@U=80@L=3011049@",
+              "extId": "3011049",
+              "lon": 9.683675,
+              "lat": 50.554893,
+              "routeIdx": 7,
+              "prognosisType": "PROGNOSED",
+              "time": "14:50:00",
+              "date": "2021-11-13",
+              "track": "3",
+              "rtTime": "14:50:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "3"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 8,
+              "prognosisType": "PROGNOSED",
+              "time": "15:44:00",
+              "date": "2021-11-13",
+              "track": "9",
+              "rtTime": "15:44:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "9"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 7,
+                  "routeIdxTo": 8
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 7,
+                  "routeIdxTo": 8
+                },
+                {
+                  "value": "Fahrradmitnahme reservierungspflichtig",
+                  "key": "qg",
+                  "type": "A",
+                  "priority": 260,
+                  "routeIdxFrom": 7,
+                  "routeIdxTo": 8
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 7, "routeIdxTo": 8 },
+                {
+                  "value": "Fahrzeuggebundene Einstiegshilfe vorhanden",
+                  "key": "pz",
+                  "type": "A",
+                  "priority": 560,
+                  "routeIdxFrom": 7,
+                  "routeIdxTo": 8
+                }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|159724|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 599 ",
+              "num": "599",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "2",
+            "name": "ICE 599 ",
+            "number": "599",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "München Hbf"
+          }
+        ]
+      },
+      "idx": 5,
+      "tripId": "C-5",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131414$202111131414$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Fulda Bahnhof@L=3011049@a=128@$202111131414$202111131445$ICE 1593$$1$$$$§T$A=1@O=Fulda Bahnhof@L=3011049@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131450$202111131544$ICE 599 $$1$$$$",
+      "duration": "PT1H30M",
+      "checksum": "7dc24adc_3"
+    },
+    {
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "täglich",
+          "sDaysI": "nicht 20., 21., 27., 28. Nov",
+          "sDaysB": "0FFFFE7CF9F3FFFFFF01FFFFF3E7FFC0"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "14:29:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "14:29:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131429$202111131429$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 1,
+              "prognosisType": "PROGNOSED",
+              "time": "14:29:00",
+              "date": "2021-11-13",
+              "track": "7",
+              "rtTime": "14:29:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "7"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 12,
+              "prognosisType": "PROGNOSED",
+              "time": "16:39:00",
+              "date": "2021-11-13",
+              "track": "15",
+              "rtTime": "16:39:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "15"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Pflicht zum Tragen einer Mund-Nasen-Bedeckung! Infos: nvv.de/corona",
+                  "key": "CO",
+                  "type": "A",
+                  "priority": 2,
+                  "routeIdxFrom": 1,
+                  "routeIdxTo": 12
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 1,
+                  "routeIdxTo": 12
+                },
+                {
+                  "value": "Fahrzeuggebundene Einstiegshilfe vorhanden",
+                  "key": "pz",
+                  "type": "A",
+                  "priority": 560,
+                  "routeIdxFrom": 1,
+                  "routeIdxTo": 12
+                },
+                { "value": "Klimaanlage", "key": "py", "type": "A", "priority": 610, "routeIdxFrom": 1, "routeIdxTo": 12 },
+                { "value": "4161", "key": "FD", "type": "I", "routeIdxFrom": 1, "routeIdxTo": 12 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|138548|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "    RE30",
+              "num": "262",
+              "line": "RE30",
+              "catOut": "RE      ",
+              "catIn": "Df1",
+              "catCode": "2",
+              "catOutS": "Df1",
+              "catOutL": "RE",
+              "operatorCode": "DB9",
+              "operator": "DB Regio AG Mitte Region Hessen",
+              "admin": "8005MW"
+            },
+            "idx": "1",
+            "name": "    RE30",
+            "number": "262",
+            "category": "Df1",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Hauptbahnhof"
+          }
+        ]
+      },
+      "idx": 6,
+      "tripId": "C-6",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131429$202111131429$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131429$202111131639$    RE30$$1$$$$",
+      "duration": "PT2H10M",
+      "checksum": "e226f1ed_3"
+    },
+    {
+      "Notes": { "Note": [{ "value": "Der Anschluss kann voraussichtlich nicht erreicht werden.", "type": "R" }] },
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "nicht täglich",
+          "sDaysI": "13. Nov",
+          "sDaysB": "00000000000000000000000400000000"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "14:37:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "14:37:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131437$202111131437$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 5,
+              "prognosisType": "PROGNOSED",
+              "time": "14:37:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "14:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 6,
+              "prognosisType": "PROGNOSED",
+              "time": "15:53:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "15:56:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                {
+                  "value": "Fahrradmitnahme reservierungspflichtig",
+                  "key": "qg",
+                  "type": "A",
+                  "priority": 260,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 5, "routeIdxTo": 6 },
+                {
+                  "value": "Fahrzeuggebundene Einstiegshilfe vorhanden",
+                  "key": "pz",
+                  "type": "A",
+                  "priority": 560,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                { "value": "Der Anschluss kann voraussichtlich nicht erreicht werden.", "type": "R" }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|224661|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 77  ",
+              "num": "77",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 77  ",
+            "number": "77",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Zürich HB"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 0,
+              "prognosisType": "PROGNOSED",
+              "time": "15:58:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Willy-Brandt-Platz",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Willy-Brandt-Platz@X=8673898@Y=50108992@U=80@L=3000004@",
+              "extId": "3000004",
+              "lon": 8.673898,
+              "lat": 50.108992,
+              "routeIdx": 2,
+              "prognosisType": "PROGNOSED",
+              "time": "16:00:00",
+              "date": "2021-11-13"
+            },
+            "Notes": { "Note": [{ "value": "80426", "key": "FD", "type": "I", "routeIdxFrom": 0, "routeIdxTo": 2 }] },
+            "JourneyDetailRef": { "ref": "1|22529|24|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "      U8",
+              "num": "12478",
+              "line": "U8",
+              "catOut": "U-Bahn  ",
+              "catIn": "BU5",
+              "catCode": "4",
+              "catOutS": "BU5",
+              "catOutL": "U-Bahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBU"
+            },
+            "idx": "2",
+            "name": "      U8",
+            "number": "12478",
+            "category": "BU5",
+            "type": "JNY",
+            "reachable": false,
+            "direction": "Frankfurt (Main) Riedberg"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Willy-Brandt-Platz",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Willy-Brandt-Platz@X=8673898@Y=50108992@U=80@L=3000004@",
+              "extId": "3000004",
+              "lon": 8.673898,
+              "lat": 50.108992,
+              "routeIdx": 11,
+              "time": "16:03:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 12,
+              "time": "16:05:00",
+              "date": "2021-11-13"
+            },
+            "Notes": { "Note": [{ "value": "40906", "key": "FD", "type": "I", "routeIdxFrom": 11, "routeIdxTo": 12 }] },
+            "JourneyDetailRef": { "ref": "1|21798|18|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "      U4",
+              "num": "6707",
+              "line": "U4",
+              "catOut": "U-Bahn  ",
+              "catIn": "BU5",
+              "catCode": "4",
+              "catOutS": "BU5",
+              "catOutL": "U-Bahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBU"
+            },
+            "idx": "3",
+            "name": "      U4",
+            "number": "6707",
+            "category": "BU5",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Bockenheimer Warte"
+          }
+        ]
+      },
+      "valid": false,
+      "idx": 7,
+      "tripId": "C-7",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131437$202111131437$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$202111131437$202111131553$ICE 77  $$1$$$$§T$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$A=1@O=Frankfurt (Main) Willy-Brandt-Platz@L=3000004@a=128@$202111131558$202111131600$      U8$$1$$$$§T$A=1@O=Frankfurt (Main) Willy-Brandt-Platz@L=3000004@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131603$202111131605$      U4$$1$$$$",
+      "duration": "PT1H28M",
+      "checksum": "d351de46_3"
+    },
+    {
+      "ServiceDays": [
+        {
+          "planningPeriodBegin": "2021-08-12",
+          "planningPeriodEnd": "2021-12-11",
+          "sDaysR": "nicht täglich",
+          "sDaysI": "13. Nov",
+          "sDaysB": "00000000000000000000000400000000"
+        }
+      ],
+      "LegList": {
+        "Leg": [
+          {
+            "Origin": {
+              "Notes": { "Note": [{ "value": "", "key": "BN", "type": "A" }] },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447321@Y=51310688@U=80@L=732@",
+              "extId": "732",
+              "lon": 9.447321,
+              "lat": 51.310688,
+              "time": "14:37:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "time": "14:37:00",
+              "date": "2021-11-13"
+            },
+            "GisRef": {
+              "ref": "H|1|W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131437$202111131437$$$1$$$$"
+            },
+            "idx": "0",
+            "name": "",
+            "type": "WALK",
+            "duration": "PT0S",
+            "dist": 272,
+            "hide": true
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "KS", "type": "A" },
+                  { "value": "", "key": "LK", "type": "A" },
+                  { "value": "", "key": "NT", "type": "A" },
+                  { "value": "06611000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Kassel Bahnhof Wilhelmshöhe",
+              "type": "ST",
+              "id": "A=1@O=Kassel Bahnhof Wilhelmshöhe@X=9447043@Y=51313124@U=80@L=2200007@",
+              "extId": "2200007",
+              "lon": 9.447043,
+              "lat": 51.313124,
+              "routeIdx": 5,
+              "prognosisType": "PROGNOSED",
+              "time": "14:37:00",
+              "date": "2021-11-13",
+              "track": "2",
+              "rtTime": "14:40:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "2"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 6,
+              "prognosisType": "PROGNOSED",
+              "time": "15:53:00",
+              "date": "2021-11-13",
+              "track": "5",
+              "rtTime": "15:56:00",
+              "rtDate": "2021-11-13",
+              "rtTrack": "5"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Sicher & kontaktlos ohne Ticketkontrolle reisen mit Komfort Check-in",
+                  "key": "CK",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                {
+                  "value": "Maskenpflicht nach gesetzl. Regelung; wir empfehlen eine FFP2-Maske",
+                  "key": "qa",
+                  "type": "A",
+                  "priority": 200,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                {
+                  "value": "Fahrradmitnahme reservierungspflichtig",
+                  "key": "qg",
+                  "type": "A",
+                  "priority": 260,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                },
+                { "value": "Bordrestaurant", "key": "BR", "type": "A", "priority": 450, "routeIdxFrom": 5, "routeIdxTo": 6 },
+                {
+                  "value": "Fahrzeuggebundene Einstiegshilfe vorhanden",
+                  "key": "pz",
+                  "type": "A",
+                  "priority": 560,
+                  "routeIdxFrom": 5,
+                  "routeIdxTo": 6
+                }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|224661|0|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "ICE 77  ",
+              "num": "77",
+              "line": "",
+              "catOut": "ICE     ",
+              "catIn": "ICE",
+              "catCode": "0",
+              "catOutS": "ICE",
+              "catOutL": "ICE",
+              "operatorCode": "DB_",
+              "operator": "DB Fernverkehr AG",
+              "admin": "80____"
+            },
+            "idx": "1",
+            "name": "ICE 77  ",
+            "number": "77",
+            "category": "ICE",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Zürich HB"
+          },
+          {
+            "Origin": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Südbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Südbahnhof@X=8686438@Y=50099329@U=80@L=3000912@",
+              "extId": "3000912",
+              "lon": 8.686438,
+              "lat": 50.099329,
+              "routeIdx": 12,
+              "prognosisType": "PROGNOSED",
+              "time": "16:01:00",
+              "date": "2021-11-13"
+            },
+            "Destination": {
+              "Notes": {
+                "Note": [
+                  { "value": "", "key": "HB", "type": "A" },
+                  { "value": "", "key": "HE", "type": "A" },
+                  { "value": "", "key": "HI", "type": "A" },
+                  { "value": "", "key": "HT", "type": "A" },
+                  { "value": "", "key": "IS", "type": "A" },
+                  { "value": "", "key": "V0", "type": "A" },
+                  { "value": "", "key": "WS", "type": "A" },
+                  { "value": "06412000", "key": "GK", "type": "I" }
+                ]
+              },
+              "name": "Frankfurt (Main) Hauptbahnhof",
+              "type": "ST",
+              "id": "A=1@O=Frankfurt (Main) Hauptbahnhof@X=8662653@Y=50106808@U=80@L=3000010@",
+              "extId": "3000010",
+              "lon": 8.662653,
+              "lat": 50.106808,
+              "routeIdx": 18,
+              "prognosisType": "PROGNOSED",
+              "time": "16:11:00",
+              "date": "2021-11-13"
+            },
+            "Notes": {
+              "Note": [
+                {
+                  "value": "Türen mit Mehrzweckfläche sind mit gelbem Balken über der Tür gekennzeichnet",
+                  "key": "eq",
+                  "type": "A",
+                  "priority": 350,
+                  "routeIdxFrom": 12,
+                  "routeIdxTo": 18
+                },
+                { "value": "160800", "key": "FD", "type": "I", "routeIdxFrom": 12, "routeIdxTo": 18 }
+              ]
+            },
+            "JourneyDetailRef": { "ref": "1|24786|42|80|13112021" },
+            "JourneyStatus": "P",
+            "Product": {
+              "name": "Tram 16 ",
+              "num": "15802",
+              "line": "16",
+              "catOut": "Tram    ",
+              "catIn": "BTS",
+              "catCode": "5",
+              "catOutS": "BTS",
+              "catOutL": "Niederflurstraßenbahn",
+              "operatorCode": "VGF",
+              "operator": "Stadtwerke Verkehrsgesellschaft Frankfurt",
+              "admin": "TRAFBT"
+            },
+            "idx": "2",
+            "name": "Tram 16 ",
+            "number": "15802",
+            "category": "BTS",
+            "type": "JNY",
+            "reachable": true,
+            "direction": "Frankfurt (Main) Ginnheim"
+          }
+        ]
+      },
+      "idx": 8,
+      "tripId": "C-8",
+      "ctxRecon": "¶HKI¶W$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=732@a=128@$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$202111131437$202111131437$$$1$$$$§T$A=1@O=Kassel Bahnhof Wilhelmshöhe@L=2200007@a=128@$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$202111131437$202111131553$ICE 77  $$1$$$$§T$A=1@O=Frankfurt (Main) Südbahnhof@L=3000912@a=128@$A=1@O=Frankfurt (Main) Hauptbahnhof@L=3000010@a=128@$202111131601$202111131611$Tram 16 $$1$$$$",
+      "duration": "PT1H34M",
+      "checksum": "80b52498_3"
+    }
+  ],
+  "serverVersion": "1.9",
+  "dialectVersion": "1.23",
+  "requestId": "1636805989483",
+  "scrB": "2|OB|MTµ11µ137617µ137617µ137709µ137709µ0µ0µ66021µ137599µ1µ-2147483646µ0µ1µ2|PDHµ698a4b43d308a62c0d41d32cb35052b2|RDµ13112021|RTµ131949|USµ0",
+  "scrF": "2|OF|MTµ11µ137677µ137677µ137765µ137771µ0µ0µ325µ137655µ7µ-2147483646µ0µ1µ2|PDHµ698a4b43d308a62c0d41d32cb35052b2|RDµ13112021|RTµ131949|USµ0"
+}
