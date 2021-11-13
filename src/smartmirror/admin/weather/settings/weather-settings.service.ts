@@ -21,7 +21,6 @@ export class WeatherSettingsService {
     const record: WeatherSettingsEntity = await this.getRecord()
 
     const dataToSave: QueryDeepPartialEntity<WeatherSettingsEntity> = {
-      apiKey: settings.apiKey,
       commonLocation: {
         id: settings.locationId,
       },
