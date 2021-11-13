@@ -21,7 +21,6 @@ export class TimetableSettingsService {
     const record: TimetableSettingsEntity = await this.getRecord()
 
     const dataToSave: QueryDeepPartialEntity<TimetableSettingsEntity> = {
-      apiKey: settings.apiKey,
       isActive: settings.isActive,
       maxChanges: settings.maxChanges,
       showBus: settings.lines.showBus,
