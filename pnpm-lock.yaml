@@ -11,7 +11,7 @@ specifiers:
   '@nestjs/core': 8.2.1
   '@nestjs/platform-express': 8.2.1
   '@nestjs/schematics': 8.0.5
-  '@nestjs/swagger': 5.1.4
+  '@nestjs/swagger': 5.1.5
   '@nestjs/testing': 8.2.1
   '@nestjs/typeorm': 8.0.2
   '@types/express': 4.17.13
@@ -52,7 +52,7 @@ dependencies:
   '@nestjs/common': 8.2.1_43f93dd897e68fe834a23ddd32fb54cc
   '@nestjs/core': 8.2.1_f3b5d94d6c40d16d340f89e1706074b8
   '@nestjs/platform-express': 8.2.1_ff873512c3369c40b8c5889da8731f97
-  '@nestjs/swagger': 5.1.4_0a5ccf67604efdf0c09b27c72aaca28a
+  '@nestjs/swagger': 5.1.5_0a5ccf67604efdf0c09b27c72aaca28a
   '@nestjs/typeorm': 8.0.2_9798010652164d0620183cf0a8395bde
   axios: 0.24.0
   class-transformer: 0.4.0
@@ -1129,8 +1129,8 @@ packages:
       - chokidar
     dev: true
 
-  /@nestjs/swagger/5.1.4_0a5ccf67604efdf0c09b27c72aaca28a:
-    resolution: {integrity: sha512-hwVo57Nhw+TyS3xXa8pQAMVOXQAoXBszJbnUAqLcKlVtQ8jqmSRKPTApefXSf/XDoG5LekRYi9Re2SOt1T2WlA==}
+  /@nestjs/swagger/5.1.5_0a5ccf67604efdf0c09b27c72aaca28a:
+    resolution: {integrity: sha512-jvsgciVEFcYVVEuLdNAmgJDpFSQzIoukg+Ovz1vJ97OeCprx0sVhmocn13nCl/dEwIkwoM3eby9OiaccX0A+3A==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
       '@nestjs/core': ^8.0.0
