@@ -5,6 +5,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitReturns": false,
+    "resolveJsonModule": true,
 
     /* Basic Options */
     "outDir": "./dist",

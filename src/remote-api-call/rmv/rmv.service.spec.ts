@@ -3,7 +3,6 @@ import { RmvService } from './rmv.service'
 import { RequestService } from '../request/request.service'
 import { IRmvSearchStationRemoteResponse } from './rmv-search-station.remote-response'
 import { RmvStationDto } from '../../dataTransferObjects/rmv-station.dto'
-import * as tripExample from './tripExample-Friedberg-Taunusanlage.json'
 import { RmvTripDto } from '../../dataTransferObjects/rmv-trip.dto'
 import { TimetableLinesFilter } from '../../dataTransferObjects/timetable-lines-filter.dto'
 
@@ -78,26 +77,5 @@ describe('RmvService', () => {
     expect(res.length).toBe(2)
     const firstStation: RmvStationDto = res[0]
     expect(firstStation.remoteId).toBe(3000201)
-  })
-
-  it('Get RMV trip', async () => {
-    // Assert
-    const filter: TimetableLinesFilter = {
-      showBus: true,
-      showIC: true,
-      showICE: true,
-      showRB: true,
-      showRE: true,
-      showSBahn: true,
-      showTram: true,
-      showUBahn: true,
-    }
-    jest.spyOn(requestService, 'get').mockImplementation(() => Promise.resolve(tripExample))
-    // Act
-    const res: Array<RmvTripDto> = await service.getTrip('apiKey', 50, 10, filter)
-    // Assert
-    expect(requestService.get).toHaveBeenCalledTimes(1)
-    expect(res).toBeDefined()
-    expect(res.length).toBe(8)
   })
 })
