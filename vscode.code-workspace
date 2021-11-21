@@ -19,6 +19,6 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "cSpell.dictionaries": ["de-DE", "en"],
-    "window.title": "Snow White - API"
+    "window.title": "SW - API"
   }
 }
