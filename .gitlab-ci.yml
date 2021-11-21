@@ -22,6 +22,8 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
+    - curl --output tsconfig.root.json "https://gitlab.com/4s1/ts-config/-/raw/main/tsconfig-es2020-commonjs.json"
+    - sed -i "s|@4s1/ts-config/tsconfig-es2020-commonjs.json|./tsconfig.root.json|" tsconfig.json
     - sonar-scanner
   only:
     - merge_requests
