@@ -37,7 +37,7 @@ specifiers:
   source-map-support: 0.5.21
   sqlite3: 5.0.2
   standard-version: 9.3.2
-  swagger-ui-express: 4.1.6
+  swagger-ui-express: 4.2.0
   ts-jest: 27.0.7
   ts-loader: 9.2.6
   ts-node: 10.4.0
@@ -52,7 +52,7 @@ dependencies:
   '@nestjs/common': 8.2.3_7b1fc936b9361df55228aaa721957d0e
   '@nestjs/core': 8.2.3_1864eb04cdb557d7ef263925d28b0dee
   '@nestjs/platform-express': 8.2.3_4e195730d90113ce1578bd999274c7a8
-  '@nestjs/swagger': 5.1.5_076362e8bff7b95270f94749346fc60e
+  '@nestjs/swagger': 5.1.5_2b3364f28d2fdf1b2673d1bd3b574d17
   '@nestjs/typeorm': 8.0.2_4ba4467cef2d19f64acba2df5a9a3325
   axios: 0.24.0
   class-transformer: 0.5.1
@@ -67,7 +67,7 @@ dependencies:
   rxjs: 7.4.0
   source-map-support: 0.5.21
   sqlite3: 5.0.2
-  swagger-ui-express: 4.1.6
+  swagger-ui-express: 4.2.0
   typeorm: 0.2.41_sqlite3@5.0.2
   uuid: 8.3.2
 
@@ -1141,7 +1141,7 @@ packages:
       - chokidar
     dev: true
 
-  /@nestjs/swagger/5.1.5_076362e8bff7b95270f94749346fc60e:
+  /@nestjs/swagger/5.1.5_2b3364f28d2fdf1b2673d1bd3b574d17:
     resolution: {integrity: sha512-jvsgciVEFcYVVEuLdNAmgJDpFSQzIoukg+Ovz1vJ97OeCprx0sVhmocn13nCl/dEwIkwoM3eby9OiaccX0A+3A==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -1161,7 +1161,7 @@ packages:
       lodash: 4.17.21
       path-to-regexp: 3.2.0
       reflect-metadata: 0.1.13
-      swagger-ui-express: 4.1.6
+      swagger-ui-express: 4.2.0
     transitivePeerDependencies:
       - class-transformer
       - class-validator
@@ -6510,17 +6510,17 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /swagger-ui-dist/3.52.0:
-    resolution: {integrity: sha512-SGfhW8FCih00QG59PphdeAUtTNw7HS5k3iPqDZowerPw9mcbhKchUb12kbROk99c1X6RTWW1gB1kqgfnYGuCSg==}
+  /swagger-ui-dist/4.1.2:
+    resolution: {integrity: sha512-Pj960coj9L0nAQPE1vgBzHulKGPNw1ifn/1GTIv/mlV9V3PoRM0uTcE0uhTiizx6aHg+vnFFmbA2J1gjFekOaQ==}
     dev: false
 
-  /swagger-ui-express/4.1.6:
-    resolution: {integrity: sha512-Xs2BGGudvDBtL7RXcYtNvHsFtP1DBFPMJFRxHe5ez/VG/rzVOEjazJOOSc/kSCyxreCTKfJrII6MJlL9a6t8vw==}
+  /swagger-ui-express/4.2.0:
+    resolution: {integrity: sha512-znrHTwh9UpvsjqgWopA4noIet7mi7UGuIYZ465YfUDKQ5Dpas0jxnkfUKCo+0aB17YCBv26AhIjiQYDV4uvJFA==}
     engines: {node: '>= v0.10.32'}
     peerDependencies:
       express: '>=4.0.0'
     dependencies:
-      swagger-ui-dist: 3.52.0
+      swagger-ui-dist: 4.1.2
     dev: false
 
   /symbol-observable/4.0.0:
