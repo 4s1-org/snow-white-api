@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.4](https://gitlab.com/4s1/snow-white-api/compare/v1.2.3...v1.2.4) (2021-12-03)
+
+
+### Bug Fixes
+
+* **stock:** exception handling on invalid json added ([d5eb2c7](https://gitlab.com/4s1/snow-white-api/commit/d5eb2c7dbc72d07fbe6c8d9fa16faec2a9e7f22c))
+
 ## [1.2.3](https://gitlab.com/4s1/snow-white-api/compare/v1.2.2...v1.2.3) (2021-12-03)
 
 
