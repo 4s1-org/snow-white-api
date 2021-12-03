@@ -8,7 +8,7 @@ import { StockCourseDto } from './stock-course.dto'
 export class StockController {
   private cache: StockCourseDto[] = []
   private client: MqttClient | undefined = undefined
-  private readonly logger = new Logger('Foo')
+  private readonly logger = new Logger('StockController')
 
   constructor() {
     if (ProcessEnv.MQTT_SERVER) {
@@ -75,6 +75,7 @@ export class StockController {
       const stock = new StockCourseDto()
       stock.isin = isin
       if (this.client) {
+        this.logger.log(`${isin} | added to cache`)
         this.client.publish(path.join(ProcessEnv.MQTT_TOPIC_STOCK, stock.isin), JSON.stringify(stock), { retain: true })
       }
       return stock
