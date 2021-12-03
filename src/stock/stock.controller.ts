@@ -20,7 +20,12 @@ export class StockController {
       })
 
       this.client.on('message', (topic, payload) => {
-        this.buildCache(topic, JSON.parse(payload.toString()))
+        try {
+          const data = JSON.parse(payload.toString())
+          this.buildCache(topic, data)
+        } catch {
+          this.logger.error(`Can't parse payload "${payload.toString()}" of topix ${topic}.`)
+        }
       })
 
       this.client.subscribe(path.join(ProcessEnv.MQTT_TOPIC_STOCK, '+'))
@@ -72,13 +77,13 @@ export class StockController {
       return stock
     } else {
       this.logger.warn(`${isin} | not found in cache`)
-      const stock = new StockCourseDto()
-      stock.isin = isin
+      const newStock = new StockCourseDto()
+      newStock.isin = isin
       if (this.client) {
         this.logger.log(`${isin} | added to cache`)
-        this.client.publish(path.join(ProcessEnv.MQTT_TOPIC_STOCK, stock.isin), JSON.stringify(stock), { retain: true })
+        this.client.publish(path.join(ProcessEnv.MQTT_TOPIC_STOCK, newStock.isin), JSON.stringify(newStock), { retain: true })
       }
-      return stock
+      return newStock
     }
   }
 }
