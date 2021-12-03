@@ -65,7 +65,7 @@ export class StockController {
   }
 
   @Get('/:isin')
-  public loadSingleStation(@Param('isin') isin: string): any {
+  public loadSingleIsin(@Param('isin') isin: string): any {
     const stock = this.cache.find((x) => x.isin === isin)
     if (stock) {
       this.logger.log(`${isin} | found in cache`)
