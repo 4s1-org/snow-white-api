@@ -34,7 +34,7 @@
   },
   "prettier": "@4s1/eslint-config",
   "dependencies": {
-    "@4s1/snow-white-shared": "^5.1.0",
+    "@4s1/snow-white-shared": "5.1.0",
     "@nestjs/cli": "8.1.6",
     "@nestjs/common": "8.2.3",
     "@nestjs/core": "8.2.3",
@@ -59,8 +59,8 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@4s1/eslint-config": "^3.4.0",
-    "@4s1/ts-config": "^1.4.0",
+    "@4s1/eslint-config": "3.4.0",
+    "@4s1/ts-config": "1.4.0",
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
     "@nestjs/schematics": "8.0.5",
