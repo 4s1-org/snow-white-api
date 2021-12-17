@@ -32,7 +32,7 @@ validate-job:
     - pnpm run test:cov
 
 sonarcloud-check:
-  stage: validate
+  stage: sonar
   image:
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: ['']
