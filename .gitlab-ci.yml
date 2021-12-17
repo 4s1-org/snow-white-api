@@ -25,6 +25,7 @@ validate-job:
   artifacts:
     paths:
       - coverage/
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   script:
     - pnpm i
     - pnpm run lint
