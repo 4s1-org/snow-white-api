@@ -10,3 +10,4 @@
 /tsconfig.build.tsbuildinfo
 /package-lock.json
 /data/
+/coverage
