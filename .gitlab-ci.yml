@@ -1,5 +1,6 @@
 stages:
   - validate
+  - sonar
   - deploy
 
 workflow:
@@ -12,6 +13,24 @@ variables:
   SONAR_USER_HOME: '${CI_PROJECT_DIR}/.sonar' # Defines the location of the analysis task cache
   GIT_DEPTH: '0' # Tells git to fetch all the branches of the project, required by the analysis task
 
+validate-job:
+  stage: validate
+  image: registry.gitlab.com/4s1/docker/node:14-alpine-dev
+  rules:
+    - if: '$CI_COMMIT_TAG == null'
+  cache:
+    key: '$CI_COMMIT_REF_SLUG'
+    paths:
+      - .pnpm-store
+  artifacts:
+    paths:
+      - coverage/
+  script:
+    - pnpm i
+    - pnpm run lint
+    - pnpm run build
+    - pnpm run test:cov
+
 sonarcloud-check:
   stage: validate
   image:
@@ -22,25 +41,12 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
+    - curl --output tsconfig.root.json "https://gitlab.com/4s1/ts-config/-/raw/main/tsconfig-es2020-commonjs.json"
+    - sed -i "s|@4s1/ts-config/tsconfig-es2020-commonjs.json|./tsconfig.root.json|" tsconfig.json
     - sonar-scanner
   only:
     - merge_requests
     - main
-
-validate-job:
-  stage: validate
-  image: registry.gitlab.com/4s1/docker/node:14-alpine-dev
-  rules:
-    - if: '$CI_COMMIT_TAG == null'
-  cache:
-    key: '$CI_COMMIT_REF_SLUG'
-    paths:
-      - .pnpm-store
-  script:
-    - pnpm i
-    - pnpm run lint
-    - pnpm run build
-    - pnpm run test:cov
 
 deploy-job:
   stage: deploy
