@@ -10,7 +10,6 @@ RUN pnpm install --offline
 
 COPY tsconfig.build.json .
 COPY tsconfig.json .
-COPY .npmrc .
 COPY .eslintrc.yaml .
 COPY src/ ./src/
 RUN pnpm run build
@@ -25,7 +24,6 @@ RUN pnpm fetch --prod
 
 COPY --from=builder /app/tsconfig.build.json .
 COPY --from=builder /app/tsconfig.json .
-COPY --from=builder /app/.npmrc .
 COPY --from=builder /app/package.json .
 RUN pnpm install --prod
 
