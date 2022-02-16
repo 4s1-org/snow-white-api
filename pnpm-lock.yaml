@@ -42,7 +42,7 @@ specifiers:
   ts-loader: 9.2.6
   ts-node: 10.5.0
   tsconfig-paths: 3.12.0
-  typeorm: 0.2.41
+  typeorm: 0.2.42
   typescript: 4.5.5
   uuid: 8.3.2
 
@@ -53,7 +53,7 @@ dependencies:
   '@nestjs/core': 8.3.1_3ee156419336b921cef6d2ae294e6e72
   '@nestjs/platform-express': 8.3.1_dc024985ab89eb73339eca509fad8031
   '@nestjs/swagger': 5.2.0_603262543e36b9a1cbebb094d20ac355
-  '@nestjs/typeorm': 8.0.3_f348891d575b0dfa9af8bf267adcb7ae
+  '@nestjs/typeorm': 8.0.3_4665ee1580a9ae2f075cfa09b6b937b1
   axios: 0.26.0
   class-transformer: 0.5.1
   class-validator: 0.13.2
@@ -68,7 +68,7 @@ dependencies:
   source-map-support: 0.5.21
   sqlite3: 5.0.2
   swagger-ui-express: 4.3.0
-  typeorm: 0.2.41_sqlite3@5.0.2
+  typeorm: 0.2.42_sqlite3@5.0.2
   uuid: 8.3.2
 
 devDependencies:
@@ -1183,7 +1183,7 @@ packages:
       tslib: 2.3.1
     dev: true
 
-  /@nestjs/typeorm/8.0.3_f348891d575b0dfa9af8bf267adcb7ae:
+  /@nestjs/typeorm/8.0.3_4665ee1580a9ae2f075cfa09b6b937b1:
     resolution: {integrity: sha512-tf9rTXP6LeFInkwd+tktQhtLRsKp4RRYImprqT8gcHcJDx+xMP1IygnXELOKwF5vo2/mnhrGtBlRQ/iiS6170g==}
     peerDependencies:
       '@nestjs/common': ^8.0.0
@@ -1196,7 +1196,7 @@ packages:
       '@nestjs/core': 8.3.1_3ee156419336b921cef6d2ae294e6e72
       reflect-metadata: 0.1.13
       rxjs: 7.5.4
-      typeorm: 0.2.41_sqlite3@5.0.2
+      typeorm: 0.2.42_sqlite3@5.0.2
       uuid: 8.3.2
     dev: false
 
@@ -6842,25 +6842,25 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
 
-  /typeorm/0.2.41_sqlite3@5.0.2:
-    resolution: {integrity: sha512-/d8CLJJxKPgsnrZWiMyPI0rz2MFZnBQrnQ5XP3Vu3mswv2WPexb58QM6BEtmRmlTMYN5KFWUz8SKluze+wS9xw==}
+  /typeorm/0.2.42_sqlite3@5.0.2:
+    resolution: {integrity: sha512-vuw1zOhwQFbjy/I3gV2oEzQZrRQ2MlkSx3sARqwOPWTF3Za0k0a1m6arMigPZ/l6TtsQsFzFQ2ozZtK6h64IxQ==}
     hasBin: true
     peerDependencies:
-      '@sap/hana-client': '*'
-      better-sqlite3: '*'
-      hdb-pool: '*'
-      ioredis: '*'
+      '@sap/hana-client': ^2.11.14
+      better-sqlite3: ^7.1.2
+      hdb-pool: ^0.1.6
+      ioredis: ^4.28.3
       mongodb: ^3.6.0
-      mssql: '*'
-      mysql2: '*'
-      oracledb: '*'
-      pg: '*'
-      pg-native: '*'
-      pg-query-stream: '*'
-      redis: '*'
-      sql.js: '*'
-      sqlite3: '*'
-      typeorm-aurora-data-api-driver: '*'
+      mssql: ^6.3.1
+      mysql2: ^2.2.5
+      oracledb: ^5.1.0
+      pg: ^8.5.1
+      pg-native: ^3.0.0
+      pg-query-stream: ^4.0.0
+      redis: ^3.1.1
+      sql.js: ^1.4.0
+      sqlite3: ^5.0.2
+      typeorm-aurora-data-api-driver: ^2.0.0
     peerDependenciesMeta:
       '@sap/hana-client':
         optional: true
@@ -6907,6 +6907,7 @@ packages:
       sha.js: 2.4.11
       sqlite3: 5.0.2
       tslib: 2.3.1
+      uuid: 8.3.2
       xml2js: 0.4.23
       yargs: 17.1.1
       zen-observable-ts: 1.1.0
