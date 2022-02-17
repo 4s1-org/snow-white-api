@@ -28,7 +28,7 @@ specifiers:
   jest: 27.5.1
   moment: 2.29.1
   moment-timezone: 0.5.34
-  mqtt: 4.3.5
+  mqtt: 4.3.6
   mysql: 2.18.1
   nodemailer: 6.7.2
   prettier: 2.5.1
@@ -60,7 +60,7 @@ dependencies:
   dotenv: 16.0.0
   moment: 2.29.1
   moment-timezone: 0.5.34
-  mqtt: 4.3.5
+  mqtt: 4.3.6
   mysql: 2.18.1
   nodemailer: 6.7.2
   reflect-metadata: 0.1.13
@@ -5139,8 +5139,8 @@ packages:
       - supports-color
     dev: false
 
-  /mqtt/4.3.5:
-    resolution: {integrity: sha512-l29WGHAc0EayK1cjb6moozc+rlgK6YRCPbP3zB1CrJw84Bjk4kG9EJCXojdn4r29lA80SCqxRKq1QJ87+Xevng==}
+  /mqtt/4.3.6:
+    resolution: {integrity: sha512-1dgQbkbh1Bba9iAGDNIrhSZ4nLDjbhmNHjOEvsmKI1Bb+2orj0gHwjqUKJ5CKUMKBYbkQYRM1fy+N1/2iZOj5w==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     dependencies:
