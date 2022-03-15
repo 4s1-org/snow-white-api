@@ -34,7 +34,7 @@
   "prettier": "@4s1/eslint-config",
   "dependencies": {
     "@4s1/snow-white-shared": "5.1.0",
-    "@nestjs/cli": "8.2.2",
+    "@nestjs/cli": "8.2.3",
     "@nestjs/common": "8.4.1",
     "@nestjs/core": "8.4.1",
     "@nestjs/platform-express": "8.4.1",
