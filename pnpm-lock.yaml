@@ -6,7 +6,7 @@ specifiers:
   '@4s1/ts-config': 1.4.0
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
-  '@nestjs/cli': 8.2.3
+  '@nestjs/cli': 8.2.4
   '@nestjs/common': 8.4.1
   '@nestjs/core': 8.4.1
   '@nestjs/platform-express': 8.4.1
@@ -48,7 +48,7 @@ specifiers:
 
 dependencies:
   '@4s1/snow-white-shared': 5.1.0
-  '@nestjs/cli': 8.2.3
+  '@nestjs/cli': 8.2.4
   '@nestjs/common': 8.4.1_5199533202e21c7185c9d97f881e2827
   '@nestjs/core': 8.4.1_03a788a1eb0bf93a7b64e9ce96523e26
   '@nestjs/platform-express': 8.4.1_214a294e539403889bf33d78c1f08a26
@@ -156,8 +156,8 @@ packages:
       source-map: 0.7.3
     dev: false
 
-  /@angular-devkit/core/13.2.6_chokidar@3.5.3:
-    resolution: {integrity: sha512-8h2mWdBTN/dYwZuzKMg2IODlOWMdbJcpQG4XVrkk9ejCPP+3aX5Aa3glCe/voN6eBNiRfs8YDM0jxmpN2aWVtg==}
+  /@angular-devkit/core/13.3.0_chokidar@3.5.3:
+    resolution: {integrity: sha512-8YrreVbWlJVZnk5zs4vfkRItrPEtWhUcxWOBfYT/Kwu4FwJVAnNuhJAxxXOAQ2Ckd7cv30Idh/RFVLbTZ5Gs9w==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
       chokidar: ^3.5.2
@@ -174,13 +174,13 @@ packages:
       source-map: 0.7.3
     dev: false
 
-  /@angular-devkit/schematics-cli/13.2.6_chokidar@3.5.3:
-    resolution: {integrity: sha512-VdMLn4DoTswjk+1RL+pod8EwLkzh8pMT2OBJ9dhsITru1sr0/2nhsqRwZzZylAXjrFwdfPj1E/vfcAfSkmMGvw==}
+  /@angular-devkit/schematics-cli/13.3.0_chokidar@3.5.3:
+    resolution: {integrity: sha512-DXT+k4228Ke1zCoU9QxPhXm1xzeYBs5aqgMWhyjXdkfDokJcjQM79CSVLHdKX/OLgR51qhnQ5qVFEHHhVV40EQ==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     hasBin: true
     dependencies:
-      '@angular-devkit/core': 13.2.6_chokidar@3.5.3
-      '@angular-devkit/schematics': 13.2.6_chokidar@3.5.3
+      '@angular-devkit/core': 13.3.0_chokidar@3.5.3
+      '@angular-devkit/schematics': 13.3.0_chokidar@3.5.3
       ansi-colors: 4.1.1
       inquirer: 8.2.0
       minimist: 1.2.5
@@ -215,11 +215,11 @@ packages:
       - chokidar
     dev: false
 
-  /@angular-devkit/schematics/13.2.6_chokidar@3.5.3:
-    resolution: {integrity: sha512-mPgSqdnZRuPSMeUA+T+mwVCrq2yhXpcYm1/Rjbhy09CyHs4wSrFv21WHCrE6shlvXpcmwr0n+I0DIeagAPmjUA==}
+  /@angular-devkit/schematics/13.3.0_chokidar@3.5.3:
+    resolution: {integrity: sha512-hq7tqnB3uVT/iDgqWWZ4kvnijeAcgd4cfLzZiCPaYn1nuhZf0tWsho6exhJ/odMZHvVp7w8OibqWiUKxNY9zHA==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     dependencies:
-      '@angular-devkit/core': 13.2.6_chokidar@3.5.3
+      '@angular-devkit/core': 13.3.0_chokidar@3.5.3
       jsonc-parser: 3.0.0
       magic-string: 0.25.7
       ora: 5.4.1
@@ -981,14 +981,14 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@nestjs/cli/8.2.3:
-    resolution: {integrity: sha512-p//DACefn40VClXroxzS+2pkSdaXYvKKcr4bFOUBMTdJqT9he+U9ifcJUkg/h1bFU/Y8SS2cUsTyl0ZBHHHRcw==}
+  /@nestjs/cli/8.2.4:
+    resolution: {integrity: sha512-9zNV9oMtaz1vwLO3WXviD0wzRpyiaLWJZ7KCIZLk62U22RDNRsbtLLDS52Wkig5L8UU7Z1xRfrEv+s3f9keysQ==}
     engines: {node: '>= 10.13.0', npm: '>= 6.11.0'}
     hasBin: true
     dependencies:
-      '@angular-devkit/core': 13.2.6_chokidar@3.5.3
-      '@angular-devkit/schematics': 13.2.6_chokidar@3.5.3
-      '@angular-devkit/schematics-cli': 13.2.6_chokidar@3.5.3
+      '@angular-devkit/core': 13.3.0_chokidar@3.5.3
+      '@angular-devkit/schematics': 13.3.0_chokidar@3.5.3
+      '@angular-devkit/schematics-cli': 13.3.0_chokidar@3.5.3
       '@nestjs/schematics': 8.0.8_chokidar@3.5.3+typescript@4.6.2
       chalk: 3.0.0
       chokidar: 3.5.3
@@ -2917,6 +2917,7 @@ packages:
     dependencies:
       graceful-fs: 4.2.9
       tapable: 2.2.1
+    dev: true
 
   /enhanced-resolve/5.9.2:
     resolution: {integrity: sha512-GIm3fQfwLJ8YZx2smuHpBKkXC1yOk+OBEmKckVyL0i/ea8mqDEykK3ld5dgH1QYPNyT/lIllxV2LULnxCHaHkA==}
@@ -6682,7 +6683,7 @@ packages:
     resolution: {integrity: sha512-EhnfjHbzm5IYI9YPNVIxx1moxMI4bpHD2e0zTXeDNQcwjjRaGepP7IhTHJkyDBG0CAOoxRfe7jCG630Ou+C6Pw==}
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.8.3
+      enhanced-resolve: 5.9.2
       tsconfig-paths: 3.14.0
     dev: false
 
