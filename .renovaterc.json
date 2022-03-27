@@ -1,4 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>4s1/renovate-config"]
+  "extends": ["local>4s1/renovate-config"],
+  "packageRules": [{
+      "matchPackagePatterns": ["typeorm"],
+      "allowedVersions": "<=0.2"
+  }]
 }
