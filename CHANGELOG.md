@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.5](https://github.com/4s1-org/snow-white-api/compare/v1.2.4...v1.2.5) (2022-04-03)
+
 ## [1.2.4](https://github.com/4s1-org/snow-white-api/compare/v1.2.3...v1.2.4) (2021-12-03)
 
 ### Bug Fixes
