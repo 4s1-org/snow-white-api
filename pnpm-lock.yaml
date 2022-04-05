@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@4s1/eslint-config': 3.11.0
-  '@4s1/snow-white-shared': 5.1.0
+  '@4s1/snow-white-shared': 5.1.1
   '@4s1/ts-config': 1.4.0
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
@@ -47,7 +47,7 @@ specifiers:
   uuid: 8.3.2
 
 dependencies:
-  '@4s1/snow-white-shared': 5.1.0
+  '@4s1/snow-white-shared': 5.1.1
   '@nestjs/cli': 8.2.4
   '@nestjs/common': 8.4.3_5199533202e21c7185c9d97f881e2827
   '@nestjs/core': 8.4.3_c2aa74453c5108161d7d668927d51cc5
@@ -113,8 +113,8 @@ packages:
       - typescript
     dev: true
 
-  /@4s1/snow-white-shared/5.1.0:
-    resolution: {integrity: sha512-L95EbB7Gg4cTnqtpq9I1n3bftcltRv7d+2QN1DjjFauAlUBCf76mhR3CIKinAm+8A0RCH3FT8NgjJkfwnIyXSA==}
+  /@4s1/snow-white-shared/5.1.1:
+    resolution: {integrity: sha512-79pFSDui7fjyHDKw0IkaYqVWtIf96Me8aFfk8vF0IwgZjlbDNMklhKouIAXrUJYO3zI/c1eZY+hSyytzKfAFJg==}
     dev: false
 
   /@4s1/ts-config/1.4.0:
