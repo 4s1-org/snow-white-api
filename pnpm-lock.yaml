@@ -35,7 +35,7 @@ specifiers:
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
-  sqlite3: 5.0.4
+  sqlite3: 5.0.5
   standard-version: 9.3.2
   swagger-ui-express: 4.3.0
   ts-jest: 27.1.4
@@ -66,9 +66,9 @@ dependencies:
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
-  sqlite3: 5.0.4
+  sqlite3: 5.0.5
   swagger-ui-express: 4.3.0
-  typeorm: 0.2.45_sqlite3@5.0.4
+  typeorm: 0.2.45_sqlite3@5.0.5
   uuid: 8.3.2
 
 devDependencies:
@@ -1062,6 +1062,8 @@ packages:
       rxjs: 7.5.5
       tslib: 2.3.1
       uuid: 8.3.2
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /@nestjs/mapped-types/1.0.1_5a485a6776bce4bf38c75aafd7cb3504:
@@ -1187,7 +1189,7 @@ packages:
       '@nestjs/core': 8.4.4_b63c269346792a9d57cfab86d23050d2
       reflect-metadata: 0.1.13
       rxjs: 7.5.5
-      typeorm: 0.2.45_sqlite3@5.0.4
+      typeorm: 0.2.45_sqlite3@5.0.5
       uuid: 8.3.2
     dev: false
 
@@ -1236,7 +1238,9 @@ packages:
     dependencies:
       chalk: 4.1.2
       consola: 2.15.3
-      node-fetch: 2.6.1
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
     dev: false
 
   /@sinonjs/commons/1.8.3:
@@ -5244,11 +5248,6 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /node-fetch/2.6.1:
-    resolution: {integrity: sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==}
-    engines: {node: 4.x || >=6.0.0}
-    dev: false
-
   /node-fetch/2.6.7:
     resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
     engines: {node: 4.x || >=6.0.0}
@@ -6214,8 +6213,8 @@ packages:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: true
 
-  /sqlite3/5.0.4:
-    resolution: {integrity: sha512-ATvAe7JutFv/d+KTbLS58KsKn/t1raL/WGn2qZfZxwsrL/oGSP+0OlbQ2tX5jISvyu6/7JuKze3WkaiP1JAH6A==}
+  /sqlite3/5.0.5:
+    resolution: {integrity: sha512-ZZFOMW31IOMbUeSiL23TuWSjNyS7Z83EDJ80HJxCe78OZ+5BJT6IhAwAUnQgPsUl5z+Er0DGx7VjuTP7PKPNcg==}
     requiresBuild: true
     peerDependenciesMeta:
       node-gyp:
@@ -6755,7 +6754,7 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
 
-  /typeorm/0.2.45_sqlite3@5.0.4:
+  /typeorm/0.2.45_sqlite3@5.0.5:
     resolution: {integrity: sha512-c0rCO8VMJ3ER7JQ73xfk0zDnVv0WDjpsP6Q1m6CVKul7DB9iVdWLRjPzc8v2eaeBuomsbZ2+gTaYr8k1gm3bYA==}
     hasBin: true
     peerDependencies:
@@ -6818,7 +6817,7 @@ packages:
       mkdirp: 1.0.4
       reflect-metadata: 0.1.13
       sha.js: 2.4.11
-      sqlite3: 5.0.4
+      sqlite3: 5.0.5
       tslib: 2.3.1
       uuid: 8.3.2
       xml2js: 0.4.23
