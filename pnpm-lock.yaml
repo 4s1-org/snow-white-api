@@ -19,7 +19,7 @@ specifiers:
   '@types/node': 14.18.16
   '@types/nodemailer': 6.4.4
   '@types/uuid': 8.3.4
-  axios: 0.27.1
+  axios: 0.27.2
   class-transformer: 0.5.1
   class-validator: 0.13.2
   dotenv: 16.0.0
@@ -54,7 +54,7 @@ dependencies:
   '@nestjs/platform-express': 8.4.4_a78378ec5f3cecc3c353ed91b578f3e6
   '@nestjs/swagger': 5.2.1_0d02518704b9480274bb3a5bf7280c33
   '@nestjs/typeorm': 8.0.3_5565c6793a20156d0e1b2452a26558b0
-  axios: 0.27.1
+  axios: 0.27.2
   class-transformer: 0.5.1
   class-validator: 0.13.2
   dotenv: 16.0.0
@@ -1964,8 +1964,8 @@ packages:
       - debug
     dev: false
 
-  /axios/0.27.1:
-    resolution: {integrity: sha512-ePNMai55xo5GsXajb/k756AqZqpqeDaGwGcdvbZLSSELbbYwsIn2jNmGfUPEwd8j/yu4OoMstLLIVa4t0MneEA==}
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
       follow-redirects: 1.14.9
       form-data: 4.0.0
