@@ -32,7 +32,7 @@ specifiers:
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
-  sqlite3: 5.0.5
+  sqlite3: 5.0.6
   standard-version: 9.3.2
   swagger-ui-express: 4.3.0
   ts-jest: 27.1.4
@@ -63,9 +63,9 @@ dependencies:
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
-  sqlite3: 5.0.5
+  sqlite3: 5.0.6
   swagger-ui-express: 4.3.0
-  typeorm: 0.2.45_sqlite3@5.0.5
+  typeorm: 0.2.45_sqlite3@5.0.6
   uuid: 8.3.2
 
 devDependencies:
@@ -1024,7 +1024,7 @@ packages:
       '@nestjs/core': 8.4.4_b63c269346792a9d57cfab86d23050d2
       reflect-metadata: 0.1.13
       rxjs: 7.5.5
-      typeorm: 0.2.45_sqlite3@5.0.5
+      typeorm: 0.2.45_sqlite3@5.0.6
       uuid: 8.3.2
     dev: false
 
@@ -3071,7 +3071,7 @@ packages:
       merge-stream: 2.0.0
       npm-run-path: 4.0.1
       onetime: 5.1.2
-      signal-exit: 3.0.3
+      signal-exit: 3.0.7
       strip-final-newline: 2.0.0
     dev: true
 
@@ -5926,10 +5926,6 @@ packages:
       get-intrinsic: 1.1.1
       object-inspect: 1.11.1
 
-  /signal-exit/3.0.3:
-    resolution: {integrity: sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==}
-    dev: true
-
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
 
@@ -6028,8 +6024,8 @@ packages:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: true
 
-  /sqlite3/5.0.5:
-    resolution: {integrity: sha512-ZZFOMW31IOMbUeSiL23TuWSjNyS7Z83EDJ80HJxCe78OZ+5BJT6IhAwAUnQgPsUl5z+Er0DGx7VjuTP7PKPNcg==}
+  /sqlite3/5.0.6:
+    resolution: {integrity: sha512-uT1dC6N3ReF+jchY01zvl1wVFFJ5xO86wSnCpK39uA/zmAHBDm6TiAq1v876QKv8JgiijxQ7/fb5C2LPm7ZAJA==}
     requiresBuild: true
     peerDependenciesMeta:
       node-gyp:
@@ -6574,7 +6570,7 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
 
-  /typeorm/0.2.45_sqlite3@5.0.5:
+  /typeorm/0.2.45_sqlite3@5.0.6:
     resolution: {integrity: sha512-c0rCO8VMJ3ER7JQ73xfk0zDnVv0WDjpsP6Q1m6CVKul7DB9iVdWLRjPzc8v2eaeBuomsbZ2+gTaYr8k1gm3bYA==}
     hasBin: true
     peerDependencies:
@@ -6637,7 +6633,7 @@ packages:
       mkdirp: 1.0.4
       reflect-metadata: 0.1.13
       sha.js: 2.4.11
-      sqlite3: 5.0.5
+      sqlite3: 5.0.6
       tslib: 2.3.1
       uuid: 8.3.2
       xml2js: 0.4.23
