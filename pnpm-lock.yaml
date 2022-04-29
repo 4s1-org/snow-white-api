@@ -27,7 +27,7 @@ specifiers:
   moment-timezone: 0.5.34
   mqtt: 4.3.7
   mysql: 2.18.1
-  nodemailer: 6.7.3
+  nodemailer: 6.7.4
   prettier: 2.6.2
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
@@ -59,7 +59,7 @@ dependencies:
   moment-timezone: 0.5.34
   mqtt: 4.3.7
   mysql: 2.18.1
-  nodemailer: 6.7.3
+  nodemailer: 6.7.4
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
@@ -5108,8 +5108,8 @@ packages:
   /node-releases/1.1.73:
     resolution: {integrity: sha512-uW7fodD6pyW2FZNZnp/Z3hvWKeEW1Y8R1+1CnErE8cXFXzl5blBOoVB41CvMer6P6Q0S5FXDwcHgFd1Wj0U9zg==}
 
-  /nodemailer/6.7.3:
-    resolution: {integrity: sha512-KUdDsspqx89sD4UUyUKzdlUOper3hRkDVkrKh/89G+d9WKsU5ox51NWS4tB1XR5dPUdR4SP0E3molyEfOvSa3g==}
+  /nodemailer/6.7.4:
+    resolution: {integrity: sha512-TBSS3qS8WG45ycUwEvEA/3UM1o3sLz9jUl4TPUKPz4ImWWM6UgRCb5pLO+HOouDKEj57yNLOrzQlO8+9IjWZoA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
