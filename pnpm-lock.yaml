@@ -36,7 +36,7 @@ specifiers:
   standard-version: 9.3.2
   swagger-ui-express: 4.3.0
   ts-jest: 27.1.4
-  ts-loader: 9.2.9
+  ts-loader: 9.3.0
   ts-node: 10.7.0
   tsconfig-paths: 3.14.1
   typeorm: 0.2.45
@@ -83,7 +83,7 @@ devDependencies:
   prettier: 2.6.2
   standard-version: 9.3.2
   ts-jest: 27.1.4_eecc682348e44222a66a9b13407b285a
-  ts-loader: 9.2.9_typescript@4.6.4
+  ts-loader: 9.3.0_typescript@4.6.4
   ts-node: 10.7.0_63845f5bc9a653846bd58de3c741e587
   tsconfig-paths: 3.14.1
   typescript: 4.6.4
@@ -6433,8 +6433,8 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
-  /ts-loader/9.2.9_typescript@4.6.4:
-    resolution: {integrity: sha512-b0+vUY2/enb0qYtDQuNlDnJ9900NTiPiJcDJ6sY7ax1CCCwXfYIqPOMm/BwW7jsF1km+Oz8W9s31HLuD+FLIMg==}
+  /ts-loader/9.3.0_typescript@4.6.4:
+    resolution: {integrity: sha512-2kLLAdAD+FCKijvGKi9sS0OzoqxLCF3CxHpok7rVgCZ5UldRzH0TkbwG9XECKjBzHsAewntC5oDaI/FwKzEUog==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       typescript: '*'
