@@ -32,7 +32,7 @@ specifiers:
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
-  sqlite3: 5.0.6
+  sqlite3: 5.0.7
   standard-version: 9.3.2
   swagger-ui-express: 4.3.0
   ts-jest: 27.1.4
@@ -63,9 +63,9 @@ dependencies:
   reflect-metadata: 0.1.13
   rxjs: 7.5.5
   source-map-support: 0.5.21
-  sqlite3: 5.0.6
+  sqlite3: 5.0.7
   swagger-ui-express: 4.3.0
-  typeorm: 0.2.45_sqlite3@5.0.6
+  typeorm: 0.2.45_sqlite3@5.0.7
   uuid: 8.3.2
 
 devDependencies:
@@ -1055,7 +1055,7 @@ packages:
       '@nestjs/core': 8.4.4_b63c269346792a9d57cfab86d23050d2
       reflect-metadata: 0.1.13
       rxjs: 7.5.5
-      typeorm: 0.2.45_sqlite3@5.0.6
+      typeorm: 0.2.45_sqlite3@5.0.7
       uuid: 8.3.2
     dev: false
 
@@ -6055,8 +6055,8 @@ packages:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: true
 
-  /sqlite3/5.0.6:
-    resolution: {integrity: sha512-uT1dC6N3ReF+jchY01zvl1wVFFJ5xO86wSnCpK39uA/zmAHBDm6TiAq1v876QKv8JgiijxQ7/fb5C2LPm7ZAJA==}
+  /sqlite3/5.0.7:
+    resolution: {integrity: sha512-9PUfvpol1/5SI3WZawFINwpRz6qhUeJJtFNG6rr0CvDWMXN75PJPv+3b0aVEOOx5rAZIPcXW2zVasH8foqw7Gg==}
     requiresBuild: true
     peerDependenciesMeta:
       node-gyp:
@@ -6601,7 +6601,7 @@ packages:
   /typedarray/0.0.6:
     resolution: {integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=}
 
-  /typeorm/0.2.45_sqlite3@5.0.6:
+  /typeorm/0.2.45_sqlite3@5.0.7:
     resolution: {integrity: sha512-c0rCO8VMJ3ER7JQ73xfk0zDnVv0WDjpsP6Q1m6CVKul7DB9iVdWLRjPzc8v2eaeBuomsbZ2+gTaYr8k1gm3bYA==}
     hasBin: true
     peerDependencies:
@@ -6664,7 +6664,7 @@ packages:
       mkdirp: 1.0.4
       reflect-metadata: 0.1.13
       sha.js: 2.4.11
-      sqlite3: 5.0.6
+      sqlite3: 5.0.7
       tslib: 2.3.1
       uuid: 8.3.2
       xml2js: 0.4.23
