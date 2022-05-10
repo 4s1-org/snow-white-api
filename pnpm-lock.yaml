@@ -20,7 +20,7 @@ specifiers:
   axios: 0.27.2
   class-transformer: 0.5.1
   class-validator: 0.13.2
-  dotenv: 16.0.0
+  dotenv: 16.0.1
   eslint: 8.15.0
   jest: 27.5.1
   moment: 2.29.3
@@ -54,7 +54,7 @@ dependencies:
   axios: 0.27.2
   class-transformer: 0.5.1
   class-validator: 0.13.2
-  dotenv: 16.0.0
+  dotenv: 16.0.1
   moment: 2.29.3
   moment-timezone: 0.5.34
   mqtt: 4.3.7
@@ -2748,8 +2748,8 @@ packages:
       is-obj: 2.0.0
     dev: true
 
-  /dotenv/16.0.0:
-    resolution: {integrity: sha512-qD9WU0MPM4SWLPJy/r2Be+2WgQj8plChsyrCNQzW/0WjvcJQiKQJ9mH3ZgB3fxbUUxgc/11ZJ0Fi5KiimWGz2Q==}
+  /dotenv/16.0.1:
+    resolution: {integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==}
     engines: {node: '>=12'}
     dev: false
 
