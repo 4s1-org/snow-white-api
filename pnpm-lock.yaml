@@ -35,7 +35,7 @@ specifiers:
   sqlite3: 5.0.8
   standard-version: 9.5.0
   swagger-ui-express: 4.4.0
-  ts-jest: 27.1.4
+  ts-jest: 27.1.5
   ts-loader: 9.3.0
   ts-node: 10.7.0
   tsconfig-paths: 3.14.1
@@ -82,7 +82,7 @@ devDependencies:
   jest: 27.5.1_ts-node@10.7.0
   prettier: 2.6.2
   standard-version: 9.5.0
-  ts-jest: 27.1.4_404f7d90f78cf4a331485702acb30422
+  ts-jest: 27.1.5_404f7d90f78cf4a331485702acb30422
   ts-loader: 9.3.0_typescript@4.6.4
   ts-node: 10.7.0_b556aeb4bf95f3c06070f32f8a1debab
   tsconfig-paths: 3.14.1
@@ -6397,8 +6397,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /ts-jest/27.1.4_404f7d90f78cf4a331485702acb30422:
-    resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
+  /ts-jest/27.1.5_404f7d90f78cf4a331485702acb30422:
+    resolution: {integrity: sha512-Xv6jBQPoBEvBq/5i2TeSG9tt/nqkbpcurrEG1b+2yfBrcJelOZF9Ml6dmyMh7bcW9JyFbRYpR5rxROSlBLTZHA==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
